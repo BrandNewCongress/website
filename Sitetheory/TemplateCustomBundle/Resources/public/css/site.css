@@ -40,7 +40,7 @@
 
 body {
     position: relative;
-    background: #FFF;
+    background: #111;
 }
 body, p {
     color: #3E3E3E;
@@ -234,7 +234,7 @@ h4 {
 /* SITE STRUCTURE */
 
 .shellVerticalPadding {
-    padding: 60px 0;
+    padding: 70px 0;
 }
 .siteMaxWidth {
     max-width: 1300px;
@@ -489,8 +489,4 @@ h4 {
 
 /* FOOTER */
 
-#footerBackground,
-#siteMapBackground {
-    background: #111;
-}
 

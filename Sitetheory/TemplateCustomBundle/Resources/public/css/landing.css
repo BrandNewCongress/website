@@ -67,3 +67,88 @@
 #homeJoinForm .btn {
     padding: 15px 36px;
 }
+
+
+#homeCandidates h1 {
+    margin-bottom: 50px;
+}
+.candidateColumn {
+    transition: all 400ms ease-out 50ms;
+}
+.candidateContainer {
+    margin: 35px 3px;
+}
+.candidateContainer .borderDashed {
+    margin-top: 18px;
+    padding: 24px;
+    background-size: 5px;
+}
+.candidateInfo {
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding-bottom: 16px;
+    width: 100%;
+    text-align: center;
+}
+.candidateInfo p {
+    margin: 0 0 6px 0;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-weight: bold;
+    color: #FFF;
+}
+.candidateInfo .name {
+    font-size: 12px;
+}
+.candidateInfo .title {
+    font-size: 9px;
+}
+.candidateDistrict {
+    font-size: 18px;
+    letter-spacing: .1em;
+}
+.profileGradient {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 80px;
+    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1));
+    background: -webkit-linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1));
+}
+.candidateImage img {
+    width: 100%;
+}
+.tempCandidateAsk .candidateImage img {
+    transition: all .2s ease-out;
+    opacity: .34;
+}
+.tempCandidateAsk a:hover .candidateImage img {
+    opacity: .7;
+}
+.tempCandidateAsk .candidateInfo {
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    top: 50%;
+}
+.tempCandidateAsk .candidateInfo p {
+    transition: all .2s ease-out;
+    margin: 0 0 4px 0;
+    padding: 0 18%;
+    text-transform: none;
+    font-size: 16px;
+    letter-spacing: 0;
+    font-weight: 400;
+}
+.tempCandidateAsk a:hover .candidateInfo p:first-child {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+}
+.tempCandidateAsk .candidateInfo p:last-child {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
