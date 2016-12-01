@@ -1,0 +1,33 @@
+# Cache and logs (Symfony2)
+
+# Composer PHAR
+/composer.phar
+
+
+# Extensions
+*.class
+*.pyc
+*.pyo
+*.zip
+
+# OSX
+.DS_Store
+
+# IDE Stuff (This covers PHPStorm, IntelliJ IDEA, Aptana, and Eclipse)
+.idea/
+.idea-new
+*.iml
+.project
+.settings
+.jar
+.ide_plugins/
+
+# Gutensite
+*.gc
+# Git
+*~HEAD
+
+# Logs
+logs
+*.log
+npm-debug.log*
