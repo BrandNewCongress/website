@@ -1,0 +1,116 @@
+{% extends 'SitetheoryTemplateBundle::shell.html.twig' %}
+
+
+{# Load Site CSS #}
+
+{% block link %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/sitetheorystratus/stratus/bower_components/angular-material/angular-material.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/site.css') }}">
+{% endblock link %}
+
+
+
+{# Set Footer Brightness #}
+{% set footerBrightness = 'dark' %}
+
+{# Set Footer Site Map Brightness #}
+{% set siteMapBrightness = 'dark' %}
+
+
+{# Remove standard header image #}
+{% block headerImageInsideHeader %}
+{% endblock headerImageInsideHeader %}
+
+
+
+
+{# Hide gutter in main column #}
+{% block mainColumnGutter %}
+{% endblock mainColumnGutter %}
+
+{# Hide Sidebar Login until it's dynamic and necessary #}
+{% block sidebarLogin %}
+{% endblock sidebarLogin %}
+
+{% block navSection %}
+{% endblock navSection %}
+
+{% block sectionName %}
+{% endblock sectionName %}
+
+
+
+
+
+{% block header1 %}
+    <div id="header1">
+        <div layout="row" ng-cloak>
+            <div flex="33">
+                <div id="planGraphic">
+                    <img src="{{ asset('bundles/sitetheorytemplatecustom/images/planGraphic.png') }}" alt="">
+                </div>
+            </div>
+            <div flex="33">
+                <div class="clearfix">
+                    <div id="logoHeader" class="align-center">
+                        <img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogo.png') }}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div flex="33">
+                <a href="/" class="btn btnContribute pullRight">Contribute</a>
+            </div>
+        </div>
+    </div>
+{% endblock header1 %}
+
+{% block header2 %}
+    <div id="header2" class="positionAnchor">
+
+        <div id="headerContact" class="fontPrimary verticalCenter centerLeft clearfix">
+            <a href="/">
+                <div class="headerOrnament positionAnchor pullLeft">
+                    <div class="square square1 easyTransition">
+                    </div>
+                    <div class="square square2">
+                    </div>
+                    <div class="square square3 easyTransition">
+                    </div>
+                </div>
+                <div class="btnText">Contact Us</div>
+            </a>
+        </div>
+        {% block mainNavigation %}
+            <div id="navMainContainer" class="navMainContainer divCenter">
+                <ul class="listInline fontSecondary">
+                    <li class="navMainLink">
+                        <a href="">
+                            Join
+                        </a>
+                    </li>
+                    <li class="delimiter"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}" alt="">
+                    </li>
+                    <li class="navMainLink">
+                        <a href="">
+                            Nominate
+                        </a>
+                    </li>
+                    <li class="delimiter"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}" alt="">
+                    </li>
+                    <li class="navMainLink">
+                        <a href="">
+                            Learn
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        {% endblock mainNavigation %}
+        <div id="headerSocial">
+            <a href="/" class="pullRight">Contribute</a>
+        </div>
+        <div class="headerOrnament verticalCenter centerRight"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/tripleSquarePurple.png') }}" alt=""></div>
+    </div>
+{% endblock header2 %}
+
+

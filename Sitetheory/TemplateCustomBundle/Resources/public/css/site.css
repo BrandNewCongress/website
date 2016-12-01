@@ -1,0 +1,440 @@
+/* LOAD FONTS */
+@import '//fonts.googleapis.com/css?family=Raleway:400,700|Roboto+Slab:300,400,700';
+
+@font-face {
+    font-family: 'u.s._101regular';
+    src: url('fonts/us101-webfont.woff2') format('woff2'),
+    url('fonts/us101-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* Move to core */
+
+/* Vertically center using positioning. Requires .positionAnchor on the parent you wish to center the element in. */
+
+.verticalCenter {
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+}
+.verticalCenter.centerLeft {
+    left: 0;
+}
+.verticalCenter.centerRight {
+    right: 0;
+}
+
+/* Easy transition */
+
+.easyTransition {
+    transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+}
+
+
+
+/* BODY */
+
+body {
+    position: relative;
+    background: #FFF;
+}
+body, p {
+    color: #555;
+}
+
+/* LINKS & BUTTONS */
+
+a:link, a:visited, a:active{
+    color: #7932AC;
+}
+a:hover {
+    color: #888;
+}
+
+.btn,
+.btn:link,
+.btn:visited,
+.btn:active {
+    padding: 9px 14px;
+    font-size: 14px;
+    color: #FFF;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    background-color: #7932AC;
+}
+.btn:hover {
+    background-color: #222;
+}
+
+
+/* TITLES & HEADERS */
+
+h1 {
+    color: #141414;
+    font-size: 46px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+}
+h2 {
+    color: #444;
+    font-size: 30px;
+    font-weight: 300;
+}
+h3 {
+    color: #333;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+h4 {
+    color: #000;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .4em;
+}
+@media (max-width:768px) {
+    h1 {
+        font-size: 50px;
+    }
+}
+
+/* STANDARD TEXT STYLES */
+
+.pullout {
+    color: #777;
+    font-weight: 300;
+}
+.bodyLarge {
+    font-size: 26px;
+    font-weight: 300;
+}
+
+/* ASSIGN FONTS */
+
+/* .primaryFont will be used for the site's typographical logo and some site headers. It must also be legible at small sizes.  */
+
+h1 {
+    font-family: 'u.s._101regular';
+}
+h2,
+h3,
+.fontPrimary,
+.fontPrimary p,
+.fontBody,
+.fontBody p,
+.pullout,
+.btn,
+.moduleContainer h2 {
+    font-family: 'Roboto Slab', serif;
+}
+.fontSecondary,
+.fontSecondary p {
+    font-family: 'u.s._101regular', sans-serif;
+}
+.fontTertiary,
+h4 {
+    font-family: 'Raleway', sans-serif;
+}
+.fontBody,
+.fontBody p {
+    font-family: 'Roboto', serif;
+    font-weight: 300;
+}
+
+
+
+/* BACKGROUNDS */
+
+#siteBackground {
+    background: #FFF;
+}
+
+/* This color is used for header bars and date boxes and must be dark enough to read reversed text in. */
+.backgroundAccentColor {
+    background-color: #F94E54;
+}
+.backgroundDark {
+    background: #141414;
+}
+.backgroundDark a:hover {
+    color: #FFF;
+}
+.backgroundPriority {
+    background: #FE7C57;
+}
+
+
+/* BORDERS */
+
+.borderDashed {
+    margin-top: 20px;
+    padding-top: 20px;
+    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/borderDashed.png') repeat-x;
+    background-size: 6px;
+}
+.borderDashedLight {
+    margin-top: 20px;
+    padding-top: 20px;
+    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/borderDashedLight.png') repeat-x;
+    background-size: 6px;
+}
+.borderDashedVertical {
+    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/borderDashedVertical.png') repeat-y;
+    background-size: 1px;
+}
+.borderDashedBold {
+    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/borderDashedBold.png') repeat-x;
+    background-size: 8px;
+}
+
+
+
+
+/* SITE STRUCTURE */
+
+.shellVerticalPadding {
+    padding: 60px 0;
+}
+.siteMaxWidth {
+    max-width: 1300px;
+}
+
+
+/* HEADER */
+
+#header1 {
+    padding: 60px 0 40px;
+    border-bottom: 3px solid #222;
+}
+#planGraphic {
+    max-width: 274px;
+}
+#logoHeader img {
+    margin-top: 8px;
+    max-width: 210px;
+}
+.btn.btnContribute {
+    background: #393939;
+}
+.btn.btnContribute:hover {
+    background: #598089;
+}
+#header2 {
+    padding: 17px 0;
+    border-bottom: 1px solid #9B9B9B;
+}
+.headerOrnament {
+    width: 4px;
+    height: 18px;
+}
+.headerOrnament .square {
+    position: absolute;
+    left: 0;
+    height: 4px;
+    width: 4px;
+    background: #7932AC;
+}
+.headerOrnament .square1 {
+    top: 0;
+}
+.headerOrnament .square2 {
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    top: 50%;
+}
+.headerOrnament .square3 {
+    top: 14px;
+}
+#headerContact a:hover .square1,
+#headerContact a:hover .square3 {
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    top: 50%;
+    background: #000;
+}
+#headerContact a .btnText {
+    padding-left: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: #5F2787;
+}
+#headerContact a:hover .btnText {
+    color: #000;
+}
+#navMainContainer ul li {
+    vertical-align: top;
+    padding: 0;
+}
+#navMainContainer .delimiter {
+    width: 40px;
+    text-align: center;
+}
+#navMainContainer .delimiter img {
+    margin-top: 13px;
+    width: 12px;
+}
+.navMainLink a {
+    padding: 0;
+    color: #121212;
+    font-size: 35px;
+    text-transform: uppercase;
+    letter-spacing: .01em;
+}
+.navMainLink a:hover {
+    color: #7932AC;
+}
+
+
+
+@media (max-width:1200px) {
+    #logoHeader {
+        margin-top: 2px;
+        padding-right: 10px;
+        max-width: 190px;
+    }
+    #navMainContainer {
+        margin-top: 30px;
+    }
+}
+@media (max-width:1050px) {
+    .nav .navMainLink a {
+        font-size: 12px;
+    }
+}
+@media (max-width:991px) {
+    .sidebarToggle  {
+        top: 32px;
+        right: 40px;
+    }
+    #header {
+        min-height: 62px;
+    }
+    #logoHeader {
+        margin-bottom: 4px;
+        max-width: 150px;
+    }
+    .btn.betaSignupBtn {
+        margin: 10px 52px 0 0;
+    }
+    .btn.betaSignupBtn:hover {
+        color: #FE7C57;
+    }
+    #shellSidebar .btn.betaSignupBtn {
+        float: none !important;
+    }
+    #shellSidebar .borderDashed {
+        margin-top: 20px;
+        padding-top: 20px;
+    }
+    #header #navMainContainer {
+        display: none;
+    }
+    #shellSidebar #navMainContainer,
+    #navMainContainer .list-inline > li {
+        display: block;
+        padding: 0 0 12px 0;
+    }
+    #shellSidebar .navMainLink a .linkUnderline {
+        transform-origin: left center;
+        -webkit-transform-origin: left center;
+        left: 0;
+        right: 0;
+        background: #222;
+    }
+    #shellSidebar .navMainLink a:hover .linkUnderline {
+        background: #666;
+    }
+    .nav .navMainLink a {
+        display: table;
+        margin-left: 0;
+        font-weight: 400;
+        font-size: 13px;
+        color: #999;
+    }
+    .nav .navMainLink a:hover {
+        color: #FFF;
+    }
+}
+@media (max-width:600px) {
+    .sidebarToggle  {
+        top: 20px;
+    }
+    #logoHeader {
+        margin: 4px 0;
+        max-width: 150px;
+    }
+    .btn.betaSignupBtn {
+        margin: 5px 46px 0 0;
+        padding: 6px 12px 7px 12px;
+        font-size: 12px;
+    }
+}
+@media (max-width:480px) {
+    .sidebarToggle  {
+        right: 26px;
+    }
+    #header {
+        padding: 10px 26px;
+    }
+    #logoHeader {
+        margin: 4px 0;
+        max-width: 120px;
+    }
+    .btn.betaSignupBtn {
+        margin: 5px 42px 0 0;
+        padding: 6px 8px 7px 8px;
+        font-size: 12px;
+    }
+}
+
+
+
+/* RETRACTING HEADER */
+
+#headerRetracting {
+    padding: 6px 40px;
+    box-shadow: 0 1px 6px rgba(33,33,33,.1);
+    border-bottom: 1px solid #DDD;
+}
+#headerRetracting #logoHeader {
+    margin: 2px 0 -2px 0;
+    max-width: 130px;
+}
+#headerRetracting #navMainContainer {
+    margin-top: 18px;
+}
+#headerRetracting .navMainLink a {
+    font-size: 13px;
+}
+@media (max-width:991px) {
+    #headerRetracting .sidebarToggle  {
+        top: 20px;
+    }
+}
+@media (max-width:600px) {
+    #headerRetracting #logoHeader {
+        margin: 4px 0;
+        max-width: 100px;
+    }
+}
+
+
+
+
+
+
+
+/* FOOTER */
+
+#footerBackground,
+#siteMapBackground {
+    background: #111;
+}
+

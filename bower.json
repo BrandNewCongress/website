@@ -1,0 +1,20 @@
+{
+  "name": "sia",
+  "homepage": "https://github.com/gutensite/sia",
+  "authors": [
+    "Alex Gurrola <alexgurrola@gutensite.com>"
+  ],
+  "description": "Social Intelligence Assistant",
+  "main": "",
+  "license": "PRIVATE",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "stratus": "*"
+  }
+}
