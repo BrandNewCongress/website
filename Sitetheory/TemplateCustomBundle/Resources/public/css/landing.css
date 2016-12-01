@@ -49,3 +49,21 @@
 #homeImageLinks a:hover img {
     opacity: .8;
 }
+#homeJoinForm {
+    margin: 50px 0 90px;
+}
+#homeJoinForm p {
+    margin-bottom: 36px;
+    font-size: 16px;
+}
+.fakeFormBox {
+    margin: 0 4px;
+    padding: 11px 10px;
+    width: 230px;
+    font-size: 16px;
+    color: #999;
+    border: 1px solid #999;
+}
+#homeJoinForm .btn {
+    padding: 15px 36px;
+}

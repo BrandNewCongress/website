@@ -43,7 +43,7 @@ body {
     background: #FFF;
 }
 body, p {
-    color: #555;
+    color: #3E3E3E;
 }
 
 /* LINKS & BUTTONS */
@@ -119,13 +119,15 @@ h4 {
 
 /* .primaryFont will be used for the site's typographical logo and some site headers. It must also be legible at small sizes.  */
 
-h1 {
+h1,
+.fontPrimary,
+.fontPrimary p {
     font-family: 'u.s._101regular';
 }
 h2,
 h3,
-.fontPrimary,
-.fontPrimary p,
+.fontSecondary,
+.fontSecondary p,
 .fontBody,
 .fontBody p,
 .pullout,
@@ -133,21 +135,36 @@ h3,
 .moduleContainer h2 {
     font-family: 'Roboto Slab', serif;
 }
-.fontSecondary,
-.fontSecondary p {
-    font-family: 'u.s._101regular', sans-serif;
-}
 .fontTertiary,
 h4 {
     font-family: 'Raleway', sans-serif;
 }
-.fontBody,
-.fontBody p {
-    font-family: 'Roboto', serif;
-    font-weight: 300;
+
+
+/* SOCIAL */
+
+.socialMedia a {
+    margin-right: 2px;
+    width: 38px;
+    height: 38px;
+    border: 1px solid #565656;
+    border-radius: 50%;
 }
-
-
+.socialMedia a svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -10px;
+    width: 20px;
+    height: 20px;
+}
+.socialMedia a:hover {
+    background: #598089;
+    border: 2px solid #598089;
+}
+.socialMedia a:hover svg g {
+    fill: #FFF;
+}
 
 /* BACKGROUNDS */
 
@@ -194,6 +211,24 @@ h4 {
 }
 
 
+/* COLORS (In order of most to least commonly used) */
+
+.purple {
+    background: #7932AC;
+}
+.blue {
+    background: #598089;
+}
+.salmon {
+    background: #FF7A65;
+}
+.green {
+    background: #8C8B02;
+}
+.yellow {
+    background: #FFFE00;
+}
+
 
 
 /* SITE STRUCTURE */
@@ -209,7 +244,7 @@ h4 {
 /* HEADER */
 
 #header1 {
-    padding: 60px 0 40px;
+    padding: 60px 0 34px;
     border-bottom: 3px solid #222;
 }
 #planGraphic {
@@ -220,10 +255,26 @@ h4 {
     max-width: 210px;
 }
 .btn.btnContribute {
+    margin-top: 14px;
     background: #393939;
 }
 .btn.btnContribute:hover {
     background: #598089;
+}
+#linkCandidates {
+    display: block;
+    margin-top: 42px;
+    padding-right: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #598089;
+    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starBlue.png') no-repeat right center;
+    background-size: 9px;
+}
+#linkCandidates:hover {
+    color: #000;
 }
 #header2 {
     padding: 17px 0;
@@ -273,7 +324,7 @@ h4 {
     padding: 0;
 }
 #navMainContainer .delimiter {
-    width: 40px;
+    width: 36px;
     text-align: center;
 }
 #navMainContainer .delimiter img {
@@ -290,7 +341,12 @@ h4 {
 .navMainLink a:hover {
     color: #7932AC;
 }
-
+#headerSocial {
+    right: 20px;
+}
+#headerSocial .socialMedia {
+    margin: 4px 0 0 0;
+}
 
 
 @media (max-width:1200px) {

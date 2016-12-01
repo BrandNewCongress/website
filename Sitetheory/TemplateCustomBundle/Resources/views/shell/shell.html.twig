@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/site.css') }}">
 {% endblock link %}
 
-
-
 {# Set Footer Brightness #}
 {% set footerBrightness = 'dark' %}
 
@@ -59,7 +57,10 @@
                 </div>
             </div>
             <div flex="33">
-                <a href="/" class="btn btnContribute pullRight">Contribute</a>
+                <div id="headerExtraLinks" class="pullRight">
+                    <a href="/" class="btn btnContribute">Contribute</a>
+                    <a id="linkCandidates" class="fontTertiary align-right" href="#homeCandidates">The Candidates</a>
+                </div>
             </div>
         </div>
     </div>
@@ -68,7 +69,7 @@
 {% block header2 %}
     <div id="header2" class="positionAnchor">
 
-        <div id="headerContact" class="fontPrimary verticalCenter centerLeft clearfix">
+        <div id="headerContact" class="fontSecondary verticalCenter centerLeft clearfix">
             <a href="/">
                 <div class="headerOrnament positionAnchor pullLeft">
                     <div class="square square1 easyTransition">
@@ -83,7 +84,7 @@
         </div>
         {% block mainNavigation %}
             <div id="navMainContainer" class="navMainContainer divCenter">
-                <ul class="listInline fontSecondary">
+                <ul class="listInline fontPrimary">
                     <li class="navMainLink">
                         <a href="">
                             Join
@@ -106,8 +107,30 @@
                 </ul>
             </div>
         {% endblock mainNavigation %}
-        <div id="headerSocial">
-            <a href="/" class="pullRight">Contribute</a>
+        <div id="headerSocial" class="verticalCenter">
+            <!-- Social Media -->
+            {% block socialMedia %}
+                <div class="socialMedia {{ socialStyle|default('basicStyle') }}">
+                    <ul class="listInline">
+                        <li class="twitter">
+                            <a class="positionAnchor" href="http://twitter.com/intent/tweet?status=Sign+up+to+help+create+a Brand+New+Congress: http://brandnewcongress.org" title="Share on Twitter" target="_blank" data-reactid="123" target="_blank">
+                                {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/twitter.svg' %}{% block id %}footerTwitterIcon{% endblock %}{% endembed %}
+                            </a>
+                        </li>
+                        <li class="facebook">
+                            <a class="positionAnchor" href="http://www.facebook.com/sharer/sharer.php?u=http://brandnewcongress.org&amp;title=Brand+New+Congress" title="Share on Facebook" data-reactid="125" target="_blank">
+                                {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/facebook.svg' %}{% block id %}footerFacebookIcon{% endblock %}{% endembed %}
+                            </a>
+                        </li>
+                        <li class="reddit">
+                            <a class="positionAnchor" href="https://www.reddit.com/r/BrandNewCongress/" target="_blank">
+                                {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/reddit.svg' %}{% block id %}footerRedditIcon{% endblock %}{% endembed %}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            {% endblock socialMedia %}
+            <!-- End Social Media -->
         </div>
         <div class="headerOrnament verticalCenter centerRight"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/tripleSquarePurple.png') }}" alt=""></div>
     </div>
