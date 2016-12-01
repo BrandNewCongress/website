@@ -19,11 +19,12 @@
 *.iml
 .project
 .settings
-.jar
+.jargit
 .ide_plugins/
 
 # Gutensite
 *.gc
+
 # Git
 *~HEAD
 
@@ -31,3 +32,6 @@
 logs
 *.log
 npm-debug.log*
+
+#Bower
+bower_components
