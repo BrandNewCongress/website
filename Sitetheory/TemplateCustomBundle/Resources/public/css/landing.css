@@ -1,0 +1,69 @@
+
+
+/* LANDING PAGE GENERAL */
+
+
+/* temporary */
+
+.layout-padding {
+    padding: 0;
+}
+#header1 md-grid-tile,
+#header1 flex {
+    transition: all 400ms ease-out 50ms;
+}
+
+
+.sectionBorder {
+    height: 17px;
+}
+
+
+#homeSlides {
+    margin-top: 40px;
+}
+#welcome {
+    max-width: 1000px;
+}
+#homeJoin h4 {
+    margin: 0 0 15px;
+}
+#homeJoin h1 {
+    padding: 4px 0;
+    color: #FFF;
+}
+#candidatesAction {
+    padding: 45px 0;
+}
+#candidatesAction .btn {
+    margin-top: 22px;
+}
+#homeImageLinks {
+    margin: 0 -1.333%;
+}
+#homeImageLinks a {
+    display: block;
+    margin: 0 4%;
+    width: 92%;
+}
+#homeImageLinks a:hover img {
+    opacity: .8;
+}
+#homeJoinForm {
+    margin: 50px 0 90px;
+}
+#homeJoinForm p {
+    margin-bottom: 36px;
+    font-size: 16px;
+}
+.fakeFormBox {
+    margin: 0 4px;
+    padding: 11px 10px;
+    width: 230px;
+    font-size: 16px;
+    color: #999;
+    border: 1px solid #999;
+}
+#homeJoinForm .btn {
+    padding: 15px 36px;
+}

@@ -1,0 +1,354 @@
+{% extends view.templates.shell %}
+
+{% block meta %}
+    {{ parent() }}
+    {# TODO: This is just here temporarily until the base.html.twig give the ability to select the preferred image in the admin #}
+    {# we may need to reload the page here in order to get the new image https://developers.facebook.com/tools/debug/ #}
+    <meta property="og:url" content="https://www.launchapp.io/Press">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.launchapp.io/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/app/LaunchAppPreview.jpg">
+    <meta property="og:title" content="Press Kit | Launch">
+    <meta property="og:description" content="Online dating kinda sucks. learn how Launch is different and why people should care.">
+{% endblock meta %}
+
+{% block link %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/landing.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/press.css') }}">
+{% endblock link %}
+
+{% block sidebarExtrasTop %}
+    {% block mainNavigation %}
+    <div id="navMainContainer" class="navMainContainer">
+        <ul class="nav list-inline fontPrimary">
+            <li class="navMainLink">
+                <a href="#tierNutshell">
+                    Nutshell
+                    <div class="linkUnderline"></div>
+                </a>
+            </li>
+            <li class="navMainLink">
+                <a href="#tierMission">
+                    Mission
+                    <div class="linkUnderline"></div>
+                </a>
+            </li>
+            <li class="navMainLink">
+                <a href="#tierDoing">
+                    Status
+                    <div class="linkUnderline"></div>
+                </a>
+            </li>
+            <li class="navMainLink">
+                <a href="#tierScreens">
+                    App
+                    <div class="linkUnderline"></div>
+                </a>
+            </li>
+            <li class="navMainLink">
+                <a href="#tierTestimonials">
+                    Testimonials
+                    <div class="linkUnderline"></div>
+                </a>
+            </li>
+            <li class="navMainLink">
+                <a href="#tierReference">
+                    Info
+                    <div class="linkUnderline"></div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    {% endblock mainNavigation %}
+{% endblock sidebarExtrasTop %}
+
+{% block header1 %}
+    <div id="header1" class="clearfix">
+        <div class="clearfix">
+            <div id="logoHeader">
+                <img src="{{ asset('bundles/sitetheorytemplatecustom/images/tier4logo.png') }}" alt="">
+            </div>
+            <h1>LAUNCH PRESS KIT</h1>
+            <div class="pull-right">
+                {{ block('mainNavigation') }}
+            </div>
+        </div>
+    </div>
+{% endblock header1 %}
+
+
+{% block contentType %}
+    {% block content %}
+
+        <div id="pressPage">
+
+            {# TIER PITCH #}
+            <div id="tierPitch" class="landingTier siteMaxWidth siteSidePadding shellVerticalPadding">
+
+                <h1>One Sentence Pitch</h1>
+
+                <p class="fontPrimary bodyLarge borderDashed">Startup gives middle finger to dating app industry;
+                decides to build something that users won’t hate with the fire of 1,000 suns;
+                launches unconventional crowdfunding campaign to prove concept.</p>
+
+            </div>
+
+            {# TIER NUTSHELL #}
+            <div id="tierNutshell" class="landingTier">
+                <div id="logo"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/tier4logo.png') }}" alt=""></div>
+                <div class="siteMaxWidth siteSidePadding clearfix">
+                    <h1>In a Nutshell</h1>
+
+                    <div id="tierNutshellBody" class="fontPrimary borderDashedLight">
+                        <p>Everyone wants love. Yet 100 million Americans are still looking.</p>
+
+
+                        <p>Dating apps mostly suck. Only 7% of singles make a meaningful connection that way each year.</p>
+
+
+                        <p>The other 93%? They have no interest in wading through seas of liars, players, cheaters, and bots to find happiness. They’re holding out for something better.</p>
+
+
+                        <p>Launch is for them. We let friends play along (partnered or single). This allows for human matchmaking, profile verification, trust scores, and user accountability.</p>
+
+
+                        <p>This is the future of online dating — safer, more playful, less awful, and with FAR better outcomes.</p>
+                    </div>
+                </div>
+            </div>
+
+            {# TIER DOING #}
+            <div id="tierDoing" class="landingTier siteMaxWidth siteSidePadding shellVerticalPadding">
+
+                <h3>What We're Doing</h3>
+                <h1>Right Now</h1>
+
+                <div class="fontPrimary borderDashed">
+                    <div id="iconKickstarter"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/tier7iconKickstarter.png') }}" alt="">
+                    </div>
+                    <p>Our product has been shaped by hundreds of stories from daters and their friends.</p>
+
+
+                    <p>Now we’re taking our designs to a larger audience for their input.</p>
+
+
+                    <p>We think people want something new (and actually good).</p>
+
+
+                    <p>So we’re going to ask a bunch of them on Kickstarter to give us $1.</p>
+
+
+                    <p>If they love it, we’ll finish the app. If they hate it, we’re moving to Canada.</p>
+                </div>
+            </div>
+
+            {# TIER MISSION #}
+
+            <div id="tierMission" class="landingTier">
+                <div id="tierMissionBackground">
+                    <div class="siteMaxWidth siteSidePadding shellVerticalPadding">
+                        <h1>Our Mission</h1>
+                        <div class="fontPrimary borderDashedLight">
+                            <p>Make Dating Better</p>
+                        </div>
+                        <div class="borderDashedLight bottom">&nbsp;</div>
+                    </div>
+                </div>
+
+                <div id="tierMissionBody" class="siteMaxWidth siteSidePadding shellVerticalPadding fontPrimary">
+                    <h3>Why do we care?</h3>
+
+                    <div class="borderDashed">
+                        <div class="spacemanBullet">
+                            <img src="{{ asset('bundles/sitetheorytemplatecustom/images/tier4spacemen1.png') }}" alt="">
+                        </div>
+                        <p>Good relationships are the best predictor of human health and happiness (which we want for our friends).
+                        </p>
+                        <div class="spacemanBullet">
+                            <img src="{{ asset('bundles/sitetheorytemplatecustom/images/tier4spacemen2.png') }}" alt="">
+                        </div>
+                        <p>Most of us struggle to create new relationships once we become adults. But there are sensible, scientific ways to make it easier.
+                        </p>
+                        <br><br>
+                        <p><strong>We’re just connecting the dots (and throwing out the old, terrible template).</strong></p>
+                    </div>
+                    <br><br>
+                    <h3>We have two driving values</h3>
+                    <div class="borderDashed">
+                        <div class="spacemanBullet">
+                            <img src="{{ asset('bundles/sitetheorytemplatecustom/images/tier4spacemen1.png') }}" alt="">
+                        </div>
+                        <p>We think dating could do without lying, shallowness, sexism, and infidelity.</p>
+                        <div class="spacemanBullet">
+                            <img src="{{ asset('bundles/sitetheorytemplatecustom/images/tier4spacemen2.png') }}" alt="">
+                        </div>
+                        <p>We think companies should be really good at listening and giving back.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            {# TIER SCREENS #}
+            <div id="tierScreens" class="landingTier backgroundDark">
+                <div class="siteMaxWidth siteSidePadding shellVerticalPadding">
+
+                    <h1>App Sneak Peak</h1>
+                    <div class="borderDashed">
+
+                        <div class="appScreen clearfix">
+                            <img src="{{ asset('bundles/sitetheorytemplatecustom/images/app/1signUp-m.png') }}" alt="">
+                            <h2 class="hoverElement fontPrimary">One-click registraton</h2>
+                            <p class="fontSecondary">Sign up with your Facebook account. (Don’t worry, it’s 100% private.)</p>
+                        </div>
+
+                        <div class="appScreen clearfix">
+                            <img src="{{ asset('bundles/sitetheorytemplatecustom/images/app/2recruit-m.png') }}" alt="">
+                            <h2 class="hoverElement fontPrimary">Singles recruit a Launch Crew</h2>
+                            <p class="fontSecondary">Singles invite two or more close friends (single or partnered) to verify their account, describe them, and increase their trust score.</p>
+                        </div>
+
+                        <div class="appScreen clearfix">
+                            <img src="{{ asset('bundles/sitetheorytemplatecustom/images/app/3matchmakerMatches-m.png') }}" alt="">
+                            <h2 class="hoverElement fontPrimary">Launch Crew suggests matches</h2>
+                            <p class="fontSecondary">Crews use their insights to review and suggest matches for their single friends to consider.</p>
+                        </div>
+
+                        <div class="appScreen clearfix">
+                            <img src="{{ asset('bundles/sitetheorytemplatecustom/images/app/4reviewMatch-m.png') }}" alt="">
+                            <h2 class="hoverElement fontPrimary">Singles review their matches</h2>
+                            <p class="fontSecondary">First, they read through an honest and non-cliche profile that gives them a lot of real insight. Then they can choose to answer a few playful ice-breakers to bring the photo into focus and unlock full chat.</p>
+                        </div>
+
+                        <div class="appScreen clearfix">
+                            <img src="{{ asset('bundles/sitetheorytemplatecustom/images/app/5meetup-m.png') }}" alt="">
+                            <h2 class="hoverElement fontPrimary">Matches schedule a low-key meetup</h2>
+                            <p class="fontSecondary">Initial talk goes well? Matches have 48 hours to schedule a meetup of no more than 45 minutes. Zero expectations. Just one coffee or drink with an interesting local they know they can trust.</p>
+                        </div>
+
+                        <div class="appScreen clearfix">
+                            <img src="{{ asset('bundles/sitetheorytemplatecustom/images/app/6followup-m.png') }}" alt="">
+                            <h2 class="hoverElement fontPrimary">Matches leave friendly reviews</h2>
+                            <p class="fontSecondary">A quick follow-up survey lets matches connect as friends, pass with positive feedback, or report problems in a constructive way.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            {# TIER TESTIMONIALS #}
+            <div id="tierTestimonials" class="landingTier siteMaxWidth siteSidePadding shellVerticalPadding">
+
+
+                <h1>Testimonials:</h1>
+
+                <div id="tierTestimonialsBody" class="fontPrimary borderDashed">
+                    <div id="quotations">
+                        <img src="{{ asset('bundles/sitetheorytemplatecustom/images/indiegogo/quotations.png') }}" alt="">
+                    </div>
+                    <h4>Let’s start with how people talk about the existing options<br>(we asked a lot of people).</h4>
+
+                    <p>Our favorite:</p>
+
+
+                    <p class="bodyLarge">“This isn’t the game I want to play. But I feel like it’s the only game so I should try to make it work for me.”</p>
+
+
+                    <p><em>This was from a young, attractive, whip-smart PhD student.</em></p>
+
+                    <div class="borderDashed ornament">&nbsp;</div>
+                    <p class="bodyLarge">“Dating as a millennial sometimes feels like a competition to see who can care the least.”</p>
+
+
+                    <p><em>That one came from a 28 year old. Friendly, bright, beautiful — but disillusioned. And not alone in that.</em></p>
+
+                    <div class="borderDashed ornament">&nbsp;</div>
+                    <h4>When we showed people what we’ve been working on?</h4>
+
+
+                    <p class="bodyLarge">“This is how real life works. Singles don't live in a bubble and OFTEN rely on close family and friends to give them input about their dating prospects. That's just part of our healthy social make-up. You've got a good thing here. I hope it catches on!!”</p>
+
+                    <p><em>What she said.</em></p>
+
+                    <div id="quotePeople"> <img src="{{ asset('bundles/sitetheorytemplatecustom/images/indiegogo/quotePeople.png') }}" alt="">
+                    </div>
+                </div>
+            </div>
+
+            {# TIER REFERENCE #}
+            <div  id="tierReference" class="landingTier">
+                <div class="siteMaxWidth siteSidePadding shellVerticalPadding">
+
+                    <h1>Quick Reference Details</h1>
+
+                    <div class="fontPrimary borderDashed">
+                        <p>
+                            Website: <a href="/">launchapp.io</a><br>
+                            Press Contact: <a href="mailto:jeremy@launchapp.io">jeremy@launchapp.io</a><br>
+                            Founding Date: July 21, 2016<br>
+                            <a href="facebook.com/launchdating" target="_blank">facebook.com/launchdating</a><br>
+                            <a href="twitter.com/launchdating" target="_blank">twitter.com/launchdating</a><br>
+                            <a href="instagram.com/launchdating" target="_blank">instagram.com/launchdating</a>
+                        </p>
+                    </div>
+                    <div id="friendCircle"> <img src="{{ asset('bundles/sitetheorytemplatecustom/images/indiegogo/friendCircle.png') }}" alt="">
+                    </div>
+                </div>
+            </div>
+
+
+            {# TIER FOUNDERS #}
+
+            <div  id="tierFounders" class="landingTier siteMaxWidth siteSidePadding shellVerticalPadding">
+
+                <h1>Founders</h1>
+
+                <div class="fontPrimary borderDashed">
+
+                    <p>
+                        <strong>Chadwick Meyer</strong> (Tech, Operations) <a href="mailto:chadwick@launchapp.io">chadwick@launchap.io</a><br>
+                        <strong>Daniela Meyer</strong> (Design) <a href="mailto:daniela@launchapp.io">daniela@launchapp.io</a><br>
+                        <strong>Jeremy Arnold</strong> (Press, Community) <a href="mailto:jeremy@launchapp.io">jeremy.arnold@launchapp.io</a>
+                    </p>
+
+                    <br><br>
+                    <p>Daniela and Chadwick have been married for 14 years. They’ve co-founded three lively children as well as several successful businesses in the San Francisco Bay Area. Chad manages technical development and Daniela makes everything look beautiful.</p>
+                    <p>Jeremy, our resident Canadian, helps by listening to people's stories. He also adds marketing and analysis input, along with considerable sarcastic commentary.</p>
+
+                    <br><br>
+                    <p><strong>Reference projects include:</strong></p>
+
+                    <br><br>
+                    <h4>Gutensite</h4>
+                    <p>Began as a design firm making websites for small businesses. Our in-house solutions became so popular that we built a new-generation CMS called Sitetheory (think a more powerful Squarespace). Development is just wrapping up. Much of the underlying technology is being applied to Launch.</p>
+
+                    <br><br>
+                    <h4>Park Circa</h4>
+                    <p>Airbnb for parking spaces. Founded 2011. Received $1m+ offer for an early share. Turned into open-source for community use. Covered by Fast Company and San Francisco Chronicle.</p>
+                </div>
+            </div>
+
+            {# TIER CONTACT #}
+            <div id="sectionDarkFooter" class="backgroundDark landingTier">
+                <div class="siteMaxWidth siteSidePadding shellVerticalPadding">
+
+                    <p class="fontPrimary">For general questions or press inquiries contact
+                        <a href="mailto:jeremy@launchapp.io">jeremy@launchapp.io</a>.<br>To discuss investing, <a href="mailto:jeremy@launchapp.io">chad@launchapp.io.</a></p>
+                </div>
+            </div>
+
+
+            {#
+            <div id="footer" class="clearfix fontPrimary">
+                <div class="siteMaxWidth siteSidePadding">
+                    <div class="footerPhone pull-right">
+                        {{ block('sitePhone') }}
+                    </div>
+                    <div class="footerEmail">
+                        {{ block('siteEmail') }}
+                    </div>
+                </div>
+            </div>
+            #}
+        </div>
+    {% endblock content %}
+{% endblock contentType %}
