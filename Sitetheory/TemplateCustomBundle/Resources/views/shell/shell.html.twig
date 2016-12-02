@@ -137,3 +137,16 @@
 {% endblock header2 %}
 
 
+{% block retractingHeaderContent %}
+    <div class="clearfix">
+        <div id="logoRetractingHeader"  class="verticalCenter">
+            <img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogoHorizontal.png') }}" alt="">
+        </div>
+        <div id="retractingContribute" class="verticalCenter">
+            <a href="/" class="btn btnContribute">Contribute</a>
+        </div>
+        <div>
+            {{ block('mainNavigation') }}
+         </div>
+    </div>
+{% endblock retractingHeaderContent %}
