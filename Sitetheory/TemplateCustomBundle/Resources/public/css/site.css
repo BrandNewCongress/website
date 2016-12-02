@@ -56,6 +56,11 @@ iframe {
     height: 100%;
 }
 
+
+.listInline {
+    margin-top: 0;
+    margin-bottom: 0;
+}
 .listInline li {
     vertical-align: middle;
 }
@@ -130,7 +135,7 @@ h4 {
 }
 @media (max-width:768px) {
     h1 {
-        font-size: 50px;
+        font-size: 40px;
     }
 }
 
@@ -150,6 +155,15 @@ h4 {
     font-size: 26px;
     font-weight: 300;
 }
+
+@media (max-width:960px) {
+    .bodyLarge {
+        font-size: 22px;
+    }
+}
+
+
+
 
 /* ASSIGN FONTS */
 
@@ -291,7 +305,11 @@ h4,
 .siteMaxWidth {
     max-width: 1300px;
 }
-
+@media (max-width:960px) {
+    .shellVerticalPadding {
+        padding: 55px 0;
+    }
+}
 
 /* HEADER */
 
@@ -335,6 +353,10 @@ h4,
 .headerOrnament {
     width: 4px;
     height: 18px;
+}
+/* Hide left ornament while identical contact link ornament is visible */
+.headerOrnament.centerLeft {
+    display: none;
 }
 .headerOrnament .square {
     position: absolute;
@@ -404,88 +426,59 @@ h4,
 
 
 @media (max-width:991px) {
+
+    /* temporary */
+    #mainNavigationHeader {
+        display: block;
+    }
+
+
     .sidebarToggle  {
         top: 32px;
         right: 40px;
-    }
-    #header {
-        min-height: 62px;
-    }
-    #logoHeader {
-        margin-bottom: 4px;
-        max-width: 150px;
-    }
-    .btn.betaSignupBtn {
-        margin: 10px 52px 0 0;
-    }
-    .btn.betaSignupBtn:hover {
-        color: #FE7C57;
-    }
-    #shellSidebar .btn.betaSignupBtn {
-        float: none !important;
     }
     #shellSidebar .borderDashed {
         margin-top: 20px;
         padding-top: 20px;
     }
-    #header #navMainContainer {
-        display: none;
+}
+@media (max-width:960px) {
+    #navMainContainer .delimiter {
+        width: 30px;
+        text-align: center;
     }
-    #shellSidebar #navMainContainer,
-    #navMainContainer .list-inline > li {
+    #navMainContainer .delimiter img {
+        margin-top: 13px;
+        width: 10px;
+    }
+    .navMainLink a {
+        font-size: 30px;
+    }
+}
+@media (max-width:840px) {
+    #header2 {
+        padding: 8px 0;
+    }
+    .headerOrnament.centerLeft {
         display: block;
-        padding: 0 0 12px 0;
     }
-    #shellSidebar .navMainLink a .linkUnderline {
-        transform-origin: left center;
-        -webkit-transform-origin: left center;
-        left: 0;
-        right: 0;
-        background: #222;
-    }
-    #shellSidebar .navMainLink a:hover .linkUnderline {
-        background: #666;
-    }
-    .nav .navMainLink a {
-        display: table;
-        margin-left: 0;
-        font-weight: 400;
-        font-size: 13px;
-        color: #999;
-    }
-    .nav .navMainLink a:hover {
-        color: #FFF;
+    #headerContact,
+    #headerSocial {
+        display: none;
     }
 }
 @media (max-width:600px) {
     .sidebarToggle  {
         top: 20px;
     }
-    #logoHeader {
-        margin: 4px 0;
-        max-width: 150px;
-    }
-    .btn.betaSignupBtn {
-        margin: 5px 46px 0 0;
-        padding: 6px 12px 7px 12px;
-        font-size: 12px;
-    }
 }
 @media (max-width:480px) {
     .sidebarToggle  {
         right: 26px;
     }
-    #header {
-        padding: 10px 26px;
-    }
-    #logoHeader {
-        margin: 4px 0;
-        max-width: 120px;
-    }
-    .btn.betaSignupBtn {
-        margin: 5px 42px 0 0;
-        padding: 6px 8px 7px 8px;
-        font-size: 12px;
+    .headerOrnament,
+    .headerOrnament.centerLeft {
+        display: none;
     }
 }
 
@@ -527,7 +520,12 @@ h4,
 }
 @media (max-width:991px) {
     #headerRetracting .sidebarToggle  {
-        top: 20px;
+        top: 32px;
+    }
+}
+@media (max-width:960px) {
+    #headerRetracting {
+        height: 90px;
     }
 }
 @media (max-width:600px) {
@@ -538,7 +536,9 @@ h4,
 }
 
 
-
+.mobileDrawer.mobileBackgroundDark {
+    background: #111;
+}
 
 
 /* FOOTER JOIN FORM */
@@ -583,6 +583,30 @@ h4,
     color: #FFF;
     background: #222;
 }
+
+@media (max-width:960px) {
+    #footerJoinForm .listInline li {
+        display: block;
+    }
+    #footerJoinForm .listInline li:first-child,
+    #footerJoinForm .listInline li:last-child {
+        display: none;
+    }
+    #footerJoinForm h1 {
+        margin: 0 0 16px 0;
+        text-align: center;
+    }
+    .fakeFormBox {
+        margin: 0 0 8px 0;
+    }
+    #footerJoinForm .btn {
+        display: table;
+        margin: 20px auto 0 auto;
+    }
+}
+
+
+
 
 /* FOOTER */
 
@@ -649,23 +673,29 @@ h4,
 #siteMapNew {
     padding: 110px 0 50px;
 }
+.siteMapColumn {
+    padding: 0 8%;
+}
 .siteMapColumn a {
     text-transform: uppercase;
     letter-spacing: .1em;
     font-size: 11px;
 }
-.siteMapHeader a {
-    padding-left: 18px;
+#siteMapNew .siteMapHeader {
     font-size: 11px;
     font-weight: bold;
-    color: #7C7C7C;
+    color: #999;
+}
+#siteMapNew .siteMapHeader a {
+    padding: 0 0 0 18px;
+    font-weight: bold;
+    color: #999;
     background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starPurple.png') no-repeat left 2px;
     background-size: 9px;
 }
 .siteMapColumn a:hover {
     color: #FFF;
 }
-
 .siteMapColumn .socialMedia a {
     border: none;
     background: #5F2787;
@@ -683,7 +713,7 @@ h4,
     font-weight: 400;
     color: #6D6D6D;
     letter-spacing: 2px;
-
+    line-height: 1.8;
 }
 #footer p a {
     color: #999;
@@ -692,11 +722,11 @@ h4,
     color: #FFF;
 }
 #footerLogo img {
-    margin-top: 26px;
+    margin: 0 0 30px;
     width: 100px;
 }
 #footerCredit a {
-    margin-top: 40px;
+    margin-top: 10px;
     font-size: 8px;
     font-weight: 700;
     letter-spacing: 2px;

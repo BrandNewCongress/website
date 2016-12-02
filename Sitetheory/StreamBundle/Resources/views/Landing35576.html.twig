@@ -82,11 +82,11 @@
         </div>
 
         <div id="pressLogos" class="borderDashedBold shellVerticalPadding">
-            <div layout="row">
-                <div flex="50">
+            <div layout="row" layout-wrap>
+                <div flex="100" flex-gt-xs="50">
                     <img src="{{ asset('bundles/sitetheorytemplatecustom/images/pressLogos1.jpg') }}" alt="">
                 </div>
-                <div flex="50">
+                <div flex="100" flex-gt-xs="50">
                     <img src="{{ asset('bundles/sitetheorytemplatecustom/images/pressLogos2.jpg') }}" alt="">
                 </div>
             </div>
@@ -239,7 +239,7 @@
                         </div>
                     </div>
                 </div>
-                <div flex-xs="100" flex-sm="33" flex-gt-sm="25" class="candidateColumn">
+                <div flex-xs="100" flex-sm="33" flex-gt-sm="25" hide-xs hide-sm class="candidateColumn">
                     <div class="candidateContainer tempCandidateAsk">
                         <a href="">
                             <div class="candidateImage positionAnchor purple">
@@ -264,7 +264,7 @@
         <div id="candidatesAction" class="fontSecondary borderDashedBold shellVerticalPadding align-center">
             <h4>A national campaign frees our candidates</h4>
             <p class="bodyLarge">To serve the people, not special interests.</p>
-            <a class="btn">Contribute</a>
+            <a class="btn" href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank">Contribute</a>
         </div>
         <div class="sectionBorder backgroundDark"></div>
 
@@ -272,18 +272,18 @@
             <h4>All the</h4>
             <h1>Specifics</h1>
             <div id="homeImageLinks">
-                <div layout="row">
-                    <div flex="33">
+                <div layout="row" layout-wrap>
+                    <div flex="100" flex-gt-xs="33">
                         <a class="backgroundDark" href="/">
                             <img class="easyTransition" src="{{ asset('bundles/sitetheorytemplatecustom/images/imageLinkPlan.jpg') }}" alt="">
                         </a>
                     </div>
-                    <div flex="33">
+                    <div flex="100" flex-gt-xs="33">
                         <a  class="backgroundDark" href="/">
                             <img class="easyTransition" src="{{ asset('bundles/sitetheorytemplatecustom/images/imageLinkAbout.jpg') }}" alt="">
                         </a>
                     </div>
-                    <div flex="33">
+                    <div flex="100" flex-gt-xs="33">
                         <a  class="backgroundDark" href="/">
                         <img class="easyTransition" src="{{ asset('bundles/sitetheorytemplatecustom/images/imageLinkVolunteer.jpg') }}" alt="">
                         </a>
@@ -295,8 +295,8 @@
         <div class="sectionBorder backgroundDark"></div>
 
         <div id="homeCurrent" class="shellVerticalPadding">
-            <div layout="row">
-                <div flex-xs="100" flex-gt-sm="50">
+            <div layout="row" layout-wrap>
+                <div flex="100" flex-gt-xs="50">
                     <div id="currentMedia">
                         <h1>Watch</h1>
                         <div class="borderDashedBold clearfix">
@@ -321,7 +321,7 @@
                         </div>
                     </div>
                 </div>
-                <div flex-xs="100" flex-gt-sm="50">
+                <div flex="100" flex-gt-xs="50">
                     <div id="currentSocial">
                         <h1>Comment</h1>
                         <div class="borderDashedBold clearfix">

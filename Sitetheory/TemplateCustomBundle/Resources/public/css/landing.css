@@ -23,7 +23,11 @@
 #homeSlides {
     margin-top: 40px;
 }
-
+@media (max-width:960px) {
+    #homeSlides {
+        margin-top: 26px;
+    }
+}
 
 /* WELCOME AND JOIN SECTION */
 
@@ -57,7 +61,25 @@
     margin-left: 4px;
     padding: 15px 34px 16px 35px;
 }
-
+@media (max-width:960px) {
+    #homeJoinForm {
+        margin: 30px 0 60px;
+    }
+    #homeJoinForm p {
+        margin-bottom: 20px;
+        font-size: 14px;
+    }
+    #homeJoinForm .listInline li {
+        display: block;
+    }
+    .fakeFormBox {
+        margin: 0 0 8px 0;
+    }
+    #homeJoinForm .btn {
+        display: table;
+        margin: 20px auto 0 auto;
+    }
+}
 
 
 /* CANDIDATES SECTION */
@@ -125,7 +147,17 @@
 .candidateImage img {
     width: 100%;
 }
-
+@media (min-width: 600px) and (max-width:1100px) {
+    .candidateInfo .name {
+        font-size: 11px;
+    }
+    .candidateInfo .title {
+        font-size: 8px;
+    }
+    .candidateDistrict p {
+        font-size: 15px;
+    }
+}
 
 /* Temporary nominate area to fill empty candidate slot */
 
@@ -167,7 +199,7 @@
     letter-spacing: 2px;
 }
 .tempCandidateAsk a:hover .candidateInfo .title {
-    transform: translateY(-80px);
+    transform: translateY(-90px);
 }
 .tempCandidateAsk .starRight,
 .tempCandidateAsk .starLeft {
@@ -188,6 +220,14 @@
     transition: all .2s ease-out .2s;
     transform: scaleX(1);
 }
+@media (max-width:1100px) {
+    .tempCandidateAsk .candidateInfo p {
+        font-size: 14px;
+    }
+    .tempCandidateAsk .candidateInfo .title p {
+        font-size: 10px;
+    }
+}
 
 
 #candidatesAction {
@@ -196,6 +236,7 @@
 #candidatesAction .btn {
     margin-top: 22px;
 }
+
 
 
 /* SPECIFICS IMAGE LINKS */
@@ -212,8 +253,15 @@
 #homeImageLinks a:hover img {
     opacity: .8;
 }
+@media (max-width:600px) {
+    #homeImageLinks a {
+        margin: 0 0 8px 0;
+        width: 100%;
+    }
+}
 
 
+/* CURRENT MEDIA AND FACEBOOK FEED */
 
 
 #homeCurrent .mediaHeader {
@@ -260,4 +308,13 @@
     padding-left: 55px;
     background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/facebookTitleIcon.png') no-repeat left center;
     background-size: 40px;
+}
+
+@media (max-width:600px) {
+    #currentMedia {
+        margin-right: 0;
+    }
+    #currentSocial {
+        margin-left: 0;
+    }
 }
