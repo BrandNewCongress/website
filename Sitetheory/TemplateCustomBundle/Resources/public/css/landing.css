@@ -54,7 +54,8 @@
     border: 1px solid #999;
 }
 #homeJoinForm .btn {
-    padding: 15px 36px;
+    margin-left: 4px;
+    padding: 15px 34px 16px 35px;
 }
 
 
@@ -133,7 +134,7 @@
     opacity: .34;
 }
 .tempCandidateAsk a:hover .candidateImage img {
-    opacity: .55;
+    opacity: .15;
 }
 .tempCandidateAsk .candidateInfo {
     transform: translateY(-50%);

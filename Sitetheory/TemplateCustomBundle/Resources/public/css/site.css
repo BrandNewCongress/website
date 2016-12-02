@@ -56,6 +56,13 @@ iframe {
     height: 100%;
 }
 
+.listInline li {
+    vertical-align: middle;
+}
+
+
+
+
 
 
 
@@ -534,7 +541,48 @@ h4,
 
 
 
+/* FOOTER JOIN FORM */
 
+#footerJoinForm {
+    padding: 40px 0;
+}
+#footerJoinForm h1 {
+    margin: 0 20px 0 0;
+    font-size: 32px;
+    color: #FFF;
+}
+#footerJoinForm .starLeft,
+#footerJoinForm .starRight {
+    width: 13px;
+    height: 30px;
+    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starWhite.png') no-repeat left 10px;
+    background-size: 13px;
+}
+#footerJoinForm .starLeft {
+    margin-right: 30px;
+}
+#footerJoinForm .starRight {
+    margin-left: 30px;
+    background-position: right 10px;
+}
+#footerJoinForm ul {
+    margin-bottom: 0;
+}
+#footerJoinForm .fakeFormBox {
+    color: #FFF;
+    font-weight: 300;
+    border: 1px solid rgba(255,255,255,.5);
+}
+#footerJoinForm .btn {
+    margin-left: 4px;
+    padding: 15px 33px 16px 34px;
+    color: #7932AC;
+    background: #FFF;
+}
+#footerJoinForm .btn:hover {
+    color: #FFF;
+    background: #222;
+}
 
 /* FOOTER */
 
@@ -542,4 +590,118 @@ h4,
 #siteMapBackground,
 #footerBackground {
     background: #111;
+}
+
+
+/* Remove when fixed in core */
+
+#siteMapNew {
+    text-align: center;
+    font-size: 12px;
+}
+#siteMapNew li {
+    vertical-align: top;
+}
+#siteMapNew .siteMapHeader {
+    margin: 0 0 18px 0;
+    padding-bottom: 18px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+}
+#siteMapNew .siteMapColumn ul {
+    padding: 0 5%;
+}
+#siteMapNew .siteMapColumn a {
+    display: inline-block;
+    padding-bottom: 12px;
+    color: #999;
+}
+/* Must come after .siteMapColumn a */
+#siteMapNew .siteMapHeader a {
+    color: #888;
+}
+#siteMapNew .siteMapColumn a:hover {
+    color: #333;
+}
+.dark #siteMapNew .siteMapHeader {
+    border-bottom: 1px dashed rgba(255,255,255,.15);
+}
+.dark #siteMapNew .siteMapColumn a {
+    color: #666;
+}
+/* Must come after .dark .siteMapColumn a */
+.dark #siteMapNew .siteMapHeader a {
+    color: #999;
+}
+.dark #siteMapNew .siteMapColumn a:hover {
+    color: #CCC;
+}
+
+
+
+
+
+
+/* FOOTER SITE MAP */
+
+#siteMapNew {
+    padding: 110px 0 50px;
+}
+.siteMapColumn a {
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-size: 11px;
+}
+.siteMapHeader a {
+    padding-left: 18px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #7C7C7C;
+    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starPurple.png') no-repeat left 2px;
+    background-size: 9px;
+}
+.siteMapColumn a:hover {
+    color: #FFF;
+}
+
+.siteMapColumn .socialMedia a {
+    border: none;
+    background: #5F2787;
+}
+.siteMapColumn .socialMedia a:hover {
+    background: #FFF;
+    border: none;
+}
+.dark .siteMapColumn .socialMedia svg g,
+.dark .siteMapColumn .socialMedia a:hover svg g {
+    fill: #111;
+}
+
+#footer p {
+    font-weight: 400;
+    color: #6D6D6D;
+    letter-spacing: 2px;
+
+}
+#footer p a {
+    color: #999;
+}
+#footer p a:hover {
+    color: #FFF;
+}
+#footerLogo img {
+    margin-top: 26px;
+    width: 100px;
+}
+#footerCredit a {
+    margin-top: 40px;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #555;
+}
+#footerCredit a:hover {
+    color: #FFF;
 }
