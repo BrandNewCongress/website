@@ -82,6 +82,70 @@
 }
 
 
+
+
+/* PRESS LOGOS */
+
+#pressLogos {
+    margin: 0 -.05%;
+}
+#pressLogos ul {
+    width: 100%;
+    display: block;
+}
+#pressLogos a {
+    display: block;
+    text-align: center;
+}
+.pressLogo {
+    padding: 0 2.2% !important;
+}
+
+/* section one */
+#WaPO {
+    width: 26%;
+}
+#WSJ {
+    width: 11%;
+}
+#Wired {
+    width: 17%;
+}
+#HuffPo {
+    width: 21%;
+}
+#Beast {
+    width: 9%;
+}
+#Slate {
+    width: 12%;
+}
+
+/* section two */
+#Nation {
+    width: 16%;
+}
+#Frisky {
+    width: 17%;
+}
+#Salon {
+    width: 15%;
+}
+#Bustle {
+    width: 12%;
+}
+#Boing {
+    width: 18%;
+}
+#RollCall {
+    width: 18%;
+}
+
+
+
+
+
+
 /* CANDIDATES SECTION */
 
 

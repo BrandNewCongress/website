@@ -10,65 +10,6 @@
 }
 
 
-/* Move to core */
-
-/* Vertically center using positioning. Requires .positionAnchor on the parent you wish to center the element in. */
-
-.verticalCenter {
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    position: absolute;
-    top: 50%;
-}
-.verticalCenter.centerLeft {
-    left: 0;
-}
-.verticalCenter.centerRight {
-    right: 0;
-}
-
-/* Easy transition */
-
-.easyTransition {
-    transition: all .2s ease-out;
-    -webkit-transition: all .2s ease-out;
-}
-
-/* iFrames */
-
-iframe {
-    max-width: 100%;
-}
-.iframeVideoWrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
-    padding-top: 25px;
-    height: 0;
-    width: 100%;
-}
-.iframeVideoWrapper iframe,
-.iframeVideoWrapper object
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-
-.listInline {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-.listInline li {
-    vertical-align: middle;
-}
-
-
-
-
-
 
 
 /* BODY */
