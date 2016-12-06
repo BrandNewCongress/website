@@ -612,7 +612,7 @@ h4,
 /* FOOTER SITE MAP */
 
 #siteMapNew {
-    padding: 110px 0 50px;
+    padding: 110px 0 100px;
 }
 .siteMapColumn {
     padding: 0 8%;
@@ -649,7 +649,10 @@ h4,
 .dark .siteMapColumn .socialMedia a:hover svg g {
     fill: #111;
 }
-
+#footer {
+    padding-top: 65px;
+    border-top: 1px solid rgba(255,255,255,.1);
+}
 #footer p {
     font-weight: 400;
     color: #6D6D6D;
@@ -666,12 +669,19 @@ h4,
     margin: 0 0 30px;
     width: 100px;
 }
+#footerCredit {
+    margin: 22px 0 60px;
+}
+#footerCredit p,
 #footerCredit a {
     margin-top: 10px;
     font-size: 8px;
     font-weight: 700;
     letter-spacing: 2px;
     color: #555;
+}
+#footerCredit a {
+    margin-top: 55px;
 }
 #footerCredit a:hover {
     color: #FFF;

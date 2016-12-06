@@ -87,15 +87,20 @@
 /* PRESS LOGOS */
 
 #pressLogos {
-    margin: 0 -.05%;
+    margin: 0 -.15%;
+    padding: 45px 0;
 }
 #pressLogos ul {
     width: 100%;
     display: block;
 }
 #pressLogos a {
+    transition: all .2s ease-out;
     display: block;
     text-align: center;
+}
+#pressLogos a:hover {
+    opacity: .8;
 }
 .pressLogo {
     padding: 0 2.2% !important;
@@ -151,6 +156,14 @@
 
 #homeCandidates h1 {
     margin-bottom: 50px;
+}
+#homeCandidates h4 {
+    margin-top: 30px;
+}
+#homeCandidates p.intro {
+    margin: 20px 0 40px;
+    padding: 0;
+    font-size: 15px;
 }
 .candidateColumn {
     transition: all 400ms ease-out 50ms;
