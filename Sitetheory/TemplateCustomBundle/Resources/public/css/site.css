@@ -279,11 +279,7 @@ hr {
 .siteMaxWidth {
     max-width: 1350px;
 }
-@media (max-width:960px) {
-    .shellVerticalPadding {
-        padding: 55px 0;
-    }
-}
+
 
 /* HEADER */
 
@@ -609,7 +605,11 @@ h1#pageTitle {
 .headerImage {
     margin-top: 40px;
 }
-
+@media (max-width: 991px) {
+    .mainColumnGutter {
+        padding-left: 0;
+    }
+}
 
 /* FOOTER JOIN FORM */
 
@@ -828,4 +828,20 @@ h1#pageTitle {
 }
 #FAQ p.bodyLarge {
     margin-bottom: 26px;
+}
+#Nominate #districtInfo h3 {
+    margin: 45px 0 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #DDD;
+}
+#Nominate #districtInfo a {
+    transition: all .2s ease-out;
+    display: inline-block;
+    margin: 0 1px 5px 0;
+    padding: 2px 4px;
+    color: #FFF;
+    background: #7932AC;
+}
+#Nominate #districtInfo a:hover {
+    background: #111;
 }
