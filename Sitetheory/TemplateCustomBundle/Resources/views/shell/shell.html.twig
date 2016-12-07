@@ -25,10 +25,6 @@
 {% set bootstrapColumnSidebar = '20' %}
 {% set bootstrapColumnMain = '80' %}
 
-{% block sectionName %}
-    <h2 class="sectionName {{ sectionNameFont|default('fontPrimary') }}">Section Name</h2>
-    <div class="borderDashed"></div>
-{% endblock sectionName %}
 
 {% block sidebarExtrasBottom %}
     <div class="borderDashed"></div>
@@ -38,12 +34,96 @@
 {% block sidebarExtrasTop %}
 {% endblock sidebarExtrasTop %}
 
-
+{% block sectionName %}
+    <h2 class="sectionName fontPrimary">{{ sectionNameHardCoded|default('sectionName') }}</h2>
+    <div class="borderDashed"></div>
+{% endblock sectionName %}
 
 {# Sidebar fonts #}
 {%  set navLevel1Font = 'fontPrimary' %}
 {%  set navLevel2Font = 'fontSecondary' %}
 
+
+{% block menuSection1 %}
+
+    <!-- Level 2 Links -->
+    <ul id="listLevel2" class="list-unstyled {{ navLevel2Font|default('fontSecondary') }}">
+        <li class="siteNavLink" data-level="2">
+            <a href="" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">
+                Nominate
+            </a>
+        </li>
+        <li class="siteNavLink" data-level="2">
+            <a href="" class="navLevel2 {% if sectionMenuActive == 'nominationGuideActive' %}active{% endif %}">
+                Nomination Guide
+            </a>
+        </li>
+        <li class="siteNavLink" data-level="2">
+            <a href="" class="navLevel2 {% if sectionMenuActive == 'candidatesActive' %}active{% endif %}">
+                The Candidates
+            </a>
+        </li>
+    </ul>
+{% endblock menuSection1 %}
+
+
+{% block menuSection2 %}
+
+    <!-- Level 2 Links -->
+    <ul id="listLevel2" class="list-unstyled {{ navLevel2Font|default('fontSecondary') }}">
+        <li class="siteNavLink" data-level="2">
+            <a href="" class="navLevel2 {% if sectionMenuActive == 'volunteerActive' %}active{% endif %}">
+                Volunteer
+            </a>
+        </li>
+        <li class="siteNavLink" data-level="2">
+            <a href="" class="navLevel2 {% if sectionMenuActive == 'contributeActive' %}active{% endif %}">
+                Contribute
+            </a>
+        </li>
+        <li class="siteNavLink" data-level="2">
+            <a href="" class="navLevel2 {% if sectionMenuActive == 'volunteerFormActive' %}active{% endif %}">
+                Tell Us About Yourself
+            </a>
+        </li>
+    </ul>
+{% endblock menuSection2 %}
+
+
+{% block menuSection3 %}
+
+    <!-- Level 2 Links -->
+    <ul id="listLevel2" class="list-unstyled {{ navLevel2Font|default('fontSecondary') }}">
+        <li class="siteNavLink" data-level="2">
+            <a href="" class="navLevel2 {% if sectionMenuActive == 'planActive' %}active{% endif %}">
+                Our Plan
+            </a>
+        </li>
+        <li class="siteNavLink" data-level="2">
+            <a href="" class="navLevel2 {% if sectionMenuActive == 'aboutActive' %}active{% endif %}">
+                About Us
+            </a>
+        </li>
+        <li class="siteNavLink" data-level="2">
+            <a href="" class="navLevel2 {% if sectionMenuActive == 'faqActive' %}active{% endif %}">
+                FAQ
+            </a>
+        </li>
+    </ul>
+{% endblock menuSection3 %}
+
+
+{% block menuSection4 %}
+
+    <!-- Level 2 Links -->
+    <ul id="listLevel2" class="list-unstyled {{ navLevel2Font|default('fontSecondary') }}">
+        <li class="siteNavLink" data-level="2">
+            <a href="" class="navLevel2">
+                Contact Us
+            </a>
+        </li>
+    </ul>
+{% endblock menuSection4 %}
 
 
 
@@ -59,81 +139,64 @@
 
     <!-- Hard coded menu to show structure and styling -->
     <!-- Level 1 Links -->
-    <ul id="listLevel1" class="list-unstyled">
-        <li class="visible-xs-block visible-sm-block" data-level="1">
-            <div class="siteNavLink "  data-level="1">
-                <a href="" class="navLevel1 active fontPrimary">
-                    Join
-                </a>
-            </div>
-        </li>
-        <li class="visible-xs-block visible-sm-block" data-level="1">
-            <div class="siteNavLink {{ navLevel1Font|default('fontPrimary') }}"  data-level="1">
-                <a href="" class="navLevel1 fontPrimary">
-                    Nominate
-                </a>
-            </div>
-        </li>
-        <li data-level="1">
-            <div class="siteNavLink visible-xs-block visible-sm-block {{ navLevel1Font|default('fontPrimary') }}"  data-level="1">
-                <a href="" class="navLevel1 fontPrimary">
-                    Work With Us
-                </a>
-            </div>
 
+    <div hide-gt-sm>
+        <ul id="listLevel1" class="list-unstyled">
+            <li data-level="1">
+                <div class="siteNavLink "  data-level="1">
+                    <a href="" class="navLevel1 fontPrimary">
+                        Join
+                    </a>
+                </div>
+            </li>
+            <li data-level="1">
+                <div class="siteNavLink"  data-level="1">
+                    <a href="" class="navLevel1 fontPrimary">
+                        Candidates
+                    </a>
+                </div>
+                {{ block('menuSection1') }}
+            </li>
+            <li data-level="1">
+                <div class="siteNavLink"  data-level="1">
+                    <a href="" class="navLevel1 fontPrimary">
+                        Work With Us
+                    </a>
+                </div>
+                {{ block('menuSection2') }}
+            </li>
+            <li data-level="1">
+                <div class="siteNavLink {{ navLevel1Font|default('fontPrimary') }}"  data-level="1">
+                    <a href="" class="navLevel1 fontPrimary">
+                        Learn
+                    </a>
+                </div>
+                {{ block('menuSection3') }}
+            </li>
+            <li data-level="1">
+                <div class="siteNavLink"  data-level="1">
+                    <a href="" class="navLevel1 fontPrimary">
+                        Contact
+                    </a>
+                </div>
+                {{ block('menuSection4') }}
+            </li>
+        </ul>
+        <!-- End Hard Coded Menu -->
+    </div>
+    <div hide-xs hide-sm>
 
-            <!-- Level 2 Links -->
-            <ul id="listLevel2" class="list-unstyled {{ navLevel2Font|default('fontSecondary') }}">
-                <li class="siteNavLink" data-level="2">
-                    <a href="" class="navLevel2 active">
-                        Volunteer
-                    </a>
-                </li>
-                <li class="siteNavLink" data-level="2">
-                    <a href="" class="navLevel2">
-                        Contribute
-                    </a>
-                </li>
-                <li class="siteNavLink" data-level="2">
-                    <a href="" class="navLevel2">
-                        Loremipsum
-                    </a>
-                </li>
-                <li class="siteNavLink" data-level="2">
-                    <a href="" class="navLevel2">
-                        Consecteteur
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="visible-xs-block visible-sm-block" data-level="1">
-            <div class="siteNavLink {{ navLevel1Font|default('fontPrimary') }}"  data-level="1">
-                <a href="" class="navLevel1 fontPrimary">
-                    Learn
-                </a>
+        {% if sectionMenuHardCoded == '1' %}
+            {{ block('menuSection1') }}
+        {% elseif sectionMenuHardCoded == '2' %}
+            {{ block('menuSection2') }}
+        {% elseif sectionMenuHardCoded == '3' %}
+            {{ block('menuSection3') }}
+        {% elseif sectionMenuHardCoded == '4' %}
+            {{ block('menuSection4') }}
+        {% endif %}
 
-                <!-- Level 2 Links -->
-                <ul id="listLevel2" class="list-unstyled {{ navLevel2Font|default('fontSecondary') }}">
-                    <li class="siteNavLink" data-level="2">
-                        <a href="" class="navLevel2">
-                            Our Plan
-                        </a>
-                    </li>
-                    <li class="siteNavLink" data-level="2">
-                        <a href="" class="navLevel2 active">
-                            About Us
-                        </a>
-                    </li>
-                    <li class="siteNavLink" data-level="2">
-                        <a href="" class="navLevel2">
-                            FAQ
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-    <!-- End Hard Coded Menu -->
+    </div>
 
 {% endblock navSection %}
 

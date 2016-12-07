@@ -1,6 +1,4 @@
-{% extends view.templates.shell %}
-
-
+{% extends 'SitetheoryArticleBundle::Article.html.twig' %}
 
 
 {% block headerImageInsideHeader %}
@@ -8,3 +6,8 @@
         <img class="easyTransition" src="{{ asset('bundles/sitetheorytemplatecustom/images/headerImageVolunteer.jpg') }}" alt="">
     </div>
 {% endblock headerImageInsideHeader %}
+
+
+{% set sectionNameHardCoded = 'Work With Us' %}
+{% set sectionMenuHardCoded = '2' %}
+{% set sectionMenuActive = 'volunteerActive' %}

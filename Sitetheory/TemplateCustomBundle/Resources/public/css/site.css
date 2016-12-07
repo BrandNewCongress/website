@@ -392,11 +392,9 @@ h4,
     #mainNavigationHeader {
         display: block;
     }
-
-
     .sidebarToggle  {
         top: 32px;
-        right: 40px;
+        right: 60px;
     }
 }
 @media (max-width:960px) {
@@ -548,6 +546,12 @@ h2.sectionName {
     h2.sectionName {
         color: #555;
     }
+    #siteNavigationSidebar ul {
+        padding: 10px 0;
+    }
+    .siteNavLink[data-level="1"] {
+        padding: 20px 0 0;
+    }
     .siteNavLink a.navLevel1 {
         text-transform: uppercase;
         font-size: 25px;
@@ -556,6 +560,9 @@ h2.sectionName {
     }
     .siteNavLink a.navLevel1:hover {
         color: #CCC;
+    }
+    .siteNavLink[data-level="2"] {
+        padding: 4px 0;
     }
     .siteNavLink a.navLevel2 {
         font-size: 15px;
