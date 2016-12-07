@@ -353,7 +353,7 @@
 
         <div class="sectionBorder backgroundDark"></div>
 
-        <div id="homeCurrent" class="shellVerticalPadding">
+        <div id="homeCurrent" class="shellVerticalPadding" ng-cloak>
             <div layout="row" layout-wrap>
                 <div flex="100" flex-gt-xs="50">
                     <div id="currentMedia">
@@ -397,11 +397,17 @@
                                     // Facebook page plugin
                                     $(window).resize(function() {
                                         var facebookPageId      = 'brandnewcongress';
-                                        var $facebookPage       = $('#FB-feedComponent');
-                                        var facebookPageWidth   = $facebookPage.width();
-                                        var facebookPageContent = '<div class="fb-page" data-href="https://www.facebook.com/'+facebookPageId+'" data-tabs="timeline" data-width="'+facebookPageWidth+'" data-height="70" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>';
-                                        $facebookPage.empty();
-                                        $facebookPage.html(facebookPageContent);
+                                        var $el         = $('#FB-feedContainer');
+                                        var ratio       = 1.4;
+                                        var width       = $el.width();
+                                        var height      = width * ratio; // or just set as 700
+                                        var minHeight = 700;
+                                        if (height < minHeight) {
+                                            height = minHeight;
+                                        }
+                                        var content = '<div class="fb-page" data-href="https://www.facebook.com/'+facebookPageId+'" data-tabs="timeline" data-width="'+width+'" data-height="'+height+'" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>';
+                                        $el.empty();
+                                        $el.html(content);
                                         FB.XFBML.parse();
                                     });
                                 });
