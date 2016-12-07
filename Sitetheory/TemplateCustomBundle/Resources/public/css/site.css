@@ -826,3 +826,6 @@ h1#pageTitle {
 #aboutUs img {
     width: 100%;
 }
+#FAQ p.bodyLarge {
+    margin-bottom: 26px;
+}
