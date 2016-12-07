@@ -46,7 +46,7 @@
 
 {# Temporary hard coded menu #}
 {% block sectionName %}
-    <h2 class="sectionName fontPrimary">{{ sectionNameHardCoded|default('Secction Name') }}</h2>
+    <h2 class="sectionName fontPrimary">{{ sectionNameHardCoded|default('Section Name') }}</h2>
     <div class="borderDashed"></div>
 {% endblock sectionName %}
 
@@ -203,7 +203,7 @@
 
 {% block header1 %}
     <div id="header1">
-        <div layout="row" ng-cloak>
+        <div layout="row">
             <div flex-gt-sm="30" hide-xs hide-sm>
                 <div id="planGraphic">
                     <img src="{{ asset('bundles/sitetheorytemplatecustom/images/planGraphic.png') }}" alt="">
@@ -318,7 +318,7 @@
 
         {% block footerJoin %}
             <a name="footerJoin"></a>
-            <div id="footerJoinForm" class="purple">
+            <div id="footerJoinForm" class="purple" ng-cloak>
                 <ul class="listInline divCenter fontSecondary">
                     <li>
                         <div class="starLeft"></div>
@@ -327,13 +327,19 @@
                         <h1>Add Your Name</h1>
                     </li>
                     <li>
-                        <div class="fakeFormBox">Email</div>
+                        <md-input-container>
+                            <label>Email</label>
+                            <input name="email" class="fakeFormBox" required>
+                        </md-input-container>
                     </li>
                     <li>
-                        <div class="fakeFormBox">Zip</div>
+                        <md-input-container>
+                            <label>Zip</label>
+                            <input name="zip" class="fakeFormBox" required>
+                        </md-input-container>
                     </li>
                     <li>
-                        <div class="fakeFormSubmit"><a class="btn">Count Me In</a></div>
+                        <md-button class="btn fakeFormSubmit">Count Me In</md-button>
                     </li>
                     <li>
                         <div class="starRight"></div>
@@ -347,7 +353,7 @@
 
 
 
-            <div id="siteMapNew" layout="row" layout-wrap hide-xs hide-sm ng-cloak>
+            <div id="siteMapNew" layout="row" layout-wrap hide-xs hide-sm>
                 <div flex="20">
                     <div class="siteMapColumn">
                     <ul class="list-unstyled">

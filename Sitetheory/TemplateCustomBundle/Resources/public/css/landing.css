@@ -378,10 +378,10 @@
     background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/facebookTitleIcon.png') no-repeat left center;
     background-size: 40px;
 }
-#currentSocial #feedContainer {
+#currentSocial #FB-feedContainer {
     padding-top: 55px;
 }
-#currentSocial #feedContainer .fb_iframe_widget {
+#currentSocial #FB-feedContainer .fb_iframe_widget {
     display: block;
 }
 @media (max-width:600px) {

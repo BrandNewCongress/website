@@ -1,5 +1,6 @@
-{% extends 'SitetheoryCoreBundle:Core:ListBase.html.twig' %}
+{% extends 'SitetheoryStreamBundle::Landing.html.twig' %}
 
+{#
 {% set stratusTarget = 'Stream' %}
 
 {#
@@ -69,7 +70,11 @@
 {% set shellContentStructure = 'siteMaxWidth siteSidePadding' %}
 
 
-{% block listData %}
+
+{# NOTE: this page is a stream, but we are currently hard coding everything, so we shouldn't use the majority of the contentType block in the ListBase.html.twig. So instead we are currently just overwriting the entire ContentType block #}
+
+{% block contentType %}
+
     <div class="clearfix">
         {# Home Landing Layout #}
 
@@ -89,15 +94,21 @@
 
             <div id="homeJoinForm">
                 <p class="fontSecondary align-center"><strong>I will support candidates of integrity for 2018.</strong></p>
-                <ul class="listInline divCenter fontSecondary">
+                <ul class="listInline divCenter fontSecondary" ng-cloak>
                     <li>
-                        <div class="fakeFormBox">Email</div>
+                        <md-input-container>
+                            <label>Email</label>
+                            <input name="email" class="fakeFormBox" required>
+                        </md-input-container>
                     </li>
                     <li>
-                        <div class="fakeFormBox">Zip</div>
+                        <md-input-container>
+                            <label>Zip</label>
+                            <input name="zip" class="fakeFormBox" required>
+                        </md-input-container>
                     </li>
                     <li>
-                        <div class="fakeFormSubmit"><a class="btn">Count Me In</a></div>
+                        <md-button class="btn fakeFormSubmit">Count Me In</md-button>
                     </li>
                 </ul>
             </div>
@@ -184,7 +195,7 @@
 
             <p class="intro fontSecondary">These first draftees represent a mix of public servants, entrepreneurs, local leaders, and national figures. They haven't agreed to run yet, but we have vetted them, gotten to know all of them, and are convinced they would make exceptional members of Congress.</p>
 
-            <div layout="row" layout-wrap>
+            <div layout="row" layout-wrap ng-cloak>
                 <div flex-xs="100" flex-sm="33" flex-gt-sm="25" class="candidateColumn">
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
@@ -319,7 +330,7 @@
         <div id="homeSpecifics" class="shellVerticalPadding align-center">
             <h4>All the</h4>
             <h1>Specifics</h1>
-            <div id="homeImageLinks">
+            <div id="homeImageLinks" ng-cloak>
                 <div layout="row" layout-wrap>
                     <div flex="100" flex-gt-xs="33">
                         <a class="backgroundDark" href="/">
@@ -333,7 +344,7 @@
                     </div>
                     <div flex="100" flex-gt-xs="33">
                         <a  class="backgroundDark" href="/">
-                        <img class="easyTransition" src="{{ asset('bundles/sitetheorytemplatecustom/images/imageLinkVolunteer.jpg') }}" alt="">
+                            <img class="easyTransition" src="{{ asset('bundles/sitetheorytemplatecustom/images/imageLinkVolunteer.jpg') }}" alt="">
                         </a>
                     </div>
                 </div>
@@ -372,8 +383,32 @@
                 <div flex="100" flex-gt-xs="50">
                     <div id="currentSocial">
                         <h1>Comment</h1>
-                        <div id="feedContainer" class="borderDashedBold clearfix">
-                            <div class="fb-page" data-href="https://www.facebook.com/brandnewcongress" data-tabs="timeline" data-width="500" data-height="700" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/brandnewcongress" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/brandnewcongress">Brand New Congress</a></blockquote></div>
+                        {# Script to fix the facebook resize issue: http://www.praxis.net.au/blog/making-the-facebook-page-plugin-responsive/ #}
+                        <script>
+                            // Use Require.js or Contextual Scope
+                            (function (root, factory) {
+                                if (typeof require === 'function') {
+                                    require(['stratus', 'jquery'], factory);
+                                } else {
+                                    factory(root.Stratus, root.$);
+                                }
+                            }(this, function (Stratus, $) {
+                                Stratus.DOM.ready(function () {
+                                    // Facebook page plugin
+                                    $(window).resize(function() {
+                                        var facebookPageId      = 'brandnewcongress';
+                                        var $facebookPage       = $('#FB-feedComponent');
+                                        var facebookPageWidth   = $facebookPage.width();
+                                        var facebookPageContent = '<div class="fb-page" data-href="https://www.facebook.com/'+facebookPageId+'" data-tabs="timeline" data-width="'+facebookPageWidth+'" data-height="70" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>';
+                                        $facebookPage.empty();
+                                        $facebookPage.html(facebookPageContent);
+                                        FB.XFBML.parse();
+                                    });
+                                });
+                            }));
+                        </script>
+                        <div id="FB-feedContainer" class="borderDashedBold clearfix">
+                            <div id="FB-feedComponent" class="fb-page" data-href="https://www.facebook.com/brandnewcongress" data-tabs="timeline" data-width="500" data-height="700" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/brandnewcongress" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/brandnewcongress">Brand New Congress</a></blockquote></div>
                         </div>
                     </div>
                 </div>
@@ -383,6 +418,6 @@
     </div>
 
 
-{% endblock listData %}
+{% endblock contentType %}
 
 
