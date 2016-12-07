@@ -823,3 +823,6 @@ h1#pageTitle {
 .customArticle ul li {
     padding-bottom: 12px;
 }
+#aboutUs img {
+    width: 100%;
+}
