@@ -18,7 +18,17 @@
     <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/landing.css') }}">
 {% endblock link %}
 
-
+{% block script %}
+    {{ parent() }}
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=162487723815676";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+{% endblock script %}
 
 
 {# TEMPLATE SHELL ADJUSTMENTS - These will be the same for most home page streams #}
@@ -39,6 +49,11 @@
 {% block mainColumnGutter %}
 {% endblock mainColumnGutter %}
 
+{# Remove standard header image #}
+{% block headerImageInsideHeader %}
+{% endblock headerImageInsideHeader %}
+
+
 {# Hide page title #}
 {% block pageTitle %}
 {% endblock pageTitle %}
@@ -56,11 +71,11 @@
         </div>
 
         <div id="welcome" class="shellVerticalPadding divCenter align-center">
-            <p class="bodyLarge fontSecondary">We’re recruiting and running 400+ candidates as a single, unified campaign for Congress in 2018. They will pass a radical and practical plan to increase the wages of the bottom 90%, remove the influence of money in our government, and restore our civil liberties. Americans are hungry to rebuild their country together with everyone from every community, region, race and culture. </p>
+            <p class="bodyLarge fontSecondary">We’re recruiting and running 400+ candidates as a single, unified campaign for Congress in 2018. They will pass a practical plan to increase the wages of the bottom 90%, remove the influence of money in our government, and restore our civil liberties. Americans are hungry to rebuild their country.</p>
         </div>
 
         <div id="homeJoin">
-            <h4 class="align-center">Join us to elect a Brand New Congress</h4>
+            <h4 class="align-center">Help us elect a New Congress</h4>
             <div class="backgroundDark">
                 <h1 class="align-center">Add Your Name</h1>
             </div>
@@ -229,7 +244,7 @@
                             <div class="profileGradient"></div>
                             <div class="candidateInfo">
                                 <p class="name fontSecondary">Chardo Richardson</p>
-                                <p class="title fontTertiary">Lawyer &amp; Veteran</p>
+                                <p class="title fontTertiary">Civil Rights Lawyer</p>
                             </div>
                             <img src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/ChardoRichardson.jpg') }}" alt="">
                         </div>
@@ -350,7 +365,8 @@
                 <div flex="100" flex-gt-xs="50">
                     <div id="currentSocial">
                         <h1>Comment</h1>
-                        <div class="borderDashedBold clearfix">
+                        <div id="feedContainer" class="borderDashedBold clearfix">
+                            <div class="fb-page" data-href="https://www.facebook.com/brandnewcongress" data-tabs="timeline" data-width="500" data-height="700" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/brandnewcongress" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/brandnewcongress">Brand New Congress</a></blockquote></div>
                         </div>
                     </div>
                 </div>

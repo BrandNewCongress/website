@@ -16,26 +16,126 @@
 {% set siteMapBrightness = 'dark' %}
 
 
-{# Remove standard header image #}
-{% block headerImageInsideHeader %}
-{% endblock headerImageInsideHeader %}
-
-
-
-
-{# Hide gutter in main column #}
-{% block mainColumnGutter %}
-{% endblock mainColumnGutter %}
 
 {# Hide Sidebar Login until it's dynamic and necessary #}
 {% block sidebarLogin %}
 {% endblock sidebarLogin %}
 
-{% block navSection %}
-{% endblock navSection %}
+
+{% set bootstrapColumnSidebar = '20' %}
+{% set bootstrapColumnMain = '80' %}
 
 {% block sectionName %}
+    <h2 class="sectionName {{ sectionNameFont|default('fontPrimary') }}">Section Name</h2>
+    <div class="borderDashed"></div>
 {% endblock sectionName %}
+
+{% block sidebarExtrasBottom %}
+    <div class="borderDashed"></div>
+{% endblock sidebarExtrasBottom %}
+
+
+{% block sidebarExtrasTop %}
+{% endblock sidebarExtrasTop %}
+
+
+
+{# Sidebar fonts #}
+{%  set navLevel1Font = 'fontPrimary' %}
+{%  set navLevel2Font = 'fontSecondary' %}
+
+
+
+
+{% block navSection %}
+
+    {# TODO Make the 'navMain' menu show top level only and the sidebar menu show deeper levels only in sidebar on desktop and all levels below browser width 991px. Limit depth of menu to 4 nested levels #}
+    <!-- Dynamic Site Nav Pulled From Header -->
+    <div class="visible-xs-block">
+        {{ block('navMain') }}
+    </div>
+    <!-- End Site Nav -->
+    {# TODO: remove test structure below #}
+
+    <!-- Hard coded menu to show structure and styling -->
+    <!-- Level 1 Links -->
+    <ul id="listLevel1" class="list-unstyled">
+        <li class="visible-xs-block visible-sm-block" data-level="1">
+            <div class="siteNavLink "  data-level="1">
+                <a href="" class="navLevel1 active fontPrimary">
+                    Join
+                </a>
+            </div>
+        </li>
+        <li class="visible-xs-block visible-sm-block" data-level="1">
+            <div class="siteNavLink {{ navLevel1Font|default('fontPrimary') }}"  data-level="1">
+                <a href="" class="navLevel1 fontPrimary">
+                    Nominate
+                </a>
+            </div>
+        </li>
+        <li data-level="1">
+            <div class="siteNavLink visible-xs-block visible-sm-block {{ navLevel1Font|default('fontPrimary') }}"  data-level="1">
+                <a href="" class="navLevel1 fontPrimary">
+                    Work With Us
+                </a>
+            </div>
+
+
+            <!-- Level 2 Links -->
+            <ul id="listLevel2" class="list-unstyled {{ navLevel2Font|default('fontSecondary') }}">
+                <li class="siteNavLink" data-level="2">
+                    <a href="" class="navLevel2 active">
+                        Volunteer
+                    </a>
+                </li>
+                <li class="siteNavLink" data-level="2">
+                    <a href="" class="navLevel2">
+                        Contribute
+                    </a>
+                </li>
+                <li class="siteNavLink" data-level="2">
+                    <a href="" class="navLevel2">
+                        Loremipsum
+                    </a>
+                </li>
+                <li class="siteNavLink" data-level="2">
+                    <a href="" class="navLevel2">
+                        Consecteteur
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="visible-xs-block visible-sm-block" data-level="1">
+            <div class="siteNavLink {{ navLevel1Font|default('fontPrimary') }}"  data-level="1">
+                <a href="" class="navLevel1 fontPrimary">
+                    Learn
+                </a>
+
+                <!-- Level 2 Links -->
+                <ul id="listLevel2" class="list-unstyled {{ navLevel2Font|default('fontSecondary') }}">
+                    <li class="siteNavLink" data-level="2">
+                        <a href="" class="navLevel2">
+                            Our Plan
+                        </a>
+                    </li>
+                    <li class="siteNavLink" data-level="2">
+                        <a href="" class="navLevel2 active">
+                            About Us
+                        </a>
+                    </li>
+                    <li class="siteNavLink" data-level="2">
+                        <a href="" class="navLevel2">
+                            FAQ
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+    <!-- End Hard Coded Menu -->
+
+{% endblock navSection %}
 
 
 
