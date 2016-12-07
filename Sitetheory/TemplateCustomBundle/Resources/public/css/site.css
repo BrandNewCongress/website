@@ -116,7 +116,8 @@ h4 {
     font-weight: bold;
     letter-spacing: .1em;
 }
-.bodyLarge {
+.bodyLarge,
+.bodyLarge p {
     font-size: 26px;
     font-weight: 300;
 }

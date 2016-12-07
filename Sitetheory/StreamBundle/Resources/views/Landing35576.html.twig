@@ -78,7 +78,13 @@
         </div>
 
         <div id="welcome" class="shellVerticalPadding divCenter align-center">
-            <p class="bodyLarge fontSecondary">We’re recruiting and running 400+ candidates as a single, unified campaign for Congress in 2018. They will pass a practical plan to increase the wages of the bottom 90%, remove the influence of money in our government, and restore our civil liberties. Americans are hungry to rebuild their country.</p>
+
+            <div class="content bodyLarge fontSecondary" ng-model="model.data.viewVersion.text" {{ block('editableViewAttributes') }}>
+                {% autoescape false %}
+                    {{ view.viewVersion.text }}
+                {% endautoescape %}
+            </div>
+
         </div>
 
         <div id="homeJoin">
