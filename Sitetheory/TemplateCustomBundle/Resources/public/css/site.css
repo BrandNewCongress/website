@@ -48,7 +48,6 @@ a:link, a:visited, a:active{
 a:hover {
     color: #888;
 }
-
 .btn,
 .btn:link,
 .btn:visited,
@@ -75,13 +74,15 @@ h1 {
     letter-spacing: .02em;
 }
 h2 {
-    color: #444;
-    font-size: 30px;
-    font-weight: 300;
+    margin-bottom: 36px;
+    text-transform: uppercase;
+    color: #323232;
+    font-size: 20px;
+    font-weight: bold;
 }
 h3 {
     color: #333;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -101,8 +102,13 @@ h4 {
 /* STANDARD TEXT STYLES */
 
 .pullout {
-    color: #777;
+    color: #363636;
     font-weight: 300;
+    font-size: 26px;
+    line-height: 1.5;
+}
+.pullout:first-child {
+    margin-top: -5px;
 }
 .smallLabel {
     text-transform: uppercase;
@@ -134,7 +140,6 @@ h1,
     font-family: 'u.s._101regular';
 }
 h2,
-h3,
 .fontSecondary,
 .fontSecondary p,
 .fontBody,
@@ -146,6 +151,7 @@ p {
     font-family: 'Roboto Slab', serif;
 }
 .fontTertiary,
+h3,
 h4,
 .smallLabel {
     font-family: 'Raleway', sans-serif;
@@ -200,6 +206,13 @@ h4,
 
 /* BORDERS */
 
+hr {
+    margin-top: 26px;
+    padding-top: 26px;
+    border: none;
+    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/borderDashedBold.png') repeat-x;
+    background-size: 8px;
+}
 .borderDashed {
     margin-top: 20px;
     padding-top: 20px;
@@ -503,9 +516,18 @@ h4,
     opacity: .5;
 }
 h2.sectionName {
-    margin: 0 0 26px;
+    margin: 0 0 28px;
     font-size: 20px;
+    font-weight: 400;
 }
+
+/* Temporary classes - remove when links are dynamic */
+#siteNavigationSidebar ul {
+    padding: 28px 0;
+}
+/* End temporary classes */
+
+
 .siteNavLink[data-level="2"] {
     padding: 6px 0;
 }
@@ -517,13 +539,14 @@ h2.sectionName {
     font-size: 18px;
     font-weight: 300;
     color: #333;
-    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starPurple.png') no-repeat left 10px;
+    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starPurple.png') no-repeat left 16px;
     background-size: 0;
 }
 .siteNavLink a.navLevel2:hover {
     transform: translateX(0);
     color: #7932AC;
     background-size: 10px;
+    background-position: left 10px;
 }
 .siteNavLink a.navLevel2.active {
     transform: translateX(0);
@@ -577,6 +600,7 @@ h2.sectionName {
     padding-left: 9%;
 }
 h1#pageTitle {
+    margin-bottom: 60px;
     padding: 3px 20px;
     color: #FFF;
     font-size: 40px;
@@ -790,4 +814,12 @@ h1#pageTitle {
 }
 #footerCredit a:hover {
     color: #FFF;
+}
+
+
+/* CUSTOM PAGES */
+
+.customArticle ol li,
+.customArticle ul li {
+    padding-bottom: 12px;
 }

@@ -34,13 +34,20 @@
 {# TEMPLATE SHELL ADJUSTMENTS - These will be the same for most home page streams #}
 
 
-
+{% set sectionMenuActive = 'empty' %}
+{% set sectionMenuHardCoded = 'empty' %}
 
 {# Header image exists #}
 {% set streamClass = 'landingStream' %}
 
+
 {# Hide sidebar on desktop #}
-{% set bootstrapColumnSidebar = 'hide-gt-sm' %}
+
+
+{% set bootstrapColumnSidebar = 'hide-gt-xs' %}
+{% set bootstrapColumnMain = 'flex=100' %}
+
+
 
 {# Sidebar is hidden on desktop so main column is full width #}
 {% set bootstrapColumnMain = '100' %}

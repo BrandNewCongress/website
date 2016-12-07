@@ -16,32 +16,39 @@
 {% set siteMapBrightness = 'dark' %}
 
 
-
 {# Hide Sidebar Login until it's dynamic and necessary #}
 {% block sidebarLogin %}
 {% endblock sidebarLogin %}
 
+{# Hide sidebar and make main column full width #}
+{% if bootstrapColumnSidebar is not defined %}
+    {% set bootstrapColumnSidebar = 'flex=100 flex-gt-xs=20' %}
+    {% set bootstrapColumnMain = 'flex=100 flex-gt-xs=80' %}
+{% endif %}
 
-{% set bootstrapColumnSidebar = '20' %}
-{% set bootstrapColumnMain = '80' %}
+{% if sectionMenuActive is not defined %}
+    {% set sectionMenuActive = 'empty' %}
+{% endif %}
+{% if sectionMenuHardCoded is not defined %}
+    {% set sectionMenuHardCoded = 'empty' %}
+{% endif %}
 
+{# Sidebar fonts #}
+{%  set navLevel1Font = 'fontPrimary' %}
+{%  set navLevel2Font = 'fontSecondary' %}
 
+{# Add border to bottom of sidebar #}
 {% block sidebarExtrasBottom %}
     <div class="borderDashed"></div>
 {% endblock sidebarExtrasBottom %}
 
 
-{% block sidebarExtrasTop %}
-{% endblock sidebarExtrasTop %}
 
+{# Temporary hard coded menu #}
 {% block sectionName %}
-    <h2 class="sectionName fontPrimary">{{ sectionNameHardCoded|default('sectionName') }}</h2>
+    <h2 class="sectionName fontPrimary">{{ sectionNameHardCoded|default('Secction Name') }}</h2>
     <div class="borderDashed"></div>
 {% endblock sectionName %}
-
-{# Sidebar fonts #}
-{%  set navLevel1Font = 'fontPrimary' %}
-{%  set navLevel2Font = 'fontSecondary' %}
 
 
 {% block menuSection1 %}
@@ -49,17 +56,17 @@
     <!-- Level 2 Links -->
     <ul id="listLevel2" class="list-unstyled {{ navLevel2Font|default('fontSecondary') }}">
         <li class="siteNavLink" data-level="2">
-            <a href="" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">
+            <a href="/Nominate" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">
                 Nominate
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="" class="navLevel2 {% if sectionMenuActive == 'nominationGuideActive' %}active{% endif %}">
+            <a href="Nomination-Guide" class="navLevel2 {% if sectionMenuActive == 'nominationGuideActive' %}active{% endif %}">
                 Nomination Guide
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="" class="navLevel2 {% if sectionMenuActive == 'candidatesActive' %}active{% endif %}">
+            <a href="/Candidates" class="navLevel2 {% if sectionMenuActive == 'candidatesActive' %}active{% endif %}">
                 The Candidates
             </a>
         </li>
@@ -72,17 +79,17 @@
     <!-- Level 2 Links -->
     <ul id="listLevel2" class="list-unstyled {{ navLevel2Font|default('fontSecondary') }}">
         <li class="siteNavLink" data-level="2">
-            <a href="" class="navLevel2 {% if sectionMenuActive == 'volunteerActive' %}active{% endif %}">
+            <a href="/Volunteer" class="navLevel2 {% if sectionMenuActive == 'volunteerActive' %}active{% endif %}">
                 Volunteer
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="" class="navLevel2 {% if sectionMenuActive == 'contributeActive' %}active{% endif %}">
+            <a href="/Contribute" class="navLevel2 {% if sectionMenuActive == 'contributeActive' %}active{% endif %}">
                 Contribute
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="" class="navLevel2 {% if sectionMenuActive == 'volunteerFormActive' %}active{% endif %}">
+            <a href="https://docs.google.com/a/gutensite.com/forms/d/e/1FAIpQLSfjqqPRs0d8XNL-nvvsvqnAmCsFCqOLuMv-NncAb--oiHnzqg/viewform?c=0&w=1" target="_blank" class="navLevel2 {% if sectionMenuActive == 'volunteerFormActive' %}active{% endif %}">
                 Tell Us About Yourself
             </a>
         </li>
@@ -95,17 +102,17 @@
     <!-- Level 2 Links -->
     <ul id="listLevel2" class="list-unstyled {{ navLevel2Font|default('fontSecondary') }}">
         <li class="siteNavLink" data-level="2">
-            <a href="" class="navLevel2 {% if sectionMenuActive == 'planActive' %}active{% endif %}">
+            <a href="/The-Plan" class="navLevel2 {% if sectionMenuActive == 'planActive' %}active{% endif %}">
                 Our Plan
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="" class="navLevel2 {% if sectionMenuActive == 'aboutActive' %}active{% endif %}">
+            <a href="About-Us" class="navLevel2 {% if sectionMenuActive == 'aboutActive' %}active{% endif %}">
                 About Us
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="" class="navLevel2 {% if sectionMenuActive == 'faqActive' %}active{% endif %}">
+            <a href="FAQ" class="navLevel2 {% if sectionMenuActive == 'faqActive' %}active{% endif %}">
                 FAQ
             </a>
         </li>
@@ -118,7 +125,7 @@
     <!-- Level 2 Links -->
     <ul id="listLevel2" class="list-unstyled {{ navLevel2Font|default('fontSecondary') }}">
         <li class="siteNavLink" data-level="2">
-            <a href="" class="navLevel2">
+            <a href="mailto:us@brandnewcongress.com" class="navLevel2">
                 Contact Us
             </a>
         </li>
@@ -129,15 +136,6 @@
 
 {% block navSection %}
 
-    {# TODO Make the 'navMain' menu show top level only and the sidebar menu show deeper levels only in sidebar on desktop and all levels below browser width 991px. Limit depth of menu to 4 nested levels #}
-    <!-- Dynamic Site Nav Pulled From Header -->
-    <div class="visible-xs-block">
-        {{ block('navMain') }}
-    </div>
-    <!-- End Site Nav -->
-    {# TODO: remove test structure below #}
-
-    <!-- Hard coded menu to show structure and styling -->
     <!-- Level 1 Links -->
 
     <div hide-gt-sm>
@@ -182,7 +180,6 @@
                 {{ block('menuSection4') }}
             </li>
         </ul>
-        <!-- End Hard Coded Menu -->
     </div>
     <div hide-xs hide-sm>
 
@@ -199,6 +196,8 @@
     </div>
 
 {% endblock navSection %}
+
+{# End temporary hard coded menu #}
 
 
 
@@ -254,14 +253,14 @@
                     <li class="delimiter"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}" alt="">
                     </li>
                     <li class="navMainLink">
-                        <a href="">
+                        <a href="/Nominate">
                             Nominate
                         </a>
                     </li>
                     <li class="delimiter"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}" alt="">
                     </li>
                     <li class="navMainLink">
-                        <a href="">
+                        <a href="/The-Plan">
                             Learn
                         </a>
                     </li>
@@ -313,7 +312,7 @@
     </div>
 {% endblock retractingHeaderContent %}
 
-
+{# Temporary hard coded footer site map #}
 {% block footerSiteMap %}
     <div id="siteMapBackground">
 
@@ -390,10 +389,10 @@
                     <div class="siteMapColumn">
                     <ul class="list-unstyled">
                         <li class="siteMapHeader">
-                            <a class="fontTertiary" href="/Our-Plan">Learn</a>
+                            <a class="fontTertiary" href="/The-Plan">Learn</a>
                         </li>
                         <li>
-                            <a href="/Our-Plan">Our Plan</a>
+                            <a href="/The-Plan">Our Plan</a>
                         </li>
                         <li>
                             <a href="/About-Us">About Us</a>
@@ -446,6 +445,8 @@
         </div>
     </div>
 {% endblock footerSiteMap %}
+{# End temporary hard coded footer site map #}
+
 
 {% block viewFooter %}
     <div id="footerBackground">
