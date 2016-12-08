@@ -36,7 +36,11 @@
 
 
 #welcome {
+    margin-top: 50px;
     max-width: 1000px;
+}
+#homeJoin .shellVerticalPadding {
+    padding-top: 50px;
 }
 #homeJoin h4 {
     margin: 0 0 18px;
@@ -46,7 +50,7 @@
     color: #FFF;
 }
 #homeJoinForm {
-    margin: 50px 0 90px;
+    margin: 50px 0 0;
 }
 #homeJoinForm p {
     margin-bottom: 36px;

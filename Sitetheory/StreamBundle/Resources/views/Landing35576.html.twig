@@ -79,41 +79,45 @@
             <img src="{{ asset('bundles/sitetheorytemplatecustom/images/slideshow1.jpg') }}" alt="">
         </div>
 
-        <div id="welcome" class="shellVerticalPadding divCenter align-center">
 
-            <div class="content bodyLarge fontSecondary" ng-model="model.data.viewVersion.text" {{ block('editableViewAttributes') }}>
-                {% autoescape false %}
-                    {{ view.viewVersion.text }}
-                {% endautoescape %}
-            </div>
-
-        </div>
 
         <div id="homeJoin">
-            <h4 class="align-center">Help us elect a New Congress</h4>
-            <div class="backgroundDark">
-                <h1 class="align-center">Add Your Name</h1>
-            </div>
+            <div class="shellVerticalPadding">
+                <h4 class="align-center">Help us elect a New Congress</h4>
+                <div class="backgroundDark">
+                    <h1 class="align-center">Add Your Name</h1>
+                </div>
 
-            <div id="homeJoinForm">
-                <p class="fontSecondary align-center"><strong>I will support candidates of integrity for 2018.</strong></p>
-                <ul class="listInline divCenter fontSecondary" ng-cloak>
-                    <li>
-                        <md-input-container>
-                            <label>Email</label>
-                            <input name="email" class="fakeFormBox" required>
-                        </md-input-container>
-                    </li>
-                    <li>
-                        <md-input-container>
-                            <label>Zip</label>
-                            <input name="zip" class="fakeFormBox" required>
-                        </md-input-container>
-                    </li>
-                    <li>
-                        <md-button class="btn fakeFormSubmit">Count Me In</md-button>
-                    </li>
-                </ul>
+                <div id="welcome" class="divCenter align-center">
+
+                    <div class="content bodyLarge fontSecondary" ng-model="model.data.viewVersion.text" {{ block('editableViewAttributes') }}>
+                        {% autoescape false %}
+                            {{ view.viewVersion.text }}
+                        {% endautoescape %}
+                    </div>
+
+                </div>
+
+                <div id="homeJoinForm">
+                    <p class="fontSecondary align-center"><strong>I will support candidates of integrity for 2018.</strong></p>
+                    <ul class="listInline divCenter fontSecondary" ng-cloak>
+                        <li>
+                            <md-input-container>
+                                <label>Email</label>
+                                <input name="email" class="fakeFormBox" required>
+                            </md-input-container>
+                        </li>
+                        <li>
+                            <md-input-container>
+                                <label>Zip</label>
+                                <input name="zip" class="fakeFormBox" required>
+                            </md-input-container>
+                        </li>
+                        <li>
+                            <md-button class="btn fakeFormSubmit">Count Me In</md-button>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 
