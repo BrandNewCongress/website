@@ -5,7 +5,6 @@
 
 {% block link %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('bundles/sitetheorystratus/stratus/bower_components/angular-material/angular-material.min.css') }}">
     <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/site.css') }}">
 {% endblock link %}
 
@@ -30,7 +29,7 @@
     {% set sectionMenuActive = 'empty' %}
 {% endif %}
 {% if sectionMenuHardCoded is not defined %}
-    {% set sectionMenuHardCoded = 'empty' %}
+    {% set sectionMenuHardCoded = '' %}
 {% endif %}
 
 {# Sidebar fonts #}
@@ -46,7 +45,7 @@
 
 {# Temporary hard coded menu #}
 {% block sectionName %}
-    <h2 class="sectionName fontPrimary">{{ sectionNameHardCoded|default('Section Name') }}</h2>
+    <h2 class="sectionName fontPrimary">{{ sectionNameHardCoded|default('') }}</h2>
     <div class="borderDashed"></div>
 {% endblock sectionName %}
 
@@ -89,6 +88,7 @@
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
+            {# TODO: why is this linking to gutensite.com form? #}
             <a href="https://docs.google.com/a/gutensite.com/forms/d/e/1FAIpQLSfjqqPRs0d8XNL-nvvsvqnAmCsFCqOLuMv-NncAb--oiHnzqg/viewform?c=0&w=1" target="_blank" class="navLevel2 {% if sectionMenuActive == 'volunteerFormActive' %}active{% endif %}">
                 Tell Us About Yourself
             </a>
