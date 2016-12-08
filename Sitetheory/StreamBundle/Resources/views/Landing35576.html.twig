@@ -2,12 +2,44 @@
 
 
 {#
-{% set stratusTarget = 'Stream' %}
+########
+SETTINGS
+########
+#}
+
+{# TEMPLATE SHELL ADJUSTMENTS - These will be the same for most home page streams #}
+
+{% set sectionMenuActive = 'empty' %}
+{% set sectionMenuHardCoded = 'empty' %}
+
+{# Header image exists #}
+{% set streamClass = 'landingStream' %}
+
+{# Hide sidebar on desktop #}
+{% set bootstrapColumnSidebar = 'hide-gt-xs' %}
+{% set bootstrapColumnMain = 'flex=100' %}
+
+{# Hide gutter in main column #}
+{% block mainColumnGutter %}
+{% endblock mainColumnGutter %}
+
+{# Remove standard header image #}
+{% block headerImageInsideHeader %}
+{% endblock headerImageInsideHeader %}
+
+{# Hide page title #}
+{% block pageTitle %}
+{% endblock pageTitle %}
+
+{# Remove shell vertical content padding class to replace with stream padding #}
+{% set shellContentStructure = 'siteMaxWidth siteSidePadding' %}
+
+
 
 {#
-    {% extends view.templates.shell %}
-    This is the base list page for streams, which can be extended for different layouts.
-    It takes it's inspiration from the SitetheoryCoreBundle:View/ViewList.html.twig
+################
+CSS & JAVASCRIPT
+################
 #}
 
 {% block link %}
@@ -20,52 +52,31 @@
     <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/landing.css') }}">
 {% endblock link %}
 
-{% block script %}
-    {{ parent() }}
+
+
+
+
+
+
+{#
+######
+LAYOUT
+######
+#}
+
+{% block body %}
+    {# Code for Facebook Page Plugin: #FB-feedComponent #}
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=162487723815676";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-{% endblock script %}
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=162487723815676";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
 
-
-{# TEMPLATE SHELL ADJUSTMENTS - These will be the same for most home page streams #}
-
-
-{% set sectionMenuActive = 'empty' %}
-{% set sectionMenuHardCoded = 'empty' %}
-
-{# Header image exists #}
-{% set streamClass = 'landingStream' %}
-
-
-{# Hide sidebar on desktop #}
-
-
-{% set bootstrapColumnSidebar = 'hide-gt-xs' %}
-{% set bootstrapColumnMain = 'flex=100' %}
-
-
-{# Hide gutter in main column #}
-{% block mainColumnGutter %}
-{% endblock mainColumnGutter %}
-
-{# Remove standard header image #}
-{% block headerImageInsideHeader %}
-{% endblock headerImageInsideHeader %}
-
-
-{# Hide page title #}
-{% block pageTitle %}
-{% endblock pageTitle %}
-
-{# Remove shell vertical content padding class to replace with stream padding #}
-{% set shellContentStructure = 'siteMaxWidth siteSidePadding' %}
-
+    {{ parent() }}
+{% endblock body %}
 
 
 {# NOTE: this page is a stream, but we are currently hard coding everything, so we shouldn't use the majority of the contentType block in the ListBase.html.twig. So instead we are currently just overwriting the entire ContentType block #}
@@ -100,23 +111,7 @@
 
                 <div id="homeJoinForm" class="joinForm">
                     <p class="fontSecondary align-center"><strong>I will support candidates of integrity for 2018.</strong></p>
-                    <ul class="listInline divCenter fontSecondary" ng-cloak>
-                        <li>
-                            <md-input-container>
-                                <label>Email</label>
-                                <input name="email" required>
-                            </md-input-container>
-                        </li>
-                        <li>
-                            <md-input-container>
-                                <label>Zip</label>
-                                <input name="zip" required>
-                            </md-input-container>
-                        </li>
-                        <li>
-                            <md-button class="btn fakeFormSubmit">Count Me In</md-button>
-                        </li>
-                    </ul>
+                    {{ block('registrationForm') }}
                 </div>
             </div>
         </div>
