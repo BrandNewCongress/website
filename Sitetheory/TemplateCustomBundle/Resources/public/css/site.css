@@ -11,6 +11,32 @@
 
 
 
+/* move to core */
+
+#header,
+.headerImage,
+#shellContent {
+    transition: all .2s ease-out;
+    transform: scale(.95);
+    transform-origin: center top;
+    opacity: 0;
+    overflow: hidden;
+}
+.loaded #header,
+.loaded .headerImage,
+.loaded #shellContent {
+    transform: scale(1);
+    opacity: 1;
+}
+.loaded .headerImage {
+    transition-delay: .15s;
+}
+#shellContent {
+    transition-delay: .2s;
+}
+
+
+
 
 /* BODY */
 
@@ -267,6 +293,7 @@ hr {
 
 /* HEADER */
 
+
 #header1 {
     padding: 60px 0 34px;
     border-bottom: 3px solid #222;
@@ -285,7 +312,7 @@ hr {
 .btn.btnContribute:hover {
     background: #598089;
 }
-#linkCandidates {
+#starLinkRight {
     display: block;
     margin-top: 42px;
     padding-right: 15px;
@@ -297,7 +324,7 @@ hr {
     background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starBlue.png') no-repeat right center;
     background-size: 9px;
 }
-#linkCandidates:hover {
+#starLinkRight:hover {
     color: #000;
 }
 #header2 {
@@ -497,7 +524,7 @@ hr {
 }
 h2.sectionName {
     margin: 0 0 28px;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 400;
 }
 
@@ -575,6 +602,7 @@ h2.sectionName {
 
 
 /* SHELL BODY */
+
 
 .mainColumnGutter {
     padding-left: 9%;
@@ -744,6 +772,7 @@ h1#pageTitle {
     color: #999;
 }
 #siteMapNew .siteMapHeader a {
+    margin-left: -18px;
     padding: 0 0 0 18px;
     font-weight: bold;
     color: #999;

@@ -2,12 +2,12 @@
 
 
 {# Load Site CSS #}
-
 {% block link %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('bundles/sitetheorystratus/stratus/bower_components/angular-material/angular-material.min.css') }}">
     <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/site.css') }}">
 {% endblock link %}
+
 
 {# Set Footer Brightness #}
 {% set footerBrightness = 'dark' %}
@@ -16,7 +16,7 @@
 {% set siteMapBrightness = 'dark' %}
 
 
-{# Hide Sidebar Login until it's dynamic and necessary #}
+{# Hide Sidebar Login until it's dynamically hidden for users with no membership feature #}
 {% block sidebarLogin %}
 {% endblock sidebarLogin %}
 
@@ -44,163 +44,7 @@
 
 
 
-{# Temporary hard coded menu #}
-{% block sectionName %}
-    <h2 class="sectionName fontPrimary">{{ sectionNameHardCoded|default('') }}</h2>
-    <div class="borderDashed"></div>
-{% endblock sectionName %}
-
-
-{% block menuSection1 %}
-
-    <!-- Level 2 Links -->
-    <ul id="listLevel2" class="list-unstyled {{ navLevel2Font|default('fontSecondary') }}">
-        <li class="siteNavLink" data-level="2">
-            <a href="/Nominate" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">
-                Nominate
-            </a>
-        </li>
-        <li class="siteNavLink" data-level="2">
-            <a href="Nomination-Guide" class="navLevel2 {% if sectionMenuActive == 'nominationGuideActive' %}active{% endif %}">
-                Nomination Guide
-            </a>
-        </li>
-        <li class="siteNavLink" data-level="2">
-            <a href="/Call" class="navLevel2 {% if sectionMenuActive == 'callActive' %}active{% endif %}">
-                Join a Call
-            </a>
-        </li>
-    </ul>
-{% endblock menuSection1 %}
-
-
-{% block menuSection2 %}
-
-    <!-- Level 2 Links -->
-    <ul id="listLevel2" class="list-unstyled {{ navLevel2Font|default('fontSecondary') }}">
-        <li class="siteNavLink" data-level="2">
-            <a href="/Volunteer" class="navLevel2 {% if sectionMenuActive == 'volunteerActive' %}active{% endif %}">
-                Volunteer
-            </a>
-        </li>
-        <li class="siteNavLink" data-level="2">
-            <a href="/Contribute" class="navLevel2 {% if sectionMenuActive == 'contributeActive' %}active{% endif %}">
-                Contribute
-            </a>
-        </li>
-        <li class="siteNavLink" data-level="2">
-            {# TODO: why is this linking to gutensite.com form? #}
-            <a href="https://docs.google.com/a/gutensite.com/forms/d/e/1FAIpQLSfjqqPRs0d8XNL-nvvsvqnAmCsFCqOLuMv-NncAb--oiHnzqg/viewform?c=0&w=1" target="_blank" class="navLevel2 {% if sectionMenuActive == 'volunteerFormActive' %}active{% endif %}">
-                Tell Us About Yourself
-            </a>
-        </li>
-    </ul>
-{% endblock menuSection2 %}
-
-
-{% block menuSection3 %}
-
-    <!-- Level 2 Links -->
-    <ul id="listLevel2" class="list-unstyled {{ navLevel2Font|default('fontSecondary') }}">
-        <li class="siteNavLink" data-level="2">
-            <a href="/The-Plan" class="navLevel2 {% if sectionMenuActive == 'planActive' %}active{% endif %}">
-                Our Plan
-            </a>
-        </li>
-        <li class="siteNavLink" data-level="2">
-            <a href="About-Us" class="navLevel2 {% if sectionMenuActive == 'aboutActive' %}active{% endif %}">
-                About Us
-            </a>
-        </li>
-        <li class="siteNavLink" data-level="2">
-            <a href="FAQ" class="navLevel2 {% if sectionMenuActive == 'faqActive' %}active{% endif %}">
-                FAQ
-            </a>
-        </li>
-    </ul>
-{% endblock menuSection3 %}
-
-
-{% block menuSection4 %}
-
-    <!-- Level 2 Links -->
-    <ul id="listLevel2" class="list-unstyled {{ navLevel2Font|default('fontSecondary') }}">
-        <li class="siteNavLink" data-level="2">
-            <a href="mailto:us@brandnewcongress.com" class="navLevel2">
-                Contact Us
-            </a>
-        </li>
-    </ul>
-{% endblock menuSection4 %}
-
-
-
-{% block navSection %}
-
-    <!-- Level 1 Links -->
-
-    <div hide-gt-sm>
-        <ul id="listLevel1" class="list-unstyled">
-            <li data-level="1">
-                <div class="siteNavLink "  data-level="1">
-                    <a href="" class="navLevel1 fontPrimary">
-                        Join
-                    </a>
-                </div>
-            </li>
-            <li data-level="1">
-                <div class="siteNavLink"  data-level="1">
-                    <a href="" class="navLevel1 fontPrimary">
-                        Candidates
-                    </a>
-                </div>
-                {{ block('menuSection1') }}
-            </li>
-            <li data-level="1">
-                <div class="siteNavLink"  data-level="1">
-                    <a href="" class="navLevel1 fontPrimary">
-                        Work With Us
-                    </a>
-                </div>
-                {{ block('menuSection2') }}
-            </li>
-            <li data-level="1">
-                <div class="siteNavLink {{ navLevel1Font|default('fontPrimary') }}"  data-level="1">
-                    <a href="" class="navLevel1 fontPrimary">
-                        Learn
-                    </a>
-                </div>
-                {{ block('menuSection3') }}
-            </li>
-            <li data-level="1">
-                <div class="siteNavLink"  data-level="1">
-                    <a href="" class="navLevel1 fontPrimary">
-                        Contact
-                    </a>
-                </div>
-                {{ block('menuSection4') }}
-            </li>
-        </ul>
-    </div>
-    <div hide-xs hide-sm>
-
-        {% if sectionMenuHardCoded == '1' %}
-            {{ block('menuSection1') }}
-        {% elseif sectionMenuHardCoded == '2' %}
-            {{ block('menuSection2') }}
-        {% elseif sectionMenuHardCoded == '3' %}
-            {{ block('menuSection3') }}
-        {% elseif sectionMenuHardCoded == '4' %}
-            {{ block('menuSection4') }}
-        {% endif %}
-
-    </div>
-
-{% endblock navSection %}
-
-{# End temporary hard coded menu #}
-
-
+{# HEADER #}
 
 {% block header1 %}
     <div id="header1">
@@ -220,7 +64,7 @@
             <div flex-gt-sm="30" hide-xs hide-sm>
                 <div id="headerExtraLinks" class="pullRight">
                     <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank" class="btn btnContribute">Contribute</a>
-                    <a id="linkCandidates" class="fontTertiary align-right" href="/Volunteer">Volunteer</a>
+                    <a id="starLinkRight" class="fontTertiary align-right" href="/Volunteer">Help Us</a>
                 </div>
             </div>
         </div>
@@ -231,7 +75,7 @@
     <div id="header2" class="positionAnchor">
 
         <div id="headerContact" class="fontSecondary verticalCenter centerLeft clearfix">
-            <a href="/">
+            <a href="mailto:us@brandnewcongress.org">
                 <div class="headerOrnament positionAnchor pullLeft">
                     <div class="square square1 easyTransition">
                     </div>
@@ -310,9 +154,174 @@
         </div>
         <div>
             {{ block('mainNavigation') }}
-         </div>
+        </div>
     </div>
 {% endblock retractingHeaderContent %}
+
+
+
+
+{# SIDEBAR #}
+
+{# TODO: Make Dynamic #}
+
+{# Temporary hard coded menu #}
+{% block sectionName %}
+    <h2 class="sectionName fontPrimary">{{ sectionNameHardCoded|default('') }}</h2>
+    <div class="borderDashed"></div>
+{% endblock sectionName %}
+
+
+{% block menuSection1 %}
+
+    <!-- Level 2 Links -->
+    <ul id="listLevel2" class="list-unstyled {{ navLevel2Font|default('fontSecondary') }}">
+        <li class="siteNavLink" data-level="2">
+            <a href="/Candidates" class="navLevel2 {% if sectionMenuActive == 'candidatesActive' %}active{% endif %}">
+                Potential Candidates
+            </a>
+        </li>
+        <li class="siteNavLink" data-level="2">
+            <a href="/Nominate" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">
+                Nominate a Candidate
+            </a>
+        </li>
+    </ul>
+{% endblock menuSection1 %}
+
+
+{% block menuSection2 %}
+
+    <!-- Level 2 Links -->
+    <ul id="listLevel2" class="list-unstyled {{ navLevel2Font|default('fontSecondary') }}">
+        <li class="siteNavLink" data-level="2">
+            <a href="/Volunteer" class="navLevel2 {% if sectionMenuActive == 'volunteerActive' %}active{% endif %}">
+                Overview
+            </a>
+        </li>
+        <li class="siteNavLink" data-level="2">
+            <a href="/Nominate" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">
+                Nominate
+            </a>
+        </li>
+        <li class="siteNavLink" data-level="2">
+            <a href="https://goo.gl/forms/CGeULYdVgKTnW72D2" target="_blank" class="navLevel2 {% if sectionMenuActive == 'specialSkillsActive' %}active{% endif %}">
+                Special Skills
+            </a>
+        </li>
+        <li class="siteNavLink" data-level="2">
+            <a href="https://docs.google.com/document/d/1Op0OaZNuykCJckSCn4vABDEr4VEdTrMeTsPCZFNSJo4/edit" target="_blank" class="navLevel2 {% if sectionMenuActive == 'organizeLocallyActive' %}active{% endif %}">
+                Organize Locally
+            </a>
+        </li>
+        <li class="siteNavLink" data-level="2">
+            <a href="/Call" class="navLevel2 {% if sectionMenuActive == 'callActive' %}active{% endif %}">
+                Join a Call
+            </a>
+        </li>
+        <li class="siteNavLink" data-level="2">
+            <a href="https://secure.actblue.com/contribute/page/bncdec" target="_blank" class="navLevel2 {% if sectionMenuActive == 'contributeActive' %}active{% endif %}">
+                Donate
+            </a>
+        </li>
+    </ul>
+{% endblock menuSection2 %}
+
+
+{% block menuSection3 %}
+
+    <!-- Level 2 Links -->
+    <ul id="listLevel2" class="list-unstyled {{ navLevel2Font|default('fontSecondary') }}">
+        <li class="siteNavLink" data-level="2">
+            <a href="/The-Plan" class="navLevel2 {% if sectionMenuActive == 'planActive' %}active{% endif %}">
+                Our Plan
+            </a>
+        </li>
+        <li class="siteNavLink" data-level="2">
+            <a href="About-Us" class="navLevel2 {% if sectionMenuActive == 'aboutActive' %}active{% endif %}">
+                About Us
+            </a>
+        </li>
+        <li class="siteNavLink" data-level="2">
+            <a href="FAQ" class="navLevel2 {% if sectionMenuActive == 'faqActive' %}active{% endif %}">
+                FAQ
+            </a>
+        </li>
+    </ul>
+{% endblock menuSection3 %}
+
+
+
+{% block navSection %}
+
+    <div hide-xs hide-sm>
+
+        {% if sectionMenuHardCoded == '1' %}
+            {{ block('menuSection1') }}
+        {% elseif sectionMenuHardCoded == '2' %}
+            {{ block('menuSection2') }}
+        {% elseif sectionMenuHardCoded == '3' %}
+            {{ block('menuSection3') }}
+        {% elseif sectionMenuHardCoded == '4' %}
+            {{ block('menuSection4') }}
+        {% endif %}
+
+    </div>
+
+    <!-- Full nested menu displays only for mobile -->
+
+    <div hide-gt-sm>
+        <ul id="listLevel1" class="list-unstyled">
+            <li data-level="1">
+                <div class="siteNavLink "  data-level="1">
+                    <a href="" class="navLevel1 fontPrimary">
+                        Join
+                    </a>
+                </div>
+            </li>
+            <li data-level="1">
+                <div class="siteNavLink"  data-level="1">
+                    <a href="" class="navLevel1 fontPrimary">
+                        Candidates
+                    </a>
+                </div>
+                {{ block('menuSection1') }}
+            </li>
+            <li data-level="1">
+                <div class="siteNavLink"  data-level="1">
+                    <a href="" class="navLevel1 fontPrimary">
+                        Work With Us
+                    </a>
+                </div>
+                {{ block('menuSection2') }}
+            </li>
+            <li data-level="1">
+                <div class="siteNavLink {{ navLevel1Font|default('fontPrimary') }}"  data-level="1">
+                    <a href="" class="navLevel1 fontPrimary">
+                        Learn
+                    </a>
+                </div>
+                {{ block('menuSection3') }}
+            </li>
+            <li data-level="1">
+                <div class="siteNavLink"  data-level="1">
+                    <a href="" class="navLevel1 fontPrimary">
+                        Contact
+                    </a>
+                </div>
+                {{ block('menuSection4') }}
+            </li>
+        </ul>
+    </div>
+
+
+{% endblock navSection %}
+
+{# End temporary hard coded menu #}
+
+
+{# FOOTER SITE MAP #}
+{# TODO: Replace with dynamic version #}
 
 {# Temporary hard coded footer site map #}
 {% block footerSiteMap %}
@@ -363,14 +372,10 @@
                             <a class="fontTertiary" href="/Candidates">Candidates</a>
                         </li>
                         <li>
+                            <a href="/Candidates">Potential Candidates</a>
+                        </li>
+                        <li>
                             <a href="/Nominate">Nominate a Candidate</a>
-                        </li>
-
-                        <li>
-                            <a href="/Nomination-Guide">Nomination Guide</a>
-                        </li>
-                        <li>
-                            <a href="/Call">Join a Call</a>
                         </li>
                     </ul>
                     </div>
@@ -379,16 +384,25 @@
                     <div class="siteMapColumn">
                     <ul class="list-unstyled">
                         <li class="siteMapHeader">
-                            <a class="fontTertiary" href="/Volunteer">Work With Us</a>
+                            <a class="fontTertiary" href="/Volunteer">Help Us</a>
                         </li>
                         <li>
-                            <a href="/Volunteer">Volunteer</a>
+                            <a href="/Volunteer">Overview</a>
                         </li>
                         <li>
-                            <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank">Contribute</a>
+                            <a href="/Nominate">Nominate a Candidate</a>
                         </li>
                         <li>
-                            <a href="https://docs.google.com/a/gutensite.com/forms/d/e/1FAIpQLSfjqqPRs0d8XNL-nvvsvqnAmCsFCqOLuMv-NncAb--oiHnzqg/viewform?c=0&w=1" target="_blank">Tell Us About Yourself</a>
+                            <a  href="https://goo.gl/forms/CGeULYdVgKTnW72D2" target="_blank">Special Skills</a>
+                        </li>
+                        <li>
+                            <a href="https://docs.google.com/document/d/1Op0OaZNuykCJckSCn4vABDEr4VEdTrMeTsPCZFNSJo4/edit" target="_blank">Organize Locally</a>
+                        </li>
+                        <li>
+                            <a href="/Call">Join a Call</a>
+                        </li>
+                        <li>
+                            <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank">Donate</a>
                         </li>
                     </ul>
                     </div>
@@ -423,9 +437,6 @@
                             <li>
                                 <a href="https://docs.google.com/a/gutensite.com/forms/d/e/1FAIpQLSceYguZI_gngXf7dLOXN6xUkLRNsYfn0b2v-aDEvZKPH-j1dQ/viewform" target="_blank">Suggest a Local Connector</a>
                             </li>
-                            <li>
-                                <a href="https://docs.google.com/document/d/1Op0OaZNuykCJckSCn4vABDEr4VEdTrMeTsPCZFNSJo4/edit" target="_blank">Local Organizing Kit</a>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -456,6 +467,9 @@
 {# End temporary hard coded footer site map #}
 
 
+{# FOOTER #}
+
+
 {% block viewFooter %}
     <div id="footerBackground">
         <div id="footer" class="siteMaxWidth siteSidePadding dark">
@@ -466,7 +480,7 @@
             <div id="footerCredit" class="align-center">
                 <p class="smallLabel">©2016 Brand New Congress. All rights reserved.<br>Paid for by Brand New Congress, brandnewcongress.org, not authorized by any candidate or candidate's committee.</p>
                 <a class="smallLabel" href="http://www.sitetheory.io" target="_blank">
-                    Non-profit website by Sitetheory
+                    Wesbite powered by Sitetheory
                 </a>
             </div>
         </div>
