@@ -26,6 +26,7 @@
     {% set bootstrapColumnMain = 'flex=100 flex-gt-sm=80' %}
 {% endif %}
 
+
 {% if sectionMenuActive is not defined %}
     {% set sectionMenuActive = 'empty' %}
 {% endif %}
@@ -45,11 +46,12 @@
 
 
 {# Temporary hard coded menu #}
-{% block sectionName %}
-    <h2 class="sectionName fontPrimary">{{ sectionNameHardCoded|default('Section Name') }}</h2>
-    <div class="borderDashed"></div>
-{% endblock sectionName %}
-
+{% if sectionNameHardCoded is defined %}
+    {% block sectionName %}
+        <h2 class="sectionName fontPrimary">{{ sectionNameHardCoded }}</h2>
+        <div class="borderDashed"></div>
+    {% endblock sectionName %}
+{% endif %}
 
 {% block menuSection1 %}
 
