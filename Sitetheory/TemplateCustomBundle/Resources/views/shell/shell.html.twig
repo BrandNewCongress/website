@@ -214,8 +214,10 @@ LAYOUT
             </div>
             <div flex-gt-sm="30" hide-xs hide-sm>
                 <div id="headerExtraLinks" class="pullRight">
-                    <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank" class="btn btnContribute">Contribute</a>
-                    <a id="starLinkRight" class="fontTertiary align-right" href="/Volunteer">Help Us</a>
+                    <div class="clearfix">
+                        <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank" class="btn btnContribute pullRight">Contribute</a>
+                    </div>
+                    <a id="starLinkRight" class="fontTertiary align-right" href="/Nominate">Nominate a Candidate</a>
                 </div>
             </div>
         </div>
@@ -241,21 +243,21 @@ LAYOUT
         {% block mainNavigation %}
             <div id="navMainContainer" class="navMainContainer divCenter">
                 <ul class="listInline fontPrimary">
-                    <li class="navMainLink">
+                    <li id="navJoin" class="navMainLink">
                         <a href="#footerJoin">
                             Join
                         </a>
                     </li>
                     <li class="delimiter"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}" alt="">
                     </li>
-                    <li class="navMainLink">
+                    <li id="navHelp" class="navMainLink">
                         <a href="/Nominate">
-                            Nominate
+                            Help
                         </a>
                     </li>
                     <li class="delimiter"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}" alt="">
                     </li>
-                    <li class="navMainLink">
+                    <li id="navLearn" class="navMainLink">
                         <a href="/The-Plan">
                             Learn
                         </a>

@@ -317,7 +317,7 @@ hr {
     margin-top: 42px;
     padding-right: 15px;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: .11em;
     font-size: 11px;
     font-weight: bold;
     color: #598089;
@@ -384,7 +384,7 @@ hr {
 }
 #navMainContainer .delimiter img {
     margin-top: 13px;
-    width: 12px;
+    width: 13px;
 }
 .navMainLink a {
     padding: 0;
