@@ -197,26 +197,18 @@ LAYOUT
 
 
 {% block header1 %}
-    <div id="header1">
-        <div layout="row">
-            <div flex-gt-sm="30" hide-xs hide-sm>
-                <div id="planGraphic">
-                    <img src="{{ asset('bundles/sitetheorytemplatecustom/images/planGraphic.png') }}" alt="">
-                </div>
+    <div id="header1" class="positionAnchor">
+        <div id="planGraphic" class="positionLeftCenter">
+            <img src="{{ asset('bundles/sitetheorytemplatecustom/images/planGraphic.png') }}" alt="">
+        </div>
+        <div id="logoHeader" class="align-center">
+            <a href="/"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogo.png') }}" alt=""></a>
+        </div>
+        <div id="headerExtraLinks" class="positionRightBottom">
+            <div class="clearfix">
+                <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank" class="btn btnContribute pullRight">Contribute</a>
             </div>
-            <div flex="100" flex-gt-sm="40">
-                <div class="clearfix">
-                    <div id="logoHeader" class="align-center">
-                        <a href="/"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogo.png') }}" alt=""></a>
-                    </div>
-                </div>
-            </div>
-            <div flex-gt-sm="30" hide-xs hide-sm>
-                <div id="headerExtraLinks" class="pullRight">
-                    <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank" class="btn btnContribute">Contribute</a>
-                    <a id="starLinkRight" class="fontTertiary align-right" href="/Volunteer">Help Us</a>
-                </div>
-            </div>
+            <a id="starLinkRight" class="fontTertiary align-right" href="/Nominate">Nominate a Candidate</a>
         </div>
     </div>
 {% endblock header1 %}
@@ -240,21 +232,21 @@ LAYOUT
         {% block mainNavigation %}
             <div id="navMainContainer" class="navMainContainer divCenter">
                 <ul class="listInline fontPrimary">
-                    <li class="navMainLink">
+                    <li id="navJoin" class="navMainLink">
                         <a href="#footerJoin">
                             Join
                         </a>
                     </li>
                     <li class="delimiter"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}" alt="">
                     </li>
-                    <li class="navMainLink">
+                    <li id="navHelp" class="navMainLink">
                         <a href="/Nominate">
-                            Nominate
+                            Help
                         </a>
                     </li>
                     <li class="delimiter"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}" alt="">
                     </li>
-                    <li class="navMainLink">
+                    <li id="navLearn" class="navMainLink">
                         <a href="/The-Plan">
                             Learn
                         </a>
@@ -479,7 +471,7 @@ LAYOUT
 
         {% block footerJoin %}
             <a name="footerJoin"></a>
-            <div id="footerJoinForm" class="purple" ng-cloak>
+            <div id="footerJoinForm" class="joinForm purple" ng-cloak>
                 {% set registrationFormBefore = '<li><div class="starLeft"></div></li><li><h1>Add Your Name</h1></li>' %}
                 {% set registrationFormAfter = '<li><div class="starRight"></div></li>' %}
                 {{ block('registrationForm') }}
