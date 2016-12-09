@@ -76,7 +76,6 @@ CSS AND JAVASCRIPT
                         error: 'Sorry ;( looks like there was an error saving your info. Please email us directly so we can help.'
                     },
                     redirect: {
-                        popup: true,
                         url: false,
                         config: null // 'width=400,height=500,toolbar=no,menubar=no,scrollbars=yes,resizable=yes'
                     }
@@ -86,6 +85,7 @@ CSS AND JAVASCRIPT
                 if($attrs.options) _.extend($scope.options, JSON.parse($attrs.options));
 
                 $scope.response = '';
+                $scope.status = 'default';
 
                 $scope.data = {
                     email: '',
@@ -94,32 +94,30 @@ CSS AND JAVASCRIPT
 
 
                 $scope.submit = function(form) {
-                    $scope.response = $scope.options.response.success;
                     var prototype = {
                         method: 'POST',
                         url: $scope.options.url,
                         data: JSON.stringify($scope.data)
                     };
-                    var request = $http(prototype).then(
+                    $scope.status = 'sending';
+                    $http(prototype).then(
                         // Success
                         function successCallback(response) {
                             if (response && (response.status === 200)) {
                                 if($scope.options.redirect.url) {
-                                    if ($scope.options.redirect.popup) {
-                                        var win = $window.open($scope.options.redirect.url, '_blank', $scope.options.redirect.config);
-                                        if(win) win.focus();
-                                    } else {
-                                        $window.location($scope.options.redirect.url);
-                                    }
+                                    $window.location($scope.options.redirect.url);
                                 }
                                 $scope.response = $scope.options.response.success;
+                                $scope.status = 'success';
                             } else {
                                 $scope.response = $scope.options.response.error;
+                                $scope.status = 'error';
                             }
                         },
                         // Error
                         function errorCallback(response) {
                             $scope.response = $scope.options.response.error;
+                            $scope.status = 'error';
                         }
                     );
                 }
@@ -139,8 +137,9 @@ SIGNUP FORM
 
 {% block registrationForm %}
 
-<form name="Signup" ng-submit="submit(form)" ng-controller="SignupController" options='{"redirect":{"url":"https://secure.actblue.com/contribute/page/bncdec", "popup":true}}' ng-cloak>
+<form name="Signup" ng-submit="submit(form)" ng-controller="SignupController" options='{"redirect":{"url":"https://secure.actblue.com/contribute/page/bncdec", "popup":false}}' ng-class="status" ng-cloak>
 
+    <md-progress-linear md-mode="indeterminate" ng-show="status === 'sending'"></md-progress-linear>
     {#<p class="message" ng-show="response.length" ng-bind-html="response"></p>#}
     <p class="message" ng-show="messages.response.length">{% verbatim %}{{ messages.response }}{% endverbatim %}</p>
     <ul class="listInline divCenter fontSecondary">
@@ -172,7 +171,7 @@ SIGNUP FORM
         </li>
         {% endverbatim %}
         <li>
-            <button type="submit" class="btn fakeFormSubmit">{{ textSubmit|default('Count Me In') }}</button>
+            <button type="submit" class="btn fakeFormSubmit" ng-disabled="Signup.$invalid">{{ textSubmit|default('Count Me In') }}</button>
         </li>
 
         {{ registrationFormAfter|default('')|raw }}
