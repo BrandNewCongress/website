@@ -379,12 +379,12 @@ hr {
     padding: 0;
 }
 #navMainContainer .delimiter {
-    width: 36px;
+    width: 40px;
     text-align: center;
 }
 #navMainContainer .delimiter img {
     margin-top: 13px;
-    width: 13px;
+    width: 17px;
 }
 .navMainLink a {
     padding: 0;
@@ -395,6 +395,9 @@ hr {
 }
 .navMainLink a:hover {
     color: #7932AC;
+}
+#navHelp {
+    margin-right: -4px;
 }
 #headerSocial {
     right: 20px;
@@ -462,7 +465,7 @@ hr {
 /* RETRACTING HEADER */
 
 #headerRetracting {
-    padding: 10px 0;
+    padding: 14px 0;
     box-shadow: 0 1px 6px rgba(33,33,33,.1);
     border-bottom: 1px solid #DDD;
 }
@@ -471,19 +474,18 @@ hr {
     max-width: 220px;
 }
 #headerRetracting #navMainContainer {
-    margin-top: 14px;
+    margin-top: 2px;
 }
 #headerRetracting .navMainLink a {
     font-size: 22px;
 }
 #headerRetracting #navMainContainer .delimiter {
-    margin-top: 6px;
     width: 28px;
     text-align: center;
 }
 #headerRetracting #navMainContainer .delimiter img {
-    margin-top: 0;
-    width: 10px;
+    margin-top: 5px;
+    width: 11px;
 }
 #headerRetracting #retractingContribute {
     right: 40px;
@@ -860,4 +862,27 @@ h1#pageTitle {
 }
 #Nominate #districtInfo a:hover {
     background: #111;
+}
+
+#FAQ .FAQlist li {
+    padding: 12px 0;
+    line-height: 1.2;
+    border-bottom: 1px solid #DDD;
+}
+#FAQ .FAQlist h4 {
+    margin: 38px 0 22px;
+}
+#FAQ .FAQlist li:first-child h4 {
+    margin-top: 0;
+}
+#FAQ #FAQbody h2 {
+    margin: 80px 0 50px;
+}
+#FAQ #FAQbody h2:first-child {
+    margin-top: 0;
+}
+#FAQ #FAQbody hr {
+    margin: 40px 0;
+    padding: 0;
+    height: 6px;
 }
