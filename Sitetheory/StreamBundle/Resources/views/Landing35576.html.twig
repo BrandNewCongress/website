@@ -76,16 +76,26 @@ LAYOUT
 
 {% block contentType %}
 
+    {# Home Landing Layout #}
     <div class="clearfix">
-        {# Home Landing Layout #}
 
+        <a href="#homeCandidates">
+            <div id="announcementBanner">
+                <div layout="row" layout-align="center center">
+                    <div flex="none" id="newsLabel" class="salmon fontPrimary">News</div>
+                    <div flex="none" hide-xs hide-sm class="date fontPrimary">Dec 12</div>
+                    <p flex="grow" id="announcement" class="fontBody align-center">We’re announcing our first 5 candidates! They need your support.<span hide-xs class="learnMore smallLabel salmonText">Learn More</span></p>
+                    <div flex="none" hide-xs class="doubleArrow fontTertiary"> >> </div>
+                </div>
+            </div>
+        </a>
         <div id="homeSlides">
             <div id="slidesContent" class="align-center">
                 <div id="slideText1" class="fontPrimary starLeft">
                     <div class="starRight">Our Goal</div>
                 </div>
                 <p class="bodyLarge">Elect a Brand New Congress that works for all Americans.</p>
-                <div id="h4Container" layout="row">
+                <div flex="nogrow" id="h4Container" layout="row">
                     <div flex class="borderDashedLight">&nbsp;</div>
                     <div flex-xs="100" flex-sm="60" flex-gt-md="none">
                         <h4 class="yellowText">Join us if you believe it’s time to reset our democracy</h4>
@@ -195,6 +205,7 @@ LAYOUT
 
         <div class="sectionBorder backgroundDark"></div>
 
+        <a name="homeCandidates"></a>
         <div id="homeCandidates" class="shellVerticalPadding align-center">
             <h4>Potential</h4>
             <h1>Candidates</h1>

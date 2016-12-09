@@ -21,10 +21,56 @@
 }
 
 
+/* ANNOUNCEMENT BANNER */
+
+#announcementBanner {
+    margin: 40px 0 28px;
+    padding: 8px 9px;
+    background: #393939;
+}
+#newsLabel {
+    margin-right: 8px;
+    padding: 5px 6px;
+    color: #FFF;
+    font-size: 16px;
+    letter-spacing: .05em;
+}
+#announcementBanner .date {
+    color: #979797;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+#announcementBanner p {
+    padding: 5px 12px 0;
+    font-size: 14px;
+    color: #FFF;
+    line-height: 1.2;
+}
+#announcementBanner p .smallLabel {
+    padding-left: 8px;
+}
+#announcementBanner .doubleArrow {
+    padding: 0 10px 0 24px;
+    font-size: 10px;
+    font-weight: bold;
+    color: #FFF;
+}
+@media (max-width:959px) {
+    #announcementBanner p {
+        padding: 0 8px;
+        font-size: 13px;
+    }
+}
+@media (max-width:600px) {
+    #announcementBanner p {
+        text-align: left;
+    }
+}
+
+
 /* SLIDESHOW */
 
 #homeSlides {
-    margin-top: 40px;
     background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/slideshow1.jpg') no-repeat center center;
     background-size: cover;
 }
@@ -327,12 +373,12 @@
 }
 .profileGradient {
     position: absolute;
-    top: 80%;
+    top: 72%;
     right: 0;
     bottom: 0;
     left: 0;
-    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1));
-    background: -webkit-linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1));
+    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.75));
+    background: -webkit-linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.75));
 }
 .candidateImage img {
     width: 100%;
