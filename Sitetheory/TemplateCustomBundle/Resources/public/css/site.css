@@ -447,6 +447,7 @@ hr {
     #mainNavigationHeader {
         display: block;
     }
+    /* end temporary */
     .sidebarToggle  {
         top: 50px;
         right: inherit;
@@ -466,6 +467,7 @@ hr {
         bottom: inherit;
     }
     .btn.btnContribute {
+        margin-top: 0;
         padding: 5px 8px;
         font-size: 11px;
     }
@@ -500,7 +502,7 @@ hr {
 }
 @media (max-width:600px) {
     .btn.btnContribute {
-        transform: translateY(-30px);
+        transform: translateY(-10px);
         padding: 3px 4px;
         font-size: 9px;
     }
