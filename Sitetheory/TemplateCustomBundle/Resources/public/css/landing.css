@@ -24,18 +24,64 @@
 /* SLIDESHOW */
 
 #homeSlides {
-    transition: all .2s ease-out .15s;
-    transform: scale(.95);
-    opacity: 0;
     margin-top: 40px;
+    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/slideshow1.jpg') no-repeat center center;
+    background-size: cover;
 }
-.loaded #homeSlides{
-    transform: scale(1);
-    opacity: 1;
+.loaded #homeSlides {
+    animation: itemsFadeIn .5s ease-out forwards;
+    -webkit-animation: itemsFadeIn .5s ease-out  forwards;
+    opacity: 0;
+}
+#slidesContent {
+    margin: 0 auto;
+    padding: 120px 60px;
+    max-width: 900px;
+}
+
+#slidesContent .bodyLarge {
+    margin: 40px 0;
+    color: #FFF;
+    font-size: 40px;
+    font-weight: 100;
+}
+#slideText1 {
+    margin: 20px auto 0 auto;
+    padding-left: 30px;
+    display: table;
+    font-size: 26px;
+    color: #FFF;
+    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starWhite.png') no-repeat left 13px;
+    background-size: 9px;
+}
+#slideText1 .starRight{
+    padding-right: 30px;
+    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starWhite.png') no-repeat right 13px;
+    background-size: 9px;
+}
+#slidesContent .h4Container {
+    margin-top: 15px;
+}
+#slidesContent h4 {
+    padding: 16px 20px;
+    font-size: 12px;
+    letter-spacing: .2em;
+    line-height: 1.5;
 }
 @media (max-width:960px) {
     #homeSlides {
         margin-top: 26px;
+    }
+}
+@media (max-width:840px) {
+    #slidesContent {
+        padding: 80px 60px;
+    }
+    #slidesContent .bodyLarge {
+        font-size: 30px;
+    }
+    #slidesContent h4 {
+        font-size: 10px;
     }
 }
 
@@ -49,7 +95,6 @@
     opacity: 1;
 }
 #welcome {
-    margin-top: 50px;
     max-width: 1000px;
 }
 #homeJoin .shellVerticalPadding {
@@ -96,7 +141,7 @@
 
 #pressLogos {
     margin: 0 -.15%;
-    padding: 45px 0;
+    padding-top: 0;
 }
 #pressLogos ul {
     width: 100%;
@@ -111,12 +156,14 @@
     opacity: .8;
 }
 .pressLogo {
+    float: left;
+    vertical-align: middle;
     padding: 0 2.2% !important;
 }
 
 /* section one */
 #WaPO {
-    width: 26%;
+    width: 25%;
 }
 #WSJ {
     width: 11%;
@@ -125,10 +172,10 @@
     width: 17%;
 }
 #HuffPo {
-    width: 21%;
+    width: 23%;
 }
 #Beast {
-    width: 9%;
+    width: 11%;
 }
 #Slate {
     width: 12%;
@@ -136,16 +183,16 @@
 
 /* section two */
 #Nation {
-    width: 16%;
-}
-#Frisky {
     width: 17%;
 }
+#Frisky {
+    width: 18%;
+}
 #Salon {
-    width: 15%;
+    width: 16%;
 }
 #Bustle {
-    width: 12%;
+    width: 13%;
 }
 #Boing {
     width: 18%;

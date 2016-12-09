@@ -1,5 +1,5 @@
 /* LOAD FONTS */
-@import '//fonts.googleapis.com/css?family=Raleway:400,700|Roboto+Slab:300,400,700';
+@import '//fonts.googleapis.com/css?family=Raleway:400,700|Roboto+Slab:100,300,400,700';
 
 @font-face {
     font-family: 'u.s._101regular';
@@ -13,7 +13,7 @@
 
 /* move to core */
 
-#header,
+
 .headerImage,
 #shellContent {
     transition: all .2s ease-out;
@@ -22,21 +22,48 @@
     opacity: 0;
     overflow: hidden;
 }
-.loaded #header,
 .loaded .headerImage,
 .loaded #shellContent {
     transform: scale(1);
     opacity: 1;
-}
-.loaded .headerImage {
-    transition-delay: .15s;
 }
 #shellContent {
     transition-delay: .2s;
 }
 
 
-
+.positionLeftTop {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.positionLeftCenter {
+    transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    left: 0;
+}
+.positionLeftBottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.positionRightTop {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.positionRightCenter {
+    transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    right: 0;
+}
+.positionRightBottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
 
 /* BODY */
 
@@ -293,12 +320,16 @@ hr {
 
 /* HEADER */
 
-
+#header {
+    animation: itemsFadeIn .5s ease-out 1s forwards;
+    -webkit-animation: itemsFadeIn .5s ease-out 1s forwards;
+    opacity: 0;
+}
 #header1 {
-    padding: 60px 0 34px;
-    border-bottom: 3px solid #222;
+    margin: 60px 0 34px;
 }
 #planGraphic {
+    margin-top: 10px;
     max-width: 274px;
 }
 #logoHeader img {
@@ -329,6 +360,7 @@ hr {
 }
 #header2 {
     padding: 17px 0;
+    border-top: 3px solid #222;
     border-bottom: 1px solid #9B9B9B;
 }
 .headerOrnament {
@@ -389,7 +421,7 @@ hr {
 .navMainLink a {
     padding: 0;
     color: #121212;
-    font-size: 35px;
+    font-size: 36px;
     text-transform: uppercase;
     letter-spacing: .01em;
 }
@@ -416,11 +448,27 @@ hr {
         display: block;
     }
     .sidebarToggle  {
-        top: 32px;
-        right: 60px;
+        top: 50px;
+        right: inherit;
+        left: 7%;
     }
 }
-@media (max-width:960px) {
+@media (max-width:959px) {
+    #header1 {
+        margin-top: 40px;
+    }
+    #planGraphic,
+    #starLinkRight {
+        display: none;
+    }
+    #headerExtraLinks {
+        top: 0;
+        bottom: inherit;
+    }
+    .btn.btnContribute {
+        padding: 5px 8px;
+        font-size: 11px;
+    }
     #navMainContainer .delimiter {
         width: 30px;
         text-align: center;
@@ -436,23 +484,30 @@ hr {
 @media (max-width:840px) {
     #header2 {
         padding: 8px 0;
-    }
-    .headerOrnament.centerLeft {
-        display: block;
+        border-bottom: 0;
     }
     #headerContact,
     #headerSocial {
         display: none;
     }
+    .sidebarToggle  {
+        top: 30px;
+    }
+    #navMainContainer,
+    .headerOrnament {
+        display: none;
+    }
 }
 @media (max-width:600px) {
-    .sidebarToggle  {
-        top: 20px;
+    .btn.btnContribute {
+        transform: translateY(-30px);
+        padding: 3px 4px;
+        font-size: 9px;
     }
 }
 @media (max-width:480px) {
-    .sidebarToggle  {
-        right: 26px;
+    #logoHeader img {
+        margin-top: 22px;
     }
     .headerOrnament,
     .headerOrnament.centerLeft {
@@ -605,7 +660,9 @@ h2.sectionName {
 
 /* SHELL BODY */
 
-
+#shellContent.shellVerticalPadding {
+    padding-top: 20px;
+}
 .mainColumnGutter {
     padding-left: 9%;
 }
@@ -624,14 +681,72 @@ h1#pageTitle {
         padding-left: 0;
     }
 }
+@media (max-width:840px) {
+    .headerImage {
+        margin-top: 10px;
+    }
+    h1#pageTitle {
+        margin-bottom: 30px;
+    }
+}
 
 /* FOOTER JOIN FORM */
 
-.joinForm md-input-container {
-    width: 300px;
+.joinForm .listInline li {
+    margin: 0 8px;
 }
+#homeJoin .joinForm .btn {
+    transform: translateY(-18px);
+}
+#homeJoin md-input-container {
+    width: 260px;
+}
+#homeJoin .joinForm md-input-container .md-input {
+    color: #666 !important;
+}
+#homeJoin md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused label,
+#homeJoin md-input-container:not(.md-input-invalid).md-input-focused label,
+#homeJoin md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused md-icon
+#homeJoin md-input-container:not(.md-input-invalid).md-input-focused md-icon {
+    color: #7932AC;
+}
+#homeJoin md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused .md-input,
+#homeJoin md-input-container:not(.md-input-invalid).md-input-focused .md-input,
+#homeJoin md-input-container.md-default-theme:not(.md-input-invalid).md-input-resized .md-input,
+#homeJoin md-input-container:not(.md-input-invalid).md-input-resized .md-input {
+    border-color: #7932AC;
+}
+
 #footerJoinForm {
     padding: 40px 0;
+}
+#footerJoinForm .md-input-container {
+    margin-top: 18px;
+}
+#footerJoinForm md-input-container.md-default-theme .md-input,
+#footerJoinForm md-input-container .md-input {
+    margin-top: 20px;
+    padding: 10px;
+    height: 40px;
+    border: 1px solid rgba(255,255,255,.5);
+}
+#footerJoinForm md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused label,
+#footerJoinForm md-input-container:not(.md-input-invalid).md-input-focused label,
+#footerJoinForm md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused md-icon
+#footerJoinForm md-input-container:not(.md-input-invalid).md-input-focused md-icon {
+    color: #FFF;
+}
+#footerJoinForm md-input-container .md-placeholder,
+#footerJoinForm md-input-container label:not(.md-no-float):not(.md-container-ignore) {
+    bottom: 67%;
+    left: 10px;
+    color: #FFF;
+}
+#footerJoinForm md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused .md-input,
+#footerJoinForm md-input-container:not(.md-input-invalid).md-input-focused .md-input,
+#footerJoinFormhomeJoin md-input-container.md-default-theme:not(.md-input-invalid).md-input-resized .md-input,
+#footerJoinForm md-input-container:not(.md-input-invalid).md-input-resized .md-input {
+    border-color: #FFF;
 }
 #footerJoinForm h1 {
     margin: 0 20px 0 0;
@@ -641,7 +756,7 @@ h1#pageTitle {
 #footerJoinForm .starLeft,
 #footerJoinForm .starRight {
     width: 13px;
-    height: 30px;
+    height: 36px;
     background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starWhite.png') no-repeat left 10px;
     background-size: 13px;
 }
@@ -655,14 +770,9 @@ h1#pageTitle {
 #footerJoinForm ul {
     margin-bottom: 0;
 }
-#footerJoinForm .fakeFormBox {
-    color: #FFF;
-    font-weight: 300;
-    border: 1px solid rgba(255,255,255,.5);
-}
 #footerJoinForm .btn {
     margin-left: 4px;
-    padding: 15px 33px 16px 34px;
+    padding: 4px 33px;
     color: #7932AC;
     background: #FFF;
 }

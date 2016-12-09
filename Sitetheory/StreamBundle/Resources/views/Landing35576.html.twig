@@ -87,26 +87,26 @@ LAYOUT
         {# Home Landing Layout #}
 
         <div id="homeSlides">
-            <img src="{{ asset('bundles/sitetheorytemplatecustom/images/slideshow1.jpg') }}" alt="">
+            <div id="slidesContent" class="align-center">
+                <div id="slideText1" class="fontPrimary starLeft">
+                    <div class="starRight">Our Goal</div>
+                </div>
+                <p class="bodyLarge">Elect a Brand New Congress that works for all Americans.</p>
+                <div id="h4Container" layout="row">
+                    <div flex class="borderDashedLight">&nbsp;</div>
+                    <div flex-xs="100" flex-sm="60" flex-gt-md="none">
+                        <h4 class="yellowText">Join us if you believe it’s time to reset our democracy</h4>
+                    </div>
+                    <div flex class="borderDashedLight">&nbsp;</div>
+                </div>
+            </div>
         </div>
-
-
 
         <div id="homeJoin">
             <div class="shellVerticalPadding">
                 <h4 class="align-center">Help us elect a New Congress</h4>
                 <div class="backgroundDark">
                     <h1 class="align-center">Add Your Name</h1>
-                </div>
-
-                <div id="welcome" class="divCenter align-center">
-
-                    <div class="content bodyLarge fontSecondary" ng-model="model.data.viewVersion.text" {{ block('editableViewAttributes') }}>
-                        {% autoescape false %}
-                            {{ view.viewVersion.text }}
-                        {% endautoescape %}
-                    </div>
-
                 </div>
 
                 <div id="homeJoinForm" class="joinForm">
@@ -116,75 +116,86 @@ LAYOUT
             </div>
         </div>
 
-        <div id="pressLogos" class="borderDashedBold">
+        <div class="borderDashedBold">
+            <div id="welcome" class="divCenter align-center shellVerticalPadding">
+                <div class="content bodyLarge fontSecondary" ng-model="model.data.viewVersion.text" {{ block('editableViewAttributes') }}>
+                    {% autoescape false %}
+                        {{ view.viewVersion.text }}
+                    {% endautoescape %}
+                </div>
+            </div>
+        </div>
+
+
+        <div id="pressLogos" class="shellVerticalPadding">
             <div layout="row" layout-wrap>
-                <div layout="row" flex="100" flex-gt-xs="50">
-                    <ul class="listInline">
-                        <li id="WaPO" class="pressLogo">
+                <div flex="100" flex-gt-md="50">
+                    <div class="clearfix">
+                        <div id="WaPO" class="pressLogo">
                             <a href="https://www.washingtonpost.com/opinions/the-sanders-movement-is-only-just-beginning/2016/08/09/228b8744-5d87-11e6-9d2f-b1a3564181a1_story.html?utm_term=.dd59cf8877af" target="_blank">
                                 <img src="{{ asset('bundles/sitetheorytemplatecustom/images/pressWaPo.png') }}" alt="Washington Post">
                             </a>
-                        </li>
-                        <li id="WSJ" class="pressLogo">
+                        </div>
+                        <div id="WSJ" class="pressLogo">
                             <a href="http://www.wsj.com/articles/sanders-supporters-seek-to-make-his-liberal-agenda-endure-1462485056" target="_blank">
                                 <img src="{{ asset('bundles/sitetheorytemplatecustom/images/pressWSJ.png') }}" alt="Wall Street Journal">
                             </a>
-                        </li>
-                        <li id="Wired" class="pressLogo">
+                        </div>
+                        <div id="Wired" class="pressLogo">
                             <a href="https://www.wired.com/2016/05/bernie-wont-get-nomination-online-army-isnt-done/" target="_blank">
                                 <img src="{{ asset('bundles/sitetheorytemplatecustom/images/pressWired.png') }}" alt="Wired">
                             </a>
-                        </li>
-                        <li id="HuffPo" class="pressLogo">
+                        </div>
+                        <div id="HuffPo" class="pressLogo">
                             <a href="http://www.huffingtonpost.com/entry/bernie-sanders-congress_us_5720e608e4b0b49df6a9c933" target="_blank">
                                 <img src="{{ asset('bundles/sitetheorytemplatecustom/images/pressHuffPo.png') }}" alt="The Huffington Post">
                             </a>
-                        </li>
-                        <li id="Beast" class="pressLogo">
+                        </div>
+                        <div id="Beast" class="pressLogo">
                             <a href="http://www.thedailybeast.com/articles/2016/05/02/where-does-the-bernie-sanders-movement-go-from-here.html" target="_blank">
                                 <img src="{{ asset('bundles/sitetheorytemplatecustom/images/pressBeast.png') }}" alt="The Daily Beast">
                             </a>
-                        </li>
-                        <li id="Slate" class="pressLogo">
+                        </div>
+                        <div id="Slate" class="pressLogo">
                             <a href="http://www.slate.com/articles/news_and_politics/the_next_20/2016/09/ralph_nader_and_the_tragedy_of_voter_as_consumer_politics.html" target="_blank">
                                 <img src="{{ asset('bundles/sitetheorytemplatecustom/images/pressSlate.png') }}" alt="Slate">
                             </a>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
-                <div layout="row" flex="100" flex-gt-xs="50">
-                    <ul class="listInline">
-                        <li id="Nation" class="pressLogo">
+                <div flex="100" flex-gt-md="50">
+                    <div class="clearfix">
+                        <div id="Nation" class="pressLogo">
                             <a href="https://www.thenation.com/article/is-brand-new-congress-the-future-of-progressive-politics/" target="_blank">
                                 <img src="{{ asset('bundles/sitetheorytemplatecustom/images/pressTheNation.png') }}" alt="The Nation">
                             </a>
-                        </li>
-                        <li id="Frisky" class="pressLogo">
+                        </div>
+                        <div id="Frisky" class="pressLogo">
                             <a href="http://www.thefrisky.com/2016-06-17/bernie-sanders-supporters-launch-brand-new-congress-as-the-next-chapter-of-his-political-revolution/" target="_blank">
                                 <img src="{{ asset('bundles/sitetheorytemplatecustom/images/pressTheFrisky.png') }}" alt="The Frisky">
                             </a>
-                        </li>
-                        <li id="Salon" class="pressLogo">
+                        </div>
+                        <div id="Salon" class="pressLogo">
                             <a href="http://www.salon.com/2016/07/24/whats_next_for_the_bernie_sanders_revolution_meet_the_groups_keeping_up_his_fight_for_progressive_values/" target="_blank">
                                 <img src="{{ asset('bundles/sitetheorytemplatecustom/images/pressSalon.png') }}" alt="Salon">
                             </a>
-                        </li>
-                        <li id="Bustle" class="pressLogo">
+                        </div>
+                        <div id="Bustle" class="pressLogo">
                             <a href="https://www.bustle.com/articles/167209-what-is-brand-new-congress-its-one-thing-bernie-sanders-supporters-can-do-next" target="_blank">
                                 <img src="{{ asset('bundles/sitetheorytemplatecustom/images/pressBustle.png') }}" alt="Bustle">
                             </a>
-                        </li>
-                        <li id="Boing" class="pressLogo">
+                        </div>
+                        <div id="Boing" class="pressLogo">
                             <a href="http://boingboing.net/2016/04/26/brand-new-congress-535-progre.html" target="_blank">
                                 <img src="{{ asset('bundles/sitetheorytemplatecustom/images/pressBoingBoing.png') }}" alt="Boing Boing">
                             </a>
-                        </li>
-                        <li id="RollCall" class="pressLogo">
+                        </div>
+                        <div id="RollCall" class="pressLogo">
                             <a href="http://www.rollcall.com/news/politics/whats-next-sanders-backers-replace-entire-congress" target="_blank">
                                 <img src="{{ asset('bundles/sitetheorytemplatecustom/images/pressRollCall.png') }}" alt="Roll Call">
                             </a>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
