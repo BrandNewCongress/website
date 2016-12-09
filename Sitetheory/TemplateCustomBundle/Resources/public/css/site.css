@@ -864,15 +864,18 @@ h1#pageTitle {
     background: #111;
 }
 
-#FAQ .FAQlist li {
+#FAQ .FAQLinks {
+    margin-bottom: 50px;
+}
+#FAQ .FAQLinks li {
     padding: 12px 0;
     line-height: 1.2;
     border-bottom: 1px solid #DDD;
 }
-#FAQ .FAQlist h4 {
+#FAQ .FAQLinks h4 {
     margin: 38px 0 22px;
 }
-#FAQ .FAQlist li:first-child h4 {
+#FAQ .FAQLinks li:first-child h4 {
     margin-top: 0;
 }
 #FAQ #FAQbody h2 {
