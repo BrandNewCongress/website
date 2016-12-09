@@ -50,7 +50,7 @@ CSS & JAVASCRIPT
 {% block script %}
     {{ parent() }}
     {# Code for Facebook Page Plugin: #FB-feedComponent #}
-    <script id="facebook-jssdk" type="text/javascript" charset="utf-8" async="true" src="//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=162487723815676"></script>
+    <script id="facebook-jssdk" async="true" src="//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=162487723815676"></script>
 {% endblock script %}
 
 
@@ -399,26 +399,46 @@ LAYOUT
                                     factory(root.Stratus, root.$);
                                 }
                             }(this, function (Stratus, $) {
+
                                 Stratus.DOM.ready(function () {
                                     // Facebook page plugin
+
+                                    resizePlugin = function() {
+                                        console.log('parsed');
+                                        var el = window.querySelector('#FB-feedComponent .span').style.width="100%";
+                                        var iframe = el.querySelector('iframe');
+                                        iframe.style.width = "100%";
+                                        var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+                                        var iframeHead = iframeDocument.querySelector("head");
+                                        console.log(iframeDocument, iframeHead);
+                                        var style = iframeDocument.createElement('style');
+                                        style.type = 'text/css';
+                                        var css = '._2p3a{width:100%;';
+                                        if(style.styleSheet) {
+                                            style.styleSheet.cssText = css;
+                                        } else {
+                                            style.appendChild(iframeDocument.createTextNode(css));
+                                        }
+                                        iframeHead.appendChild(style);
+                                    };
+
                                     $(window).resize(function() {
                                         var facebookPageId      = 'brandnewcongress';
                                         var $el         = $('#FB-feedContainer');
                                         var ratio       = 1.4;
                                         var width       = $el.width();
-                                        var height      = width * ratio; // or just set as 700
-                                        var minHeight = 700;
-                                        if (height < minHeight) height = minHeight;
+                                        var height      = $el.height();
                                         var content = '<div class="fb-page" data-href="https://www.facebook.com/'+facebookPageId+'" data-tabs="timeline" data-width="'+width+'" data-height="'+height+'" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>';
                                         $el.empty();
                                         $el.html(content);
-                                        FB.XFBML.parse();
+                                        FB.XFBML.parse(document.getElementById('#FB-feedComponent'), resizePlugin);
+
                                     });
                                 });
                             }));
                         </script>
                         <div id="FB-feedContainer" class="borderDashedBold clearfix">
-                            <div id="FB-feedComponent" class="fb-page" data-href="https://www.facebook.com/brandnewcongress" data-tabs="timeline" data-width="500" data-height="700" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/brandnewcongress" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/brandnewcongress">Brand New Congress</a></blockquote></div>
+                            <div id="FB-feedComponent" class="fb-page" data-href="https://www.facebook.com/brandnewcongress" data-tabs="timeline" data-width="650" data-height="700" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/brandnewcongress" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/brandnewcongress">Brand New Congress</a></blockquote></div>
                         </div>
                     </div>
                 </div>

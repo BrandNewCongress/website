@@ -244,7 +244,7 @@ LAYOUT
                     <li class="delimiter"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}" alt="">
                     </li>
                     <li id="navHelp" class="navMainLink">
-                        <a href="/Nominate">
+                        <a href="/Volunteer">
                             Help
                         </a>
                     </li>
@@ -465,6 +465,19 @@ LAYOUT
 
 {# End temporary hard coded menu #}
 
+{# ADD FOOTER JOIN FORM AT BOTTOM OF BODY BLOCK #}
+{% block main %}
+    {{ parent() }}
+    {% block footerJoin %}
+        <a name="footerJoin"></a>
+        <div id="footerJoinForm" class="joinForm purple" ng-cloak>
+            {% set registrationFormBefore = '<li><div class="starLeft"></div></li><li><h1>Add Your Name</h1></li>' %}
+            {% set registrationFormAfter = '<li><div class="starRight"></div></li>' %}
+            {{ block('registrationForm') }}
+        </div>
+    {% endblock footerJoin %}
+{% endblock main %}
+
 
 {# FOOTER SITE MAP #}
 {# TODO: Replace with dynamic version #}
@@ -473,19 +486,7 @@ LAYOUT
 {% block footerSiteMap %}
     <div id="siteMapBackground">
 
-        {% block footerJoin %}
-            <a name="footerJoin"></a>
-            <div id="footerJoinForm" class="joinForm purple" ng-cloak>
-                {% set registrationFormBefore = '<li><div class="starLeft"></div></li><li><h1>Add Your Name</h1></li>' %}
-                {% set registrationFormAfter = '<li><div class="starRight"></div></li>' %}
-                {{ block('registrationForm') }}
-            </div>
-        {% endblock footerJoin %}
-
-
         <div id="siteMapContainer" class="siteMaxWidth siteSidePadding fontSecondary dark">
-
-
 
             <div id="siteMapNew" layout="row" layout-wrap hide-xs hide-sm>
                 <div flex="20">
