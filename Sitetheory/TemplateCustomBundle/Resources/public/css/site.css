@@ -690,66 +690,56 @@ h1#pageTitle {
     }
 }
 
-/* FOOTER JOIN FORM */
 
-.joinForm .listInline li {
-    margin: 0 8px;
+/* JOIN FORMS */
+
+
+/* Position circular progress bar in the middle of form */
+.joinForm md-progress-circular {
+    transform: translate(-50%,-50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
 }
-#homeJoin .joinForm .btn {
-    transform: translateY(-18px);
+/* Make progress bar purple */
+.joinForm md-progress-circular path {
+    stroke: #7932AC;
 }
-#homeJoin md-input-container {
-    width: 260px;
+/* Fade in progress bar when form starts sending */
+.joinForm .sending md-progress-circular {
+    animation: itemsFadeIn .2s ease-out forwards;
+    opacity: 1;
 }
-#homeJoin .joinForm md-input-container .md-input {
-    color: #666 !important;
+
+/* Fade form out when sending */
+.joinForm .sending .listInline {
+    transition: all .2s ease-out .1s;
+    transform: scale(1);
+    opacity: 1;
 }
-#homeJoin md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused label,
-#homeJoin md-input-container:not(.md-input-invalid).md-input-focused label,
-#homeJoin md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused md-icon
-#homeJoin md-input-container:not(.md-input-invalid).md-input-focused md-icon {
+/* Keep form faded on success */
+.joinForm .sending .listInline,
+.joinForm .success .listInline {
+    transform: scale(.5);
+    opacity: 0;
+}
+/* Success message */
+.joinForm form .message {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 300;
     color: #7932AC;
 }
-#homeJoin md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused .md-input,
-#homeJoin md-input-container:not(.md-input-invalid).md-input-focused .md-input,
-#homeJoin md-input-container.md-default-theme:not(.md-input-invalid).md-input-resized .md-input,
-#homeJoin md-input-container:not(.md-input-invalid).md-input-resized .md-input {
-    border-color: #7932AC;
-}
+
+/* FOOTER JOIN AREA */
+
 
 #footerJoinForm {
-    padding: 40px 0;
-}
-#footerJoinForm .md-input-container {
-    margin-top: 18px;
-}
-#footerJoinForm md-input-container.md-default-theme .md-input,
-#footerJoinForm md-input-container .md-input {
-    margin-top: 20px;
-    padding: 10px;
-    height: 40px;
-    border: 1px solid rgba(255,255,255,.5);
-}
-#footerJoinForm md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused label,
-#footerJoinForm md-input-container:not(.md-input-invalid).md-input-focused label,
-#footerJoinForm md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused md-icon
-#footerJoinForm md-input-container:not(.md-input-invalid).md-input-focused md-icon {
-    color: #FFF;
-}
-#footerJoinForm md-input-container .md-placeholder,
-#footerJoinForm md-input-container label:not(.md-no-float):not(.md-container-ignore) {
-    bottom: 67%;
-    left: 10px;
-    color: #FFF;
-}
-#footerJoinForm md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused .md-input,
-#footerJoinForm md-input-container:not(.md-input-invalid).md-input-focused .md-input,
-#footerJoinFormhomeJoin md-input-container.md-default-theme:not(.md-input-invalid).md-input-resized .md-input,
-#footerJoinForm md-input-container:not(.md-input-invalid).md-input-resized .md-input {
-    border-color: #FFF;
+    padding: 40px 0 10px;
 }
 #footerJoinForm h1 {
-    margin: 0 20px 0 0;
+    margin: 8px 20px 0 0;
     font-size: 32px;
     color: #FFF;
 }
@@ -761,18 +751,77 @@ h1#pageTitle {
     background-size: 13px;
 }
 #footerJoinForm .starLeft {
-    margin-right: 30px;
+    margin: 8px 22px 0 0;
 }
 #footerJoinForm .starRight {
-    margin-left: 30px;
+    margin: 8px 0 0 22px;
     background-position: right 10px;
 }
-#footerJoinForm ul {
-    margin-bottom: 0;
+@media (max-width:960px) {
+    #footerJoinForm {
+        padding: 40px 0;
+    }
+    #footerJoinForm h1 {
+        margin: 0 0 16px 0;
+        text-align: center;
+    }
 }
+
+
+
+/* FOOTER JOIN FORM */
+
+#footerJoinForm .listInline li {
+    vertical-align: top;
+    margin: 0 3px;
+}
+#footerJoinForm md-input-container {
+    margin: 0;
+    width: 220px;
+}
+/* Input border and text */
+#footerJoinForm md-input-container.md-default-theme .md-input,
+#footerJoinForm md-input-container .md-input {
+    padding: 0 14px;
+    height: 47px;
+    color: #FFF;
+    border: 1px solid #FFF;
+}
+/* Prompt text */
+#footerJoinForm md-input-container .md-placeholder,
+#footerJoinForm md-input-container label:not(.md-no-float):not(.md-container-ignore) {
+    left: 12px;
+    bottom: 80%;
+    font-size: 20px;
+    color: #FFF;
+}
+/* Move prompt text high enough to make room for bigger input box */
+#footerJoinForm md-input-container.md-input-focused label:not(.md-no-float),
+#footerJoinForm md-input-container.md-input-has-placeholder label:not(.md-no-float),
+#footerJoinForm md-input-container.md-input-has-value label:not(.md-no-float) {
+    transform: translate3d(-10px,-6px,0) scale(.65);
+}
+/* Make error message light enough to read on purple */
+#footerJoinForm md-input-container.md-default-theme.md-input-invalid label,
+#footerJoinForm md-input-container.md-input-invalid label,
+#footerJoinForm md-input-container.md-default-theme.md-input-invalid .md-input-message-animation,
+#footerJoinForm md-input-container.md-input-invalid .md-input-message-animation,
+#footerJoinForm md-input-container.md-default-theme.md-input-invalid .md-char-counter,
+#footerJoinForm md-input-container.md-input-invalid .md-char-counter {
+    color: #FFF;
+}
+/* Make circular progress bar white */
+#footerJoinForm md-progress-circular path {
+    stroke: #FFF;
+}
+/* Make success message white */
+#footerJoinForm .joinForm form .message {
+    color: #FFF;
+}
+/* Submit button */
 #footerJoinForm .btn {
-    margin-left: 4px;
-    padding: 4px 33px;
+    margin: 2px 0 0 2px;
+    padding: 14px 36px;
     color: #7932AC;
     background: #FFF;
 }
@@ -789,16 +838,9 @@ h1#pageTitle {
     #footerJoinForm .listInline li:last-child {
         display: none;
     }
-    #footerJoinForm h1 {
-        margin: 0 0 16px 0;
-        text-align: center;
-    }
-    .fakeFormBox {
-        margin: 0 0 8px 0;
-    }
     #footerJoinForm .btn {
         display: table;
-        margin: 20px auto 0 auto;
+        margin: 0 auto;
     }
 }
 

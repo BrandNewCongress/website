@@ -63,10 +63,15 @@
     margin-top: 15px;
 }
 #slidesContent h4 {
+    margin: 0;
     padding: 16px 20px;
     font-size: 12px;
     letter-spacing: .2em;
     line-height: 1.5;
+}
+#slidesContent .borderDashedLight {
+    margin-top: 24px;
+    padding-top: 0;
 }
 @media (max-width:960px) {
     #homeSlides {
@@ -85,7 +90,7 @@
     }
 }
 
-/* WELCOME AND JOIN SECTION */
+/* JOIN SECTION */
 
 #homeJoin {
     transition: all .2s ease-out .25s;
@@ -93,9 +98,6 @@
 }
 .loaded #homeJoin{
     opacity: 1;
-}
-#welcome {
-    max-width: 1000px;
 }
 #homeJoin .shellVerticalPadding {
     padding-top: 50px;
@@ -110,21 +112,72 @@
 #homeJoinForm {
     margin: 50px 0 0;
 }
-#homeJoinForm p {
+#homeJoinForm p:first-child {
     margin-bottom: 36px;
-    font-size: 16px;
-}
-#homeJoinForm .btn {
-    margin-left: 4px;
+    font-size: 18px;
 }
 @media (max-width:960px) {
     #homeJoinForm {
         margin: 30px 0 60px;
     }
-    #homeJoinForm p {
+    #homeJoinForm p:first-child {
         margin-bottom: 20px;
         font-size: 14px;
     }
+}
+
+
+/* HOME PAGE JOIN FORM */
+
+#homeJoin .listInline li {
+    margin: 0 8px;
+    vertical-align: top;
+}
+/* Compensate for hidden message fields under input in form */
+#homeJoin .listInline li {
+    margin-bottom: -30px;
+}
+/* Make input containers wider */
+#homeJoin md-input-container {
+    width: 260px;
+}
+/* Prompt text */
+#homeJoin md-input-container .md-placeholder,
+#homeJoin md-input-container label:not(.md-no-float):not(.md-container-ignore) {
+    font-size: 20px;
+    color: #333;
+}
+/* Prompt text turns purple on click */
+#homeJoin md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused label,
+#homeJoin md-input-container:not(.md-input-invalid).md-input-focused label,
+#homeJoin md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused md-icon
+#homeJoin md-input-container:not(.md-input-invalid).md-input-focused md-icon {
+    color: #7932AC;
+}
+/* Move prompt text high enough to make room for bigger input text */
+#homeJoin md-input-container.md-input-focused label:not(.md-no-float),
+#homeJoin md-input-container.md-input-has-placeholder label:not(.md-no-float),
+#homeJoin md-input-container.md-input-has-value label:not(.md-no-float) {
+    transform: translate3d(2px,4px,0) scale(.65);
+}
+/* Input bottom border and text */
+#homeJoin md-input-container.md-default-theme .md-input,
+#homeJoin md-input-container .md-input {
+    padding-bottom: 16px;
+    font-size: 16px;
+    border-color: #333;
+}
+/* Input bottom border changes to purple on click */
+#homeJoin md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused .md-input,
+#homeJoin md-input-container:not(.md-input-invalid).md-input-focused .md-input,
+#homeJoin md-input-container.md-default-theme:not(.md-input-invalid).md-input-resized .md-input,
+#homeJoin md-input-container:not(.md-input-invalid).md-input-resized .md-input {
+    border-color: #7932AC;
+}
+#homeJoin .joinForm .btn {
+    padding: 15px 40px;
+}
+@media (max-width:960px) {
     #homeJoinForm .listInline li {
         display: block;
     }
@@ -134,6 +187,12 @@
     }
 }
 
+
+/* WELCOME SECTION */
+
+#welcome {
+    max-width: 1000px;
+}
 
 
 
@@ -235,8 +294,7 @@
     z-index: 10;
     position: absolute;
     left: 0;
-    bottom: 0;
-    padding-bottom: 16px;
+    bottom: 6%;
     width: 100%;
     text-align: center;
 }
@@ -269,10 +327,10 @@
 }
 .profileGradient {
     position: absolute;
+    top: 80%;
     right: 0;
     bottom: 0;
     left: 0;
-    height: 80px;
     background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1));
     background: -webkit-linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1));
 }
@@ -304,6 +362,7 @@
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
     top: 50%;
+    bottom: inherit;
 }
 .tempCandidateAsk .candidateInfo p {
     transition: all .2s ease-out;
@@ -331,7 +390,7 @@
     letter-spacing: 2px;
 }
 .tempCandidateAsk a:hover .candidateInfo .title {
-    transform: translateY(-90px);
+    transform: translateY(-60px);
 }
 .tempCandidateAsk .starRight,
 .tempCandidateAsk .starLeft {
