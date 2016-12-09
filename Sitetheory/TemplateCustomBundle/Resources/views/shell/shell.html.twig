@@ -37,19 +37,23 @@ SETTINGS
 
 
 {#
-##################
-CSS AND JAVASCRIPT
-##################
+###########
+CSS STYLING
+###########
 #}
 
 {# Load Site CSS #}
 {% block link %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('bundles/sitetheorystratus/stratus/bower_components/angular-material/angular-material.min.css') }}">
     <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/site.css') }}">
 {% endblock link %}
 
 
+{#
+##########
+JAVASCRIPT
+##########
+#}
 {% block script %}
     {{ parent() }}
 
@@ -92,7 +96,6 @@ CSS AND JAVASCRIPT
                     zip: ''
                 };
 
-
                 $scope.submit = function(form) {
                     var prototype = {
                         method: 'POST',
@@ -132,17 +135,19 @@ CSS AND JAVASCRIPT
 
 
 {#
+###########
 SIGNUP FORM
+###########
 #}
 
 {% block registrationForm %}
 
-<form name="Signup" ng-submit="submit(form)" ng-controller="SignupController" options='{"redirect":{"url":"https://secure.actblue.com/contribute/page/bncdec", "popup":false}}' ng-class="status" ng-cloak>
+<form name="Signup" ng-submit="submit(form)" ng-controller="SignupController" options='{"redirect":{"url":"https://secure.actblue.com/contribute/page/bncdec", "popup":false}}' ng-class="status" class="positionAnchor" ng-cloak>
 
-    <md-progress-linear md-mode="indeterminate" ng-show="status === 'sending'"></md-progress-linear>
+    <md-progress-circular md-mode="indeterminate" ng-show="status === 'sending'"></md-progress-circular>
     {#<p class="message" ng-show="response.length" ng-bind-html="response"></p>#}
     <p class="message" ng-show="messages.response.length">{% verbatim %}{{ messages.response }}{% endverbatim %}</p>
-    <ul class="listInline divCenter fontSecondary">
+    <ul class="listInline divCenter fontSecondary" ng-show="status !== 'success'">
 
         {{ registrationFormBefore|default('')|raw }}
 

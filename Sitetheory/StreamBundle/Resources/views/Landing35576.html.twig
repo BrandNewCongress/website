@@ -44,15 +44,14 @@ CSS & JAVASCRIPT
 
 {% block link %}
     {{ parent() }}
-    {# TODO: load different streams based on layout selected #}
-    {% stylesheets '@SitetheoryStreamBundle/Resources/public/css/Stream.less' filter='less' filter='?uglifycss' filter='cssrewrite' %}
-    <link rel="stylesheet" href="{{ asset_url }}">
-    {% endstylesheets %}
-
     <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/landing.css') }}">
 {% endblock link %}
 
-
+{% block script %}
+    {{ parent() }}
+    {# Code for Facebook Page Plugin: #FB-feedComponent #}
+    <script id="facebook-jssdk" type="text/javascript" charset="utf-8" async="true" src="//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=162487723815676"></script>
+{% endblock script %}
 
 
 
@@ -65,17 +64,11 @@ LAYOUT
 #}
 
 {% block body %}
-    {# Code for Facebook Page Plugin: #FB-feedComponent #}
+    {# Code for Facebook Page Plugin: #FB-feedComponent (script manually added to head to try to delay it) #}
     <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=162487723815676";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
 
     {{ parent() }}
+
 {% endblock body %}
 
 
