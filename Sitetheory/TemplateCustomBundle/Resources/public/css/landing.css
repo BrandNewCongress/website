@@ -260,7 +260,11 @@
 #welcome {
     max-width: 1000px;
 }
-
+#welcome p:first-child {
+    margin: 10px 0 -10px 0;
+    font-size: 24px;
+    font-weight: 300;
+}
 
 
 /* PRESS LOGOS */
@@ -383,14 +387,6 @@
     padding: 0 20px;
     font-size: 18px;
     letter-spacing: .08em;
-}
-.starLeft,
-.starRight {
-    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starBlack.png') no-repeat left 8px;
-    background-size: 9px;
-}
-.starRight {
-    background-position: right 8px;
 }
 .profileGradient {
     position: absolute;
@@ -569,9 +565,6 @@
 }
 #currentSocial #facebookPageContainer {
     padding-top: 55px;
-}
-#currentSocial #facebookPageContainer .fb_iframe_widget {
-    display: block;
 }
 @media (max-width:600px) {
     #currentMedia {

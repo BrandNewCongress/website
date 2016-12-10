@@ -306,6 +306,18 @@ hr {
 }
 
 
+/* STARS */
+
+.starLeft,
+.starRight {
+    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starBlack.png') no-repeat left 8px;
+    background-size: 9px;
+}
+.starRight {
+    background-position: right 8px;
+}
+
+
 
 /* SITE STRUCTURE */
 
@@ -663,17 +675,27 @@ h2.sectionName {
 /* SHELL BODY */
 
 #shellContent.shellVerticalPadding {
-    padding-top: 20px;
+    padding-top: 80px;
 }
 .mainColumnGutter {
     padding-left: 9%;
 }
 h1#pageTitle {
-    margin-bottom: 60px;
-    padding: 3px 20px;
+    margin: 50px 0 36px;
+    padding: 6px 20px;
+    text-align: center;
     color: #FFF;
-    font-size: 40px;
+    font-size: 45px;
     background: #171717;
+}
+#pageTitle .starLeft,
+#pageTitle .starRight {
+    display: block;
+    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starWhite.png') no-repeat left 17px;
+    background-size: 11px;
+}
+#pageTitle .starRight {
+    background-position: right 17px;
 }
 .headerImage {
     margin-top: 40px;

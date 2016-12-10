@@ -36,6 +36,22 @@ SETTINGS
 
 
 
+{# Place title above the sidebar/mainColumn row #}
+{% block header3 %}
+    {% block pageTitle %}
+        <h1 id="pageTitle" {{ block('editableView') }} data-type="text" data-property="viewVersion.title" data-render="click">
+            <span  class="starLeft">
+                <span class="starRight">{{ view.viewVersion.title }}</span>
+            </span>
+        </h1>
+    {% endblock pageTitle %}
+{% endblock header3 %}
+
+{# Hide page title in main column #}
+{% block pageTitleMainColumn %}
+{% endblock pageTitleMainColumn %}
+
+
 {#
 ###########
 CSS STYLING
