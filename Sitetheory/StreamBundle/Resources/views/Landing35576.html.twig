@@ -367,7 +367,7 @@ LAYOUT
                 <div flex="100" flex-gt-xs="50">
                     <div id="currentMedia">
                         <h1>Watch</h1>
-                        <div class="borderDashedBold clearfix">
+                        <div id="currentMediaContainer" class="borderDashedBold clearfix">
                             <div class="mediaItem">
                                 <div class="mediaHeader">
                                     <div class="date pullRight">11.23.16</div>
@@ -389,60 +389,106 @@ LAYOUT
                         </div>
                     </div>
                 </div>
-                <div flex="100" flex-gt-xs="50">
+                <div id="FB-feedParent" flex="100" flex-gt-xs="50">
+                    <h1>Comment</h1>
                     <div id="currentSocial">
-                        <h1>Comment</h1>
-                        {# Script to fix the facebook resize issue: http://www.praxis.net.au/blog/making-the-facebook-page-plugin-responsive/ #}
+
+                        {# Script to fix the facebook resize issue #}
                         <script>
                             // Use Require.js or Contextual Scope
                             (function (root, factory) {
                                 if (typeof require === 'function') {
-                                    require(['stratus', 'jquery'], factory);
+                                    require(['stratus'], factory);
                                 } else {
-                                    factory(root.Stratus, root.$);
+                                    factory(root.Stratus);
                                 }
-                            }(this, function (Stratus, $) {
+                            }(this, function (Stratus) {
 
-                                Stratus.DOM.ready(function () {
-                                    // Facebook page plugin
+                                Stratus.DOM.complete(function () {
 
-                                    resizePlugin = function() {
-                                        console.log('parsed');
-                                        var el = window.querySelector('#FB-feedComponent .span').style.width="100%";
-                                        var iframe = el.querySelector('iframe');
+                                    ////////////////////
+                                    // Custom Variables
+                                    ////////////////////
+                                    var facebookPageName = 'Brand New Congress';
+                                    var facebookPageId  = 'brandnewcongress';
+                                    var containerId = 'facebookPageContainer';
+                                    var relatedContainerId = 'currentMediaContainer';
+                                    var relatedContainerOffset = -150;
+
+
+                                    ////////////////
+                                    // Setup
+                                    ////////////////
+                                    var container           = document.getElementById(containerId);
+                                    var relatedContainer    = document.getElementById((relatedContainerId || containerId));
+                                    var loadJob;
+
+                                    ////////////////
+                                    // Functions
+                                    ////////////////
+                                    function resizePlugin() {
+                                        // Manually resize Facebook Plugin's span and iframe to be 100%
+                                        var plugin = document.querySelector('.fb-page')
+                                        var containerSpan = plugin.querySelector('span');
+                                        containerSpan.style.width="100%";
+                                        var iframe = plugin.querySelector('iframe');
+                                        iframe.width = "100%";
                                         iframe.style.width = "100%";
-                                        var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-                                        var iframeHead = iframeDocument.querySelector("head");
-                                        console.log(iframeDocument, iframeHead);
-                                        var style = iframeDocument.createElement('style');
-                                        style.type = 'text/css';
-                                        var css = '._2p3a{width:100%;';
-                                        if(style.styleSheet) {
-                                            style.styleSheet.cssText = css;
-                                        } else {
-                                            style.appendChild(iframeDocument.createTextNode(css));
+                                        // FB has max 500px, scale if it's bigger so it fits in space at least
+                                        var maxWidth = 500;
+                                        var width = container.offsetWidth;
+                                        if(width > maxWidth) {
+                                            var scale = width/maxWidth;
+                                            iframe.style.transform = 'scale('+scale+')';
+                                            iframe.style['transform-origin'] = '0 0';
                                         }
-                                        iframeHead.appendChild(style);
+                                    };
+                                    function loadPlugin() {
+                                        // Get height of the related Container (e.g. in another column)
+                                        var height          = relatedContainer.offsetHeight;
+                                        height = height > 0 ? (height  + relatedContainerOffset) : height;
+                                        var width           = container.offsetWidth;
+                                        var minHeight       = 500;
+                                        var minWidth        = 500;
+                                        height = height < minHeight ? minHeight : height;
+                                        width = width < minWidth ? minWidth : width;
+
+                                        // Facebook Page Plugin Code
+                                        var content = '<div class="fb-page" data-href="https://www.facebook.com/'+facebookPageId+'" data-tabs="timeline" data-width="'+width+'" data-height="'+height+'" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div><blockquote cite="https://www.facebook.com/'+facebookPageId+'" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/'+facebookPageId+'">'+facebookPageName+'</a></blockquote>';
+
+                                        // Empty Container
+                                        while(container.firstChild){ container.removeChild(container.firstChild); }
+
+                                        // Add Plugin
+                                        container.innerHTML = content;
+
+                                        // Parse Plugin
+                                        FB.XFBML.parse();
                                     };
 
-                                    $(window).resize(function() {
-                                        var facebookPageId      = 'brandnewcongress';
-                                        var $el         = $('#FB-feedContainer');
-                                        var ratio       = 1.4;
-                                        var width       = $el.width();
-                                        var height      = $el.height();
-                                        var content = '<div class="fb-page" data-href="https://www.facebook.com/'+facebookPageId+'" data-tabs="timeline" data-width="'+width+'" data-height="'+height+'" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>';
-                                        $el.empty();
-                                        $el.html(content);
-                                        FB.XFBML.parse(document.getElementById('#FB-feedComponent'), resizePlugin);
-
+                                    // Register Resize after Plugin is Rendered
+                                    FB.Event.subscribe('xfbml.render', function() {
+                                        resizePlugin();
                                     });
+
+
+                                    // (HACK): LoadPlugin does not resize height correctly on Load because it does not know the correct height so we delay it until the height is set
+                                    loadJob = Stratus.Chronos.add(0.2, function() {
+                                        // hard code a bit less than related contaier
+                                        if(relatedContainer.offsetHeight > 0) {
+                                            Stratus.Chronos.disable(loadJob);
+                                            loadPlugin();
+                                        }
+                                    }, this);
+                                    Stratus.Chronos.enable(loadJob);
+
+                                    // Reload on Resize
+                                    window.onresize = function() { loadPlugin(); };
+
                                 });
                             }));
                         </script>
-                        <div id="FB-feedContainer" class="borderDashedBold clearfix">
-                            <div id="FB-feedComponent" class="fb-page" data-href="https://www.facebook.com/brandnewcongress" data-tabs="timeline" data-width="650" data-height="700" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/brandnewcongress" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/brandnewcongress">Brand New Congress</a></blockquote></div>
-                        </div>
+                        <div id="facebookPageContainer" class="borderDashedBold clearfix"></div>
                     </div>
                 </div>
             </div>

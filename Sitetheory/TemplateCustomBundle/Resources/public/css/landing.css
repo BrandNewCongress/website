@@ -23,17 +23,27 @@
 
 /* ANNOUNCEMENT BANNER */
 
+#announcementBanner,
+#announcementBanner * {
+    transition: all .2s ease-out;
+}
 #announcementBanner {
     margin: 40px 0 28px;
     padding: 8px 9px;
     background: #393939;
+}
+#announcementBanner:hover {
+    background: #111;
 }
 #newsLabel {
     margin-right: 8px;
     padding: 5px 6px;
     color: #FFF;
     font-size: 16px;
-    letter-spacing: .05em;
+    letter-spacing: .03em;
+}
+#announcementBanner:hover #newsLabel {
+    background: #7932AC;
 }
 #announcementBanner .date {
     color: #979797;
@@ -49,15 +59,25 @@
 #announcementBanner p .smallLabel {
     padding-left: 8px;
 }
+#announcementBanner:hover .smallLabel {
+    color: #FFF;
+}
 #announcementBanner .doubleArrow {
     padding: 0 10px 0 24px;
     font-size: 10px;
     font-weight: bold;
     color: #FFF;
 }
+#announcementBanner:hover .doubleArrow {
+    transform: translateX(6px);
+    color: #7932AC;
+}
 @media (max-width:959px) {
+    #announcementBanner {
+        margin: 12px 0 16px;
+    }
     #announcementBanner p {
-        padding: 0 8px;
+        padding: 7px 8px 0 8px;
         font-size: 13px;
     }
 }
@@ -96,6 +116,7 @@
     padding-left: 30px;
     display: table;
     font-size: 26px;
+    letter-spacing: .05em;
     color: #FFF;
     background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starWhite.png') no-repeat left 13px;
     background-size: 9px;
@@ -164,7 +185,7 @@
 }
 @media (max-width:960px) {
     #homeJoinForm {
-        margin: 30px 0 60px;
+        margin: 30px 0 20px;
     }
     #homeJoinForm p:first-child {
         margin-bottom: 20px;
@@ -239,7 +260,11 @@
 #welcome {
     max-width: 1000px;
 }
-
+#welcome p:first-child {
+    margin: 10px 0 -10px 0;
+    font-size: 24px;
+    font-weight: 300;
+}
 
 
 /* PRESS LOGOS */
@@ -362,14 +387,6 @@
     padding: 0 20px;
     font-size: 18px;
     letter-spacing: .08em;
-}
-.starLeft,
-.starRight {
-    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starBlack.png') no-repeat left 8px;
-    background-size: 9px;
-}
-.starRight {
-    background-position: right 8px;
 }
 .profileGradient {
     position: absolute;
@@ -546,11 +563,8 @@
     background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/facebookTitleIcon.png') no-repeat left center;
     background-size: 40px;
 }
-#currentSocial #FB-feedContainer {
+#currentSocial #facebookPageContainer {
     padding-top: 55px;
-}
-#currentSocial #FB-feedContainer .fb_iframe_widget {
-    display: block;
 }
 @media (max-width:600px) {
     #currentMedia {
