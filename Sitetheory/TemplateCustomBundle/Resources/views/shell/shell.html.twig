@@ -61,7 +61,7 @@ JAVASCRIPT
     <script>
         (function (root, factory) {
             if (typeof require === 'function') {
-                require(['stratus', 'underscore', 'angular', 'angular-material'], factory);
+                require(['stratus', 'underscore', 'angular', 'angular-material', 'angular-sanitize'], factory);
             } else {
                 factory(root.Stratus);
             }
@@ -145,8 +145,8 @@ SIGNUP FORM
 <form name="Signup" ng-submit="submit(form)" ng-controller="SignupController" options='{"redirect":{"url":"https://secure.actblue.com/contribute/page/bncdec", "popup":false}}' ng-class="status" class="positionAnchor" ng-cloak>
 
     <md-progress-circular md-mode="indeterminate" ng-show="status === 'sending'"></md-progress-circular>
-    {#<p class="message" ng-show="response.length" ng-bind-html="response"></p>#}
-    <p class="message" ng-show="messages.response.length">{% verbatim %}{{ messages.response }}{% endverbatim %}</p>
+    <p class="message" ng-show="response.length" ng-bind-html="response"></p>
+    {#<p class="message" ng-show="messages.response.length">{% verbatim %}{{ messages.response }}{% endverbatim %}</p>#}
     <ul class="listInline divCenter fontSecondary" ng-show="status !== 'success'">
 
         {{ registrationFormBefore|default('')|raw }}
