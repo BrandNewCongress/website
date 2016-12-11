@@ -64,6 +64,15 @@
     bottom: 0;
     right: 0;
 }
+.positionAll {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+
 
 .alignCenter {
     text-align: center;
@@ -133,7 +142,7 @@ h4 {
     font-size: 10px;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: .3em;
+    letter-spacing: .25em;
 }
 @media (max-width:768px) {
     h1 {
@@ -317,12 +326,20 @@ hr {
 .starLeft,
 .starRight {
     background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starBlack.png') no-repeat left 8px;
-    background-size: 9px;
+    background-size: 10px;
 }
 .starRight {
     background-position: right 8px;
 }
-
+.starText {
+    padding: 0 26px;
+}
+.starPurple {
+    background-image: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starPurple.png');
+}
+.starWhite {
+    background-image: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starWhite.png');
+}
 
 
 /* SITE STRUCTURE */
@@ -1104,44 +1121,91 @@ md-input-container:not(.md-input-invalid).md-input-resized .md-input {
     height: 6px;
 }
 
-#candidateList h1 {
-    margin-top: 60px;
+#candidateListPage h1 {
+    margin: 0 0 26px;
     text-align: center;
     font-size: 35px;
 }
-#candidateList p:first-child {
+#candidateListPage p:first-child {
+    margin-bottom: 60px;
     max-width: 920px;
 }
-#candidateList #callToAction p:first-child {
-    margin-bottom: 70px;
+#candidateListPage #callToAction p:first-child {
+    margin-bottom: 60px;
     max-width: 600px;
-    font-size: 16px;
+ }
+
+/* USA progress bar */
+
+#signUpProgress {
+    max-width: 320px;
 }
+#progressBarContainer {
+    border: 5px solid #FFF;
+}
+#progressNumbers {
+    z-index: 10;
+    top: inherit;
+    height: 30px;
+}
+#startNumber {
+    transform: translateX(-8px);
+}
+#endNumber {
+    transform: translateX(32px);
+}
+#numberLine {
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    bottom: 6px;
+    height: 1px;
+    border-top: 1px solid #333;
+}
+#signUpProgress svg {
+    margin-bottom: 16px;
+    position: relative;
+}
+#progressBarContainer {
+    bottom: 16px;
+    background: #EEE;
+}
+#progressBar {
+    bottom: 0;
+}
+
+
+/* Sign up numbers */
+
+
 #signUpLabel {
-    margin-top; 20px;
+    margin-top: 12px;
     font-size: 20px;
-    letter-spacing: .07em;
+    letter-spacing: .05em;
 }
-#signUpLabel .starLeft {
-
+#signUpLabel .starLeft,
+#signUpLabel .starRight {
+    background-image: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starPurple.png');
 }
-#signUpLabel .starLeft {
-
-}
-#candidateList #totalSignUp {
+#totalSignUp {
     font-size: 100px;
     font-weight: 100;
+    line-height: .8;
 }
-#candidateJoin {
-    max-width: 322px;
+#totalSignUp.borderDashed {
+    margin-top: 25px;
+    padding-top: 25px;
 }
+
+
+/* Sign up form */
 #candidateJoin.joinForm .listInline li {
     display: block;
 }
 /* Make input containers wider */
 #candidateJoin md-input-container {
     margin: 8px 0;
-    width: 322px;
+    width: 300px;
 }
 /* Prompt text */
 #candidateJoin md-input-container .md-placeholder,
@@ -1151,5 +1215,121 @@ md-input-container:not(.md-input-invalid).md-input-resized .md-input {
 #candidateJoin  .btn {
     margin-top: -8px;
     padding: 15px 0;
-    width: 322px;
+    width: 300px;
+}
+
+
+/* Candidate List */
+
+#profileList {
+    margin: 0 -2%;
+    padding-top: 60px;
+}
+.profileContainer {
+    position: relative;
+}
+.profileItem {
+    margin: 0 4%;
+    padding-bottom: 120px;
+}
+.profileImage {
+    float: left;
+    max-width: 50%;
+    margin: 0 5% 22px 0;
+}
+#profileList h2 {
+    margin: 0 0 12px;
+    font-size: 18px;
+}
+#profileList h4 {
+    margin-bottom: 26px;
+}
+.profileBody {
+    margin-bottom: 22px;
+    padding-right: 3%;
+}
+.profileItem .readMore {
+    display: block;
+}
+.profileExtra {
+    position: absolute;
+    right: 4%;
+    bottom: 80px;
+    left: 4%;
+    padding: 5px 12px;
+    color: #FFF;
+}
+.profileExtra .starText {
+    font-size: 18px;
+    color: #FFF;
+    letter-spacing: .08em;
+}
+@media (max-width: 1200px) {
+    .profileImage {
+        max-width: 40%;
+    }
+    .profileBody {
+        font-size: 14px;
+    }
+    .profileItem .readMore {
+        display: inline;
+    }
+}
+@media (min-width: 960px) and (max-width: 1000px) {
+    .profileItem {
+        padding-bottom: 112px;
+    }
+    .profileImage {
+        max-width: 40%;
+    }
+    #profileList h4 {
+        margin-bottom: 16px;
+    }
+    .profileBody {
+        font-size: 13px;
+    }
+}
+@media (max-width: 959px) {
+    #profileList {
+        margin: 0 -5%;
+    }
+    .profileItem {
+        margin: 0 10%;
+        text-align: center;
+    }
+    .profileImage {
+        float: none;
+        margin: 0 0 30px 0;
+        max-width: 100%;
+    }
+    .profileImage img {
+        width: 100%;
+    }
+    .profileBody {
+        font-size: 15px;
+    }
+    .profileExtra {
+        right: 10%;
+        left: 10%;
+    }
+}
+@media (max-width: 600px) {
+    #profileList {
+        margin: 0;
+    }
+    .profileItem {
+        margin: 0;
+        padding-bottom: 45px;
+    }
+    .profileItem .readMore {
+        display: block;
+        margin-top: 20px;
+    }
+    .profileExtra {
+        position: relative;
+        right: inherit;
+        bottom: inherit;
+        left: inherit;
+        margin-bottom: 16px;
+    }
 }

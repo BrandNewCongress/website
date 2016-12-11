@@ -17,7 +17,7 @@
 {% endblock footerJoin %}
 
 {% block contentType %}
-<div id="candidateList">
+<div id="candidateListPage">
 
     <p class="divCenter alignCenter pullout ">We are excited to announce our first five draftees (below)! We need to convince them we have the support needed to run their campaign.</p>
 
@@ -28,25 +28,177 @@
 
         <div layout="row">
             <div flex="100" flex-xs="50" flex-gt-xs="33">
-                <div id="signUpProgress">
-
+                <div id="signUpProgress"class="positionAnchor">
+                    <div id="progressNumbers" class="positionAll">
+                        <div id="startNumber" class="positionLeftBottom smallLabel fontBody salmonText">0</div>
+                        <div id="endNumber" class="positionRightBottom smallLabel fontBody salmonText">500K</div>
+                        <div id="numberLine"></div>
+                    </div>
+                    <div id="progressBarContainer" class="positionAll">
+                        {# TODO: Make the width a math equation of total signups as a percentage of 500K #}
+                        <div id="progressBar" class="positionLeftTop salmon" style="width: 22%;"></div>
+                    </div>
+                    {% embed '@SitetheoryTemplateCustomBundle/Resources/public/images/progressBarCover.svg' %}{% block id %}footerRedditIcon{% endblock %}{% endembed %}
                 </div>
             </div>
             <div flex="100" flex-xs="50" flex-gt-xs="33">
-                <div class="alignCenter">
-                    <div id="signUpLabel" class="fontPrimary salmonText">
+                <div class="divCenter alignCenter">
+                    <div id="signUpLabel" class="divCenter">
                         <div class="starLeft">
-                            <div class="starRight">Right Now
+                            <div class="starRight">
+                                <div class="starText fontPrimary salmonText">
+                                    Right Now
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div id="totalSignUp" class="fontSecondary salmonText">92,344</div>
+                    <div id="totalSignUp" class="borderDashed fontSecondary salmonText">92,344</div>
                 </div>
             </div>
             <div flex="100" flex-gt-xs="33">
                 <div id="candidateJoin" class="joinForm pullRight">
                     {{ block('registrationForm') }}
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <h1>Our Draftees</h1>
+    <div class="borderDashedBold">
+        <div id="profileList">
+            <div layout="row" layout-wrap>
+
+                {# Profile Item 1 #}
+                <div class="profileContainer" flex="100" flex-gt-xs="50">
+                    <div layout="column" class="profileItem">
+                        <div flex-order="2" flex-order-gt-xs="1" class="clearfix">
+                            <div class="profileImage">
+                                <img src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/LindaWayman.jpg') }}" alt="">
+                            </div>
+                            <h2>Linda Wayman</h2>
+                            <h4>Educator</h4>
+                            <p class="profileBody">Decades-long educator in North Philadelphia who who became a superintendent, but stepped down to become principal of a chronically failing high school, turning the school around.
+                                <a href="/Profile-Linda-Wayman" class="readMore fontBody">Read More</a>
+                            </p>
+                        </div>
+                        <div flex-order="1" flex-order-gt-xs="2" class="profileExtra backgroundDark">
+                            <div class="starLeft starWhite">
+                                <div class="starRight starWhite">
+                                    <div class="starText fontPrimary alignCenter">
+                                        Pennsylvania 1st
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {# End Profile Item #}
+
+                {# Profile Item 2 #}
+                <div class="profileContainer" flex="100" flex-gt-xs="50">
+                    <div layout="column" class="profileItem">
+                        <div flex-order="2" flex-order-gt-xs="1" class="clearfix">
+                            <div class="profileImage">
+                                <img src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/JordynLexton.jpg') }}" alt="">
+                            </div>
+                            <h2>Jordyn Lexton</h2>
+                            <h4>Fellowship Founder</h4>
+                            <p class="profileBody">Former teacher at Rikers Island prison; while campaigning to stop convicting children as adults, created Drive Change, a 1-year fellowship program in the food truck industry to help young people returning home from prison get jobs and education.
+                                <a href="/Profile-Jordyn-Lexton" class="readMore fontBody">Read More</a>
+                            </p>
+                        </div>
+                        <div flex-order="1" flex-order-gt-xs="2" class="profileExtra backgroundDark">
+                            <div class="starLeft starWhite">
+                                <div class="starRight starWhite">
+                                    <div class="starText fontPrimary alignCenter">
+                                        New York 12th
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {# End Profile Item #}
+
+                {# Profile Item 3 #}
+                <div class="profileContainer" flex="100" flex-gt-xs="50">
+                    <div layout="column" class="profileItem">
+                        <div flex-order="2" flex-order-gt-xs="1" class="clearfix">
+                            <div class="profileImage">
+                                <img src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/TynishaTyson.jpg') }}" alt="">
+                            </div>
+                            <h2>Tynisha Tyson</h2>
+                            <h4>Social Worker</h4>
+                            <p class="profileBody">Social worker at Milner Elementary; works with children who suffer from abuse, neglect, and extreme poverty to be an anchor in their lives. Has actively continued working as a social worker to help kids most in need despite opportunities to “move up.”
+                                <a href="/Profile-Tynisha-Tyson" class="readMore fontBody">Read More</a>
+                            </p>
+                        </div>
+                        <div flex-order="1" flex-order-gt-xs="2" class="profileExtra backgroundDark">
+                            <div class="starLeft starWhite">
+                                <div class="starRight starWhite">
+                                    <div class="starText fontPrimary alignCenter">
+                                        Connecticut 1st
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {# End Profile Item #}
+
+                {# Profile Item 4 #}
+                <div class="profileContainer" flex="100" flex-gt-xs="50">
+                    <div layout="column" class="profileItem">
+                        <div flex-order="2" flex-order-gt-xs="1" class="clearfix">
+                            <div class="profileImage">
+                                <img src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/ChardoRichardson.jpg') }}" alt="">
+                            </div>
+                            <h2>Chardo Richardson</h2>
+                            <h4>Civil Rights Lawyer</h4>
+                            <p class="profileBody">Air Force veteran with five tours of duty in Iraq and Afghanistan; now President of Central Florida ACLU chapter, fighter for workers’ rights with Working America, and founded Think LegalEase, a series of YouTube videos to make the law accessible.
+                                <a href="/Profile-Chardo-Richardson" class="readMore fontBody">Read More</a>
+                            </p>
+                        </div>
+                        <div flex-order="1" flex-order-gt-xs="2" class="profileExtra backgroundDark">
+                            <div class="starLeft starWhite">
+                                <div class="starRight starWhite">
+                                    <div class="starText fontPrimary alignCenter">
+                                        Florida 9th
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {# End Profile Item #}
+
+                {# Profile Item 5 #}
+                <div class="profileContainer" flex="100" flex-gt-xs="50">
+                    <div layout="column" class="profileItem">
+                        <div flex-order="2" flex-order-gt-xs="1" class="clearfix">
+                            <div class="profileImage">
+                                <img src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/KurtRietema.jpg') }}" alt="">
+                            </div>
+                            <h2>Kurt Rietema</h2>
+                            <h4>Youth Pastor</h4>
+                            <p class="profileBody">Youth pastor for over a decade with YouthFront; started “Neighbor to Neighbor” to help immigrants and marginalized people become homeowners by creating fair, low-interest lending partnerships between churches and families that can’t access traditional home mortgages.
+                                <a href="/Profile-Kurt-Rietema" class="readMore fontBody">Read More</a>
+                            </p>
+                        </div>
+                        <div flex-order="1" flex-order-gt-xs="2" class="profileExtra backgroundDark">
+                            <div class="starLeft starWhite">
+                                <div class="starRight starWhite">
+                                    <div class="starText fontPrimary alignCenter">
+                                        Kansas 3rd
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {# End Profile Item #}
+
+
             </div>
         </div>
     </div>
