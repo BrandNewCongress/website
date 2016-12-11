@@ -1,0 +1,55 @@
+{% extends 'SitetheoryArticleBundle::Article.html.twig' %}
+
+
+{% set sectionNameHardCoded = 'Candidates' %}
+{% set sectionMenuHardCoded = '1' %}
+{% set sectionMenuActive = 'candidatesActive' %}
+
+{# Hide sidebar on desktop #}
+{% set bootstrapColumnSidebar = 'hide-gt-xs' %}
+{% set bootstrapColumnMain = 'flex=100' %}
+
+{# Hide gutter in main column #}
+{% block mainColumnGutter %}
+{% endblock mainColumnGutter %}
+
+{% block footerJoin %}
+{% endblock footerJoin %}
+
+{% block contentType %}
+<div id="candidateList">
+
+    <p class="divCenter alignCenter pullout ">We are excited to announce our first five draftees (below)! We need to convince them we have the support needed to run their campaign.</p>
+
+
+    <h1>Progress</h1>
+    <div id="callToAction" class="borderDashedBold shellVerticalPadding">
+        <p class="alignCenter divCenter"><strong>When we started,  we only had 50,000 people signed up. If we get 500,000 people to sign up, we believe that we can convince these five people to run.</strong></p>
+
+        <div layout="row">
+            <div flex="100" flex-xs="50" flex-gt-xs="33">
+                <div id="signUpProgress">
+
+                </div>
+            </div>
+            <div flex="100" flex-xs="50" flex-gt-xs="33">
+                <div class="alignCenter">
+                    <div id="signUpLabel" class="fontPrimary salmonText">
+                        <div class="starLeft">
+                            <div class="starRight">Right Now
+                            </div>
+                        </div>
+                    </div>
+                    <div id="totalSignUp" class="fontSecondary salmonText">92,344</div>
+                </div>
+            </div>
+            <div flex="100" flex-gt-xs="33">
+                <div id="candidateJoin" class="joinForm pullRight">
+                    {{ block('registrationForm') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock contentType %}

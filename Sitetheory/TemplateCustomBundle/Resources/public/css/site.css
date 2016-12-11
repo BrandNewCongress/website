@@ -65,6 +65,12 @@
     right: 0;
 }
 
+.alignCenter {
+    text-align: center;
+}
+
+
+
 /* BODY */
 
 body {
@@ -91,7 +97,7 @@ a:hover {
     padding: 9px 14px;
     font-size: 14px;
     color: #FFF;
-    letter-spacing: .15em;
+    letter-spacing: .1em;
     text-transform: uppercase;
     background-color: #7932AC;
 }
@@ -533,49 +539,60 @@ hr {
 
 /* RETRACTING HEADER */
 
-#headerRetracting {
+#headerRetracting,
+#headerMini {
     padding: 14px 0;
     box-shadow: 0 1px 6px rgba(33,33,33,.1);
     border-bottom: 1px solid #DDD;
 }
-#headerRetracting #logoRetractingHeader {
+#headerRetracting #logoRetractingHeader,
+#headerMini #logoRetractingHeader {
     left: 40px;
     max-width: 220px;
 }
-#headerRetracting #navMainContainer {
+#headerRetracting #navMainContainer,
+#headerMini #navMainContainer {
     margin-top: 2px;
 }
-#headerRetracting .navMainLink a {
+#headerRetracting .navMainLink a,
+#headerMini .navMainLink a {
     font-size: 22px;
 }
-#headerRetracting #navMainContainer .delimiter {
+#headerRetracting #navMainContainer .delimiter,
+#headerMini #navMainContainer .delimiter{
     width: 28px;
     text-align: center;
 }
-#headerRetracting #navMainContainer .delimiter img {
+#headerRetracting #navMainContainer .delimiter img,
+#headerMini #navMainContainer .delimiter img {
     margin-top: 5px;
     width: 11px;
 }
-#headerRetracting #retractingContribute {
+#headerRetracting #retractingContribute,
+#headerMini #retractingContribute {
     right: 40px;
 }
-#headerRetracting #retractingContribute .btn {
+#headerRetracting #retractingContribute .btn,
+#headerMini #retractingContribute .btn {
     margin: 0;
     padding: 5px 12px;
     font-size: 11px;
 }
 @media (max-width:991px) {
-    #headerRetracting .sidebarToggle  {
+    #headerRetracting .sidebarToggle,
+    #headerMini .sidebarToggle {
         top: 32px;
     }
 }
 @media (max-width:960px) {
-    #headerRetracting {
+    #headerRetracting,
+    #headerMini {
         height: 90px;
     }
 }
 @media (max-width:600px) {
-    #headerRetracting #logoHeader {
+    #headerRetracting #logoHeader,
+    #headerMini #logoHeader {
         margin: 4px 0;
         max-width: 100px;
     }
@@ -675,7 +692,7 @@ h2.sectionName {
 /* SHELL BODY */
 
 #shellContent.shellVerticalPadding {
-    padding-top: 80px;
+    padding-top: 50px;
 }
 .mainColumnGutter {
     padding-left: 9%;
@@ -697,9 +714,6 @@ h1#pageTitle {
 #pageTitle .starRight {
     background-position: right 17px;
 }
-.headerImage {
-    margin-top: 40px;
-}
 @media (max-width: 991px) {
     .mainColumnGutter {
         padding-left: 0;
@@ -717,6 +731,30 @@ h1#pageTitle {
 
 /* JOIN FORMS */
 
+md-input-container.md-default-theme .md-input,
+md-input-container .md-input {
+    border-color: #333;
+}
+/* Prompt text */
+md-input-container .md-placeholder,
+md-input-container label:not(.md-no-float):not(.md-container-ignore) {
+    font-size: 16px;
+    color: #333;
+}
+/* Prompt text turns purple on click */
+md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused label,
+md-input-container:not(.md-input-invalid).md-input-focused label,
+md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused md-icon
+md-input-container:not(.md-input-invalid).md-input-focused md-icon {
+    color: #7932AC;
+}
+/* Input bottom border changes to purple on click */
+md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused .md-input,
+md-input-container:not(.md-input-invalid).md-input-focused .md-input,
+md-input-container.md-default-theme:not(.md-input-invalid).md-input-resized .md-input,
+md-input-container:not(.md-input-invalid).md-input-resized .md-input {
+    border-color: #7932AC;
+}
 
 /* Position circular progress bar in the middle of form */
 .joinForm md-progress-circular {
@@ -1064,4 +1102,54 @@ h1#pageTitle {
     margin: 40px 0;
     padding: 0;
     height: 6px;
+}
+
+#candidateList h1 {
+    margin-top: 60px;
+    text-align: center;
+    font-size: 35px;
+}
+#candidateList p:first-child {
+    max-width: 920px;
+}
+#candidateList #callToAction p:first-child {
+    margin-bottom: 70px;
+    max-width: 600px;
+    font-size: 16px;
+}
+#signUpLabel {
+    margin-top; 20px;
+    font-size: 20px;
+    letter-spacing: .07em;
+}
+#signUpLabel .starLeft {
+
+}
+#signUpLabel .starLeft {
+
+}
+#candidateList #totalSignUp {
+    font-size: 100px;
+    font-weight: 100;
+}
+#candidateJoin {
+    max-width: 322px;
+}
+#candidateJoin.joinForm .listInline li {
+    display: block;
+}
+/* Make input containers wider */
+#candidateJoin md-input-container {
+    margin: 8px 0;
+    width: 322px;
+}
+/* Prompt text */
+#candidateJoin md-input-container .md-placeholder,
+#candidateJoin md-input-container label:not(.md-no-float):not(.md-container-ignore) {
+    font-size: 18px;
+}
+#candidateJoin  .btn {
+    margin-top: -8px;
+    padding: 15px 0;
+    width: 322px;
 }

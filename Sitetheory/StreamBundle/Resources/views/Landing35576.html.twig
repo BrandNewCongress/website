@@ -9,8 +9,10 @@ SETTINGS
 
 {# TEMPLATE SHELL ADJUSTMENTS - These will be the same for most home page streams #}
 
-{% set sectionMenuActive = 'empty' %}
-{% set sectionMenuHardCoded = 'empty' %}
+{% set headerFull = true %}
+
+{% set sectionMenuActive = '' %}
+{% set sectionMenuHardCoded = '' %}
 
 {# Header image exists #}
 {% set streamClass = 'landingStream' %}
@@ -79,7 +81,7 @@ LAYOUT
     {# Home Landing Layout #}
     <div class="clearfix">
 
-        <a href="#homeCandidates">
+        <a href="/Candidates">
             <div id="announcementBanner">
                 <div layout="row" layout-align="center center">
                     <div flex="none" id="newsLabel" class="salmon fontPrimary">News</div>
@@ -310,7 +312,7 @@ LAYOUT
                 </div>
                 <div flex-xs="100"  flex-gt-xs="33" hide-xs hide-sm class="candidateColumn">
                     <div class="candidateContainer tempCandidateAsk">
-                        <a href="">
+                        <a href="/Nominate">
                             <div class="candidateImage positionAnchor purple">
                                 <div class="candidateInfo">
                                     <p class="adText fontSecondary">Do you know a community leader that would make a great representative?</p>

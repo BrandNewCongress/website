@@ -6,12 +6,8 @@ SETTINGS
 ########
 #}
 
-{# Set Footer Brightness #}
-{% set footerBrightness = 'dark' %}
-
-{# Set Footer Site Map Brightness #}
-{% set siteMapBrightness = 'dark' %}
-
+{# Remove padding on header so mini header can go full width #}
+{% set headerStructure = 'empty' %}
 
 {# Hide Sidebar Login until it's dynamically hidden for users with no membership feature #}
 {% block sidebarLogin %}
@@ -23,6 +19,7 @@ SETTINGS
     {% set bootstrapColumnMain = 'flex=100 flex-gt-sm=80' %}
 {% endif %}
 
+{# Make sure sidebar variables are empty to prevent errors #}
 {% if sectionMenuActive is not defined %}
     {% set sectionMenuActive = 'empty' %}
 {% endif %}
@@ -34,22 +31,21 @@ SETTINGS
 {%  set navLevel1Font = 'fontPrimary' %}
 {%  set navLevel2Font = 'fontSecondary' %}
 
-
-
-{# Place title above the sidebar/mainColumn row #}
-{% block header3 %}
-    {% block pageTitle %}
-        <h1 id="pageTitle" {{ block('editableView') }} data-type="text" data-property="viewVersion.title" data-render="click">
-            <span  class="starLeft">
-                <span class="starRight">{{ view.viewVersion.title }}</span>
-            </span>
-        </h1>
-    {% endblock pageTitle %}
-{% endblock header3 %}
-
 {# Hide page title in main column #}
 {% block pageTitleMainColumn %}
 {% endblock pageTitleMainColumn %}
+
+{# Remove default header image #}
+{% block headerImageInsideHeader %}
+{% endblock headerImageInsideHeader %}
+
+
+{# Set Footer Brightness #}
+{% set footerBrightness = 'dark' %}
+
+{# Set Footer Site Map Brightness #}
+{% set siteMapBrightness = 'dark' %}
+
 
 
 {#
@@ -171,7 +167,7 @@ SIGNUP FORM
         <li>
             <md-input-container>
                 <label>Email</label>
-                <input name="email1" type="email" ng-pattern="options.pattern.email" ng-model="data.email" required>
+                <input name="email1" type="email" ng-pattern="options.pattern.email" ng-model="data.email" required md-no-asterisk>
                 <div ng-messages="Signup.email1.$error" role="alert">
                     <div ng-message-exp="['required', 'pattern']">
                         Please enter a valid email.
@@ -182,7 +178,7 @@ SIGNUP FORM
         <li>
             <md-input-container>
                 <label>Zip</label>
-                <input name="zip" ng-pattern="options.pattern.zip" ng-model="data.zip" required>
+                <input name="zip" ng-pattern="options.pattern.zip" ng-model="data.zip" required md-no-asterisk>
                 <div ng-messages="Signup.zip.$error" role="alert">
                     <div ng-message-exp="['required', 'pattern']">
                         Please enter a valid zip code.
@@ -214,111 +210,147 @@ LAYOUT
     <div class="borderDashed"></div>
 {% endblock sidebarExtrasBottom %}
 
-
-
-{% block header1 %}
-    <div id="header1" class="positionAnchor">
-        <div id="planGraphic" class="positionLeftCenter">
-            <img src="{{ asset('bundles/sitetheorytemplatecustom/images/planGraphic.png') }}" alt="">
-        </div>
-        <div id="logoHeader" class="align-center">
-            <a href="/"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogo.png') }}" alt=""></a>
-        </div>
-        <div id="headerExtraLinks" class="positionRightBottom">
-            <div class="clearfix">
-                <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank" class="btn btnContribute pullRight">Contribute</a>
-            </div>
-            <a id="starLinkRight" class="fontTertiary align-right" href="/Nominate">Nominate a Candidate</a>
-        </div>
-    </div>
-{% endblock header1 %}
-
-{% block header2 %}
-    <div id="header2" class="positionAnchor">
-
-        <div id="headerContact" class="fontSecondary verticalCenter centerLeft clearfix">
-            <a href="mailto:us@brandnewcongress.com" target="_blank">
-                <div class="headerOrnament positionAnchor pullLeft">
-                    <div class="square square1 easyTransition">
-                    </div>
-                    <div class="square square2">
-                    </div>
-                    <div class="square square3 easyTransition">
-                    </div>
-                </div>
-                <div class="btnText">Contact Us</div>
-            </a>
-        </div>
-        {% block mainNavigation %}
-            <div id="navMainContainer" class="navMainContainer divCenter">
-                <ul class="listInline fontPrimary">
-                    <li id="navJoin" class="navMainLink">
-                        <a href="#footerJoin">
-                            Join
-                        </a>
-                    </li>
-                    <li class="delimiter"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}" alt="">
-                    </li>
-                    <li id="navHelp" class="navMainLink">
-                        <a href="/Volunteer">
-                            Help
-                        </a>
-                    </li>
-                    <li class="delimiter"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}" alt="">
-                    </li>
-                    <li id="navLearn" class="navMainLink">
-                        <a href="/The-Plan">
-                            Learn
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        {% endblock mainNavigation %}
-
-        <div id="headerSocial" class="verticalCenter">
-            <!-- Social Media -->
-            {% block socialMedia %}
-                <div class="socialMedia {{ socialStyle|default('basicStyle') }}">
-                    <ul class="listInline">
-                        <li class="twitter">
-                            <a class="positionAnchor" href="http://twitter.com/intent/tweet?status=Sign+up+to+help+create+a Brand+New+Congress: http://brandnewcongress.org" title="Share on Twitter" target="_blank" data-reactid="123" target="_blank">
-                                {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/twitter.svg' %}{% block id %}footerTwitterIcon{% endblock %}{% endembed %}
-                            </a>
-                        </li>
-                        <li class="facebook">
-                            <a class="positionAnchor" href="http://www.facebook.com/sharer/sharer.php?u=http://brandnewcongress.org&amp;title=Brand+New+Congress" title="Share on Facebook" data-reactid="125" target="_blank">
-                                {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/facebook.svg' %}{% block id %}footerFacebookIcon{% endblock %}{% endembed %}
-                            </a>
-                        </li>
-                        <li class="reddit">
-                            <a class="positionAnchor" href="https://www.reddit.com/r/BrandNewCongress/" target="_blank">
-                                {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/reddit.svg' %}{% block id %}footerRedditIcon{% endblock %}{% endembed %}
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            {% endblock socialMedia %}
-            <!-- End Social Media -->
-        </div>
-        <div class="headerOrnament verticalCenter centerLeft"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/tripleSquarePurple.png') }}" alt=""></div>
-        <div class="headerOrnament verticalCenter centerRight"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/tripleSquarePurple.png') }}" alt=""></div>
-    </div>
-{% endblock header2 %}
-
-
+{# Retracting header uses only a few elements from the full header. Must come before mini header which is identical. #}
 {% block retractingHeaderContent %}
     <div class="clearfix">
         <div id="logoRetractingHeader"  class="verticalCenter">
+            <a href="/">
             <img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogoHorizontal.png') }}" alt="">
+            </a>
         </div>
         <div hide-xs hide-sm id="retractingContribute" class="verticalCenter">
-            <a href="/" class="btn btnContribute">Contribute</a>
+            <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank" class="btn btnContribute">Contribute</a>
         </div>
         <div>
             {{ block('mainNavigation') }}
         </div>
     </div>
 {% endblock retractingHeaderContent %}
+
+
+{# The header in this design is extra tall so it's only used on the home page #}
+{# If a specific header has not been requested and this is the first page visited on the site, give the full header #}
+{% if headerFull is not defined and environment.history|length == 0 %}{% set headerFull = true %}{% endif %}
+
+{% block header1 %}
+
+    {% if headerFull is defined and headerFull == true %}
+        <div class="siteMaxWidth siteSidePadding">
+            <div id="header1" class="positionAnchor">
+                <div id="planGraphic" class="positionLeftCenter">
+                    <img src="{{ asset('bundles/sitetheorytemplatecustom/images/planGraphic.png') }}" alt="">
+                </div>
+                <div id="logoHeader" class="align-center">
+                    <a href="/"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogo.png') }}" alt=""></a>
+                </div>
+                <div id="headerExtraLinks" class="positionRightBottom">
+                    <div class="clearfix">
+                        <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank" class="btn btnContribute pullRight">Contribute</a>
+                    </div>
+                    <a id="starLinkRight" class="fontTertiary align-right" href="/Nominate">Nominate a Candidate</a>
+                </div>
+            </div>
+            <div id="header2" class="siteMaxWidth siteSidePadding positionAnchor ">
+                <div id="headerContact" class="fontSecondary verticalCenter centerLeft clearfix">
+                    <a href="mailto:us@brandnewcongress.com" target="_blank">
+                        <div class="headerOrnament positionAnchor pullLeft">
+                            <div class="square square1 easyTransition">
+                            </div>
+                            <div class="square square2">
+                            </div>
+                            <div class="square square3 easyTransition">
+                            </div>
+                        </div>
+                        <div class="btnText">Contact Us</div>
+                    </a>
+                </div>
+
+                {% block mainNavigation %}
+                    <div id="navMainContainer" class="navMainContainer divCenter">
+                        <ul class="listInline fontPrimary">
+                            <li id="navJoin" class="navMainLink">
+                                <a href="#footerJoin">
+                                    Join
+                                </a>
+                            </li>
+                            <li class="delimiter"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}" alt="">
+                            </li>
+                            <li id="navHelp" class="navMainLink">
+                                <a href="/Volunteer">
+                                    Support
+                                </a>
+                            </li>
+                            <li class="delimiter"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}" alt="">
+                            </li>
+                            <li id="navLearn" class="navMainLink">
+                                <a href="/The-Plan">
+                                    Learn
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                {% endblock mainNavigation %}
+
+                <div id="headerSocial" class="verticalCenter">
+                    <!-- Social Media -->
+                    {% block socialMedia %}
+                        <div class="socialMedia {{ socialStyle|default('basicStyle') }}">
+                            <ul class="listInline">
+                                <li class="twitter">
+                                    <a class="positionAnchor" href="http://twitter.com/intent/tweet?status=Sign+up+to+help+create+a Brand+New+Congress: http://brandnewcongress.org" title="Share on Twitter" target="_blank" data-reactid="123" target="_blank">
+                                        {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/twitter.svg' %}{% block id %}footerTwitterIcon{% endblock %}{% endembed %}
+                                    </a>
+                                </li>
+                                <li class="facebook">
+                                    <a class="positionAnchor" href="http://www.facebook.com/sharer/sharer.php?u=http://brandnewcongress.org&amp;title=Brand+New+Congress" title="Share on Facebook" data-reactid="125" target="_blank">
+                                        {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/facebook.svg' %}{% block id %}footerFacebookIcon{% endblock %}{% endembed %}
+                                    </a>
+                                </li>
+                                <li class="reddit">
+                                    <a class="positionAnchor" href="https://www.reddit.com/r/BrandNewCongress/" target="_blank">
+                                        {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/reddit.svg' %}{% block id %}footerRedditIcon{% endblock %}{% endembed %}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    {% endblock socialMedia %}
+                    <!-- End Social Media -->
+                </div>
+                <div class="headerOrnament verticalCenter centerLeft"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/tripleSquarePurple.png') }}" alt=""></div>
+                <div class="headerOrnament verticalCenter centerRight"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/tripleSquarePurple.png') }}" alt=""></div>
+            </div>
+        </div>
+
+    {% else %}
+
+        {# Mini header is identical to retracting header but used on secondary pages as the primary header since home page header design is unusually tall #}
+        {% block headerMini %}
+
+            <div id="headerMini" class="positionAnchor clearfix light">
+                {{ block('sidebarToggleRetracting') }}
+                {{ block('retractingHeaderContent') }}
+            </div>
+
+        {% endblock headerMini %}
+
+    {% endif %}
+
+{% endblock header1 %}
+
+
+
+{# Place title above the sidebar/mainColumn row #}
+{% block header3 %}
+    {% block pageTitle %}
+        <div class="siteMaxWidth siteSidePadding">
+            <h1 id="pageTitle" {{ block('editableView') }} data-type="text" data-property="viewVersion.title" data-render="click">
+                <span  class="starLeft">
+                    <span class="starRight">{{ view.viewVersion.title }}</span>
+                </span>
+            </h1>
+        </div>
+    {% endblock pageTitle %}
+{% endblock header3 %}
 
 
 
@@ -505,7 +537,7 @@ LAYOUT
         <div id="siteMapContainer" class="siteMaxWidth siteSidePadding fontSecondary dark">
 
             <div id="siteMapNew" layout="row" layout-wrap hide-xs hide-sm>
-                <div flex="20">
+                <div flex="25">
                     <div class="siteMapColumn">
                     <ul class="list-unstyled">
                         <li class="siteMapHeader">
@@ -520,7 +552,7 @@ LAYOUT
                     </ul>
                     </div>
                 </div>
-                <div flex="20">
+                <div flex="25">
                     <div class="siteMapColumn">
                     <ul class="list-unstyled">
                         <li class="siteMapHeader">
@@ -547,7 +579,7 @@ LAYOUT
                     </ul>
                     </div>
                 </div>
-                <div flex="20">
+                <div flex="25">
                     <div class="siteMapColumn">
                     <ul class="list-unstyled">
                         <li class="siteMapHeader">
@@ -565,22 +597,7 @@ LAYOUT
                     </ul>
                     </div>
                 </div>
-                <div flex="20">
-                    <div class="siteMapColumn">
-                        <ul class="list-unstyled">
-                            <li class="siteMapHeader">
-                                <div class="fontTertiary">Helpful Links</div>
-                            </li>
-                            <li>
-                                <a href="/https://www.govtrack.us/congress/members" target="_blank">Find Your Congressional District</a>
-                            </li>
-                            <li>
-                                <a href="https://docs.google.com/a/gutensite.com/forms/d/e/1FAIpQLSceYguZI_gngXf7dLOXN6xUkLRNsYfn0b2v-aDEvZKPH-j1dQ/viewform" target="_blank">Suggest a Local Connector</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div flex="20">
+                <div flex="25">
                     <div class="siteMapColumn">
                     <ul class="list-unstyled">
                         <li class="siteMapHeader">
