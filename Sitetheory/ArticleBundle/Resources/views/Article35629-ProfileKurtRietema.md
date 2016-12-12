@@ -1,0 +1,1 @@
+Used to indentify corresponding article at a glance.

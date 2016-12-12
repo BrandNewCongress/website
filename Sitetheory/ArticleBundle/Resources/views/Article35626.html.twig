@@ -1,10 +1,55 @@
 {% extends 'SitetheoryArticleBundle::Article.html.twig' %}
 
 
-{% set sectionNameHardCoded = 'Learn' %}
-{% set sectionMenuHardCoded = '3' %}
-{% set sectionMenuActive = 'planActive' %}
+{# Hide sidebar on desktop #}
+{% set bootstrapColumnSidebar = 'hide-gt-xs' %}
+{% set bootstrapColumnMain = 'flex=100' %}
+
+{# Hide gutter in main column #}
+{% block mainColumnGutter %}
+{% endblock mainColumnGutter %}
+
+{# Hide footer signup form #}
+{% block footerJoin %}
+{% endblock footerJoin %}
+
+
+{# Hide footer signup form #}
 
 {% block contentType %}
-    Jordyn's profile
+    <div class="profileDetails">
+        <p class="pullout divCenter alignCenter">We want Jordyn Lexton as a Brand New Congress candidate to be a crusader and influencer that stands up against injustice in incarceration. Jordyn has taken risks and made sacrifices to serve and stand in solidarity with others. Watch Jordyn talk about Drive Change.</p>
+
+        <h1>New York 12th</h1>
+        <div class="borderDashedBold shellVerticalPadding">
+
+            <div layout="row" layout-wrap>
+                <div flex="100" flex-gt-sm="40">
+                    <div hide-xs hide-sm class="profileImage">
+                        <img src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/JordynLexton.jpg') }}" alt="">
+                    </div>
+                </div>
+                <div flex="100" flex-gt-sm="60">
+                    <div hide-gt-sm class="profileImage">
+                        <img src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/JordynLexton.jpg') }}" alt="">
+                    </div>
+                    <div class="profileBody">
+                        <h2>Why You Should Support Drafting Jordyn Lexton</h2>
+                        <p>Jordyn Lexton is an educator, creative thinker and a doer. Having worked for three years as a teacher at Rikers Island prison, Jordyn became dismayed witnessing a very broken and unjust system. New York is one of two states that automatically arrests 16 year olds as adults. For Lexton’s students, future opportunity by way of employment and/or education seemed bleak, and too many of them returned to Lexton’s classroom in jail.</p>
+                        <p>While campaigning to stop convicting children as adults, Lexton set out to help break the cycle by developing social enterprises that would be self-sustaining and provide channels to opportunity for young people returning to the community from prison.</p>
+                        <p>Lexton created Drive Change: a fleet of food trucks providing young people with employment and giving them concrete transferrable skills in the form of certificates and licenses. </p>
+                        <p>Drive Change uses the food truck workplace to run a year long fellowship to broaden access for young people returning home from adult jail/prison so they can obtain preferential employment and educational opportunities. When young people leave jail/prison with felonies rather than juvenile adjudications, the road ahead is often paved with red-lights, stop-signs and dead ends. 70% of people under 24 who have been treated like adults in the criminal justice system will be re-intercepted by the system.</p>
+                        <p class="callToAction">If you’d like to see Jordyn in Congress fighting to fix our prison system, support us so we can convince Jordyn Lexton to run for Congress.
+                        </p>
+                    </div>
+                    <div class="candidateDetailsJoin joinForm">
+                        {{ block('registrationForm') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="borderDashedBold shellVerticalPadding alignCenter">
+            {{ block('candidateReturnLink') }}
+        </div>
+    </div>
 {% endblock contentType %}

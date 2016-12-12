@@ -1435,11 +1435,14 @@ md-input-container:not(.md-input-invalid).md-input-resized .md-input {
 .candidateDetailsJoin.joinForm {
     margin-left: -10px;
 }
+.joinForm md-input-container {
+    width: 240px;
+}
 .candidateDetailsJoin.joinForm .btn {
     padding: 15px 25px;
 }
-@media (min-width: 600px) {
-    .candidateDetailsJoin .listInline {
+@media (min-width: 960px) {
+    .candidateDetailsJoin .listInline li{
         margin: 0 8px;
     }
 }
@@ -1449,17 +1452,17 @@ md-input-container:not(.md-input-invalid).md-input-resized .md-input {
         margin: 0 5% 20px 0;
         width: 50%;
     }
+    .candidateDetailsJoin.joinForm {
+        margin: 50px 0 0 0;
+    }
+    .candidateDetailsJoin md-input-container {
+        margin: 10px 0;
+    }
 }
 @media (max-width:600px) {
     .profileDetails .profileImage {
         float: none;
         margin: 0 0 30px 0;
         width: 100%;
-    }
-    .candidateDetailsJoin.joinForm {
-        margin-top: 50px;
-    }
-    .candidateDetailsJoin md-input-container {
-        margin: 10px 0;
     }
 }
