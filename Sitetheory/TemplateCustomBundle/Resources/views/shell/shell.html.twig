@@ -9,6 +9,8 @@ SETTINGS
 {# Remove padding on header so mini header can go full width #}
 {% set headerStructure = 'empty' %}
 
+{%  set mobildDrawerDirection = 'right' %}
+
 {# Hide Sidebar Login until it's dynamically hidden for users with no membership feature #}
 {% block sidebarLogin %}
 {% endblock sidebarLogin %}
@@ -327,7 +329,6 @@ LAYOUT
         {% block headerMini %}
 
             <div id="headerMini" class="positionAnchor clearfix light">
-                {{ block('sidebarToggleRetracting') }}
                 {{ block('retractingHeaderContent') }}
             </div>
 

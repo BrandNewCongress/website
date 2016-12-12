@@ -483,10 +483,15 @@ hr {
         display: block;
     }
     /* end temporary */
-    .sidebarToggle  {
-        top: 50px;
-        right: inherit;
-        left: 7%;
+    #header .sidebarToggle {
+        top: 40px;
+        right: 65px;
+        left: inherit;
+    }
+    #headerRetracting .sidebarToggle,
+    #headerMini .sidebarToggle {
+        top: 25px;
+        right: 50px;
     }
 }
 @media (max-width:959px) {
@@ -499,6 +504,8 @@ hr {
     }
     #headerExtraLinks {
         top: 0;
+        right: inherit;
+        left: 0;
         bottom: inherit;
     }
     .btn.btnContribute {
@@ -526,9 +533,6 @@ hr {
     #headerContact,
     #headerSocial {
         display: none;
-    }
-    .sidebarToggle  {
-        top: 30px;
     }
     #navMainContainer,
     .headerOrnament {
@@ -595,16 +599,10 @@ hr {
     padding: 5px 12px;
     font-size: 11px;
 }
-@media (max-width:991px) {
-    #headerRetracting .sidebarToggle,
-    #headerMini .sidebarToggle {
-        top: 32px;
-    }
-}
 @media (max-width:960px) {
     #headerRetracting,
     #headerMini {
-        height: 90px;
+        height: 70px;
     }
 }
 @media (max-width:600px) {
