@@ -361,6 +361,12 @@
     background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.75));
     background: -webkit-linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.75));
 }
+.candidateImage {
+    transition: all .2s ease-out;
+}
+.candidateImage:hover {
+    opacity: .95;
+}
 .candidateImage img {
     width: 100%;
 }
