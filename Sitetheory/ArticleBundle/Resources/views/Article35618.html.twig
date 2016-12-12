@@ -13,21 +13,22 @@
 {% block mainColumnGutter %}
 {% endblock mainColumnGutter %}
 
+{# Hide footer signup form #}
 {% block footerJoin %}
 {% endblock footerJoin %}
 
 {% block contentType %}
-<div id="candidateListPage">
+<div id="candidateListPage" class="profileList">
 
-    <p class="divCenter alignCenter pullout ">We are excited to announce our first five draftees (below)! We need to convince them we have the support needed to run their campaign.</p>
+    <p class="divCenter alignCenter pullout">We are excited to announce our first five draftees (<a href="#candidateList">below</a>)! We need to convince them we have the support needed to run their campaign.</p>
 
 
     <h1>Progress</h1>
     <div id="callToAction" class="borderDashedBold shellVerticalPadding">
-        <p class="alignCenter divCenter"><strong>When we started,  we only had 50,000 people signed up. If we get 500,000 people to sign up, we believe that we can convince these five people to run.</strong></p>
+        <p class="intro alignCenter divCenter"><strong>When we started,  we only had 50,000 people signed up. If we get 500,000 people to sign up, we believe that we can convince these five people to run.</strong></p>
 
-        <div layout="row">
-            <div flex="100" flex-xs="50" flex-gt-xs="33">
+        <div layout="row" layout-wrap>
+            <div flex="100" flex-gt-sm="33" flex-order="2" flex-order-gt-sm="1">
                 <div id="signUpProgress"class="positionAnchor">
                     <div id="progressNumbers" class="positionAll">
                         <div id="startNumber" class="positionLeftBottom smallLabel fontBody salmonText">0</div>
@@ -41,7 +42,7 @@
                     {% embed '@SitetheoryTemplateCustomBundle/Resources/public/images/progressBarCover.svg' %}{% block id %}footerRedditIcon{% endblock %}{% endembed %}
                 </div>
             </div>
-            <div flex="100" flex-xs="50" flex-gt-xs="33">
+            <div flex="100" flex-gt-sm="33" flex-order="1" flex-order-gt-sm="2">
                 <div class="divCenter alignCenter">
                     <div id="signUpLabel" class="divCenter">
                         <div class="starLeft">
@@ -55,14 +56,17 @@
                     <div id="totalSignUp" class="borderDashed fontSecondary salmonText">92,344</div>
                 </div>
             </div>
-            <div flex="100" flex-gt-xs="33">
+            <div flex="100" flex-gt-sm="33" flex-order="3">
                 <div id="candidateJoin" class="joinForm pullRight">
+
+                    <p hide-gt-sm class="alignCenter divCenter"><strong>Sign up and help us convince our new draftees to run!</strong></p>
                     {{ block('registrationForm') }}
                 </div>
             </div>
         </div>
     </div>
 
+    <a name="candidateList"></a>
     <h1>Our Draftees</h1>
     <div class="borderDashedBold">
         <div id="profileList">
@@ -78,7 +82,7 @@
                             <h2>Linda Wayman</h2>
                             <h4>Educator</h4>
                             <p class="profileBody">Decades-long educator in North Philadelphia who who became a superintendent, but stepped down to become principal of a chronically failing high school, turning the school around.
-                                <a href="/Profile-Linda-Wayman" class="readMore fontBody">Read More</a>
+                                <a href="/Article/2016-12-11-10h56m24s" class="readMore fontBody">Read More</a>
                             </p>
                         </div>
                         <div flex-order="1" flex-order-gt-xs="2" class="profileExtra backgroundDark">
@@ -104,7 +108,7 @@
                             <h2>Jordyn Lexton</h2>
                             <h4>Fellowship Founder</h4>
                             <p class="profileBody">Former teacher at Rikers Island prison; while campaigning to stop convicting children as adults, created Drive Change, a 1-year fellowship program in the food truck industry to help young people returning home from prison get jobs and education.
-                                <a href="/Profile-Jordyn-Lexton" class="readMore fontBody">Read More</a>
+                                <a href="/Jordyn-Lexton" class="readMore fontBody">Read More</a>
                             </p>
                         </div>
                         <div flex-order="1" flex-order-gt-xs="2" class="profileExtra backgroundDark">
@@ -130,7 +134,7 @@
                             <h2>Tynisha Tyson</h2>
                             <h4>Social Worker</h4>
                             <p class="profileBody">Social worker at Milner Elementary; works with children who suffer from abuse, neglect, and extreme poverty to be an anchor in their lives. Has actively continued working as a social worker to help kids most in need despite opportunities to “move up.”
-                                <a href="/Profile-Tynisha-Tyson" class="readMore fontBody">Read More</a>
+                                <a href="/Tynisha-Tyson" class="readMore fontBody">Read More</a>
                             </p>
                         </div>
                         <div flex-order="1" flex-order-gt-xs="2" class="profileExtra backgroundDark">
@@ -156,7 +160,7 @@
                             <h2>Chardo Richardson</h2>
                             <h4>Civil Rights Lawyer</h4>
                             <p class="profileBody">Air Force veteran with five tours of duty in Iraq and Afghanistan; now President of Central Florida ACLU chapter, fighter for workers’ rights with Working America, and founded Think LegalEase, a series of YouTube videos to make the law accessible.
-                                <a href="/Profile-Chardo-Richardson" class="readMore fontBody">Read More</a>
+                                <a href="/Chardo-Richardson" class="readMore fontBody">Read More</a>
                             </p>
                         </div>
                         <div flex-order="1" flex-order-gt-xs="2" class="profileExtra backgroundDark">
@@ -182,7 +186,7 @@
                             <h2>Kurt Rietema</h2>
                             <h4>Youth Pastor</h4>
                             <p class="profileBody">Youth pastor for over a decade with YouthFront; started “Neighbor to Neighbor” to help immigrants and marginalized people become homeowners by creating fair, low-interest lending partnerships between churches and families that can’t access traditional home mortgages.
-                                <a href="/Profile-Kurt-Rietema" class="readMore fontBody">Read More</a>
+                                <a href="/Kurt-Rietema" class="readMore fontBody">Read More</a>
                             </p>
                         </div>
                         <div flex-order="1" flex-order-gt-xs="2" class="profileExtra backgroundDark">

@@ -196,17 +196,10 @@
 
 /* HOME PAGE JOIN FORM */
 
-#homeJoin .listInline li {
-    margin: 0 8px;
-    vertical-align: top;
-}
+
 /* Compensate for hidden message fields under input in form */
 #homeJoin .listInline li {
     margin-bottom: -30px;
-}
-/* Make input containers wider */
-#homeJoin md-input-container {
-    width: 260px;
 }
 /* Move prompt text high enough to make room for bigger input text */
 #homeJoin md-input-container.md-input-focused label:not(.md-no-float),
@@ -220,18 +213,10 @@
     padding-bottom: 16px;
     font-size: 16px;
 }
-.joinForm .btn {
+#homeJoin .btn {
     padding: 15px 40px;
 }
-@media (max-width:960px) {
-    #homeJoinForm .listInline li {
-        display: block;
-    }
-    #homeJoinForm .btn {
-        display: table;
-        margin: 20px auto 0 auto;
-    }
-}
+
 
 
 /* WELCOME SECTION */

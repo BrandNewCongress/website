@@ -644,3 +644,21 @@ LAYOUT
     </div>
 
 {% endblock viewFooter %}
+
+
+
+{# Reusable items for secondary pages that are temporaily hard coded #}
+
+{# Candidate Details #}
+
+{% block candidateReturnLink %}
+<strong>
+    <a class="returnLink divCenter fontBody" href="/Candidates">
+        <div class="starLeft starPurple">
+            <div class="starRight starPurple">
+                <div class="starText">Return to All Candidates</div>
+            </div>
+        </div>
+    </a>
+</strong>
+{% endblock candidateReturnLink %}

@@ -326,7 +326,7 @@ hr {
 .starLeft,
 .starRight {
     background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starBlack.png') no-repeat left 8px;
-    background-size: 10px;
+    background-size: 9px;
 }
 .starRight {
     background-position: right 8px;
@@ -748,6 +748,7 @@ h1#pageTitle {
 
 /* JOIN FORMS */
 
+
 md-input-container.md-default-theme .md-input,
 md-input-container .md-input {
     border-color: #333;
@@ -773,6 +774,15 @@ md-input-container:not(.md-input-invalid).md-input-resized .md-input {
     border-color: #7932AC;
 }
 
+
+.joinForm .listInline li {
+    margin: 0 8px;
+    vertical-align: top;
+}
+/* Make input containers wider */
+.joinForm md-input-container {
+    width: 260px;
+}
 /* Position circular progress bar in the middle of form */
 .joinForm md-progress-circular {
     transform: translate(-50%,-50%);
@@ -810,6 +820,16 @@ md-input-container:not(.md-input-invalid).md-input-resized .md-input {
     font-weight: 300;
     color: #7932AC;
 }
+@media (max-width:959px) {
+    .joinForm .listInline li {
+        display: block;
+    }
+    .joinForm .btn {
+        display: table;
+        margin: 20px auto 0 auto;
+    }
+}
+
 
 /* FOOTER JOIN AREA */
 
@@ -1121,23 +1141,20 @@ md-input-container:not(.md-input-invalid).md-input-resized .md-input {
     height: 6px;
 }
 
-#candidateListPage h1 {
-    margin: 0 0 26px;
-    text-align: center;
-    font-size: 35px;
-}
-#candidateListPage p:first-child {
-    margin-bottom: 60px;
-    max-width: 920px;
-}
-#candidateListPage #callToAction p:first-child {
+
+
+
+
+
+#candidateListPage #callToAction .intro {
     margin-bottom: 60px;
     max-width: 600px;
- }
+}
 
 /* USA progress bar */
 
 #signUpProgress {
+    margin-right: 20%;
     max-width: 320px;
 }
 #progressBarContainer {
@@ -1173,7 +1190,14 @@ md-input-container:not(.md-input-invalid).md-input-resized .md-input {
 #progressBar {
     bottom: 0;
 }
-
+@media (max-width: 959px) {
+    #signUpProgress {
+        margin: 50px auto 0 auto;
+    }
+    #progressNumbers {
+        transform: translateX(-15px);
+    }
+}
 
 /* Sign up numbers */
 
@@ -1196,9 +1220,24 @@ md-input-container:not(.md-input-invalid).md-input-resized .md-input {
     margin-top: 25px;
     padding-top: 25px;
 }
+@media (max-width: 1200px) {
+    #totalSignUp {
+        font-size: 80px;
+    }
+}
+@media (max-width: 959px) {
+    #signUpLabel {
+        margin-top: 0;
+    }
+    #totalSignUp {
+        font-size: 100px;
+    }
+}
 
 
 /* Sign up form */
+
+
 #candidateJoin.joinForm .listInline li {
     display: block;
 }
@@ -1218,8 +1257,52 @@ md-input-container:not(.md-input-invalid).md-input-resized .md-input {
     width: 300px;
 }
 
+@media (max-width: 1100px) {
+    #candidateJoin md-input-container,
+    #candidateJoin  .btn {
+        width: 260px;
+    }
+}
+@media (max-width: 1000px) {
+    #candidateJoin md-input-container,
+    #candidateJoin  .btn {
+        width: 220px;
+    }
+}
+@media (max-width: 959px) {
+    #candidateJoin p{
+        margin-bottom: 35px;
+        max-width: 500px;
+    }
+    #candidateJoin md-input-container,
+    #candidateJoin  .btn {
+        width: 300px;
+    }
+    #candidateJoin {
+        float: none;
+        margin-top: 60px;
+    }
+}
 
-/* Candidate List */
+
+/* General profile styling */
+
+.profileList h1,
+.profileDetails h1 {
+    margin: 0 0 26px;
+    text-align: center;
+    font-size: 35px;
+}
+.profileList .pullout,
+.profileDetails .pullout {
+    margin-bottom: 60px;
+    max-width: 920px;
+}
+.profileImage img {
+    width: 100%;
+}
+
+/* Profile List */
 
 #profileList {
     margin: 0 -2%;
@@ -1232,19 +1315,19 @@ md-input-container:not(.md-input-invalid).md-input-resized .md-input {
     margin: 0 4%;
     padding-bottom: 120px;
 }
-.profileImage {
+.profileList .profileImage {
     float: left;
     max-width: 50%;
     margin: 0 5% 22px 0;
 }
-#profileList h2 {
+.profileList h2 {
     margin: 0 0 12px;
     font-size: 18px;
 }
-#profileList h4 {
+.profileList h4 {
     margin-bottom: 26px;
 }
-.profileBody {
+.profileList .profileBody {
     margin-bottom: 22px;
     padding-right: 3%;
 }
@@ -1264,8 +1347,11 @@ md-input-container:not(.md-input-invalid).md-input-resized .md-input {
     color: #FFF;
     letter-spacing: .08em;
 }
+
+
+
 @media (max-width: 1200px) {
-    .profileImage {
+    .profileList .profileImage {
         max-width: 40%;
     }
     .profileBody {
@@ -1279,13 +1365,13 @@ md-input-container:not(.md-input-invalid).md-input-resized .md-input {
     .profileItem {
         padding-bottom: 112px;
     }
-    .profileImage {
+    .profileList .profileImage {
         max-width: 40%;
     }
     #profileList h4 {
         margin-bottom: 16px;
     }
-    .profileBody {
+    .profileList .profileBody {
         font-size: 13px;
     }
 }
@@ -1297,15 +1383,12 @@ md-input-container:not(.md-input-invalid).md-input-resized .md-input {
         margin: 0 10%;
         text-align: center;
     }
-    .profileImage {
+    .profileList .profileImage {
         float: none;
         margin: 0 0 30px 0;
         max-width: 100%;
     }
-    .profileImage img {
-        width: 100%;
-    }
-    .profileBody {
+    .profileList .profileBody {
         font-size: 15px;
     }
     .profileExtra {
@@ -1331,5 +1414,52 @@ md-input-container:not(.md-input-invalid).md-input-resized .md-input {
         bottom: inherit;
         left: inherit;
         margin-bottom: 16px;
+    }
+}
+
+/* Profile Details */
+
+.profileDetails .profileImage {
+    margin-right: 12%;
+}
+.profileDetails h2 {
+    font-size: 18px;
+    color: #7932AC;
+}
+.profileDetails .callToAction {
+    margin-top: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+}
+.candidateDetailsJoin.joinForm {
+    margin-left: -10px;
+}
+.candidateDetailsJoin.joinForm .btn {
+    padding: 15px 25px;
+}
+@media (min-width: 600px) {
+    .candidateDetailsJoin .listInline {
+        margin: 0 8px;
+    }
+}
+@media (max-width:959px) {
+    .profileDetails .profileImage {
+        float: left;
+        margin: 0 5% 20px 0;
+        width: 50%;
+    }
+}
+@media (max-width:600px) {
+    .profileDetails .profileImage {
+        float: none;
+        margin: 0 0 30px 0;
+        width: 100%;
+    }
+    .candidateDetailsJoin.joinForm {
+        margin-top: 50px;
+    }
+    .candidateDetailsJoin md-input-container {
+        margin: 10px 0;
     }
 }
