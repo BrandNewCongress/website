@@ -10,82 +10,6 @@
 }
 
 
-
-/* move to core */
-
-
-.headerImage {
-    transition: all .2s ease-out;
-    transform: scale(.95);
-    transform-origin: center top;
-    opacity: 0;
-    overflow: hidden;
-}
-.loaded .headerImage {
-    transform: scale(1);
-    opacity: 1;
-}
-#shellContent {
-    transition: all .2s ease-out;
-    opacity: 0;
-    overflow: hidden;
-}
-.loaded #shellContent {
-    opacity: 1;
-}
-#shellContent {
-    transition-delay: .2s;
-}
-
-
-.positionLeftTop {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-.positionLeftCenter {
-    transform: translateY(-50%);
-    position: absolute;
-    top: 50%;
-    left: 0;
-}
-.positionLeftBottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-.positionRightTop {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-.positionRightCenter {
-    transform: translateY(-50%);
-    position: absolute;
-    top: 50%;
-    right: 0;
-}
-.positionRightBottom {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
-.positionAll {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
-
-
-
-.alignCenter {
-    text-align: center;
-}
-
-
-
 /* BODY */
 
 body {
@@ -361,11 +285,7 @@ hr {
 
 /* HEADER */
 
-#header {
-    animation: itemsFadeIn .5s ease-out 1s forwards;
-    -webkit-animation: itemsFadeIn .5s ease-out 1s forwards;
-    opacity: 0;
-}
+
 #header1 {
     margin: 60px 0 34px;
 }
@@ -607,8 +527,6 @@ hr {
 
 
 
-
-
 /* SHELL SIDEBAR */
 
 #shellSidebar .borderDashed {
@@ -704,7 +622,7 @@ h2.sectionName {
 .mainColumnGutter {
     padding-left: 9%;
 }
-h1#pageTitle {
+h1.pageTitle {
     margin: 50px 0 36px;
     padding: 6px 20px;
     text-align: center;
@@ -712,13 +630,13 @@ h1#pageTitle {
     font-size: 45px;
     background: #171717;
 }
-#pageTitle .starLeft,
-#pageTitle .starRight {
+.pageTitle .starLeft,
+.pageTitle .starRight {
     display: block;
     background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starWhite.png') no-repeat left 17px;
     background-size: 11px;
 }
-#pageTitle .starRight {
+.pageTitle .starRight {
     background-position: right 17px;
 }
 @media (max-width: 959px) {
@@ -1141,6 +1059,8 @@ md-input-container:not(.md-input-invalid).md-input-resized .md-input {
     height: 6px;
 }
 
+
+/* JOIN A CALL */
 
 #JoinCall .bodyLarge {
     margin-bottom: 50px;

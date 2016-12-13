@@ -7,8 +7,8 @@
 {% endblock link %}
 
 {# Hide sidebar on desktop #}
-{% set bootstrapColumnSidebar = 'hide-gt-xs' %}
-{% set bootstrapColumnMain = 'flex=100' %}
+{% set columnSidebar = 'hide-gt-xs' %}
+{% set columnMain = 'flex=100' %}
 
 {# Hide gutter in main column #}
 {% block mainColumnGutter %}
@@ -49,7 +49,7 @@
                 </div>
             </div>
         </div>
-        <div class="borderDashedBold shellVerticalPadding alignCenter">
+        <div class="borderDashedBold shellVerticalPadding textCenter">
             {{ block('candidateReturnLink') }}
         </div>
     </div>
