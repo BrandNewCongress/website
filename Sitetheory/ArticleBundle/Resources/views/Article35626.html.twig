@@ -7,8 +7,8 @@
 {% endblock link %}
 
 {# Hide sidebar on desktop #}
-{% set bootstrapColumnSidebar = 'hide-gt-xs' %}
-{% set bootstrapColumnMain = 'flex=100' %}
+{% set columnSidebar = 'hide-gt-xs' %}
+{% set columnMain = 'flex=100' %}
 
 {# Hide gutter in main column #}
 {% block mainColumnGutter %}
@@ -23,7 +23,7 @@
 
 {% block contentType %}
     <div class="profileDetails">
-        <p class="pullout divCenter alignCenter">We want Jordyn Lexton as a Brand New Congress candidate to be a crusader and influencer that stands up against injustice in incarceration. Jordyn has taken risks and made sacrifices to serve and stand in solidarity with others. Watch Jordyn talk about Drive Change.</p>
+        <p class="pullout divCenter textCenter">We want Jordyn Lexton as a Brand New Congress candidate to be a crusader and influencer that stands up against injustice in incarceration. Jordyn has taken risks and made sacrifices to serve and stand in solidarity with others. <a href="https://www.youtube.com/watch?v=IZ8NYJwiC1c">Watch Jordyn talk about Drive Change.</a></p>
 
         <h1>New York 12th</h1>
         <div class="borderDashedBold shellVerticalPadding">
@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <div class="borderDashedBold shellVerticalPadding alignCenter">
+        <div class="borderDashedBold shellVerticalPadding textCenter">
             {{ block('candidateReturnLink') }}
         </div>
     </div>

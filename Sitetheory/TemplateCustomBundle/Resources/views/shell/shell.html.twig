@@ -17,9 +17,9 @@ SETTINGS
 {% endblock sidebarLogin %}
 
 {# Hide sidebar and make main column full width #}
-{% if bootstrapColumnSidebar is not defined %}
-    {% set bootstrapColumnSidebar = 'flex=0 flex-gt-sm=20' %}
-    {% set bootstrapColumnMain = 'flex=100 flex-gt-sm=80' %}
+{% if columnSidebar is not defined %}
+    {% set columnSidebar = 'flex=0 flex-gt-sm=20' %}
+    {% set bcolumnMain = 'flex=100 flex-gt-sm=80' %}
 {% endif %}
 
 {# Make sure sidebar variables are empty to prevent errors #}
@@ -316,7 +316,7 @@ LAYOUT
                     <div id="planGraphic" class="positionLeftCenter">
                         <img src="{{ asset('bundles/sitetheorytemplatecustom/images/planGraphic.png') }}" alt="">
                     </div>
-                    <div id="logoHeader" class="align-center">
+                    <div id="logoHeader" class="textCenter">
                         <a href="/"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogo.png') }}" alt=""></a>
                     </div>
                     <div id="headerExtraLinks" class="positionRightBottom">
@@ -420,7 +420,7 @@ LAYOUT
 
         {% block pageTitle %}
             <div class="siteMaxWidth siteSidePadding">
-                <h1 id="pageTitle" {{ block('editableView') }} data-type="text" data-property="viewVersion.title" data-render="click">
+                <h1 class="pageTitle" {{ block('editableView') }} data-type="text" data-property="viewVersion.title" data-render="click">
                     <span  class="starLeft">
                         <span class="starRight">{{ view.viewVersion.title }}</span>
                     </span>
@@ -725,11 +725,11 @@ LAYOUT
 {% block viewFooter %}
     <div id="footerBackground">
         <div id="footer" class="siteMaxWidth siteSidePadding dark">
-            <div id="footerLogo" class="align-center">
+            <div id="footerLogo" class="textCenter">
                 <img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogoFooter.png') }}" alt="">
             </div>
-            <p class="smallLabel align-center">Send questions to <a href="mailto:us@brandnewcongress.org">us@brandnewcongress.org</a></p>
-            <div id="footerCredit" class="align-center">
+            <p class="smallLabel textCenter">Send questions to <a href="mailto:us@brandnewcongress.org">us@brandnewcongress.org</a></p>
+            <div id="footerCredit" class="textCenter">
                 <p class="smallLabel">©2016 Brand New Congress. All rights reserved.<br>Paid for by Brand New Congress, brandnewcongress.org, not authorized by any candidate or candidate's committee.</p>
                 <a class="smallLabel" href="http://www.sitetheory.io" target="_blank">
                     Website powered by Sitetheory
