@@ -17,81 +17,6 @@
 {% block footerJoin %}
 {% endblock footerJoin %}
 
-
-{#
-##########
-JAVASCRIPT
-##########
-#}
-{% block script %}
-    {{ parent() }}
-
-    {# SIGNUP FORM #}
-    <script>
-        (function (root, factory) {
-            if (typeof require === 'function') {
-                require(['stratus', 'underscore', 'jquery', 'angular', 'angular-material'], factory);
-            } else {
-                factory(root.Stratus, root._, root.$);
-            }
-        }(this, function (Stratus, _, $) {
-
-            Stratus.Controllers.CustomCounter = function ($scope, $element, $http, $attrs, $window) {
-
-
-                /*
-                $scope.iterateNumber = function(end, options) {
-                    options = options || {};
-                    options.model = options.model || null;
-                    options.modelKey = options.modelKey || null;
-                    options.duration = options.duration || 2000;
-                    options.easing = options.easing || 'linear';
-                    options.end = end;
-                    // Start 85% of total (if only an end was provided)
-                    options.start = options.start || ((options.end/10)*8.5);
-                    // Set Recurring Loop Based on Time
-
-                    // This uses jQuery to Animate
-                    $({count: options.start}).animate({count: options.end}, {
-                        duration: options.duration,
-                        easing: options.easing,
-                        step: function() {
-                            var newValue = Math.floor(this.count++);
-                            // TODO: remove
-                            $scope.data.count = newValue;
-                            console.log('iterate: '+newValue);
-                            if(options.model) {
-                                if(options.modelKey && options.modelKey in options.model) {
-                                    options.model[options.modelKey] = newValue;
-                                } else {
-                                    options.model = newValue;
-                                }
-                            }
-                        }
-                    });
-                };
-
-
-                // Whenever the count changes, increment counter
-                $scope.$watch('results.count', function(count) {
-                    console.log('changed: ', $scope.results.count);
-                    var options = {
-                        start: $scope.count,
-                        duration: 2000,
-                        model: $scope.results,
-                        modelKey: 'count'
-                    };
-                    $scope.iterateNumber($scope.results.count, options);
-                });
-                */
-
-            };
-        }));
-    </script>
-
-{% endblock script %}
-
-
 {% block contentType %}
 <div id="candidateListPage" class="profileList">
 
@@ -111,7 +36,7 @@ JAVASCRIPT
                         <div id="numberLine"></div>
                     </div>
                     <div id="progressBarContainer" class="positionAll">
-                        <div id="progressBar" class="positionLeftTop salmon" ng-style="{width: (100*(results.count/500000))+'%'}"></div>
+                        <div id="progressBar" class="positionLeftTop salmon" ng-style="{width: (100*(results.count/500000))+'%', 'max-width': '100%'}"></div>
                     </div>
                     {% embed '@SitetheoryTemplateCustomBundle/Resources/public/images/progressBarCover.svg' %}{% block id %}footerRedditIcon{% endblock %}{% endembed %}
                 </div>
@@ -127,7 +52,8 @@ JAVASCRIPT
                             </div>
                         </div>
                     </div>
-                    <div id="totalSignUp" class="borderDashed fontSecondary salmonText" count-up start-val="0" end-value="100" duration="2" decimals="1"></div>
+                    <div id="totalSignUp" class="borderDashed fontSecondary salmonText" count-up start-val="0" end-value="results.count" duration="2" decimals="1" scroll-spy-event="elementScrolledIntoView" scroll-spy></div>
+                    {#<input type="text" ng-model="results.count">#}
                 </div>
             </div>
             <div flex="100" flex-gt-sm="33" flex-order="3">
