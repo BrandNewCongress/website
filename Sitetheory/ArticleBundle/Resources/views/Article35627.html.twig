@@ -1,9 +1,15 @@
 {% extends 'SitetheoryArticleBundle::Article.html.twig' %}
 
+{# Load Profiles CSS #}
+{% block link %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/profiles.css') }}">
+{% endblock link %}
+
 
 {# Hide sidebar on desktop #}
-{% set bootstrapColumnSidebar = 'hide-gt-xs' %}
-{% set bootstrapColumnMain = 'flex=100' %}
+{% set columnSidebar = 'hide-gt-xs' %}
+{% set columnMain = 'flex=100' %}
 
 {# Hide gutter in main column #}
 {% block mainColumnGutter %}
@@ -18,7 +24,7 @@
 
 {% block contentType %}
     <div class="profileDetails">
-        <p class="pullout divCenter alignCenter">We are drafting Tynisha Tyson for Brand New Congress because of her expertise with what children and families in poverty are going through, and because she will always put others first when making decisions that could affect the lives of millions. <a href="http://www.courant.com/g00/hometown-heroes/hc-hometown-hero-tynisha-tyson-0925-20160924-story.html?i10c.referrer=https%3A%2F%2Fwww.google.com%2F">Read this article covering the lasting impact Tynisha has on her students.</a></p>
+        <p class="pullout divCenter textCenter">We are drafting Tynisha Tyson for Brand New Congress because of her expertise with what children and families in poverty are going through, and because she will always put others first when making decisions that could affect the lives of millions. <a href="http://www.courant.com/g00/hometown-heroes/hc-hometown-hero-tynisha-tyson-0925-20160924-story.html?i10c.referrer=https%3A%2F%2Fwww.google.com%2F">Read this article covering the lasting impact Tynisha has on her students.</a></p>
 
         <h1>Connecticut 1st</h1>
         <div class="borderDashedBold shellVerticalPadding">
@@ -47,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <div class="borderDashedBold shellVerticalPadding alignCenter">
+        <div class="borderDashedBold shellVerticalPadding textCenter">
             {{ block('candidateReturnLink') }}
         </div>
     </div>

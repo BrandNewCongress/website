@@ -1,5 +1,11 @@
 {% extends 'SitetheoryArticleBundle::Article.html.twig' %}
 
+{# Load Profiles CSS #}
+{% block link %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/profiles.css') }}">
+{% endblock link %}
+
 
 {% set sectionNameHardCoded = 'Candidates' %}
 {% set sectionMenuHardCoded = '1' %}
@@ -24,10 +30,10 @@
 
 
     <h1>Progress</h1>
-    <div id="callToAction" class="borderDashedBold shellVerticalPadding">
+    <div id="callToAction" class="borderDashedBold shellVerticalPadding" ng-controller="CustomApi" options='{"controller":"/people/count", "onLoad": "fetch", "onTime": {"time": "10s", "method":"fetch"}}'>
         <p class="intro alignCenter divCenter"><strong>If we get 500,000 people to sign up, we believe that we can convince these five people to run.</strong></p>
 
-        <div layout="row" layout-wrap>
+        <div layout="row" layout-wrap ng-cloak>
             <div flex="100" flex-gt-sm="33" flex-order="2" flex-order-gt-sm="1">
                 <div id="signUpProgress"class="positionAnchor">
                     <div id="progressNumbers" class="positionAll">
@@ -36,8 +42,7 @@
                         <div id="numberLine"></div>
                     </div>
                     <div id="progressBarContainer" class="positionAll">
-                        {# TODO: Make the width a math equation of total signups as a percentage of 500K #}
-                        <div id="progressBar" class="positionLeftTop salmon" style="width: 22%;"></div>
+                        <div id="progressBar" class="positionLeftTop salmon" ng-style="{width: (100*(results.count/500000))+'%', 'max-width': '100%'}"></div>
                     </div>
                     {% embed '@SitetheoryTemplateCustomBundle/Resources/public/images/progressBarCover.svg' %}{% block id %}footerRedditIcon{% endblock %}{% endembed %}
                 </div>
@@ -53,7 +58,8 @@
                             </div>
                         </div>
                     </div>
-                    <div id="totalSignUp" class="borderDashed fontSecondary salmonText">92,344</div>
+                    <div id="totalSignUp" class="borderDashed fontSecondary salmonText" count-up start-val="0" end-value="results.count" duration="2" decimals="0" scroll-spy-event="elementScrolledIntoView" scroll-spy></div>
+                    {#<input type="text" ng-model="results.count">#}
                 </div>
             </div>
             <div flex="100" flex-gt-sm="33" flex-order="3">

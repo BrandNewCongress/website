@@ -18,8 +18,8 @@ SETTINGS
 {% set streamClass = 'landingStream' %}
 
 {# Hide sidebar on desktop #}
-{% set bootstrapColumnSidebar = 'hide-gt-xs' %}
-{% set bootstrapColumnMain = 'flex=100' %}
+{% set columnSidebar = 'hide-gt-xs' %}
+{% set columnMain = 'flex=100' %}
 
 {# Hide gutter in main column #}
 {% block mainColumnGutter %}
@@ -86,13 +86,13 @@ LAYOUT
                 <div layout="row" layout-align="center center">
                     <div flex="none" id="newsLabel" class="salmon fontPrimary">News</div>
                     <div flex="none" hide-xs hide-sm class="date fontPrimary">Dec 12</div>
-                    <p flex="grow" id="announcement" class="fontBody align-center">We’ve announced our first 5 potential candidates. Help us convince them to run!<span hide-xs class="learnMore smallLabel salmonText">Learn More</span></p>
+                    <p flex="grow" id="announcement" class="fontBody textCenter">We’ve announced our first 5 potential candidates. Help us convince them to run!<span hide-xs class="learnMore smallLabel salmonText">Learn More</span></p>
                     <div flex="none" hide-xs class="doubleArrow fontTertiary"> >> </div>
                 </div>
             </div>
         </a>
         <div id="homeSlides">
-            <div id="slidesContent" class="align-center">
+            <div id="slidesContent" class="textCenter">
                 <div id="slideText1" class="fontPrimary starLeft">
                     <div class="starRight">Our Goal</div>
                 </div>
@@ -111,18 +111,18 @@ LAYOUT
         <div id="homeJoin">
             <div class="shellVerticalPadding">
                 <div class="backgroundDark">
-                    <h1 class="align-center">Add Your Name</h1>
+                    <h1 class="textCenter">Add Your Name</h1>
                 </div>
 
                 <div id="homeJoinForm" class="joinForm">
-                    <p class="fontSecondary align-center"><strong>Join us if you believe it’s time to reset our democracy.</strong></p>
+                    <p class="fontSecondary textCenter"><strong>Join us if you believe it’s time to reset our democracy.</strong></p>
                     {{ block('registrationForm') }}
                 </div>
             </div>
         </div>
 
         <div class="borderDashedBold">
-            <div id="welcome" class="divCenter align-center shellVerticalPadding">
+            <div id="welcome" class="divCenter textCenter shellVerticalPadding">
                 <div class="content bodyLarge fontSecondary" ng-model="model.data.viewVersion.text" {{ block('editableViewAttributes') }}>
                     {% autoescape false %}
                         {{ view.viewVersion.text }}
@@ -208,9 +208,9 @@ LAYOUT
         <div class="sectionBorder backgroundDark"></div>
 
         <a name="homeCandidates"></a>
-        <div id="homeCandidates" class="shellVerticalPadding align-center">
-            <h4>Potential</h4>
-            <h1>Candidates</h1>
+        <div id="homeCandidates" class="shellVerticalPadding textCenter">
+            <h4>Candidate</h4>
+            <h1>Draftees</h1>
 
             <p class="intro fontSecondary">These potential candidates represent the mix of public servants, entrepreneurs, local leaders, and national figures that we’re drafting. <strong>None of these people have yet agreed to run</strong> because they are all very committed to their causes and are not yet convinced they should take a leap of faith with Brand New Congress. But we have vetted them all and gotten to know them, so we would love to convince them to run by showing them that we have the support necessary to win. <a href='/Candidates'>Help us convince them to run!</a></p>
 
@@ -336,14 +336,14 @@ LAYOUT
             </div>
         </div>
 
-        <div id="candidatesAction" class="fontSecondary borderDashedBold shellVerticalPadding align-center">
+        <div id="candidatesAction" class="fontSecondary borderDashedBold shellVerticalPadding textCenter">
             <h4>Our candidates won't be backed by big money</h4>
             <p class="bodyLarge">So they can serve voters not donors.</p>
             <a class="btn" href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank">Donate</a>
         </div>
         <div class="sectionBorder backgroundDark"></div>
 
-        <div id="homeSpecifics" class="shellVerticalPadding align-center">
+        <div id="homeSpecifics" class="shellVerticalPadding textCenter">
             <h4>All the</h4>
             <h1>Specifics</h1>
             <div id="homeImageLinks" ng-cloak>

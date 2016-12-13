@@ -314,6 +314,14 @@
     padding: 0;
     font-size: 15px;
 }
+#homeCandidates p.intro a {
+    color: #333;
+    text-decoration: underline;
+}
+#homeCandidates p.intro a:hover {
+    color: #7932AC;
+    text-decoration: none;
+}
 .candidateColumn {
     transition: all 400ms ease-out 50ms;
 }

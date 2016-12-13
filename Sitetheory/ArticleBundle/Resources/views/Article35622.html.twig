@@ -12,7 +12,56 @@
 
 {% block contentType %}
 <div id="JoinCall">
- <p class="bodyLarge">Brand New Congress wants to recruit over 400 extraordinary ordinary Americans to run for Congress in 2018. We need your help to find these people. Join us on one of the calls listed below to hear more about who we're looking for and how you can help.</p>
+    <p class="bodyLarge">Brand New Congress wants to recruit over 400 extraordinary ordinary Americans to run for Congress in 2018. We need your help to find these people. Join us on one of the calls listed below to hear more about who we're looking for and how you can help.</p>
+
+    <md-list
+        id="callList"
+        ng-controller="CustomApi"
+         options='{"controller":"/conference-calls/upcoming?name=BNC+Candidate+Nomination", "onLoad": "fetch"}'
+         layout-padding ng-cloak>
+
+        <!-- Header -->
+        <div layout="row">
+            <div flex="10"></div>
+            <div flex><h2>Date</h2></div>
+            <div flex><h2>Time</h2></div>
+            <div flex><h2>Joined</h2></div>
+        </div>
+
+        <!-- Proggress Bar -->
+        <md-progress-linear ng-if="!results.conferences" md-mode="indeterminate"></md-progress-linear>
+
+        <!-- List Body with Repeating Rows -->
+        <md-list-item
+
+                ng-repeat="model in results.conferences"
+                layout="row"
+                layout-xs="column"
+                layout-sm="column"
+                layout-align="space-between center"
+                layout-wrap>
+            {% verbatim %}
+
+            <div class="action" flex="10">
+                <md-button href="{{ model.registrationLink }}" aria-label="join" class="md-fab md-primary">Join</md-button>
+            </div>
+
+            <div class="date" flex>
+                {{ model.date }}
+            </div>
+
+            <div class="time" flex>
+                {{ model.time }}
+            </div>
+
+            <div class="joined" flex>
+                {{ model.currentSignups || 'Be the First!' }}
+            </div>
+
+            {% endverbatim %}
+
+        </md-list-item>
+    </md-list>
 
 </div>
 
