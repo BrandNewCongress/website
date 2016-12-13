@@ -42,7 +42,8 @@
                         <div id="numberLine"></div>
                     </div>
                     <div id="progressBarContainer" class="positionAll">
-                        <div id="progressBar" class="positionLeftTop salmon" ng-style="{width: (100*(results.count/500000))+'%', 'max-width': '100%'}"></div>
+                        {# this uses the dynamic countUp value and not the results.count directly (so that it animates) #}
+                        <div id="progressBar" class="positionLeftTop salmon" ng-style="{width: (100*(currentVal/500000))+'%', 'max-width': '100%'}"></div>
                     </div>
                     {% embed '@SitetheoryTemplateCustomBundle/Resources/public/images/progressBarCover.svg' %}{% block id %}footerRedditIcon{% endblock %}{% endembed %}
                 </div>
@@ -58,8 +59,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="totalSignUp" class="borderDashed fontSecondary salmonText" count-up start-val="0" end-value="results.count" duration="2" decimals="0" scroll-spy-event="elementScrolledIntoView" scroll-spy></div>
-                    {#<input type="text" ng-model="results.count">#}
+                    <div id="totalSignUp" class="borderDashed fontSecondary salmonText" count-up start-val="0" end-val="results.count" frame-val="currentVal" duration="2" decimals="0" scroll-spy-event="elementScrolledIntoView" scroll-spy></div>
                 </div>
             </div>
             <div flex="100" flex-gt-sm="33" flex-order="3">
