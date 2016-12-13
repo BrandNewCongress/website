@@ -81,7 +81,7 @@ JAVASCRIPT
             }
         }(this, function (Stratus, _) {
 
-            Stratus.Controllers.CustomApi = function ($scope, $element, $http, $attrs, $window, $broadcast) {
+            Stratus.Controllers.CustomApi = function ($scope, $element, $http, $attrs, $window) {
 
                 Stratus.Instances[_.uniqueId('custom_api_')] = $scope;
 
@@ -211,7 +211,7 @@ JAVASCRIPT
                 }
 
                 // TODO: remove, temporary activate the counter on the /Candidates page
-                $broadcast('elementScrolledIntoView', $scope);
+                $scope.$broadcast('elementScrolledIntoView', $scope);
 
             };
         }));
