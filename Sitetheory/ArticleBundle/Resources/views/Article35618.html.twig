@@ -17,6 +17,81 @@
 {% block footerJoin %}
 {% endblock footerJoin %}
 
+
+{#
+##########
+JAVASCRIPT
+##########
+#}
+{% block script %}
+    {{ parent() }}
+
+    {# SIGNUP FORM #}
+    <script>
+        (function (root, factory) {
+            if (typeof require === 'function') {
+                require(['stratus', 'underscore', 'jquery', 'angular', 'angular-material'], factory);
+            } else {
+                factory(root.Stratus, root._, root.$);
+            }
+        }(this, function (Stratus, _, $) {
+
+            Stratus.Controllers.CustomCounter = function ($scope, $element, $http, $attrs, $window) {
+
+
+                /*
+                $scope.iterateNumber = function(end, options) {
+                    options = options || {};
+                    options.model = options.model || null;
+                    options.modelKey = options.modelKey || null;
+                    options.duration = options.duration || 2000;
+                    options.easing = options.easing || 'linear';
+                    options.end = end;
+                    // Start 85% of total (if only an end was provided)
+                    options.start = options.start || ((options.end/10)*8.5);
+                    // Set Recurring Loop Based on Time
+
+                    // This uses jQuery to Animate
+                    $({count: options.start}).animate({count: options.end}, {
+                        duration: options.duration,
+                        easing: options.easing,
+                        step: function() {
+                            var newValue = Math.floor(this.count++);
+                            // TODO: remove
+                            $scope.data.count = newValue;
+                            console.log('iterate: '+newValue);
+                            if(options.model) {
+                                if(options.modelKey && options.modelKey in options.model) {
+                                    options.model[options.modelKey] = newValue;
+                                } else {
+                                    options.model = newValue;
+                                }
+                            }
+                        }
+                    });
+                };
+
+
+                // Whenever the count changes, increment counter
+                $scope.$watch('results.count', function(count) {
+                    console.log('changed: ', $scope.results.count);
+                    var options = {
+                        start: $scope.count,
+                        duration: 2000,
+                        model: $scope.results,
+                        modelKey: 'count'
+                    };
+                    $scope.iterateNumber($scope.results.count, options);
+                });
+                */
+
+            };
+        }));
+    </script>
+
+{% endblock script %}
+
+
 {% block contentType %}
 <div id="candidateListPage" class="profileList">
 
@@ -24,10 +99,10 @@
 
 
     <h1>Progress</h1>
-    <div id="callToAction" class="borderDashedBold shellVerticalPadding">
+    <div id="callToAction" class="borderDashedBold shellVerticalPadding" ng-controller="CustomApi" options='{"controller":"/people/count", "onLoad": "fetch", "onTime": {"time": "10s", "method":"fetch"}}'>
         <p class="intro alignCenter divCenter"><strong>If we get 500,000 people to sign up, we believe that we can convince these five people to run.</strong></p>
 
-        <div layout="row" layout-wrap>
+        <div layout="row" layout-wrap ng-cloak>
             <div flex="100" flex-gt-sm="33" flex-order="2" flex-order-gt-sm="1">
                 <div id="signUpProgress"class="positionAnchor">
                     <div id="progressNumbers" class="positionAll">
@@ -36,8 +111,7 @@
                         <div id="numberLine"></div>
                     </div>
                     <div id="progressBarContainer" class="positionAll">
-                        {# TODO: Make the width a math equation of total signups as a percentage of 500K #}
-                        <div id="progressBar" class="positionLeftTop salmon" style="width: 22%;"></div>
+                        <div id="progressBar" class="positionLeftTop salmon" ng-style="{width: (100*(results.count/500000))+'%'}"></div>
                     </div>
                     {% embed '@SitetheoryTemplateCustomBundle/Resources/public/images/progressBarCover.svg' %}{% block id %}footerRedditIcon{% endblock %}{% endembed %}
                 </div>
@@ -53,7 +127,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="totalSignUp" class="borderDashed fontSecondary salmonText">92,344</div>
+                    <div id="totalSignUp" class="borderDashed fontSecondary salmonText" count-up start-val="0" end-value="100" duration="2" decimals="1"></div>
                 </div>
             </div>
             <div flex="100" flex-gt-sm="33" flex-order="3">
