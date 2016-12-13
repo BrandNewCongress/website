@@ -9,7 +9,7 @@ SETTINGS
 {# Remove padding on header so mini header can go full width #}
 {% set headerStructure = 'empty' %}
 
-{%  set mobildDrawerDirection = 'right' %}
+{%  set mobileDrawerDirection = 'mobileDrawerRight' %}
 
 {# Hide Sidebar Login until it's dynamically hidden for users with no membership feature #}
 {% block sidebarLogin %}
@@ -303,6 +303,9 @@ LAYOUT
 {# If a specific header has not been requested and this is the first page visited on the site, give the full header #}
 {% if headerFull is not defined and environment.history|length == 0 %}{% set headerFull = true %}{% endif %}
 
+
+
+
 {% block header1 %}
 
     {% if headerFull is defined and headerFull == true %}
@@ -398,6 +401,7 @@ LAYOUT
         {% block headerMini %}
 
             <div id="headerMini" class="positionAnchor clearfix light">
+                {{ block('sidebarToggleRetracting') }}
                 {{ block('retractingHeaderContent') }}
             </div>
 

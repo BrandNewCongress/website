@@ -14,17 +14,23 @@
 /* move to core */
 
 
-.headerImage,
-#shellContent {
+.headerImage {
     transition: all .2s ease-out;
     transform: scale(.95);
     transform-origin: center top;
     opacity: 0;
     overflow: hidden;
 }
-.loaded .headerImage,
-.loaded #shellContent {
+.loaded .headerImage {
     transform: scale(1);
+    opacity: 1;
+}
+#shellContent {
+    transition: all .2s ease-out;
+    opacity: 0;
+    overflow: hidden;
+}
+.loaded #shellContent {
     opacity: 1;
 }
 #shellContent {
