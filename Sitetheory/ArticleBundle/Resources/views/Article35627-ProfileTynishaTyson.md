@@ -1,1 +1,1 @@
-Used to indentify corresponding article at a glance.
+Used to identify corresponding article at a glance.
