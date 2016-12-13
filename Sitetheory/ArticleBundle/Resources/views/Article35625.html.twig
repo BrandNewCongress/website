@@ -1,5 +1,10 @@
 {% extends 'SitetheoryArticleBundle::Article.html.twig' %}
 
+{# Load Profiles CSS #}
+{% block link %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/profiles.css') }}">
+{% endblock link %}
 
 {# Hide sidebar on desktop #}
 {% set bootstrapColumnSidebar = 'hide-gt-xs' %}

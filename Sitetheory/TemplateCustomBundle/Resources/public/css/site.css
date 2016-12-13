@@ -179,7 +179,7 @@ h4 {
     font-weight: 300;
 }
 
-@media (max-width:960px) {
+@media (max-width:959px) {
     .bodyLarge {
         font-size: 22px;
     }
@@ -371,7 +371,7 @@ hr {
 }
 #planGraphic {
     margin-top: 10px;
-    max-width: 274px;
+    max-width: 28%;
 }
 #logoHeader img {
     margin-top: 8px;
@@ -447,15 +447,15 @@ hr {
 #headerContact a:hover .btnText {
     color: #000;
 }
-#navMainContainer ul li {
+#navHeader ul li {
     vertical-align: top;
     padding: 0;
 }
-#navMainContainer .delimiter {
+#navHeader .delimiter {
     width: 40px;
     text-align: center;
 }
-#navMainContainer .delimiter img {
+#navHeader .delimiter img {
     margin-top: 13px;
     width: 17px;
 }
@@ -480,15 +480,10 @@ hr {
 }
 
 
-
-
-@media (max-width:991px) {
-
-    /* temporary */
-    #mainNavigationHeader {
-        display: block;
+@media (max-width:959px) {
+    #navHeader {
+        display: none;
     }
-    /* end temporary */
     #header .sidebarToggle {
         top: 40px;
         right: 65px;
@@ -497,12 +492,14 @@ hr {
     #headerRetracting .sidebarToggle,
     #headerMini .sidebarToggle {
         top: 25px;
-        right: 50px;
+        right: 40px;
     }
 }
 @media (max-width:959px) {
     #header1 {
-        margin-top: 40px;
+        margin: 40px 0 0 0;
+        padding-bottom: 36px;
+        border-bottom: 3px solid #222;
     }
     #planGraphic,
     #starLinkRight {
@@ -519,29 +516,18 @@ hr {
         padding: 5px 8px;
         font-size: 11px;
     }
-    #navMainContainer .delimiter {
+    #navHeader .delimiter {
         width: 30px;
         text-align: center;
     }
-    #navMainContainer .delimiter img {
+    #navHeader .delimiter img {
         margin-top: 13px;
         width: 10px;
     }
     .navMainLink a {
         font-size: 30px;
     }
-}
-@media (max-width:840px) {
     #header2 {
-        padding: 8px 0;
-        border-bottom: 0;
-    }
-    #headerContact,
-    #headerSocial {
-        display: none;
-    }
-    #navMainContainer,
-    .headerOrnament {
         display: none;
     }
 }
@@ -577,21 +563,21 @@ hr {
     left: 40px;
     max-width: 220px;
 }
-#headerRetracting #navMainContainer,
-#headerMini #navMainContainer {
+#headerRetracting #navHeader,
+#headerMini #navHeader {
     margin-top: 2px;
 }
 #headerRetracting .navMainLink a,
 #headerMini .navMainLink a {
     font-size: 22px;
 }
-#headerRetracting #navMainContainer .delimiter,
-#headerMini #navMainContainer .delimiter{
+#headerRetracting #navHeader .delimiter,
+#headerMini #navHeader .delimiter{
     width: 28px;
     text-align: center;
 }
-#headerRetracting #navMainContainer .delimiter img,
-#headerMini #navMainContainer .delimiter img {
+#headerRetracting #navHeader .delimiter img,
+#headerMini #navHeader .delimiter img {
     margin-top: 5px;
     width: 11px;
 }
@@ -605,7 +591,7 @@ hr {
     padding: 5px 12px;
     font-size: 11px;
 }
-@media (max-width:960px) {
+@media (max-width:959px) {
     #headerRetracting,
     #headerMini {
         height: 70px;
@@ -675,7 +661,7 @@ h2.sectionName {
 .siteNavLink a.navLevel2.active:hover {
     color: #FFF;
 }
-@media (max-width:991px) {
+@media (max-width:959px) {
     .mobileDrawer.mobileBackgroundDark {
         background: #111;
     }
@@ -735,7 +721,7 @@ h1#pageTitle {
 #pageTitle .starRight {
     background-position: right 17px;
 }
-@media (max-width: 991px) {
+@media (max-width: 959px) {
     .mainColumnGutter {
         padding-left: 0;
     }
@@ -860,7 +846,7 @@ md-input-container:not(.md-input-invalid).md-input-resized .md-input {
     margin: 8px 0 0 22px;
     background-position: right 10px;
 }
-@media (max-width:960px) {
+@media (max-width:959px) {
     #footerJoinForm {
         padding: 40px 0;
     }
@@ -933,7 +919,7 @@ md-input-container:not(.md-input-invalid).md-input-resized .md-input {
     background: #222;
 }
 
-@media (max-width:960px) {
+@media (max-width:959px) {
     #footerJoinForm .listInline li {
         display: block;
     }
@@ -1096,12 +1082,18 @@ md-input-container:not(.md-input-invalid).md-input-resized .md-input {
 .customArticle ul li {
     padding-bottom: 12px;
 }
+
+/* About Us */
 #aboutUs img {
     width: 100%;
 }
-#FAQ p.bodyLarge {
+#aboutUs h4 {
     margin-bottom: 26px;
+    letter-spacing: .1em;
 }
+
+
+/* Nominate */
 #Nominate #districtInfo h3 {
     margin: 45px 0 20px;
     padding-bottom: 20px;
@@ -1119,6 +1111,10 @@ md-input-container:not(.md-input-invalid).md-input-resized .md-input {
     background: #111;
 }
 
+/* FAQ */
+#FAQ p.bodyLarge {
+    margin-bottom: 26px;
+}
 #FAQ .FAQLinks {
     margin-bottom: 50px;
 }
@@ -1146,327 +1142,20 @@ md-input-container:not(.md-input-invalid).md-input-resized .md-input {
 }
 
 
-
-
-
-
-#candidateListPage #callToAction .intro {
-    margin-bottom: 60px;
-    max-width: 600px;
+#JoinCall .bodyLarge {
+    margin-bottom: 50px;
 }
-
-/* USA progress bar */
-
-#signUpProgress {
-    margin-right: 20%;
-    max-width: 320px;
+#callList .md-button.md-default-theme.md-primary.md-raised,
+#callList .md-button.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab,
+#callList .md-button.md-primary.md-fab {
+    transition: all .2s ease-out;
+    background: #FF7A65;
 }
-#progressBarContainer {
-    border: 5px solid #FFF;
+#callList .md-button.md-default-theme.md-primary.md-raised:hover,
+#callList .md-button.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab:hover,
+#callList .md-button.md-primary.md-fab:hover {
+    background: #7932AC;
 }
-#progressNumbers {
-    z-index: 10;
-    top: inherit;
-    height: 30px;
-}
-#startNumber {
-    transform: translateX(-8px);
-}
-#endNumber {
-    transform: translateX(32px);
-}
-#numberLine {
-    position: absolute;
-    left: 5px;
-    right: 5px;
-    bottom: 6px;
-    height: 1px;
-    border-top: 1px solid #333;
-}
-#signUpProgress svg {
-    margin-bottom: 16px;
-    position: relative;
-}
-#progressBarContainer {
-    bottom: 16px;
-    background: #EEE;
-}
-#progressBar {
-    bottom: 0;
-}
-@media (max-width: 959px) {
-    #signUpProgress {
-        margin: 50px auto 0 auto;
-    }
-    #progressNumbers {
-        transform: translateX(-15px);
-    }
-}
-
-/* Sign up numbers */
-
-
-#signUpLabel {
-    margin-top: 12px;
-    font-size: 20px;
-    letter-spacing: .05em;
-}
-#signUpLabel .starLeft,
-#signUpLabel .starRight {
-    background-image: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starPurple.png');
-}
-#totalSignUp {
-    font-size: 100px;
-    font-weight: 100;
-    line-height: .8;
-}
-#totalSignUp.borderDashed {
-    margin-top: 25px;
-    padding-top: 25px;
-}
-@media (max-width: 1200px) {
-    #totalSignUp {
-        font-size: 80px;
-    }
-}
-@media (max-width: 959px) {
-    #signUpLabel {
-        margin-top: 0;
-    }
-    #totalSignUp {
-        font-size: 100px;
-    }
-}
-
-
-/* Sign up form */
-
-
-#candidateJoin.joinForm .listInline li {
-    display: block;
-}
-/* Make input containers wider */
-#candidateJoin md-input-container {
-    margin: 8px 0;
-    width: 300px;
-}
-/* Prompt text */
-#candidateJoin md-input-container .md-placeholder,
-#candidateJoin md-input-container label:not(.md-no-float):not(.md-container-ignore) {
-    font-size: 18px;
-}
-#candidateJoin  .btn {
-    margin-top: -8px;
-    padding: 15px 0;
-    width: 300px;
-}
-
-@media (max-width: 1100px) {
-    #candidateJoin md-input-container,
-    #candidateJoin  .btn {
-        width: 260px;
-    }
-}
-@media (max-width: 1000px) {
-    #candidateJoin md-input-container,
-    #candidateJoin  .btn {
-        width: 220px;
-    }
-}
-@media (max-width: 959px) {
-    #candidateJoin p{
-        margin-bottom: 35px;
-        max-width: 500px;
-    }
-    #candidateJoin md-input-container,
-    #candidateJoin  .btn {
-        width: 300px;
-    }
-    #candidateJoin {
-        float: none;
-        margin-top: 60px;
-    }
-}
-
-
-/* General profile styling */
-
-.profileList h1,
-.profileDetails h1 {
-    margin: 0 0 26px;
-    text-align: center;
-    font-size: 35px;
-}
-.profileList .pullout,
-.profileDetails .pullout {
-    margin-bottom: 60px;
-    max-width: 920px;
-}
-.profileImage img {
-    width: 100%;
-}
-
-/* Profile List */
-
-#profileList {
-    margin: 0 -2%;
-    padding-top: 60px;
-}
-.profileContainer {
-    position: relative;
-}
-.profileItem {
-    margin: 0 4%;
-    padding-bottom: 120px;
-}
-.profileList .profileImage {
-    float: left;
-    max-width: 50%;
-    margin: 0 5% 22px 0;
-}
-.profileList h2 {
-    margin: 0 0 12px;
-    font-size: 18px;
-}
-.profileList h4 {
-    margin-bottom: 26px;
-}
-.profileList .profileBody {
-    margin-bottom: 22px;
-    padding-right: 3%;
-}
-.profileItem .readMore {
-    display: block;
-}
-.profileExtra {
-    position: absolute;
-    right: 4%;
-    bottom: 80px;
-    left: 4%;
-    padding: 5px 12px;
-    color: #FFF;
-}
-.profileExtra .starText {
-    font-size: 18px;
-    color: #FFF;
-    letter-spacing: .08em;
-}
-
-
-
-@media (max-width: 1200px) {
-    .profileList .profileImage {
-        max-width: 40%;
-    }
-    .profileBody {
-        font-size: 14px;
-    }
-    .profileItem .readMore {
-        display: inline;
-    }
-}
-@media (min-width: 960px) and (max-width: 1000px) {
-    .profileItem {
-        padding-bottom: 112px;
-    }
-    .profileList .profileImage {
-        max-width: 40%;
-    }
-    #profileList h4 {
-        margin-bottom: 16px;
-    }
-    .profileList .profileBody {
-        font-size: 13px;
-    }
-}
-@media (max-width: 959px) {
-    #profileList {
-        margin: 0 -5%;
-    }
-    .profileItem {
-        margin: 0 10%;
-        text-align: center;
-    }
-    .profileList .profileImage {
-        float: none;
-        margin: 0 0 30px 0;
-        max-width: 100%;
-    }
-    .profileList .profileBody {
-        font-size: 15px;
-    }
-    .profileExtra {
-        right: 10%;
-        left: 10%;
-    }
-}
-@media (max-width: 600px) {
-    #profileList {
-        margin: 0;
-    }
-    .profileItem {
-        margin: 0;
-        padding-bottom: 45px;
-    }
-    .profileItem .readMore {
-        display: block;
-        margin-top: 20px;
-    }
-    .profileExtra {
-        position: relative;
-        right: inherit;
-        bottom: inherit;
-        left: inherit;
-        margin-bottom: 16px;
-    }
-}
-
-/* Profile Details */
-
-.profileDetails .profileImage {
-    margin-right: 12%;
-}
-.profileDetails h2 {
-    font-size: 18px;
-    color: #7932AC;
-}
-.profileDetails .callToAction {
-    margin-top: 30px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #000;
-}
-.candidateDetailsJoin.joinForm {
-    margin-left: -10px;
-}
-.joinForm md-input-container {
-    width: 240px;
-}
-.candidateDetailsJoin.joinForm .btn {
-    padding: 15px 25px;
-}
-@media (min-width: 960px) {
-    .candidateDetailsJoin .listInline li{
-        margin: 0 8px;
-    }
-}
-@media (max-width:959px) {
-    .profileDetails .profileImage {
-        float: left;
-        margin: 0 5% 20px 0;
-        width: 50%;
-    }
-    .candidateDetailsJoin.joinForm {
-        margin: 50px 0 0 0;
-    }
-    .candidateDetailsJoin md-input-container {
-        margin: 10px 0;
-    }
-}
-@media (max-width:600px) {
-    .profileDetails .profileImage {
-        float: none;
-        margin: 0 0 30px 0;
-        width: 100%;
-    }
+#callList md-list-item {
+    border-bottom: 1px solid #DDD;
 }

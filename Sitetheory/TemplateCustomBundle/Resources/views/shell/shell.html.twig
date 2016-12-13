@@ -9,6 +9,7 @@ SETTINGS
 {# Remove padding on header so mini header can go full width #}
 {% set headerStructure = 'empty' %}
 
+{# Make mobile drawer slide in from right #}
 {%  set mobileDrawerDirection = 'mobileDrawerRight' %}
 
 {# Hide Sidebar Login until it's dynamically hidden for users with no membership feature #}
@@ -33,7 +34,7 @@ SETTINGS
 {%  set navLevel1Font = 'fontPrimary' %}
 {%  set navLevel2Font = 'fontSecondary' %}
 
-{# Hide page title in main column #}
+{# Hide page title in main column so it can be placed up by header #}
 {% block pageTitleMainColumn %}
 {% endblock pageTitleMainColumn %}
 
@@ -296,119 +297,108 @@ LAYOUT
     <div class="borderDashed"></div>
 {% endblock sidebarExtrasBottom %}
 
-{# Retracting header uses only a few elements from the full header. Must come before mini header which is identical. #}
-{% block retractingHeaderContent %}
-    <div class="clearfix">
-        <div id="logoRetractingHeader"  class="verticalCenter">
-            <a href="/">
-            <img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogoHorizontal.png') }}" alt="">
-            </a>
-        </div>
-        <div hide-xs hide-sm id="retractingContribute" class="verticalCenter">
-            <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank" class="btn btnContribute">Donate</a>
-        </div>
-        <div>
-            {{ block('mainNavigation') }}
-        </div>
-    </div>
-{% endblock retractingHeaderContent %}
 
 
-{# The header in this design is extra tall so it's only used on the home page #}
-{# If a specific header has not been requested and this is the first page visited on the site, give the full header #}
-{% if headerFull is not defined and environment.history|length == 0 %}{% set headerFull = true %}{% endif %}
+{% block headerContent %}
 
 
+    {# The header in this design is extra tall so it's only used on the home page #}
+    {# If a specific header has not been requested and this is the first page visited on the site, give the full header #}
+    {% if headerFull is not defined and environment.history|length == 0 %}{% set headerFull = true %}{% endif %}
 
-
-{% block header1 %}
 
     {% if headerFull is defined and headerFull == true %}
-        <div class="siteMaxWidth siteSidePadding">
-            <div id="header1" class="positionAnchor">
-                <div id="planGraphic" class="positionLeftCenter">
-                    <img src="{{ asset('bundles/sitetheorytemplatecustom/images/planGraphic.png') }}" alt="">
-                </div>
-                <div id="logoHeader" class="align-center">
-                    <a href="/"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogo.png') }}" alt=""></a>
-                </div>
-                <div id="headerExtraLinks" class="positionRightBottom">
-                    <div class="clearfix">
-                        <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank" class="btn btnContribute pullRight">Donate</a>
+
+        {{ block('sidebarToggleContainer') }}
+
+        {% block header1 %}
+
+            <div class="siteMaxWidth siteSidePadding">
+                <div id="header1" class="positionAnchor">
+                    <div id="planGraphic" class="positionLeftCenter">
+                        <img src="{{ asset('bundles/sitetheorytemplatecustom/images/planGraphic.png') }}" alt="">
                     </div>
-                    <a id="starLinkRight" class="fontTertiary align-right" href="/Nominate">Nominate a Candidate</a>
-                </div>
-            </div>
-            <div id="header2" class="siteMaxWidth siteSidePadding positionAnchor ">
-                <div id="headerContact" class="fontSecondary verticalCenter centerLeft clearfix">
-                    <a href="mailto:us@brandnewcongress.com" target="_blank">
-                        <div class="headerOrnament positionAnchor pullLeft">
-                            <div class="square square1 easyTransition">
-                            </div>
-                            <div class="square square2">
-                            </div>
-                            <div class="square square3 easyTransition">
-                            </div>
+                    <div id="logoHeader" class="align-center">
+                        <a href="/"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogo.png') }}" alt=""></a>
+                    </div>
+                    <div id="headerExtraLinks" class="positionRightBottom">
+                        <div class="clearfix">
+                            <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank" class="btn btnContribute pullRight">Donate</a>
                         </div>
-                        <div class="btnText">Contact Us</div>
-                    </a>
-                </div>
-
-                {% block mainNavigation %}
-                    <div id="navMainContainer" class="navMainContainer divCenter">
-                        <ul class="listInline fontPrimary">
-                            <li id="navJoin" class="navMainLink">
-                                <a href="#footerJoin">
-                                    Join
-                                </a>
-                            </li>
-                            <li class="delimiter"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}" alt="">
-                            </li>
-                            <li id="navHelp" class="navMainLink">
-                                <a href="/Volunteer">
-                                    Support
-                                </a>
-                            </li>
-                            <li class="delimiter"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}" alt="">
-                            </li>
-                            <li id="navLearn" class="navMainLink">
-                                <a href="/The-Plan">
-                                    Learn
-                                </a>
-                            </li>
-                        </ul>
+                        <a id="starLinkRight" class="fontTertiary align-right" href="/Nominate">Nominate a Candidate</a>
                     </div>
-                {% endblock mainNavigation %}
+                </div>
+                <div id="header2" class="siteMaxWidth siteSidePadding positionAnchor ">
+                    <div id="headerContact" class="fontSecondary verticalCenter centerLeft clearfix">
+                        <a href="mailto:us@brandnewcongress.com" target="_blank">
+                            <div class="headerOrnament positionAnchor pullLeft">
+                                <div class="square square1 easyTransition">
+                                </div>
+                                <div class="square square2">
+                                </div>
+                                <div class="square square3 easyTransition">
+                                </div>
+                            </div>
+                            <div class="btnText">Contact Us</div>
+                        </a>
+                    </div>
 
-                <div id="headerSocial" class="verticalCenter">
-                    <!-- Social Media -->
-                    {% block socialMedia %}
-                        <div class="socialMedia {{ socialStyle|default('basicStyle') }}">
-                            <ul class="listInline">
-                                <li class="twitter">
-                                    <a class="positionAnchor" href="http://twitter.com/intent/tweet?status=Sign+up+to+help+create+a Brand+New+Congress: http://brandnewcongress.org" title="Share on Twitter" target="_blank" data-reactid="123" target="_blank">
-                                        {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/twitter.svg' %}{% block id %}footerTwitterIcon{% endblock %}{% endembed %}
+                    {% block navMain %}
+                        <div id="navHeader" class="navMainContainer divCenter">
+                            <ul class="listInline fontPrimary">
+                                <li id="navJoin" class="navMainLink">
+                                    <a href="#footerJoin">
+                                        Join
                                     </a>
                                 </li>
-                                <li class="facebook">
-                                    <a class="positionAnchor" href="http://www.facebook.com/sharer/sharer.php?u=http://brandnewcongress.org&amp;title=Brand+New+Congress" title="Share on Facebook" data-reactid="125" target="_blank">
-                                        {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/facebook.svg' %}{% block id %}footerFacebookIcon{% endblock %}{% endembed %}
+                                <li class="delimiter"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}" alt="">
+                                </li>
+                                <li id="navHelp" class="navMainLink">
+                                    <a href="/Volunteer">
+                                        Support
                                     </a>
                                 </li>
-                                <li class="reddit">
-                                    <a class="positionAnchor" href="https://www.reddit.com/r/BrandNewCongress/" target="_blank">
-                                        {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/reddit.svg' %}{% block id %}footerRedditIcon{% endblock %}{% endembed %}
+                                <li class="delimiter"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}" alt="">
+                                </li>
+                                <li id="navLearn" class="navMainLink">
+                                    <a href="/The-Plan">
+                                        Learn
                                     </a>
                                 </li>
                             </ul>
                         </div>
-                    {% endblock socialMedia %}
-                    <!-- End Social Media -->
+                    {% endblock navMain %}
+
+                    <div id="headerSocial" class="verticalCenter">
+                        <!-- Social Media -->
+                        {% block socialMedia %}
+                            <div class="socialMedia {{ socialStyle|default('basicStyle') }}">
+                                <ul class="listInline">
+                                    <li class="twitter">
+                                        <a class="positionAnchor" href="http://twitter.com/intent/tweet?status=Sign+up+to+help+create+a Brand+New+Congress: http://brandnewcongress.org" title="Share on Twitter" target="_blank" data-reactid="123" target="_blank">
+                                            {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/twitter.svg' %}{% block id %}footerTwitterIcon{% endblock %}{% endembed %}
+                                        </a>
+                                    </li>
+                                    <li class="facebook">
+                                        <a class="positionAnchor" href="http://www.facebook.com/sharer/sharer.php?u=http://brandnewcongress.org&amp;title=Brand+New+Congress" title="Share on Facebook" data-reactid="125" target="_blank">
+                                            {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/facebook.svg' %}{% block id %}footerFacebookIcon{% endblock %}{% endembed %}
+                                        </a>
+                                    </li>
+                                    <li class="reddit">
+                                        <a class="positionAnchor" href="https://www.reddit.com/r/BrandNewCongress/" target="_blank">
+                                            {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/reddit.svg' %}{% block id %}footerRedditIcon{% endblock %}{% endembed %}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        {% endblock socialMedia %}
+                        <!-- End Social Media -->
+                    </div>
+                    <div class="headerOrnament verticalCenter centerLeft"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/tripleSquarePurple.png') }}" alt=""></div>
+                    <div class="headerOrnament verticalCenter centerRight"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/tripleSquarePurple.png') }}" alt=""></div>
                 </div>
-                <div class="headerOrnament verticalCenter centerLeft"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/tripleSquarePurple.png') }}" alt=""></div>
-                <div class="headerOrnament verticalCenter centerRight"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/tripleSquarePurple.png') }}" alt=""></div>
             </div>
-        </div>
+        {% endblock header1 %}
 
     {% else %}
 
@@ -424,24 +414,42 @@ LAYOUT
 
     {% endif %}
 
-{% endblock header1 %}
 
 
 
-{# Place title above the sidebar/mainColumn row #}
-{% block header3 %}
-    {% block pageTitle %}
-        <div class="siteMaxWidth siteSidePadding">
-            <h1 id="pageTitle" {{ block('editableView') }} data-type="text" data-property="viewVersion.title" data-render="click">
-                <span  class="starLeft">
-                    <span class="starRight">{{ view.viewVersion.title }}</span>
-                </span>
-            </h1>
+    {# Place title above the sidebar/mainColumn row #}
+    {% block header3 %}
+
+        {% block pageTitle %}
+            <div class="siteMaxWidth siteSidePadding">
+                <h1 id="pageTitle" {{ block('editableView') }} data-type="text" data-property="viewVersion.title" data-render="click">
+                    <span  class="starLeft">
+                        <span class="starRight">{{ view.viewVersion.title }}</span>
+                    </span>
+                </h1>
+            </div>
+        {% endblock pageTitle %}
+
+    {% endblock header3 %}
+
+{% endblock headerContent %}
+
+{# Retracting header uses only a few elements from the full header. Must come before mini header which is identical. #}
+{% block retractingHeaderContent %}
+    <div class="clearfix">
+        <div id="logoRetractingHeader"  class="verticalCenter">
+            <a href="/">
+                <img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogoHorizontal.png') }}" alt="">
+            </a>
         </div>
-    {% endblock pageTitle %}
-{% endblock header3 %}
-
-
+        <div hide-xs hide-sm id="retractingContribute" class="verticalCenter">
+            <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank" class="btn btnContribute">Donate</a>
+        </div>
+        <div>
+            {{ block('navMain') }}
+        </div>
+    </div>
+{% endblock retractingHeaderContent %}
 
 
 {# SIDEBAR #}
@@ -645,7 +653,7 @@ LAYOUT
                     <div class="siteMapColumn">
                     <ul class="list-unstyled">
                         <li class="siteMapHeader">
-                            <a class="fontTertiary" href="/Volunteer">Help Us</a>
+                            <a class="fontTertiary" href="/Volunteer">Support</a>
                         </li>
                         <li>
                             <a href="/Volunteer">Overview</a>
