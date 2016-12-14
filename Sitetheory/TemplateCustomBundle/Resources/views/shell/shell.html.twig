@@ -352,7 +352,7 @@ LAYOUT
                                 <li class="delimiter"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}" alt="">
                                 </li>
                                 <li id="navHelp" class="navMainLink">
-                                    <a href="/Volunteer">
+                                    <a href="/Overview">
                                         Support
                                     </a>
                                 </li>
@@ -464,7 +464,7 @@ LAYOUT
 {% block menuSection1 %}
 
     <!-- Level 2 Links -->
-    <ul id="listLevel2" class="list-unstyled {{ navLevel2Font|default('fontSecondary') }}">
+    <ul id="listLevel2" class="listUnstyled {{ navLevel2Font|default('fontSecondary') }}">
         <li class="siteNavLink" data-level="2">
             <a href="/Candidates" class="navLevel2 {% if sectionMenuActive == 'candidatesActive' %}active{% endif %}">
                 Potential Candidates
@@ -482,7 +482,7 @@ LAYOUT
 {% block menuSection2 %}
 
     <!-- Level 2 Links -->
-    <ul id="listLevel2" class="list-unstyled {{ navLevel2Font|default('fontSecondary') }}">
+    <ul id="listLevel2" class="listUnstyled {{ navLevel2Font|default('fontSecondary') }}">
         <li class="siteNavLink" data-level="2">
             <a href="/Volunteer" class="navLevel2 {% if sectionMenuActive == 'volunteerActive' %}active{% endif %}">
                 Overview
@@ -520,7 +520,7 @@ LAYOUT
 {% block menuSection3 %}
 
     <!-- Level 2 Links -->
-    <ul id="listLevel2" class="list-unstyled {{ navLevel2Font|default('fontSecondary') }}">
+    <ul id="listLevel2" class="listUnstyled {{ navLevel2Font|default('fontSecondary') }}">
         <li class="siteNavLink" data-level="2">
             <a href="/The-Plan" class="navLevel2 {% if sectionMenuActive == 'planActive' %}active{% endif %}">
                 Our Plan
@@ -560,7 +560,7 @@ LAYOUT
     <!-- Full nested menu displays only for mobile -->
 
     <div hide-gt-sm>
-        <ul id="listLevel1" class="list-unstyled">
+        <ul id="listLevel1" class="listUnstyled">
             <li data-level="1">
                 <div class="siteNavLink "  data-level="1">
                     <a href="" class="navLevel1 fontPrimary">
@@ -634,7 +634,7 @@ LAYOUT
             <div id="siteMapNew" layout="row" layout-wrap hide-xs hide-sm>
                 <div flex="25">
                     <div class="siteMapColumn">
-                    <ul class="list-unstyled">
+                    <ul class="listUnstyled">
                         <li class="siteMapHeader">
                             <a class="fontTertiary" href="/Candidates">Candidates</a>
                         </li>
@@ -649,7 +649,7 @@ LAYOUT
                 </div>
                 <div flex="25">
                     <div class="siteMapColumn">
-                    <ul class="list-unstyled">
+                    <ul class="listUnstyled">
                         <li class="siteMapHeader">
                             <a class="fontTertiary" href="/Volunteer">Support</a>
                         </li>
@@ -676,7 +676,7 @@ LAYOUT
                 </div>
                 <div flex="25">
                     <div class="siteMapColumn">
-                    <ul class="list-unstyled">
+                    <ul class="listUnstyled">
                         <li class="siteMapHeader">
                             <a class="fontTertiary" href="/The-Plan">Learn</a>
                         </li>
@@ -694,7 +694,7 @@ LAYOUT
                 </div>
                 <div flex="25">
                     <div class="siteMapColumn">
-                    <ul class="list-unstyled">
+                    <ul class="listUnstyled">
                         <li class="siteMapHeader">
                             <a class="fontTertiary" href="mailto:us@brandnewcongress.org">Contact</a>
                         </li>
