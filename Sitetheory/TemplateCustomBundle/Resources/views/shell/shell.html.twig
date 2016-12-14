@@ -330,7 +330,7 @@ LAYOUT
                         <div class="clearfix">
                             <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank" class="btn btnContribute pullRight">Donate</a>
                         </div>
-                        <a id="starLinkRight" class="fontTertiary align-right" href="/Nominate">Nominate a Candidate</a>
+                        <a id="starLinkRight" class="fontTertiary align-right" href="/nominate">Nominate a Candidate</a>
                     </div>
                 </div>
                 <div id="header2" class="siteMaxWidth siteSidePadding positionAnchor ">
@@ -352,21 +352,21 @@ LAYOUT
                         <div id="navHeader" class="navMainContainer divCenter">
                             <ul class="listInline fontPrimary">
                                 <li id="navJoin" class="navMainLink">
-                                    <a href="#footerJoin">
+                                    <a href="#joinForm">
                                         Join
                                     </a>
                                 </li>
                                 <li class="delimiter"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}" alt="">
                                 </li>
                                 <li id="navHelp" class="navMainLink">
-                                    <a href="/Overview">
+                                    <a href="/support">
                                         Support
                                     </a>
                                 </li>
                                 <li class="delimiter"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}" alt="">
                                 </li>
                                 <li id="navLearn" class="navMainLink">
-                                    <a href="/The-Plan">
+                                    <a href="/plan">
                                         Learn
                                     </a>
                                 </li>
@@ -473,12 +473,12 @@ LAYOUT
     <!-- Level 2 Links -->
     <ul id="listLevel2" class="listUnstyled {{ navLevel2Font|default('fontSecondary') }}">
         <li class="siteNavLink" data-level="2">
-            <a href="/Candidates" class="navLevel2 {% if sectionMenuActive == 'candidatesActive' %}active{% endif %}">
+            <a href="/candidates" class="navLevel2 {% if sectionMenuActive == 'candidatesActive' %}active{% endif %}">
                 Potential Candidates
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="/Nominate" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">
+            <a href="/nominate" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">
                 Nominate a Candidate
             </a>
         </li>
@@ -496,7 +496,7 @@ LAYOUT
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="/Nominate" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">
+            <a href="/nominate" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">
                 Nominate
             </a>
         </li>
@@ -511,7 +511,7 @@ LAYOUT
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="/Call" class="navLevel2 {% if sectionMenuActive == 'callActive' %}active{% endif %}">
+            <a href="/call" class="navLevel2 {% if sectionMenuActive == 'callActive' %}active{% endif %}">
                 Join a Call
             </a>
         </li>
@@ -529,7 +529,7 @@ LAYOUT
     <!-- Level 2 Links -->
     <ul id="listLevel2" class="listUnstyled {{ navLevel2Font|default('fontSecondary') }}">
         <li class="siteNavLink" data-level="2">
-            <a href="/The-Plan" class="navLevel2 {% if sectionMenuActive == 'planActive' %}active{% endif %}">
+            <a href="/plan" class="navLevel2 {% if sectionMenuActive == 'planActive' %}active{% endif %}">
                 Our Plan
             </a>
         </li>
@@ -619,7 +619,7 @@ LAYOUT
 {% block main %}
     {{ parent() }}
     {% block footerJoin %}
-        <a name="footerJoin"></a>
+        <a name="joinForm"></a>
         <div id="footerJoinForm" class="joinForm purple" ng-cloak>
             {% set registrationFormBefore = '<li><div class="starLeft"></div></li><li><h1>Add Your Name</h1></li>' %}
             {% set registrationFormAfter = '<li><div class="starRight"></div></li>' %}
@@ -643,13 +643,13 @@ LAYOUT
                     <div class="siteMapColumn">
                     <ul class="listUnstyled">
                         <li class="siteMapHeader">
-                            <a class="fontTertiary" href="/Candidates">Candidates</a>
+                            <a class="fontTertiary" href="/candidates">Candidates</a>
                         </li>
                         <li>
-                            <a href="/Candidates">Potential Candidates</a>
+                            <a href="/candidates">Potential Candidates</a>
                         </li>
                         <li>
-                            <a href="/Nominate">Nominate a Candidate</a>
+                            <a href="/nominate">Nominate a Candidate</a>
                         </li>
                     </ul>
                     </div>
@@ -664,7 +664,7 @@ LAYOUT
                             <a href="/Volunteer">Overview</a>
                         </li>
                         <li>
-                            <a href="/Nominate">Nominate a Candidate</a>
+                            <a href="/nominate">Nominate a Candidate</a>
                         </li>
                         <li>
                             <a  href="https://goo.gl/forms/CGeULYdVgKTnW72D2" target="_blank">Special Skills</a>
@@ -673,7 +673,7 @@ LAYOUT
                             <a href="https://docs.google.com/document/d/1Op0OaZNuykCJckSCn4vABDEr4VEdTrMeTsPCZFNSJo4/edit" target="_blank">Organize Locally</a>
                         </li>
                         <li>
-                            <a href="/Call">Join a Call</a>
+                            <a href="/call">Join a Call</a>
                         </li>
                         <li>
                             <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank">Donate</a>
@@ -685,16 +685,16 @@ LAYOUT
                     <div class="siteMapColumn">
                     <ul class="listUnstyled">
                         <li class="siteMapHeader">
-                            <a class="fontTertiary" href="/The-Plan">Learn</a>
+                            <a class="fontTertiary" href="/plan">Learn</a>
                         </li>
                         <li>
-                            <a href="/The-Plan">Our Plan</a>
+                            <a href="/plan">Our Plan</a>
                         </li>
                         <li>
-                            <a href="/About-Us">About Us</a>
+                            <a href="/about">About Us</a>
                         </li>
                         <li>
-                            <a href="/FAQ">FAQ</a>
+                            <a href="/faq">FAQ</a>
                         </li>
                     </ul>
                     </div>
@@ -755,7 +755,7 @@ LAYOUT
 
 {% block candidateReturnLink %}
 <strong>
-    <a class="returnLink divCenter fontBody" href="/Candidates">
+    <a class="returnLink divCenter fontBody" href="/candidates">
         <div class="starLeft starPurple">
             <div class="starRight starPurple">
                 <div class="starText">Return to All Candidates</div>
