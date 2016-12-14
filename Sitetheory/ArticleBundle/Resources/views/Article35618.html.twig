@@ -12,8 +12,8 @@
 {% set sectionMenuActive = 'candidatesActive' %}
 
 {# Hide sidebar on desktop #}
-{% set bootstrapColumnSidebar = 'hide-gt-xs' %}
-{% set bootstrapColumnMain = 'flex=100' %}
+{% set columnSidebar = 'hide-gt-xs' %}
+{% set columnMain = 'flex=100' %}
 
 {# Hide gutter in main column #}
 {% block mainColumnGutter %}
@@ -26,12 +26,12 @@
 {% block contentType %}
 <div id="candidateListPage" class="profileList">
 
-    <p class="divCenter alignCenter pullout">We are excited to announce our first five potential candidates (<a href="#candidateList">below</a>)! We need to convince them we have the support needed to run their campaign.</p>
+    <p class="divCenter textCenter pullout">We are excited to announce our first five potential candidates (<a href="#candidateList">below</a>)! We need to convince them we have the support needed to run their campaign.</p>
 
 
     <h1>Progress</h1>
     <div id="callToAction" class="borderDashedBold shellVerticalPadding" ng-controller="CustomApi" options='{"controller":"/people/count", "onLoad": "fetch", "onTime": {"time": "10s", "method":"fetch"}}'>
-        <p class="intro alignCenter divCenter"><strong>If we get 500,000 people to sign up, we believe that we can convince these five people to run.</strong></p>
+        <p class="intro textCenter divCenter"><strong>If we get 500,000 people to sign up, we believe that we can convince these five people to run.</strong></p>
 
         <div layout="row" layout-wrap ng-cloak>
             <div flex="100" flex-gt-sm="33" flex-order="2" flex-order-gt-sm="1">
@@ -43,13 +43,13 @@
                     </div>
                     <div id="progressBarContainer" class="positionAll">
                         {# this uses the dynamic countUp value and not the results.count directly (so that it animates) #}
-                        <div id="progressBar" class="positionLeftTop salmon" ng-style="{width: (100*(currentVal/500000))+'%', 'max-width': '100%'}"></div>
+                        <div id="progressBar" class="positionLeftTop salmon" style="max-width: 100%"></div>
                     </div>
                     {% embed '@SitetheoryTemplateCustomBundle/Resources/public/images/progressBarCover.svg' %}{% block id %}footerRedditIcon{% endblock %}{% endembed %}
                 </div>
             </div>
             <div flex="100" flex-gt-sm="33" flex-order="1" flex-order-gt-sm="2">
-                <div class="divCenter alignCenter">
+                <div class="divCenter textCenter">
                     <div id="signUpLabel" class="divCenter">
                         <div class="starLeft">
                             <div class="starRight">
@@ -59,12 +59,12 @@
                             </div>
                         </div>
                     </div>
-                    <div id="totalSignUp" class="borderDashed fontSecondary salmonText" count-up start-val="0" end-val="results.count" frame-val="currentVal" duration="2" decimals="0" scroll-spy-event="elementScrolledIntoView" scroll-spy></div>
+                    <div id="totalSignUp" class="borderDashed fontSecondary salmonText" count-up start-val="0" end-val="results.count" count-instance="countUp" related-target="progressBar" related-style="{ width: (100*(frameVal/500000))+'%' }" duration="1.5" decimals="0" scroll-spy-event="elementFirstScrolledIntoView" scroll-spy></div>
                 </div>
             </div>
             <div flex="100" flex-gt-sm="33" flex-order="3">
                 <div id="candidateJoin" class="joinForm pullRight">
-                    <p hide-gt-sm class="alignCenter divCenter"><strong>Sign up and help us convince our new draftees to run!</strong></p>
+                    <p hide-gt-sm class="textCenter divCenter"><strong>Sign up and help us convince our new draftees to run!</strong></p>
                     {{ block('registrationForm') }}
                 </div>
             </div>
@@ -95,7 +95,7 @@
                         <div flex-order="1" flex-order-gt-xs="2" class="profileExtra backgroundDark">
                             <div class="starLeft starWhite">
                                 <div class="starRight starWhite">
-                                    <div class="starText fontPrimary alignCenter">
+                                    <div class="starText fontPrimary textCenter">
                                         Pennsylvania 1st
                                     </div>
                                 </div>
@@ -123,7 +123,7 @@
                         <div flex-order="1" flex-order-gt-xs="2" class="profileExtra backgroundDark">
                             <div class="starLeft starWhite">
                                 <div class="starRight starWhite">
-                                    <div class="starText fontPrimary alignCenter">
+                                    <div class="starText fontPrimary textCenter">
                                         New York 12th
                                     </div>
                                 </div>
@@ -150,7 +150,7 @@
                         <div flex-order="1" flex-order-gt-xs="2" class="profileExtra backgroundDark">
                             <div class="starLeft starWhite">
                                 <div class="starRight starWhite">
-                                    <div class="starText fontPrimary alignCenter">
+                                    <div class="starText fontPrimary textCenter">
                                         Kansas 3rd
                                     </div>
                                 </div>
@@ -177,7 +177,7 @@
                         <div flex-order="1" flex-order-gt-xs="2" class="profileExtra backgroundDark">
                             <div class="starLeft starWhite">
                                 <div class="starRight starWhite">
-                                    <div class="starText fontPrimary alignCenter">
+                                    <div class="starText fontPrimary textCenter">
                                         Florida 9th
                                     </div>
                                 </div>
@@ -205,7 +205,7 @@
                         <div flex-order="1" flex-order-gt-xs="2" class="profileExtra backgroundDark">
                             <div class="starLeft starWhite">
                                 <div class="starRight starWhite">
-                                    <div class="starText fontPrimary alignCenter">
+                                    <div class="starText fontPrimary textCenter">
                                         Connecticut 1st
                                     </div>
                                 </div>
