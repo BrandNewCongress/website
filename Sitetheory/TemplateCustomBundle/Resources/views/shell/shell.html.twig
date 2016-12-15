@@ -253,7 +253,7 @@ SIGNUP FORM
 
 {% block registrationForm %}
 
-<form name="Signup" ng-submit="signup(form)" ng-controller="CustomApi" ng-sanitize="true" options='{"redirect":{"url":"https://secure.actblue.com/contribute/page/bncdec", "popup":false}}' ng-class="status" class="positionAnchor" ng-cloak>
+<form name="Signup" ng-submit="signup(form)" ng-controller="CustomApi" ng-sanitize="true" options='{"redirect":{"url":"https://secure.actblue.com/contribute/page/bncdec", "popup":false}}' ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
 
     <md-progress-circular md-mode="indeterminate" ng-show="status === 'sending'"></md-progress-circular>
     <p class="message" ng-show="response.length" ng-bind-html="response"></p>
@@ -627,7 +627,7 @@ LAYOUT
     {{ parent() }}
     {% block footerJoin %}
         <a name="joinForm"></a>
-        <div id="footerJoinForm" class="joinForm purple" ng-cloak>
+        <div id="footerJoinForm" class="joinForm purple" ng-cloak ng-cloak-reveal>
             {% set registrationFormBefore = '<li><div class="starLeft"></div></li><li><h1>Add Your Name</h1></li>' %}
             {% set registrationFormAfter = '<li><div class="starRight"></div></li>' %}
             {{ block('registrationForm') }}

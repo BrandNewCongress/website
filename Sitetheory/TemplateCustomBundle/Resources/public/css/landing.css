@@ -94,11 +94,7 @@
     background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/slideshow1.jpg') no-repeat center center;
     background-size: cover;
 }
-.loaded #homeSlides {
-    animation: itemsFadeIn .5s ease-out forwards;
-    -webkit-animation: itemsFadeIn .5s ease-out  forwards;
-    opacity: 0;
-}
+
 #slidesContent {
     margin: 0 auto;
     padding: 120px 60px;
