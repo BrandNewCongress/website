@@ -18,8 +18,8 @@ SETTINGS
 
 {# Hide sidebar and make main column full width #}
 {% if columnSidebar is not defined %}
-    {% set columnSidebar = 'flex=0 flex-gt-sm=20' %}
-    {% set bcolumnMain = 'flex=100 flex-gt-sm=80' %}
+    {% set columnSidebar = 'stGrid column20' %}
+    {% set bcolumnMain = 'stGrid column80' %}
 {% endif %}
 
 {# Make sure sidebar variables are empty to prevent errors #}
@@ -454,7 +454,7 @@ LAYOUT
                 <img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogoHorizontal.png') }}" alt="">
             </a>
         </div>
-        <div hide-xs hide-sm id="retractingContribute" class="verticalCenter">
+        <div id="retractingContribute" class="verticalCenter hide-xs hide-sm">
             <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank" class="btn btnContribute">Donate</a>
         </div>
         <div>
@@ -557,7 +557,7 @@ LAYOUT
 
 {% block navSection %}
 
-    <div hide-xs hide-sm>
+    <div class="hide-xs hide-sm">
 
         {% if sectionMenuHardCoded == '1' %}
             {{ block('menuSection1') }}
@@ -573,7 +573,7 @@ LAYOUT
 
     <!-- Full nested menu displays only for mobile -->
 
-    <div hide-gt-sm>
+    <div class="hide-gt-sm">
         <ul id="listLevel1" class="listUnstyled">
             <li data-level="1">
                 <div class="siteNavLink "  data-level="1">
@@ -645,7 +645,7 @@ LAYOUT
 
         <div id="siteMapContainer" class="siteMaxWidth siteSidePadding fontSecondary dark">
 
-            <div id="siteMapNew" layout="row" layout-wrap hide-xs hide-sm>
+            <div id="siteMapNew" layout="row" layout-wrap class="hide-xs hide-sm">
                 <div flex="25">
                     <div class="siteMapColumn">
                     <ul class="listUnstyled">

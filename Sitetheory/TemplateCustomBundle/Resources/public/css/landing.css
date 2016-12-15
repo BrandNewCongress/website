@@ -23,12 +23,19 @@
 
 /* ANNOUNCEMENT BANNER */
 
+
 #announcementBanner,
 #announcementBanner * {
     transition: all .2s ease-out;
 }
 #announcementBanner {
-    margin: 40px 0 28px;
+    display: none;
+}
+.loaded #announcementBanner {
+    display: block;
+}
+#announcementBanner {
+    margin: 40px 0 0 0;
     padding: 8px 9px;
     background: #393939;
 }
@@ -91,12 +98,14 @@
 /* SLIDESHOW */
 
 #homeSlides {
+    animation: itemsFadein .2s ease-out .5s forwards;
+    -webkit-animation: itemsFadein .2s ease-out .5s forwards;
     background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/slideshow1.jpg') no-repeat center center;
     background-size: cover;
 }
 
 #slidesContent {
-    margin: 0 auto;
+    margin: 28px auto 0 auto;
     padding: 120px 60px;
     max-width: 900px;
 }
@@ -123,7 +132,14 @@
     background-size: 9px;
 }
 #slidesContent .h4Container {
+    transition: all .2s ease-out;
     margin-top: 15px;
+}
+#slidesContent .h4Container{
+    display: none;
+}
+.loaded #slidesContent .h4Container {
+    display: block;
 }
 #slidesContent h4 {
     margin: 0;
