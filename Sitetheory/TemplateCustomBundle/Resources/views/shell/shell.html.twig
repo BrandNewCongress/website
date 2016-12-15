@@ -113,7 +113,7 @@ JAVASCRIPT
                     url: 'https://api.brandnewcongress.org',
                     controller: '/people',
                     response: {
-                        success: 'Thanks for signing up! We\'ll be in touch shortly. In the meantime, please help us with a <a href="https://secure.actblue.com/contribute/page/bncdec" target="_blank">much needed donation</a>.',
+                        success: 'Thanks for signing up! We\'ll be in touch shortly. In the meantime, please help us with a <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank">much needed donation</a>.',
                         error: 'Sorry ;( looks like there was an error saving your info. Please email us directly so we can help.'
                     },
                     redirect: {
@@ -148,34 +148,41 @@ JAVASCRIPT
                 // General Submit
                 $scope.submit = function(form) {
                     $scope.status = 'sending';
-                    $http($scope.options.prototype).then(
-                        // Success
-                        function successCallback(response) {
-                            if (response && (response.status === 200)) {
-                                if($scope.options.redirect.url) {
-                                    $window.location($scope.options.redirect.url);
-                                }
-                                $scope.response = $scope.options.response.success;
-                                $scope.status = 'success';
-                                $scope.results = response.data;
-                            } else {
-                                $scope.response = $scope.options.response.error;
-                                $scope.status = 'error';
+                    // Success
+                    function successCallback(response) {
+                        if (response && (response.status === 200)) {
+                            $scope.response = $scope.options.response.success;
+                            $scope.status = 'success';
+                            $scope.results = response.data;
+                            if($scope.options.redirect.url) {
+                                $window.location = $scope.options.redirect.url;
                             }
-                        },
-                        // Error
-                        function errorCallback(response) {
+
+                        } else {
                             $scope.response = $scope.options.response.error;
                             $scope.status = 'error';
                         }
-                    );
+                    }
+                    // Error
+                    function errorCallback(response) {
+                        $scope.response = $scope.options.response.error;
+                        $scope.status = 'error';
+                    }
+                    var promise = $http($scope.options.prototype);
+                    // Hack for Angular 1.6.0 Promise bug
+                    if(promise.catch) {
+                        promise.then(successCallback, errorCallback).catch(errorCallback);
+                    } else {
+                        promise.then(successCallback, errorCallback);
+                    }
+                    return promise;
                 };
 
                 // CUSTOM METHODS
                 // General API Data Method
                 $scope.fetch = function() {
                     $scope.options.prototype.method = 'GET';
-                    $scope.submit();
+                    return $scope.submit();
                 };
 
                 // Signup Method
@@ -183,7 +190,7 @@ JAVASCRIPT
                     $scope.options.prototype.method = 'POST';
                     $scope.options.prototype.headers = {'Content-Type':'application/x-www-form-urlencoded'};
                     $scope.options.prototype.data = $scope.serialize($scope.data);
-                    $scope.submit(form);
+                    return $scope.submit(form);
                 };
 
                 // Allow Methods on Load

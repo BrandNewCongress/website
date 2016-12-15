@@ -207,10 +207,6 @@ hr {
     background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/borderDashedLight.png') repeat-x;
     background-size: 6px;
 }
-.borderDashedVertical {
-    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/borderDashedVertical.png') repeat-y;
-    background-size: 1px;
-}
 .borderDashedBold {
     background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/borderDashedBold.png') repeat-x;
     background-size: 8px;
