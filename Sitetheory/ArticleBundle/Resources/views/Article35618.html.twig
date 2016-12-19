@@ -33,6 +33,9 @@
     <div id="callToAction" class="borderDashedBold shellVerticalPadding" ng-controller="CustomApi" options='{"controller":"/people/count", "onLoad": "fetch", "onTime": {"time": "10s", "method":"fetch"}}'>
         <p class="intro textCenter divCenter"><strong>If we get 500,000 people to sign up, we believe that we can convince these five people to run.</strong></p>
 
+        {# hide as soon as angular loads #}
+        <div class="loader" ng-hide="true"></div>
+
         <div layout="row" layout-wrap ng-cloak>
             <div flex="100" flex-gt-sm="33" flex-order="2" flex-order-gt-sm="1">
                 <div id="signUpProgress"class="positionAnchor">
@@ -76,6 +79,10 @@
     <h1>Our Draftees</h1>
     <div class="borderDashedBold">
         <div id="profileList">
+
+            {# hide as soon as angular loads #}
+            <div class="loader" ng-hide="true"></div>
+
             <div layout="row" layout-wrap>
 
                 {# Profile Item 1 #}
