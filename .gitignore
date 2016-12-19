@@ -12,6 +12,9 @@ npm-debug.log*
 *.pyo
 *.zip
 
+# Saikat Cache
+.cache
+
 # Runtime data
 pids
 *.pid
