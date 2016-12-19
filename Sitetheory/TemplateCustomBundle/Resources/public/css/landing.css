@@ -171,13 +171,6 @@
 
 /* JOIN SECTION */
 
-#homeJoin {
-    transition: all .2s ease-out .25s;
-    opacity: 0;
-}
-.loaded #homeJoin{
-    opacity: 1;
-}
 #homeJoin .shellVerticalPadding {
     padding-top: 50px;
 }

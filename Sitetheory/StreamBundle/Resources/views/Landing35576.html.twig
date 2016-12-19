@@ -77,9 +77,12 @@ LAYOUT
 {# NOTE: this page is a stream, but we are currently hard coding everything, so we shouldn't use the majority of the contentType block in the ListBase.html.twig. So instead we are currently just overwriting the entire ContentType block #}
 
 {% block contentType %}
-    <md-progress-linear md-mode="determinate"></md-progress-linear>
+
     {# Home Landing Layout #}
     <div class="clearfix">
+
+        {# hide as soon as angular loads #}
+        <div class="loader" ng-hide="true"></div>
 
         <a href="/candidates">
             <div id="announcementBanner">
@@ -116,6 +119,9 @@ LAYOUT
 
                 <div id="homeJoinForm" class="joinForm">
                     <p class="fontSecondary textCenter"><strong>Join us if you believe it’s time to reset our democracy.</strong></p>
+                    {# hide as soon as angular loads #}
+                    <div class="loader" ng-hide="true"></div>
+
                     {{ block('registrationForm') }}
                 </div>
             </div>
@@ -133,6 +139,10 @@ LAYOUT
 
 
         <div id="pressLogos" class="shellVerticalPadding">
+
+            {# hide as soon as angular loads #}
+            <div class="loader" ng-hide="true"></div>
+
             <div layout="row" layout-wrap>
                 <div flex="100" flex-gt-md="50">
                     <div class="clearfix">
@@ -213,6 +223,9 @@ LAYOUT
             <h1>Draftees</h1>
 
             <p class="intro fontSecondary">These potential candidates represent the mix of public servants, entrepreneurs, local leaders, and national figures that we’re drafting. <strong>None of these people have yet agreed to run</strong> because they are all very committed to their causes and are not yet convinced they should take a leap of faith with Brand New Congress. But we have vetted them all and gotten to know them, so we would love to convince them to run by showing them that we have the support necessary to win. <a href='/candidates'>Help us convince them to run!</a></p>
+
+            {# hide as soon as angular loads #}
+            <div class="loader" ng-hide="true"></div>
 
             <div layout="row" layout-wrap ng-cloak ng-cloak-reveal>
                 <div flex-xs="100"  flex-gt-xs="33" class="candidateColumn">
@@ -346,6 +359,10 @@ LAYOUT
         <div id="homeSpecifics" class="shellVerticalPadding textCenter">
             <h4>All the</h4>
             <h1>Specifics</h1>
+
+            {# hide as soon as angular loads #}
+            <div class="loader" ng-hide="true"></div>
+
             <div id="homeImageLinks" ng-cloak ng-cloak-reveal>
                 <div layout="row" layout-wrap>
                     <div flex="100" flex-gt-xs="33">
@@ -368,6 +385,9 @@ LAYOUT
         </div>
 
         <div class="sectionBorder backgroundDark"></div>
+
+        {# hide as soon as angular loads #}
+        <div class="loader" ng-hide="true"></div>
 
         <div id="homeCurrent" class="shellVerticalPadding" ng-cloak ng-cloak-reveal>
             <div layout="row" layout-wrap>

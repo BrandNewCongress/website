@@ -249,37 +249,14 @@ hr {
 /* LOADER */
 @keyframes pulse {
     50% {
-        background: rgb(255,255,255);
+        background: rgb(121,50,172);
     }
 }
-
-
-.loading {
-    position: relative;
-    width: 6px;
-    height: 24px;
-    background: rgba(255, 255, 255, 0.2);
-    animation: pulse 750ms infinite;
-    animation-delay: 250ms;
+.loader {
+    background: rgba(121,50,172, 0.2);
 }
-
-.loading:before, .loading:after {
-    content: '';
-    position: absolute;
-    display: block;
-    height: 16px;
-    width: 24px;
-    background: rgba(255,255,255, 0.2);
-    top: 50%;
-    transform: translateY(-50%);
-    animation: pulse 750ms infinite;
-}
-.loading:before {
-     left: -12px;
-}
-.loading:after {
-     left: 12px;
-     animation-delay: 500ms;
+.loader:before, .loader:after {
+    background: rgba(121,50,172, 0.2);
 }
 
 
