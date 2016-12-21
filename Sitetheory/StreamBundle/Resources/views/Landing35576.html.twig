@@ -229,15 +229,21 @@ LAYOUT
 
             <div layout="row" layout-wrap ng-cloak ng-cloak-reveal>
                 <div flex-xs="100"  flex-gt-xs="33" class="candidateColumn">
+
+                    {# Candidate 1 #}
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
-                            <div class="profileGradient"></div>
-                            <div class="candidateInfo">
-                                <p class="name fontSecondary">Linda Wayman</p>
-                                <p class="title fontTertiary">Educator</p>
-                            </div>
+                            <div class="imageGradientBottom"></div>
                             <a href="/candidates">
-                            <img data-src="lazy" src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/LindaWayman-xs.jpg') }}" alt=""></a>
+                                <div class="candidateInfo">
+                                    <p class="name fontSecondary">Linda Wayman</p>
+                                    <p class="title fontTertiary">Educator</p>
+                                    <div class="candidateBio fontBody">
+                                        Decades-long educator in North Philadelphia who who became a superintendent, but stepped down to become principal of a chronically failing high school, turning the school around.
+                                    </div>
+                                </div>
+                                <div class="candidateImageCover positionAll"></div>
+                                <img data-src="lazy" src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/LindaWayman-xs.jpg') }}" alt=""></a>
                         </div>
                         <div class="borderDashed">
                             <div class="candidateDistrict fontPrimary starLeft divCenter">
@@ -248,16 +254,23 @@ LAYOUT
                         </div>
                     </div>
                 </div>
-                <div flex-xs="100"  flex-gt-xs="33" class="candidateColumn">
+
+                {# Candidate 2 #}
+                <div flex-xs="100" flex-gt-xs="33" class="candidateColumn">
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
-                            <div class="profileGradient"></div>
-                            <div class="candidateInfo">
-                                <p class="name fontSecondary">Jordyn Lexton</p>
-                                <p class="title fontTertiary">Fellowship Founder</p>
-                            </div>
+                            <div class="imageGradientBottom"></div>
                             <a href="/candidates">
-                            <img data-src="lazy" src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/JordynLexton-xs.jpg') }}" alt=""></a>
+                                <div class="candidateInfo">
+                                    <p class="name fontSecondary">Jordyn Lexton</p>
+                                    <p class="title fontTertiary">Fellowship Founder</p>
+                                    <div class="candidateBio fontBody">
+                                        Former teacher at Rikers Island prison; while campaigning to stop convicting children as adults, created Drive Change, a 1-year fellowship program in the food truck industry to help young people returning home from prison get jobs and education.
+                                    </div>
+                                </div>
+                                <div class="candidateImageCover positionAll"></div>
+                                <img data-src="lazy" src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/JordynLexton-xs.jpg') }}" alt="">
+                            </a>
                         </div>
                         <div class="borderDashed">
                             <div class="candidateDistrict fontPrimary starLeft divCenter">
@@ -268,36 +281,49 @@ LAYOUT
                         </div>
                     </div>
                 </div>
+
+                {# Candidate 3 #}
                 <div flex-xs="100"  flex-gt-xs="33" class="candidateColumn">
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
-                            <div class="profileGradient"></div>
-                            <div class="candidateInfo">
-                                <p class="name fontSecondary">Tynisha Tyson</p>
-                                <p class="title fontTertiary">Social Worker</p>
-                            </div>
+                            <div class="imageGradientBottom"></div>
                             <a href="/candidates">
-                            <img data-src="lazy" src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/TynishaTyson-xs.jpg') }}" alt=""></a>
+                                <div class="candidateInfo">
+                                    <p class="name fontSecondary">Kurt Rietema</p>
+                                    <p class="title fontTertiary">Youth Pastor</p>
+                                    <div class="candidateBio fontBody">
+                                        Youth pastor for over a decade with YouthFront; started “Neighbor to Neighbor” to help immigrants and marginalized people become homeowners by creating fair, low-interest lending partnerships between churches and families that can’t access traditional home mortgages.
+                                    </div>
+                                </div>
+                                <div class="candidateImageCover positionAll"></div>
+                                <img  data-src="lazy" src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/KurtRietema-xs.jpg') }}" alt="">
+                            </a>
                         </div>
                         <div class="borderDashed">
                             <div class="candidateDistrict fontPrimary starLeft divCenter">
                                 <p class="starRight">
-                                    Connecticut 1st
+                                    Kansas 3rd
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                {# Candidate 4 #}
                 <div flex-xs="100"  flex-gt-xs="33" class="candidateColumn">
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
-                            <div class="profileGradient"></div>
-                            <div class="candidateInfo">
-                                <p class="name fontSecondary">Chardo Richardson</p>
-                                <p class="title fontTertiary">Civil Rights Lawyer</p>
-                            </div>
+                            <div class="imageGradientBottom"></div>
                             <a href="/candidates">
-                            <img data-src="lazy" src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/ChardoRichardson-xs.jpg') }}" alt=""></a>
+                                <div class="candidateInfo">
+                                    <p class="name fontSecondary">Chardo Richardson</p>
+                                    <p class="title fontTertiary">Civil Rights Lawyer</p>
+                                    <div class="candidateBio fontBody">
+                                        Air Force veteran with five tours of duty in Iraq and Afghanistan; now President of Central Florida ACLU chapter, fighter for workers’ rights with Working America, and founded Think LegalEase, a series of YouTube videos to make the law accessible.
+                                    </div>
+                                </div>
+                                <div class="candidateImageCover positionAll"></div>
+                                <img data-src="lazy" src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/ChardoRichardson-xs.jpg') }}" alt=""></a>
                         </div>
                         <div class="borderDashed">
                             <div class="candidateDistrict fontPrimary starLeft divCenter">
@@ -308,21 +334,28 @@ LAYOUT
                         </div>
                     </div>
                 </div>
+
+                {# Candidate 5 #}
                 <div flex-xs="100"  flex-gt-xs="33" class="candidateColumn">
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
-                            <div class="profileGradient"></div>
-                            <div class="candidateInfo">
-                                <p class="name fontSecondary">Kurt Rietema</p>
-                                <p class="title fontTertiary">Youth Pastor</p>
-                            </div>
+                            <div class="imageGradientBottom"></div>
                             <a href="/candidates">
-                            <img  data-src="lazy" src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/KurtRietema-xs.jpg') }}" alt=""></a>
+                                <div class="candidateInfo">
+                                    <p class="name fontSecondary">Tynisha Tyson</p>
+                                    <p class="title fontTertiary">Social Worker</p>
+                                    <div class="candidateBio fontBody">
+                                        Social worker at Milner Elementary; works with children who suffer from abuse, neglect, and extreme poverty to be an anchor in their lives. Has actively continued working as a social worker to help kids most in need despite opportunities to “move up.”
+                                    </div>
+                                </div>
+                                <div class="candidateImageCover positionAll"></div>
+                                <img data-src="lazy" src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/TynishaTyson-xs.jpg') }}" alt="">
+                            </a>
                         </div>
                         <div class="borderDashed">
                             <div class="candidateDistrict fontPrimary starLeft divCenter">
                                 <p class="starRight">
-                                    Kansas 3rd
+                                    Connecticut 1st
                                 </p>
                             </div>
                         </div>

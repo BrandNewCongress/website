@@ -308,6 +308,8 @@
 /* CANDIDATES SECTION */
 
 
+/* Intro paragraph */
+
 #homeCandidates h1 {
     margin-bottom: 50px;
 }
@@ -327,6 +329,10 @@
     color: #7932AC;
     text-decoration: none;
 }
+
+
+/* Candidate Grid */
+
 .candidateColumn {
     transition: all 400ms ease-out 50ms;
 }
@@ -338,11 +344,14 @@
     padding: 24px;
     background-size: 5px;
 }
+/* text overlay */
 .candidateInfo {
+    transition: all .2s ease-out;
     z-index: 10;
     position: absolute;
     left: 0;
     bottom: 6%;
+    padding: 0 12%;
     width: 100%;
     text-align: center;
 }
@@ -359,30 +368,48 @@
 .candidateInfo .title {
     font-size: 9px;
 }
+/* image */
+.candidateImage {
+    transition: all .2s ease-out;
+}
+.candidateImage img {
+    width: 100%;
+}
+
+/* district info below photo */
 .candidateDistrict p {
     margin-bottom: 4px;
     padding: 0 20px;
     font-size: 18px;
     letter-spacing: .08em;
 }
-.profileGradient {
-    position: absolute;
-    top: 72%;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.75));
-    background: -webkit-linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.75));
-}
-.candidateImage {
+
+/* hover reveals bio */
+.candidateImageCover {
     transition: all .2s ease-out;
+    opacity: 0;
 }
-.candidateImage:hover {
-    opacity: .95;
+.candidateContainer:hover .candidateImageCover {
+    opacity: .9;
+    background: rgba(20,20,20,.96);
 }
-.candidateImage img {
-    width: 100%;
+.candidateContainer:hover .candidateInfo {
+    transform: translateY(50%);
+    bottom: 50%;
 }
+.candidateBio {
+    display: none;
+    transition: all .4s ease-out .2s;
+    margin-top: 20px;
+    opacity: 0;
+    color: #CCC;
+}
+.candidateContainer:hover .candidateBio {
+    display: block;
+    opacity: 1;
+}
+
+
 @media (min-width: 600px) and (max-width:1100px) {
     .candidateInfo .name {
         font-size: 11px;
@@ -392,6 +419,9 @@
     }
     .candidateDistrict p {
         font-size: 15px;
+    }
+    .candidateBio {
+        font-size: 13px;
     }
 }
 
@@ -404,7 +434,8 @@
 .tempCandidateAsk a:hover .candidateImage img {
     opacity: .15;
 }
-.tempCandidateAsk .candidateInfo {
+.tempCandidateAsk .candidateInfo,
+.tempCandidateAsk:hover .candidateInfo {
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
     top: 50%;
