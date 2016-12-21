@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Roboto+Slab:300,400,700');
+
+a {
+    color: #7932AC;
+}
+a:hover {
+    color: #888;
+}
+
+body {
+    color: #333;
+    font-family: Roboto Slab, sans-serif;
+    background: #598089;
+}
+body.full_background {
+    background-size: 100%;
+    background-position: 50% 0;
+}
+body.full_background #cf_header,
+body.full_background #cf_widget {
+    width: 50%;
+    background: none;
+}
+body.full_background #cf_container.form,
+#cf_container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background: rgba(255,255,255,.8);
+}
+/*
+body.full_background #cf_header h2 {
+    margin: 0 0 40px;
+    padding: 10px 0 8px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Fjalla One, sans-serif;
+    font-size: 30px;
+    line-height: .8;
+    color: #FFF;
+    background: #141414 url(https://bnc.sitetheory.net/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/donate/donateStars.png) no-repeat center center;
+    background-size: 100%;
+}*/
+body.full_background #cf_header h2 {
+    margin: 0 0 40px;
+    text-transform: uppercase;
+    font-family: Fjalla One, sans-serif;
+    font-size: 30px;
+    line-height: .8;
+    color: #222;
+}
+body.branded #header img {
+    margin: 70px 0 30px;
+    max-width: 210px;
+}
+body.full_background #cf_widget {
+    background: none;
+}
+
+#cf_container h2,
+#cf_container h3 {
+    font-family: Roboto Slab, sans-serif;
+    font-weight: 300;
+    color: #222;
+}
+.rules h4 {
+    text-transform: uppercase;
+}
+#contribution_blurb {
+    font-size: 14px;
+    color: #333;
+}
+ul.radios.single-candidate li label.btn {
+    color: #7932AC;
+    font-weight: bold;
+}
+.btn {
+    background: #FFF;
+}
+.btn-success,
+.btn-success:hover {
+    background: #FF7A65;
+}
+body.full_background .rules {
+    width: 100%;
+    padding: 30px 0;
+}
+body.full_background .rules.narrow h4,
+body.full_background .rules.narrow ol {
+    padding: 0 30px;
+    color: #333;
+}
+.branding-fec-box p {
+    font-size: 14px !important;
+}
