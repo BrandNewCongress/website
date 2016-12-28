@@ -38,10 +38,9 @@ body.branded #header img {
 
 /* main content container */
 #contentArea {
-    padding-top: 80px;
+    padding-top: 30px;
     width: inherit;
-    background: url(https://bnc.sitetheory.net/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/donate/donateTitle.png) no-repeat center top;
-    background-size: contain;
+    border-top: 12px solid #222;
 }
 
 /* form container */
@@ -66,7 +65,7 @@ body.full_background #cf_header h2 {
     margin: 0 0 40px;
     text-transform: uppercase;
     font-family: Fjalla One, sans-serif;
-    font-size: 30px;
+    font-size: 40px;
     line-height: .8;
     color: #222;
 }
@@ -122,10 +121,12 @@ body.full_background .rules.narrow ol {
         width: 100%;
         float: none;
     }
-    body.interior.branded #contentArea {
-        padding-top: 80px !important;
-    }
     #contentArea {
         margin: 0 40px;
+    }
+}
+@media (max-width: 600px) {
+    #contentArea {
+        margin: 0 10px;
     }
 }

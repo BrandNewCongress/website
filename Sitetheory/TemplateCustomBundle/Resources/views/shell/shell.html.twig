@@ -61,10 +61,6 @@ CSS STYLING
 {% block link %}
     {{ parent() }}
 
-    {# TODO: remove bootstrap! Temporarily including bootstap till we get normalizer.css in mothershell to work #}
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap{{ minified }}.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap-theme{{ minified }}.css">
-
     <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/site.css') }}">
 {% endblock link %}
 
@@ -342,7 +338,7 @@ LAYOUT
                         <div class="clearfix">
                             <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank" class="btn btnContribute pullRight">Donate</a>
                         </div>
-                        <a id="starLinkRight" class="fontTertiary align-right" href="/nominate">Nominate a Candidate</a>
+                        <a id="starLinkRight" class="fontTertiary align-right" href="https://brandnewcongress.org/submit-nominee" target="_blank">Nominate a Candidate</a>
                     </div>
                 </div>
                 <div id="header2" class="siteMaxWidth siteSidePadding positionAnchor ">
@@ -485,12 +481,7 @@ LAYOUT
     <!-- Level 2 Links -->
     <ul id="listLevel2" class="listUnstyled {{ navLevel2Font|default('fontSecondary') }}">
         <li class="siteNavLink" data-level="2">
-            <a href="/candidates" class="navLevel2 {% if sectionMenuActive == 'candidatesActive' %}active{% endif %}">
-                Potential Candidates
-            </a>
-        </li>
-        <li class="siteNavLink" data-level="2">
-            <a href="/nominate" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">
+            <a href="https://brandnewcongress.org/submit-nominee" target="_blank" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">
                 Nominate a Candidate
             </a>
         </li>
@@ -508,7 +499,7 @@ LAYOUT
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="/nominate" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">
+            <a href="https://brandnewcongress.org/submit-nominee" target="_blank" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">
                 Nominate
             </a>
         </li>
@@ -655,13 +646,10 @@ LAYOUT
                     <div class="siteMapColumn">
                     <ul class="listUnstyled">
                         <li class="siteMapHeader">
-                            <a class="fontTertiary" href="/candidates">Candidates</a>
+                            <a class="fontTertiary" href="https://brandnewcongress.org/submit-nominee" target="_blank">Candidates</a>
                         </li>
                         <li>
-                            <a href="/candidates">Potential Candidates</a>
-                        </li>
-                        <li>
-                            <a href="/nominate">Nominate a Candidate</a>
+                            <a href="https://brandnewcongress.org/submit-nominee" target="_blank">Nominate a Candidate</a>
                         </li>
                     </ul>
                     </div>
@@ -676,7 +664,7 @@ LAYOUT
                             <a href="/support">Volunteer</a>
                         </li>
                         <li>
-                            <a href="/nominate">Nominate a Candidate</a>
+                            <a href="https://brandnewcongress.org/submit-nominee" target="_blank">Nominate a Candidate</a>
                         </li>
                         <li>
                             <a  href="https://goo.gl/forms/CGeULYdVgKTnW72D2" target="_blank">Special Skills</a>

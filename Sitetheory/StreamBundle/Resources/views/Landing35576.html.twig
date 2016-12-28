@@ -84,6 +84,7 @@ LAYOUT
         {# hide as soon as angular loads #}
         <div class="loader" ng-hide="true"></div>
 
+        {#
         <a href="/candidates">
             <div id="announcementBanner">
                 <div layout="row" layout-align="center center">
@@ -94,6 +95,8 @@ LAYOUT
                 </div>
             </div>
         </a>
+        #}
+
         <div id="homeSlides">
             <div id="slidesContent" class="textCenter">
                 <div id="slideText1" class="fontPrimary starLeft">
@@ -217,6 +220,7 @@ LAYOUT
 
         <div class="sectionBorder backgroundDark"></div>
 
+        {#
         <a name="homeCandidates"></a>
         <div id="homeCandidates" class="shellVerticalPadding textCenter">
             <h4>Candidate</h4>
@@ -224,13 +228,13 @@ LAYOUT
 
             <p class="intro fontSecondary">These potential candidates represent the mix of public servants, entrepreneurs, local leaders, and national figures that we’re drafting. <strong>None of these people have yet agreed to run</strong> because they are all very committed to their causes and are not yet convinced they should take a leap of faith with Brand New Congress. But we have vetted them all and gotten to know them, so we would love to convince them to run by showing them that we have the support necessary to win. <a href='/candidates'>Help us convince them to run!</a></p>
 
-            {# hide as soon as angular loads #}
+            {# hide as soon as angular loads
             <div class="loader" ng-hide="true"></div>
 
             <div layout="row" layout-wrap ng-cloak ng-cloak-reveal>
                 <div flex-xs="100"  flex-gt-xs="33" class="candidateColumn">
 
-                    {# Candidate 1 #}
+                    {# Candidate 1
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
                             <div class="imageGradientBottom"></div>
@@ -255,7 +259,7 @@ LAYOUT
                     </div>
                 </div>
 
-                {# Candidate 2 #}
+                {# Candidate 2
                 <div flex-xs="100" flex-gt-xs="33" class="candidateColumn">
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
@@ -282,7 +286,7 @@ LAYOUT
                     </div>
                 </div>
 
-                {# Candidate 3 #}
+                {# Candidate 3
                 <div flex-xs="100"  flex-gt-xs="33" class="candidateColumn">
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
@@ -309,7 +313,7 @@ LAYOUT
                     </div>
                 </div>
 
-                {# Candidate 4 #}
+                {# Candidate 4
                 <div flex-xs="100"  flex-gt-xs="33" class="candidateColumn">
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
@@ -335,7 +339,7 @@ LAYOUT
                     </div>
                 </div>
 
-                {# Candidate 5 #}
+                {# Candidate 5
                 <div flex-xs="100"  flex-gt-xs="33" class="candidateColumn">
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
@@ -388,6 +392,7 @@ LAYOUT
             <a class="btn" href="https://secure.actblue.com/contribute/page/bncdec" target="_blank">Donate</a>
         </div>
         <div class="sectionBorder backgroundDark"></div>
+        #}
 
         <div id="homeSpecifics" class="shellVerticalPadding textCenter">
             <h4>All the</h4>
@@ -450,9 +455,9 @@ LAYOUT
                     </div>
                 </div>
                 <div id="FB-feedParent" flex="100" flex-gt-xs="50">
-                    <h1>Comment</h1>
-                    <div id="currentSocial">
 
+                    <div id="currentSocial">
+                        <h1>Comment</h1>
                         {# Script to fix the facebook resize issue #}
                         <script>
                             // Use Require.js or Contextual Scope

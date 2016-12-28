@@ -538,9 +538,6 @@
     padding-bottom: 3px;
     border-bottom: 1px solid #999;
 }
-#homeCurrent .borderDashedBold {
-    padding-top: 28px;
-}
 #homeCurrent h1 {
     padding: 10px 0;
     font-size: 30px;
@@ -554,6 +551,9 @@
     padding-left: 55px;
     background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/mediaTitleIcon.png') no-repeat left center;
     background-size: 40px;
+}
+#currentMedia .borderDashedBold {
+    padding-top: 28px;
 }
 #currentMedia h2 {
     text-transform: uppercase;
@@ -574,12 +574,12 @@
 #currentSocial {
     margin-left: 5%;
 }
-#currentSocial h1 {
+#FB-feedParent h1 {
     padding-left: 55px;
     background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/facebookTitleIcon.png') no-repeat left center;
     background-size: 40px;
 }
-#currentSocial #facebookPageContainer {
+#facebookPageContainer {
     padding-top: 55px;
 }
 @media (max-width:600px) {
