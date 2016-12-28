@@ -260,7 +260,7 @@ SIGNUP FORM
 
 {% block registrationForm %}
 
-<form name="Signup" ng-submit="signup(form)" ng-controller="CustomApi" ng-sanitize="true" options='{"redirect":{"url":"https://secure.actblue.com/contribute/page/bncdec", "popup":false}}' ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
+<form name="Signup" ng-submit="signup(form)" ng-controller="CustomApi" ng-sanitize="true" options='{"redirect":{"url":"https://secure.actblue.com/contribute/page/bncsignup", "popup":false}}' ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
 
     <md-progress-circular md-mode="indeterminate" ng-show="status === 'sending'"></md-progress-circular>
     <p class="message" ng-show="response.length" ng-bind-html="response"></p>
@@ -394,12 +394,12 @@ LAYOUT
                             <div class="socialMedia {{ socialStyle|default('basicStyle') }}">
                                 <ul class="listInline">
                                     <li class="twitter">
-                                        <a class="positionAnchor" href="http://twitter.com/intent/tweet?status=Sign+up+to+help+create+a Brand+New+Congress: http://brandnewcongress.org" title="Share on Twitter" target="_blank" data-reactid="123" target="_blank">
+                                        <a class="positionAnchor" href="https://twitter.com/BrandNew535" title="Share on Twitter" target="_blank" data-reactid="123" target="_blank">
                                             {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/twitter.svg' %}{% block id %}footerTwitterIcon{% endblock %}{% endembed %}
                                         </a>
                                     </li>
                                     <li class="facebook">
-                                        <a class="positionAnchor" href="http://www.facebook.com/sharer/sharer.php?u=http://brandnewcongress.org&amp;title=Brand+New+Congress" title="Share on Facebook" data-reactid="125" target="_blank">
+                                        <a class="positionAnchor" href="https://www.facebook.com/brandnewcongress" title="Facebook" data-reactid="125" target="_blank">
                                             {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/facebook.svg' %}{% block id %}footerFacebookIcon{% endblock %}{% endembed %}
                                         </a>
                                     </li>
@@ -525,7 +525,7 @@ LAYOUT
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="https://secure.actblue.com/contribute/page/bncdec" target="_blank" class="navLevel2 {% if sectionMenuActive == 'contributeActive' %}active{% endif %}">
+            <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank" class="navLevel2 {% if sectionMenuActive == 'contributeActive' %}active{% endif %}">
                 Donate
             </a>
         </li>
