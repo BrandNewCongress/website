@@ -59,9 +59,15 @@ CSS STYLING
 
 {# Load Site CSS #}
 {% block link %}
+
+    {# TODO: remove bootstrap! Temporarily including bootstap till we get normalizer.css in mothershell to work #}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap{{ minified }}.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap-theme{{ minified }}.css">
+
     {{ parent() }}
 
     <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/site.css') }}">
+
 {% endblock link %}
 
 
