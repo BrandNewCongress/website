@@ -18,7 +18,7 @@ SETTINGS
 
 {# Hide sidebar and make main column full width #}
 {% if columnSidebar is not defined %}
-    {% set columnSidebar = 'stGrid column20' %}
+    {% set columnSidebar = 'hide-gt-sm' %}
     {% set bcolumnMain = 'stGrid column80' %}
 {% endif %}
 
@@ -59,10 +59,6 @@ CSS STYLING
 
 {# Load Site CSS #}
 {% block link %}
-
-    {# TODO: remove bootstrap! Temporarily including bootstap till we get normalizer.css in mothershell to work #}
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap{{ minified }}.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap-theme{{ minified }}.css">
 
     {{ parent() }}
 
@@ -115,7 +111,8 @@ JAVASCRIPT
                 $scope.options = {
                     pattern: {
                         email: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                        zip: /[a-zA-Z0-9 \-]{5,}/
+                        zip: /[a-zA-Z0-9 \-]{5,}/,
+                        phone: /^[0-9]{10,}$/
                     },
                     url: 'https://api.brandnewcongress.org',
                     controller: '/people',
@@ -127,6 +124,7 @@ JAVASCRIPT
                         url: false,
                         config: null // 'width=400,height=500,toolbar=no,menubar=no,scrollbars=yes,resizable=yes'
                     },
+                    contentType: 'form', // 'form' or 'json'
                     prototype: {
                         method: 'GET',
                         url: '',
@@ -143,6 +141,14 @@ JAVASCRIPT
                 if($attrs.options && _.isJSON($attrs.options)) _.extend($scope.options, JSON.parse($attrs.options));
                 $scope.options.prototype.url = $scope.options.url + $scope.options.controller;
 
+
+                $scope.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY').split(' ').map(function(state) {
+                    return {abbrev: state};
+                });
+
+                $scope.statesFull = ('Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia, Wisconsin, Wyoming').split(', ').map(function(state) {
+                    return {abbrev: state};
+                });
 
                 // METHODS
                 $scope.serialize = function(obj) {
@@ -193,10 +199,14 @@ JAVASCRIPT
                 };
 
                 // Signup Method
-                $scope.signup = function(form) {
+                $scope.send = function(form) {
                     $scope.options.prototype.method = 'POST';
-                    $scope.options.prototype.headers = {'Content-Type':'application/x-www-form-urlencoded'};
-                    $scope.options.prototype.data = $scope.serialize($scope.data);
+                    if($scope.options.contentType == 'form') {
+                        $scope.options.prototype.headers = {'Content-Type':'application/x-www-form-urlencoded'};
+                        $scope.options.prototype.data = $scope.serialize($scope.data);
+                    } else {
+                        $scope.options.prototype.headers = {'Content-Type':'application/json'};
+                    }
                     return $scope.submit(form);
                 };
 
@@ -260,11 +270,11 @@ SIGNUP FORM
 
 {% block registrationForm %}
 
-<form name="Signup" ng-submit="signup(form)" ng-controller="CustomApi" ng-sanitize="true" options='{"redirect":{"url":"https://secure.actblue.com/contribute/page/bncsignup", "popup":false}}' ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
+<form name="Signup" ng-submit="send(form)" ng-controller="CustomApi" ng-sanitize="true" options='{"redirect":{"url":"https://secure.actblue.com/contribute/page/bncsignup", "popup":false}}' ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
 
     <md-progress-circular md-mode="indeterminate" ng-show="status === 'sending'"></md-progress-circular>
     <p class="message" ng-show="response.length" ng-bind-html="response"></p>
-    {#<p class="message" ng-show="messages.response.length">{% verbatim %}{{ messages.response }}{% endverbatim %}</p>#}
+
     <ul class="listInline divCenter fontSecondary" ng-show="status !== 'success'">
 
         {{ registrationFormBefore|default('')|raw }}
@@ -273,8 +283,8 @@ SIGNUP FORM
         <li>
             <md-input-container>
                 <label>Email</label>
-                <input name="email1" type="email" ng-pattern="options.pattern.email" ng-model="data.email" required md-no-asterisk>
-                <div ng-messages="Signup.email1.$error" role="alert">
+                <input name="email" type="email" ng-pattern="options.pattern.email" ng-model="data.email" required md-no-asterisk>
+                <div ng-messages="Signup.email.$error" role="alert">
                     <div ng-message-exp="['required', 'pattern']">
                         Please enter a valid email.
                     </div>
@@ -294,7 +304,7 @@ SIGNUP FORM
         </li>
         {% endverbatim %}
         <li>
-            <button type="submit" class="btn fakeFormSubmit" ng-disabled="Signup.$invalid">{{ textSubmit|default('Count Me In') }}</button>
+            <button type="submit" class="btn formSubmit" ng-disabled="Signup.$invalid">{{ textSubmit|default('Count Me In') }}</button>
         </li>
 
         {{ registrationFormAfter|default('')|raw }}
