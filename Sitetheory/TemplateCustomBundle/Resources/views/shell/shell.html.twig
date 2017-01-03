@@ -323,7 +323,7 @@ LAYOUT
 
 {# Add border to bottom of sidebar #}
 {% block sidebarExtrasBottom %}
-    <div class="borderDashed"></div>
+    <div class="borderDashed sidebarBorder"></div>
 {% endblock sidebarExtrasBottom %}
 
 
@@ -488,7 +488,7 @@ LAYOUT
 {# Temporary hard coded menu #}
 {% block sectionName %}
     <h2 class="sectionName fontPrimary">{{ sectionNameHardCoded|default('') }}</h2>
-    <div class="borderDashed"></div>
+    <div class="borderDashed sidebarBorder"></div>
 {% endblock sectionName %}
 
 
@@ -618,13 +618,14 @@ LAYOUT
                 </div>
                 {{ block('menuSection3') }}
             </li>
-            <li data-level="1">
-                <div class="siteNavLink"  data-level="1">
-                    <a href="" class="navLevel1 fontPrimary">
-                        Contact
+            <li>
+                <div class="sidebarContact borderDashed">
+                    <a href="mailto:mailto:us@brandnewcongress.org" class="fontSecondary">
+                        us@brandnewcongress.org
                     </a>
                 </div>
                 {{ block('menuSection4') }}
+                {{ block('socialMedia') }}
             </li>
         </ul>
     </div>

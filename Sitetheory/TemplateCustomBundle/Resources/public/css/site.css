@@ -431,6 +431,24 @@ hr {
         top: 25px;
         right: 40px;
     }
+    .sidebarContact {
+        margin: 30px 0;
+        padding-top: 30px;
+    }
+    .sidebarContact a {
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    #shellSidebar .socialMedia a {
+        border-color: #555;
+    }
+    #shellSidebar .socialMedia svg g {
+        fill: #666;
+    }
+    #shellSidebar  .socialMedia a:hover svg g {
+        fill: #FFF;
+    }
 }
 @media (max-width:959px) {
     #header1 {
@@ -546,7 +564,7 @@ hr {
 
 /* SHELL SIDEBAR */
 
-#shellSidebar .borderDashed {
+#shellSidebar .sidebarBorder {
     margin: 0;
     padding: 0;
     height: 1px;
@@ -600,7 +618,7 @@ h2.sectionName {
     .mobileDrawer.mobileBackgroundDark {
         background: #111;
     }
-    #shellSidebar .borderDashed:first-of-type {
+    #shellSidebar .sidebarBorder {
         display: none;
     }
     h2.sectionName {
