@@ -75,7 +75,7 @@
 
                             <md-input-container class="md-input-has-placeholder">
                                 <md-select-label md-no-float class="noFloat">Nominee's State</md-select-label>
-                                <md-select name="nomineeState" ng-model="data.nomineeState" required>
+                                <md-select name="nomineeState" ng-model="data.nomineeState" required md-no-asterisk>
                                     {% verbatim %}
                                     <md-option ng-repeat="state in statesFull" value="{{state.abbrev}}">
                                     {{state.abbrev}}
@@ -157,7 +157,7 @@
 
                             <md-input-container class="md-input-has-placeholder">
                                 <md-select-label md-no-float class="noFloat">What, if any, party is the nominee registered for or consistently vote for?</md-select-label>
-                                <md-select name="politicalParty" ng-model="data.politicalParty" required>
+                                <md-select name="politicalParty" ng-model="data.politicalParty" required md-no-asterisk>
                                     <md-option value="Democrat">Democrat</md-option>
                                     <md-option value="Republican">Republican</md-option>
                                     <md-option value="Green">Green</md-option>
