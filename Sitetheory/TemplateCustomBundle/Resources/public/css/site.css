@@ -43,6 +43,10 @@ a:hover {
 .btn:hover {
     background-color: #222;
 }
+.btnBig {
+    padding: 12px 30px;
+    font-size: 16px;
+}
 
 
 /* TITLES & HEADERS */
@@ -706,8 +710,8 @@ md-input-container.md-input-has-placeholder md-select-label.noFloat {
 }
 
 .whiteframePadding {
-    padding: 15px;
-    margin: 15px;
+    padding: 34px 6%;
+    margin-bottom: 26px;
 }
 
 .joinForm .listInline li {
@@ -1105,4 +1109,22 @@ md-input-container.md-input-has-placeholder md-select-label.noFloat {
 }
 #callList md-list-item {
     border-bottom: 1px solid #DDD;
+}
+
+
+/* SUBMIT NOMINEE */
+
+#submitNominee md-input-container .md-placeholder,
+#submitNominee md-input-container label:not(.md-no-float):not(.md-container-ignore) {
+    font-size: 15px;
+}
+#submitNominee h2 {
+    color: #7932AC;
+    text-transform: none;
+    font-weight: 300;
+    font-size: 34px;
+}
+md-input-container.md-default-theme .md-input,
+md-input-container .md-input {
+    border-color: #999;
 }

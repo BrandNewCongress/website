@@ -15,7 +15,8 @@
 
 
 {% block contentType %}
-<div class="fontSecondary">
+
+<div id="submitNominee" class="fontSecondary">
     <form name="Nominate" ng-submit="send(form)" ng-controller="CustomApi" ng-sanitize="true" options='{"controller":"/nominations", "response": {"success": "Thank you for submitting your nomination! We review every nomination we get. <a class=\"btn\" href=\"/submit-nominee\">Submit Another</a>"}}' ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
 
         <md-progress-circular md-mode="indeterminate" ng-show="status === 'sending'"></md-progress-circular>
@@ -26,8 +27,8 @@
 
         {% block nominateForm %}
 
-            <div layout="row" flex="100">
-                <div layout="column" flex-gt-sm="40">
+            <div layout="row" layout-wrap>
+                <div flex="100" flex-gt-sm="40">
                     <div class="whiteframePadding" md-whiteframe="2">
                         <h2>About {{ nominator|default('You') }}</h2>
                         <div layout="column">
@@ -121,84 +122,84 @@
                         </div>
                     </div>
                 </div>
+                <div flex="5"></div>
+                <div flex="100"  flex-gt-sm="55">
+                    <div class="whiteframePadding" md-whiteframe="2">
+                        <h2>About the Nominee &mdash; Details</h2>
 
-                <div class="whiteframePadding" layout="column" flex-gt-sm="60" md-whiteframe="2">
+                        <div layout="column">
+                            <md-input-container>
+                                <label md-no-float class="noFloat">How do you know the nominee/how did you meet?</label>
+                                <textarea name="relationship" ng-model="data.relationship" placeholder="" rows="1" required></textarea>
+                            </md-input-container>
 
-                    <h2>About the Nominee &mdash; Details</h2>
+                            <md-input-container>
+                                <label md-no-float class="noFloat">How has the nominee served or been a leader in their community?</label>
+                                <textarea name="leadership" ng-model="data.leadership" placeholder="" rows="1" required></textarea>
+                                <p class="hint">Please give us at least one specific example of how the nominee has sought to help others, led others, or tried to make the world a better place.</p>
+                            </md-input-container>
 
-                    <div layout="column">
-                        <md-input-container>
-                            <label md-no-float class="noFloat">How do you know the nominee/how did you meet?</label>
-                            <textarea name="relationship" ng-model="data.relationship" placeholder="" rows="1" required></textarea>
-                        </md-input-container>
+                            <md-input-container>
+                                <label md-no-float class="noFloat">What is the nominee's current and previous occupations?</label>
+                                <textarea name="work" ng-model="data.work" placeholder="" rows="1" required></textarea>
+                            </md-input-container>
 
-                        <md-input-container>
-                            <label md-no-float class="noFloat">How has the nominee served or been a leader in their community?</label>
-                            <textarea name="leadership" ng-model="data.leadership" placeholder="" rows="1" required></textarea>
-                            <p class="hint">Please give us at least one specific example of how the nominee has sought to help others, led others, or tried to make the world a better place.</p>
-                        </md-input-container>
+                            <md-input-container>
+                                <label md-no-float class="noFloat">Is the nominee good at public speaking?</label>
+                                <textarea name="publicSpeaking" ng-model="data.publicSpeaking" placeholder="" rows="1" required></textarea>
+                                <p class="hint">Please give us at least one specific example of how the nominee has sought to help others, led others, or tried to make the world a better place.</p>
+                            </md-input-container>
 
-                        <md-input-container>
-                            <label md-no-float class="noFloat">What is the nominee's current and previous occupations?</label>
-                            <textarea name="work" ng-model="data.work" placeholder="" rows="1" required></textarea>
-                        </md-input-container>
+                            <md-input-container>
+                                <label md-no-float class="noFloat">What are the nominee's political views? Do you think they would support the BNC plan?</label>
+                                <textarea name="politicalViews" ng-model="data.politicalViews" placeholder="" rows="1" required></textarea>
+                            </md-input-container>
 
-                        <md-input-container>
-                            <label md-no-float class="noFloat">Is the nominee good at public speaking?</label>
-                            <textarea name="publicSpeaking" ng-model="data.publicSpeaking" placeholder="" rows="1" required></textarea>
-                            <p class="hint">Please give us at least one specific example of how the nominee has sought to help others, led others, or tried to make the world a better place.</p>
-                        </md-input-container>
+                            <md-input-container class="md-input-has-placeholder">
+                                <md-select-label md-no-float class="noFloat">What, if any, party is the nominee registered for or consistently vote for?</md-select-label>
+                                <md-select name="politicalParty" ng-model="data.politicalParty" required>
+                                    <md-option value="Democrat">Democrat</md-option>
+                                    <md-option value="Republican">Republican</md-option>
+                                    <md-option value="Green">Green</md-option>
+                                    <md-option value="Libertarian">Libertarian</md-option>
+                                    <md-option value="Independent">Independent</md-option>
+                                    <md-option value="Unknown">Unknown</md-option>
+                                </md-select>
+                                <div class="md-errors-spacer"></div>
+                            </md-input-container>
 
-                        <md-input-container>
-                            <label md-no-float class="noFloat">What are the nominee's political views? Do you think they would support the BNC plan?</label>
-                            <textarea name="politicalViews" ng-model="data.politicalViews" placeholder="" rows="1" required></textarea>
-                        </md-input-container>
+                            <md-input-container class="md-input-has-placeholder">
+                                <md-select-label md-no-float class="noFloat">Has the nominee run for office before?</md-select-label>
+                                <md-select name="runForOffice" ng-model="data.runForOffice">
+                                    <md-option value="Yes">Yes</md-option>
+                                    <md-option value="No">No</md-option>
+                                    <md-option value="Unknown">Unknown</md-option>
+                                </md-select>
+                                <div class="md-errors-spacer"></div>
+                            </md-input-container>
 
-                        <md-input-container class="md-input-has-placeholder">
-                            <md-select-label md-no-float class="noFloat">What, if any, party is the nominee registered for or consistently vote for?</md-select-label>
-                            <md-select name="politicalParty" ng-model="data.politicalParty" required>
-                                <md-option value="Democrat">Democrat</md-option>
-                                <md-option value="Republican">Republican</md-option>
-                                <md-option value="Green">Green</md-option>
-                                <md-option value="Libertarian">Libertarian</md-option>
-                                <md-option value="Independent">Independent</md-option>
-                                <md-option value="Unknown">Unknown</md-option>
-                            </md-select>
-                            <div class="md-errors-spacer"></div>
-                        </md-input-container>
+                            <md-input-container ng-show="data.runForOffice == 'Yes'">
+                                <label md-no-float class="noFloat">If yes, what office did the run for? Did they win or lose? Was it a close race?</label>
+                                <textarea name="officeRunResults" ng-model="data.officeRunResults" placeholder="" rows="1"></textarea>
+                            </md-input-container>
 
-                        <md-input-container class="md-input-has-placeholder">
-                            <md-select-label md-no-float class="noFloat">Has the nominee run for office before?</md-select-label>
-                            <md-select name="runForOffice" ng-model="data.runForOffice">
-                                <md-option value="Yes">Yes</md-option>
-                                <md-option value="No">No</md-option>
-                                <md-option value="Unknown">Unknown</md-option>
-                            </md-select>
-                            <div class="md-errors-spacer"></div>
-                        </md-input-container>
+                            <md-input-container>
+                                <label md-no-float class="noFloat">Is there anything else you'd like to tell us about the nominee?</label>
+                                <textarea name="otherInfo" ng-model="data.otherInfo" placeholder="" rows="1"></textarea>
+                            </md-input-container>
 
-                        <md-input-container ng-show="data.runForOffice == 'Yes'">
-                            <label md-no-float class="noFloat">If yes, what office did the run for? Did they win or lose? Was it a close race?</label>
-                            <textarea name="officeRunResults" ng-model="data.officeRunResults" placeholder="" rows="1"></textarea>
-                        </md-input-container>
-
-                        <md-input-container>
-                            <label md-no-float class="noFloat">Is there anything else you'd like to tell us about the nominee?</label>
-                            <textarea name="otherInfo" ng-model="data.otherInfo" placeholder="" rows="1"></textarea>
-                        </md-input-container>
-
-                        <md-input-container>
-                            <label md-no-float class="noFloat">What are the most important things we need to know about this district?</label>
-                            <textarea name="districtInfo" ng-model="data.districtInfo" placeholder="" rows="1"></textarea>
-                        </md-input-container>
+                            <md-input-container>
+                                <label md-no-float class="noFloat">What are the most important things we need to know about this district?</label>
+                                <textarea name="districtInfo" ng-model="data.districtInfo" placeholder="" rows="1"></textarea>
+                            </md-input-container>
+                        </div>
                     </div>
-
                 </div>
             </div>
 
             <br>
-            <div class="submitArea" flex="100" layout="row" layout-align="center center">
-                <button type="submit" class="btn formSubmit" ng-disabled="Nominate.$invalid">Nominate this Person!</button>
+            <div class="submitArea textCenter">
+                <button type="submit" class="btn btnBig formSubmit" ng-disabled="Nominate.$invalid">Nominate this Person!</button>
             </div>
 
         {% endblock nominateForm %}
