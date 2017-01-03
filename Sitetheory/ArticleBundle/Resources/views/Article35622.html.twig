@@ -21,12 +21,16 @@
          layout-padding ng-cloak>
 
         <!-- Header -->
-        <div layout="row">
-            <div flex="15"></div>
-            <div flex="35"><h2>Date</h2></div>
-            <div flex="40"><h2>Time</h2></div>
-            <div flex="10"><h2>Joined</h2></div>
+        <div id="callListHeader">
+            <div hide-xs  layout="row">
+                <div flex="100" flex-sm="20" flex-gt-sm="15" ></div>
+                <div flex="100" flex-sm="30" flex-gt-sm="35"><h2>Date</h2></div>
+                <div flex="100" flex-gt-xs="40"><h2>Time</h2></div>
+                <div flex="100" flex-gt-xs="10"><h2>Joined</h2></div>
+            </div>
+            <h2 hide-gt-xs>Scheduled Calls</h2>
         </div>
+
 
         <!-- Proggress Bar -->
         <md-progress-linear ng-if="!results.conferences" md-mode="indeterminate"></md-progress-linear>
@@ -37,23 +41,23 @@
                 ng-repeat="model in results.conferences"
                 layout="row"
                 layout-xs="column"
-                layout-sm="column"
                 layout-align="space-between center"
                 layout-wrap>
             {% verbatim %}
-                <div class="action" flex="15">
+                <div class="action" flex="100" flex-sm="20" flex-gt-sm="15" >
                     <md-button href="{{ model.registrationLink }}" aria-label="join" class="md-fab md-primary">Join</md-button>
                 </div>
 
-                <div class="date" flex="35">
+                <div class="date" flex="100" flex-sm="30" flex-gt-sm="35">
                     {{ model.date }}
                 </div>
 
-                <div class="time" flex="40">
+                <div class="time" flex="100" flex-gt-xs="40">
                     {{ model.time }}
                 </div>
 
-                <div class="joined" flex="10">
+                <div class="joined" flex="100" flex-gt-xs="10">
+                    <span hide-gt-xs>Joined:</span>
                     {{ model.currentSignups || 'Be the First!' }}
                 </div>
             {% endverbatim %}
