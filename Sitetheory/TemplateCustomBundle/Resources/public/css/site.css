@@ -1179,7 +1179,14 @@ md-input-container.md-input-has-placeholder md-select-label.noFloat {
     font-weight: 300;
     font-size: 34px;
 }
+#submitNominee p.message {
+    color: #FF7A65;
+}
 md-input-container.md-default-theme .md-input,
 md-input-container .md-input {
     border-color: #999;
+}
+.submitArea .btn[disabled="disabled"],
+.submitArea .btn[disabled="disabled"]:hover {
+    background: #999;
 }
