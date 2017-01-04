@@ -690,7 +690,9 @@ h1.pageTitle {
 
 
 /* JOIN FORMS */
-
+form .sending {
+    opacity: .5
+}
 
 md-input-container.md-default-theme .md-input,
 md-input-container .md-input {
@@ -718,14 +720,16 @@ md-input-container:not(.md-input-invalid).md-input-resized .md-input {
 }
 
 
-
+md-input-container.md-input-invalid .required {
+    color: rgb(221,44,0);
+}
 md-input-container.md-input-has-placeholder label.noFloat,
 md-input-container.md-input-has-placeholder md-select-label.noFloat {
     transform: scale(1);
     font-weight: bold;
     white-space: initial !important;
-
 }
+
 
 .whiteframePadding {
     padding: 34px 6%;

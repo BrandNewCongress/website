@@ -17,7 +17,8 @@
 {% block contentType %}
 
 <div id="submitNominee" class="fontSecondary">
-    <form name="Nominate" ng-submit="send(form)" ng-controller="CustomApi" ng-sanitize="true" options='{"controller":"/nominations", "response": {"success": "Thank you for submitting your nomination! We review every nomination we get. <a class=\"btn\" href=\"/submit-nominee\">Submit Another</a>"}}' ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
+    <form name="Nominate" ng-submit="send(form)" ng-controller="CustomApi" ng-sanitize="true" options='{"controller":"/nominations", "scrollTo":"#submitNominee", "scrollToOffset":-100, "response": {"success": "Thank you for submitting your nomination! We review every nomination we get. <a class=\"btn\" href=\"/submit-nominee\">Submit Another</a>"}}' ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
+
 
         <md-progress-circular md-mode="indeterminate" ng-show="status === 'sending'"></md-progress-circular>
 
@@ -36,6 +37,11 @@
                             <md-input-container>
                                 <label md-no-float class="noFloat">Your Name</label>
                                 <input name="nominatorName" type="text" ng-model="data.nominatorName" placeholder="" required>
+                                <div ng-messages="Nominate.nominatorName.$error" role="alert">
+                                    <div ng-message-exp="['required']">
+                                        Please enter a name.
+                                    </div>
+                                </div>
                             </md-input-container>
 
                             <md-input-container>
@@ -52,7 +58,7 @@
                                 <label md-no-float class="noFloat">Your Phone</label>
                                 <input name="nominatorPhone" type="text" ng-model="data.nominatorPhone" placeholder="" required>
                                 <div ng-messages="Nominate.nominatorPhone.$error" role="alert">
-                                    <div ng-message-exp="required">
+                                    <div ng-message-exp="['required']">
                                         Please enter a valid phone.
                                     </div>
                                 </div>
@@ -66,22 +72,37 @@
                             <md-input-container>
                                 <label md-no-float class="noFloat">Nominee's Name</label>
                                 <input name="nomineeName" ng-model="data.nomineeName" placeholder="" required>
+                                <div ng-messages="Nominate.nomineeName.$error" role="alert">
+                                    <div ng-message-exp="['required']">
+                                        Please enter a name.
+                                    </div>
+                                </div>
                             </md-input-container>
 
                             <md-input-container>
                                 <label md-no-float class="noFloat">Nominee's City</label>
                                 <input name="nomineeCity" ng-model="data.nomineeCity" placeholder="" required>
+                                <div ng-messages="Nominate.nomineeCity.$error" role="alert">
+                                    <div ng-message-exp="['required']">
+                                        Please enter a city.
+                                    </div>
+                                </div>
                             </md-input-container>
 
                             <md-input-container class="md-input-has-placeholder">
-                                <md-select-label md-no-float class="noFloat">Nominee's State</md-select-label>
-                                <md-select name="nomineeState" ng-model="data.nomineeState" required md-no-asterisk>
+                                <md-select-label md-no-float class="noFloat">Nominee's State <span class="required">*</span></md-select-label>
+                                <md-select aria-label="Nominee's State" name="nomineeState" ng-model="data.nomineeState" md-no-asterisk required>
                                     {% verbatim %}
                                     <md-option ng-repeat="state in statesFull" value="{{state.abbrev}}">
                                     {{state.abbrev}}
                                     </md-option>
                                     {% endverbatim %}
                                 </md-select>
+                                <div ng-messages="Nominate.nomineeState.$error" role="alert">
+                                    <div ng-message-exp="['required']">
+                                        Please a select a state.
+                                    </div>
+                                </div>
                                 <div class="md-errors-spacer"></div>
                             </md-input-container>
 
@@ -131,33 +152,58 @@
                             <md-input-container>
                                 <label md-no-float class="noFloat">How do you know the nominee/how did you meet?</label>
                                 <textarea name="relationship" ng-model="data.relationship" placeholder="" rows="1" required></textarea>
+                                <div ng-messages="Nominate.relationship.$error" role="alert">
+                                    <div ng-message-exp="['required']">
+                                        Please enter an answer.
+                                    </div>
+                                </div>
                             </md-input-container>
 
                             <md-input-container>
                                 <label md-no-float class="noFloat">How has the nominee served or been a leader in their community?</label>
                                 <textarea name="leadership" ng-model="data.leadership" placeholder="" rows="1" required></textarea>
+                                <div ng-messages="Nominate.leadership.$error" role="alert">
+                                    <div ng-message-exp="['required']">
+                                        Please enter an answer.
+                                    </div>
+                                </div>
                                 <p class="hint">Please give us at least one specific example of how the nominee has sought to help others, led others, or tried to make the world a better place.</p>
                             </md-input-container>
 
                             <md-input-container>
                                 <label md-no-float class="noFloat">What is the nominee's current and previous occupations?</label>
                                 <textarea name="work" ng-model="data.work" placeholder="" rows="1" required></textarea>
+                                <div ng-messages="Nominate.work.$error" role="alert">
+                                    <div ng-message-exp="['required']">
+                                        Please enter an answer.
+                                    </div>
+                                </div>
                             </md-input-container>
 
                             <md-input-container>
                                 <label md-no-float class="noFloat">Is the nominee good at public speaking?</label>
                                 <textarea name="publicSpeaking" ng-model="data.publicSpeaking" placeholder="" rows="1" required></textarea>
+                                <div ng-messages="Nominate.publicSpeaking.$error" role="alert">
+                                    <div ng-message-exp="['required']">
+                                        Please enter an answer.
+                                    </div>
+                                </div>
                                 <p class="hint">Please give us at least one specific example of how the nominee has sought to help others, led others, or tried to make the world a better place.</p>
                             </md-input-container>
 
                             <md-input-container>
                                 <label md-no-float class="noFloat">What are the nominee's political views? Do you think they would support the BNC plan?</label>
                                 <textarea name="politicalViews" ng-model="data.politicalViews" placeholder="" rows="1" required></textarea>
+                                <div ng-messages="Nominate.politicalViews.$error" role="alert">
+                                    <div ng-message-exp="['required']">
+                                        Please enter an answer.
+                                    </div>
+                                </div>
                             </md-input-container>
 
                             <md-input-container class="md-input-has-placeholder">
-                                <md-select-label md-no-float class="noFloat">What, if any, party is the nominee registered for or consistently vote for?</md-select-label>
-                                <md-select name="politicalParty" ng-model="data.politicalParty" required md-no-asterisk>
+                                <md-select-label md-no-float class="noFloat">What, if any, party is the nominee registered for or consistently vote for? <span class="required">*</span></md-select-label>
+                                <md-select aria-label="Nominee's Political Party" name="politicalParty" ng-model="data.politicalParty" md-no-asterisk required>
                                     <md-option value="Democrat">Democrat</md-option>
                                     <md-option value="Republican">Republican</md-option>
                                     <md-option value="Green">Green</md-option>
@@ -165,12 +211,17 @@
                                     <md-option value="Independent">Independent</md-option>
                                     <md-option value="Unknown">Unknown</md-option>
                                 </md-select>
+                                <div ng-messages="Nominate.politicalParty.$error" role="alert">
+                                    <div ng-message-exp="['required']">
+                                        Please enter an answer.
+                                    </div>
+                                </div>
                                 <div class="md-errors-spacer"></div>
                             </md-input-container>
 
                             <md-input-container class="md-input-has-placeholder">
                                 <md-select-label md-no-float class="noFloat">Has the nominee run for office before?</md-select-label>
-                                <md-select name="runForOffice" ng-model="data.runForOffice">
+                                <md-select aria-label="Has nominee run for office?" name="runForOffice" ng-model="data.runForOffice">
                                     <md-option value="Yes">Yes</md-option>
                                     <md-option value="No">No</md-option>
                                     <md-option value="Unknown">Unknown</md-option>

@@ -79,13 +79,14 @@ JAVASCRIPT
     <script>
         (function (root, factory) {
             if (typeof require === 'function') {
-                require(['stratus', 'underscore', 'angular', 'angular-material'], factory);
+                require(['stratus', 'underscore', 'jquery', 'angular', 'angular-material'], factory);
             } else {
-                factory(root.Stratus, root._);
+                factory(root.Stratus, root._, root.$);
             }
-        }(this, function (Stratus, _) {
+        }(this, function (Stratus, _, $) {
 
             Stratus.Controllers.CustomApi = function ($scope, $element, $http, $attrs, $window) {
+
 
                 Stratus.Instances[_.uniqueId('custom_api_')] = $scope;
 
@@ -93,10 +94,7 @@ JAVASCRIPT
                 $scope.response = '';
                 $scope.status = 'default';
                 // Data Sent
-                $scope.data = {
-                    email: '',
-                    zip: ''
-                };
+                $scope.data = {};
                 // Data Returned
                 $scope.results = {};
 
@@ -120,15 +118,20 @@ JAVASCRIPT
                         success: 'Thanks for signing up! We\'ll be in touch shortly. In the meantime, please help us with a <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank">much needed donation</a>.',
                         error: 'Sorry ;( looks like there was an error saving your info. Please email us directly so we can help.'
                     },
+                    scrollTo: null,
+                    scrollToOffset: 0,
                     redirect: {
                         url: false,
                         config: null // 'width=400,height=500,toolbar=no,menubar=no,scrollbars=yes,resizable=yes'
                     },
-                    contentType: 'form', // 'form' or 'json'
+                    contentType: 'json', // 'form' or 'json'
                     prototype: {
+                        dataType: 'json',
                         method: 'GET',
                         url: '',
-                        headers: {},
+                        headers: {
+                            action: ''
+                        },
                         data: ''
                     },
                     // String of method name, or Array of Strings
@@ -138,9 +141,8 @@ JAVASCRIPT
                 };
 
                 // Merge Custom Options
-                if($attrs.options && _.isJSON($attrs.options)) _.extend($scope.options, JSON.parse($attrs.options));
+                if($attrs.options && _.isJSON($attrs.options)) $scope.options = _.extendDeep($scope.options, JSON.parse($attrs.options));
                 $scope.options.prototype.url = $scope.options.url + $scope.options.controller;
-
 
                 $scope.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY').split(' ').map(function(state) {
                     return {abbrev: state};
@@ -161,6 +163,7 @@ JAVASCRIPT
                 // General Submit
                 $scope.submit = function(form) {
                     $scope.status = 'sending';
+                    $scope.response = '';
                     // Success
                     function successCallback(response) {
                         if (response && (response.status === 200)) {
@@ -200,12 +203,25 @@ JAVASCRIPT
 
                 // Signup Method
                 $scope.send = function(form) {
+
+                    // Scroll to top
+                    console.log('scroll', $scope.options.scrollTo, $($scope.options.scrollTo));
+                    if($scope.options.scrollTo && $($scope.options.scrollTo)) {
+                        var scrollToTarget = document.getElement;
+                        $('html,body').animate({
+                            scrollTop: $($scope.options.scrollTo).offset().top + $scope.options.scrollToOffset
+                        }, 500);
+                    }
+
                     $scope.options.prototype.method = 'POST';
+                    $scope.options.prototype.dataType = $scope.options.contentType;
+                    $scope.options.prototype.headers.action = $scope.options.prototype.method;
                     if($scope.options.contentType == 'form') {
-                        $scope.options.prototype.headers = {'Content-Type':'application/x-www-form-urlencoded'};
+                        $scope.options.prototype.headers['Content-Type'] = 'application/x-www-form-urlencoded';
                         $scope.options.prototype.data = $scope.serialize($scope.data);
                     } else {
-                        $scope.options.prototype.headers = {'Content-Type':'application/json'};
+                        $scope.options.prototype.headers['Content-Type'] = 'application/json';
+                        $scope.options.prototype.data = $scope.data;
                     }
                     return $scope.submit(form);
                 };
