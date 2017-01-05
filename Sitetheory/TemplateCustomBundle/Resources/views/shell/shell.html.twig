@@ -129,9 +129,7 @@ JAVASCRIPT
                         dataType: 'json',
                         method: 'GET',
                         url: '',
-                        headers: {
-                            action: ''
-                        },
+                        headers: {},
                         data: ''
                     },
                     // String of method name, or Array of Strings
@@ -166,6 +164,7 @@ JAVASCRIPT
                     $scope.response = '';
                     // Success
                     function successCallback(response) {
+                        console.log('success', response);
                         if (response && (response.status === 200)) {
                             $scope.response = $scope.options.response.success;
                             $scope.status = 'success';
@@ -181,6 +180,7 @@ JAVASCRIPT
                     }
                     // Error
                     function errorCallback(response) {
+                        console.log('error', response);
                         $scope.response = $scope.options.response.error;
                         $scope.status = 'error';
                     }
@@ -215,7 +215,6 @@ JAVASCRIPT
 
                     $scope.options.prototype.method = 'POST';
                     $scope.options.prototype.dataType = $scope.options.contentType;
-                    $scope.options.prototype.headers.action = $scope.options.prototype.method;
                     if($scope.options.contentType == 'form') {
                         $scope.options.prototype.headers['Content-Type'] = 'application/x-www-form-urlencoded';
                         $scope.options.prototype.data = $scope.serialize($scope.data);

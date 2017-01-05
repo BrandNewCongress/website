@@ -13,8 +13,12 @@
 {% block footerJoin %}
 {% endblock footerJoin %}
 
+{% if nominatorPerson is not defined %}{% set nominatorPerson = 1 %}{% endif %}
+{% if nominatorPronoun is not defined %}{% set nominatorPronoun = 'You' %}{% endif %}
+{% if nominatorPossessive is not defined %}{% set nominatorPossessive = "Your" %}{% endif %}
 
 {% block contentType %}
+
 
 <div id="submitNominee" class="fontSecondary">
     <form name="Nominate" ng-submit="send(form)" ng-controller="CustomApi" ng-sanitize="true" options='{"controller":"/nominations", "scrollTo":"#submitNominee", "scrollToOffset":-100, "response": {"success": "Thank you for submitting your nomination! We review every nomination we get. <a class=\"btn\" href=\"/submit-nominee\">Submit Another</a>"}}' ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
@@ -31,11 +35,11 @@
             <div layout="row" layout-wrap>
                 <div flex="100" flex-gt-sm="40">
                     <div class="whiteframePadding" md-whiteframe="2">
-                        <h2>About {{ nominator|default('You') }}</h2>
+                        <h2>About {{ nominatorPronoun }}</h2>
                         <div layout="column">
 
                             <md-input-container>
-                                <label md-no-float class="noFloat">Your Name</label>
+                                <label md-no-float class="noFloat">{{ nominatorPossessive }} Name</label>
                                 <input name="nominatorName" type="text" ng-model="data.nominatorName" placeholder="" required>
                                 <div ng-messages="Nominate.nominatorName.$error" role="alert">
                                     <div ng-message-exp="['required']">
@@ -45,7 +49,7 @@
                             </md-input-container>
 
                             <md-input-container>
-                                <label md-no-float class="noFloat">Your Email</label>
+                                <label md-no-float class="noFloat">{{ nominatorPossessive }} Email</label>
                                 <input name="nominatorEmail" type="text" ng-pattern="options.pattern.email" ng-model="data.nominatorEmail" placeholder="" required>
                                 <div ng-messages="Nominate.nominatorEmail.$error" role="alert">
                                     <div ng-message-exp="['required', 'pattern']">
@@ -55,7 +59,7 @@
                             </md-input-container>
 
                             <md-input-container>
-                                <label md-no-float class="noFloat">Your Phone</label>
+                                <label md-no-float class="noFloat">{{ nominatorPossessive }} Phone</label>
                                 <input name="nominatorPhone" type="text" ng-model="data.nominatorPhone" placeholder="" required>
                                 <div ng-messages="Nominate.nominatorPhone.$error" role="alert">
                                     <div ng-message-exp="['required']">
@@ -94,7 +98,7 @@
                                 <md-select aria-label="Nominee's State" name="nomineeState" ng-model="data.nomineeState" md-no-asterisk required>
                                     {% verbatim %}
                                     <md-option ng-repeat="state in statesFull" value="{{state.abbrev}}">
-                                    {{state.abbrev}}
+                                    {{ state.abbrev }}
                                     </md-option>
                                     {% endverbatim %}
                                 </md-select>
@@ -150,7 +154,7 @@
 
                         <div layout="column">
                             <md-input-container>
-                                <label md-no-float class="noFloat">How do you know the nominee/how did you meet?</label>
+                                <label md-no-float class="noFloat">How {% if nominatorPerson == 2 %}does{% else %}do{% endif %} {{ nominatorPronoun|lower }} know the nominee/how did {{ nominatorPronoun|lower }} meet?</label>
                                 <textarea name="relationship" ng-model="data.relationship" placeholder="" rows="1" required></textarea>
                                 <div ng-messages="Nominate.relationship.$error" role="alert">
                                     <div ng-message-exp="['required']">
@@ -192,7 +196,7 @@
                             </md-input-container>
 
                             <md-input-container>
-                                <label md-no-float class="noFloat">What are the nominee's political views? Do you think they would support the BNC plan?</label>
+                                <label md-no-float class="noFloat">What are the nominee's political views? {% if nominatorPerson == 2 %}Does{% else %}Do{% endif %} {{ nominatorPronoun|lower }} think they would support the BNC plan?</label>
                                 <textarea name="politicalViews" ng-model="data.politicalViews" placeholder="" rows="1" required></textarea>
                                 <div ng-messages="Nominate.politicalViews.$error" role="alert">
                                     <div ng-message-exp="['required']">
@@ -235,7 +239,7 @@
                             </md-input-container>
 
                             <md-input-container>
-                                <label md-no-float class="noFloat">Is there anything else you'd like to tell us about the nominee?</label>
+                                <label md-no-float class="noFloat">Is there anything else {{ nominatorPronoun|lower }} would like to tell us about the nominee?</label>
                                 <textarea name="otherInfo" ng-model="data.otherInfo" placeholder="" rows="1"></textarea>
                             </md-input-container>
 
@@ -250,7 +254,7 @@
 
             <br>
             <div class="submitArea textCenter">
-                <button type="submit" class="btn btnBig formSubmit" ng-disabled="Nominate.$invalid">Nominate this Person!</button>
+                <button type="submit" class="btn btnBig formSubmit" >Nominate this Person!</button>
             </div>
 
         {% endblock nominateForm %}
