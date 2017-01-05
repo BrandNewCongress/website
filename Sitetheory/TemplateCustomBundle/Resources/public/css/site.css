@@ -753,7 +753,7 @@ md-input-container.md-input-has-placeholder md-select-label.noFloat {
     opacity: 0;
 }
 /* Make progress bar purple */
-.joinForm md-progress-circular path {
+md-progress-circular path {
     stroke: #7932AC;
 }
 /* Fade in progress bar when form starts sending */
@@ -1169,6 +1169,10 @@ md-input-container.md-input-has-placeholder md-select-label.noFloat {
 
 /* SUBMIT NOMINEE */
 
+
+#submitNominee {
+    position: relative;
+}
 #submitNominee md-input-container .md-placeholder,
 #submitNominee md-input-container label:not(.md-no-float):not(.md-container-ignore) {
     font-size: 15px;
@@ -1189,4 +1193,12 @@ md-input-container .md-input {
 .submitArea .btn[disabled="disabled"],
 .submitArea .btn[disabled="disabled"]:hover {
     background: #999;
+}
+#submitNominee md-progress-circular {
+    position: absolute;
+    right: 50%;
+    top: 0;
+}
+@media (max-width:959px) {
+
 }
