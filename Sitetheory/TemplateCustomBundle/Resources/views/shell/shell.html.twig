@@ -654,7 +654,7 @@ LAYOUT
 {% block main %}
     {{ parent() }}
     {% block footerJoin %}
-        <a name="joinForm"></a>
+        <a id="joinForm" name="joinForm"></a>
         <div id="footerJoinForm" class="joinForm purple" ng-cloak ng-cloak-reveal>
             {% set registrationFormBefore = '<li><div class="starLeft"></div></li><li><h1>Add Your Name</h1></li>' %}
             {% set registrationFormAfter = '<li><div class="starRight"></div></li>' %}
