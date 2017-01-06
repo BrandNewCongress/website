@@ -443,6 +443,9 @@ hr {
     #shellSidebar .socialMedia a {
         border-color: #555;
     }
+    #shellSidebar .socialMedia a:hover {
+        border-color: #598089;
+    }
     #shellSidebar .socialMedia svg g {
         fill: #666;
     }

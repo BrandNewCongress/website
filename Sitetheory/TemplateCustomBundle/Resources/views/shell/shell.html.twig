@@ -338,6 +338,9 @@ LAYOUT
 
 {# Add border to bottom of sidebar #}
 {% block sidebarExtrasBottom %}
+    <div hide-gt-sm>
+        {{ block('socialMedia') }}
+    </div>
     <div class="borderDashed sidebarBorder"></div>
 {% endblock sidebarExtrasBottom %}
 
@@ -640,7 +643,6 @@ LAYOUT
                     </a>
                 </div>
                 {{ block('menuSection4') }}
-                {{ block('socialMedia') }}
             </li>
         </ul>
     </div>
