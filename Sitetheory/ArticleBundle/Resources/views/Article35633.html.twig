@@ -24,6 +24,7 @@
     <form name="Nominate" ng-submit="send(form)" ng-controller="CustomApi" ng-sanitize="true" options='{"controller":"/nominations", "scrollTo":"#submitNominee", "scrollToOffset":-100, "response": {"success": "Thank you for submitting your nomination! We review every nomination we get. <br /><br /><a class=\"btn\" href=\"/submit-nominee\">Submit Another</a>"}}' ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
         
         <md-progress-circular md-mode="indeterminate" ng-show="status === 'sending'"></md-progress-circular>
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
 
         <p class="message" ng-show="response.length" ng-bind-html="response"></p>
 

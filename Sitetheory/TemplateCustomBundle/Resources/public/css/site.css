@@ -1167,6 +1167,8 @@ md-progress-circular path {
     }
 }
 
+
+
 /* SUBMIT NOMINEE */
 
 
@@ -1195,10 +1197,10 @@ md-input-container .md-input {
     background: #999;
 }
 #submitNominee md-progress-circular {
+    /* Move above the form */
+    transform: translateY(-140%);
+    /* Center and place at top of form */
     position: absolute;
     right: 50%;
     top: 0;
-}
-@media (max-width:959px) {
-
 }
