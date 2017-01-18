@@ -98,7 +98,7 @@ JAVASCRIPT
                 // Data Returned
                 $scope.results = {};
 
-                // Custom Easing (Quintic)
+                // Custom Easing (Quintic) (for the counter page)
                 $scope.easingFn = function (t, b, c, d) {
                     var ts = (t /= d) * t;
                     var tc = ts * t;
@@ -115,6 +115,7 @@ JAVASCRIPT
                     url: 'https://api.brandnewcongress.org',
                     controller: '/people',
                     response: {
+                        invalid: 'There was a validation error, please check the fields below.',
                         success: 'Thanks for signing up! We\'ll be in touch shortly. In the meantime, please help us with a <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank">much needed donation</a>.',
                         error: 'Sorry ;( looks like there was an error saving your info. Please email us directly so we can help.'
                     },
@@ -142,29 +143,81 @@ JAVASCRIPT
                 if($attrs.options && _.isJSON($attrs.options)) $scope.options = _.extendDeep($scope.options, JSON.parse($attrs.options));
                 $scope.options.prototype.url = $scope.options.url + $scope.options.controller;
 
-                $scope.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY').split(' ').map(function(state) {
-                    return {abbrev: state};
-                });
-
-                $scope.statesFull = ('Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia, Wisconsin, Wyoming').split(', ').map(function(state) {
-                    return {abbrev: state};
-                });
+                $scope.states = [
+                    {"value":"AL", "text":"Alabama"},
+                    {"value":"AK", "text":"Alaska"},
+                    {"value":"AZ", "text":"Arizona"},
+                    {"value":"AR", "text":"Arkansas"},
+                    {"value":"CA", "text":"California"},
+                    {"value":"CO", "text":"Colorado"},
+                    {"value":"CT", "text":"Connecticut"},
+                    {"value":"DE", "text":"Delaware"},
+                    {"value":"FL", "text":"Florida"},
+                    {"value":"GA", "text":"Georgia"},
+                    {"value":"HI", "text":"Hawaii"},
+                    {"value":"ID", "text":"Idaho"},
+                    {"value":"IL", "text":"Illinois"},
+                    {"value":"IN", "text":"Indiana"},
+                    {"value":"IA", "text":"Iowa"},
+                    {"value":"KS", "text":"Kansas"},
+                    {"value":"KY", "text":"Kentucky"},
+                    {"value":"LA", "text":"Louisiana"},
+                    {"value":"ME", "text":"Maine"},
+                    {"value":"MD", "text":"Maryland"},
+                    {"value":"MA", "text":"Massachusetts"},
+                    {"value":"MI", "text":"Michigan"},
+                    {"value":"MN", "text":"Minnesota"},
+                    {"value":"MS", "text":"Mississippi"},
+                    {"value":"MO", "text":"Missouri"},
+                    {"value":"MT", "text":"Montana"},
+                    {"value":"NE", "text":"Nebraska"},
+                    {"value":"NV", "text":"Nevada"},
+                    {"value":"NH", "text":"New Hampshire"},
+                    {"value":"NJ", "text":"New Jersey"},
+                    {"value":"NM", "text":"New Mexico"},
+                    {"value":"NY", "text":"New York"},
+                    {"value":"NC", "text":"North Carolina"},
+                    {"value":"ND", "text":"North Dakota"},
+                    {"value":"OH", "text":"Ohio"},
+                    {"value":"OK", "text":"Oklahoma"},
+                    {"value":"OR", "text":"Oregon"},
+                    {"value":"PA", "text":"Pennsylvania"},
+                    {"value":"RI", "text":"Rhode Island"},
+                    {"value":"SC", "text":"South Carolina"},
+                    {"value":"SD", "text":"South Dakota"},
+                    {"value":"TN", "text":"Tennessee"},
+                    {"value":"TX", "text":"Texas"},
+                    {"value":"UT", "text":"Utah"},
+                    {"value":"VT", "text":"Vermont"},
+                    {"value":"VA", "text":"Virginia"},
+                    {"value":"WA", "text":"Washington"},
+                    {"value":"WV", "text":"West Virginia"},
+                    {"value":"WI", "text":"Wisconsin"},
+                    {"value":"WY", "text":"Wyoming"}
+                ];
 
                 // METHODS
                 $scope.serialize = function(obj) {
                     var str = [];
-                    for(var p in obj)
+                    for(var p in obj) {
                         str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                    }
+                    // @debug
+                    console.log('serialize', obj, str.join("&"));
                     return str.join("&");
                 };
 
                 // General Submit
                 $scope.submit = function(form) {
+                    // @debug
+                    console.log('submit form');
+
                     $scope.status = 'sending';
                     $scope.response = '';
                     // Success
                     function successCallback(response) {
-                        console.log('success', response);
+                        // @debug
+                        console.log('Form Submission Successful', response);
                         if (response && (response.status === 200)) {
                             $scope.response = $scope.options.response.success;
                             $scope.status = 'success';
@@ -172,16 +225,17 @@ JAVASCRIPT
                             if($scope.options.redirect.url) {
                                 $window.location = $scope.options.redirect.url;
                             }
-
                         } else {
-                            $scope.response = $scope.options.response.error;
+                            // @debug add response code
+                            $scope.response = $scope.options.response.error + ' ['+response.code+': '+response.data+']';
                             $scope.status = 'error';
                         }
                     }
                     // Error
                     function errorCallback(response) {
-                        console.log('error', response);
-                        $scope.response = $scope.options.response.error;
+                        // @debug
+                        console.log('Form Submission Failed', response);
+                        $scope.response = $scope.options.response.error + ' ['+response.code+': '+response.data+']';
                         $scope.status = 'error';
                     }
                     var promise = $http($scope.options.prototype);
@@ -204,13 +258,22 @@ JAVASCRIPT
                 // Signup Method
                 $scope.send = function(form) {
 
-                    // Scroll to top
-                    console.log('scroll', $scope.options.scrollTo, $($scope.options.scrollTo));
+                    // @debug
+                    console.log('send form', form);
+
                     if($scope.options.scrollTo && $($scope.options.scrollTo)) {
                         var scrollToTarget = document.getElement;
                         $('html,body').animate({
                             scrollTop: $($scope.options.scrollTo).offset().top + $scope.options.scrollToOffset
                         }, 500);
+                    }
+
+                    if(!$scope[form].$valid) {
+                        // @debug
+                        console.log('Form Invalid');
+                        $scope.response = $scope.options.response.invalid;
+                        $scope.status = 'error';
+                        return false;
                     }
 
                     $scope.options.prototype.method = 'POST';
@@ -285,7 +348,7 @@ SIGNUP FORM
 
 {% block registrationForm %}
 
-<form name="Signup" ng-submit="send(form)" ng-controller="CustomApi" ng-sanitize="true" options='{"redirect":{"url":"https://secure.actblue.com/contribute/page/bncsignup", "popup":false}}' ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
+<form name="Signup" ng-submit="send('Signup')" ng-controller="CustomApi" ng-sanitize="true" options='{"redirect":{"url":"https://secure.actblue.com/contribute/page/bncsignup", "popup":false}}' ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
 
     <md-progress-circular md-mode="indeterminate" ng-show="status === 'sending'"></md-progress-circular>
     <p class="message" ng-show="response.length" ng-bind-html="response"></p>
