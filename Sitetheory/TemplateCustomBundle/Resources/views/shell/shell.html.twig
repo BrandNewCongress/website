@@ -116,7 +116,7 @@ JAVASCRIPT
                     controller: '/people',
                     response: {
                         invalid: 'There was a validation error, please check the fields below.',
-                        success: 'Thanks for signing up! We\'ll be in touch shortly. In the meantime, please help us with a <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank">much needed donation</a>.',
+                        success: 'Thanks for signing up! We\'ll be in touch shortly. In the meantime, please help us with a <a href="https://secure.actblue.com/contribute/page/bncsignup?t=signup" target="_blank">much needed donation</a>.',
                         error: 'Sorry ;( looks like there was an error saving your info. Please email us directly so we can help.'
                     },
                     scrollTo: null,
@@ -348,7 +348,7 @@ SIGNUP FORM
 
 {% block registrationForm %}
 
-<form name="Signup" ng-submit="send('Signup')" ng-controller="CustomApi" ng-sanitize="true" options='{"redirect":{"url":"https://secure.actblue.com/contribute/page/bncsignup", "popup":false}}' ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
+<form name="Signup" ng-submit="send('Signup')" ng-controller="CustomApi" ng-sanitize="true" options='{"redirect":{"url":"https://secure.actblue.com/contribute/page/bncsignup?t=signup", "popup":false}}' ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
 
     <md-progress-circular md-mode="indeterminate" ng-show="status === 'sending'"></md-progress-circular>
     <p class="message" ng-show="response.length" ng-bind-html="response"></p>
@@ -433,7 +433,7 @@ LAYOUT
                     </div>
                     <div id="headerExtraLinks" class="positionRightBottom">
                         <div class="clearfix">
-                            <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank" class="btn btnContribute pullRight">Donate</a>
+                            <a href="https://secure.actblue.com/contribute/page/brandnewcongress?t=topnavlink" target="_blank" class="btn btnContribute pullRight">Donate</a>
                         </div>
                         <a id="starLinkRight" class="fontTertiary align-right" href="/Nominate">Nominate a Candidate</a>
                     </div>
@@ -553,7 +553,7 @@ LAYOUT
             </a>
         </div>
         <div id="retractingContribute" class="verticalCenter hide-xs hide-sm">
-            <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank" class="btn btnContribute">Donate</a>
+            <a href="https://secure.actblue.com/contribute/page/brandnewcongress?t=topnavlink" target="_blank" class="btn btnContribute">Donate</a>
         </div>
         <div>
             {{ block('navMain') }}
@@ -616,7 +616,7 @@ LAYOUT
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank" class="navLevel2 {% if sectionMenuActive == 'contributeActive' %}active{% endif %}">
+            <a href="https://secure.actblue.com/contribute/page/brandnewcongress?t=topnavlink" target="_blank" class="navLevel2 {% if sectionMenuActive == 'contributeActive' %}active{% endif %}">
                 Donate
             </a>
         </li>
@@ -773,7 +773,7 @@ LAYOUT
                             <a href="/call">Join a Call</a>
                         </li>
                         <li>
-                            <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank">Donate</a>
+                            <a href="https://secure.actblue.com/contribute/page/bncsignup?t=footerlink" target="_blank">Donate</a>
                         </li>
                     </ul>
                     </div>
