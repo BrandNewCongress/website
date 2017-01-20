@@ -28,9 +28,9 @@ input[type="submit"]:hover,
 /* Emphasize footer sign-up link */
 
 #nav-menu-item-94 a {
-    color: #6BA2AE }
+    color: #6BA2AE; }
 #nav-menu-item-94 a:hover {
-    color: #111 }
+    color: #111; }
 
 
 /* Site width and home page gutter */
@@ -41,20 +41,24 @@ input[type="submit"]:hover,
         padding-right: 2%; }
     .landing-home .block-landing .row div:last-child {
         padding-left: 2%; }
-    .block-landing__post-preview .cff-wrapper {
-        max-height: 630px;
-        overflow-y: scroll; }
     .block-landing__post {
         max-width: 100%; }
 }
 
 
-/* Add space between video, text and buttons */
+/* Add extra vertical space between video, text and buttons */
 .block-landing__post-video,
 .block-landing__post-preview p:first-child {
     margin: 10px 0 4rem; }
 .block-landing__post-preview .button.button-padded {
-    margin-right: .5rem; }
+    margin: 0 .5rem 1rem 0;
+    text-align: center; }
+@media (max-width: 480px) {
+    .block-landing__post-preview .button.button-padded {
+        display: table;
+        margin: 0 auto 1rem; }
+}
+
 
 /* Facebook feed styling */
 .block-landing__post-preview #cff .cff-header {
@@ -73,16 +77,18 @@ input[type="submit"]:hover,
     margin-right: 21px;
     vertical-align: middle;
 }
-
 .block-landing__post-preview #cff a .cff-page-name {
-    color: #000 !important;
-}
+    color: #000 !important; }
 .block-landing__post-preview #cff a:hover .cff-page-name {
-    color: #6BA2AE !important;
-}
+    color: #6BA2AE !important; }
 #cff .cff-author {
     margin-bottom: 5px; }
 .cff-text {
     font-family: 'Helvetica', 'Arial', sans-serif;
     font-size: 15px;
     line-height: 1.4; }
+@media (min-width: 960px) {
+    .block-landing__post-preview .cff-wrapper {
+        max-height: 880px;
+        overflow-y: scroll; }
+}
