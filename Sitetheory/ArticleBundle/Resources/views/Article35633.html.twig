@@ -95,7 +95,7 @@
                                 <md-select-label md-no-float class="noFloat">Nominee's State <span class="required">*</span></md-select-label>
                                 <md-select aria-label="Nominee's State" name="nomineeState" ng-model="data.nomineeState" md-no-asterisk required="true">
                                     {% verbatim %}
-                                    <md-option ng-repeat="state in states" ng-value="{{state.value}}">
+                                    <md-option ng-repeat="state in states" ng-value="state.value">
                                     {{ state.text }}
                                     </md-option>
                                     {% endverbatim %}
