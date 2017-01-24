@@ -17,8 +17,11 @@
 
 
 <div id="submitNominee" class="fontSecondary">
-    <form name="Nominate" ng-submit="send('Nominate')" ng-controller="CustomApi" ng-sanitize="true" options='{"controller":"/nominations", "scrollTo":"#submitNominee", "scrollToOffset":-100, "response": {"success": "Thank you for submitting your nomination! We review every nomination we get. <br /><br /><a class=\"btn\" href=\"/submit-nominee\">Submit Another</a>"}}' ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
-        
+    <form name="Nominate" ng-submit="send('Nominate')" ng-controller="CustomApi" ng-sanitize="true" options='{"controller":"/nominationsX", "scrollTo":"#submitNominee", "scrollToOffset":-100, "response": {"success": "Thank you for submitting your nomination! We review every nomination we get. <br /><br /><a class=\"btn\" href=\"/submit-nominee\">Submit Another</a>"}}' ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
+        <input type="hidden" name="utmSource" ng-model="data.utmSource">
+        <input type="hidden" name="utmMedium" ng-model="data.utmMedium">
+        <input type="hidden" name="utmCampaign" ng-model="data.utmCampaign">
+
         <md-progress-circular md-mode="indeterminate" ng-show="status === 'sending'"></md-progress-circular>
 
         <p class="message" ng-show="response.length" ng-bind-html="response"></p>
@@ -90,7 +93,7 @@
 
                             <md-input-container class="md-input-has-placeholder">
                                 <md-select-label md-no-float class="noFloat">Nominee's State <span class="required">*</span></md-select-label>
-                                <md-select aria-label="Nominee's State" name="nomineeState" ng-model="data.nomineeState" md-no-asterisk required>
+                                <md-select aria-label="Nominee's State" name="nomineeState" ng-model="data.nomineeState" md-no-asterisk required="true">
                                     {% verbatim %}
                                     <md-option ng-repeat="state in states" value="{{state.value}}">
                                     {{ state.text }}
