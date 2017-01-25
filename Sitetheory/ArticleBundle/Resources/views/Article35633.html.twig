@@ -12,12 +12,13 @@
 {% if nominatorPerson is not defined %}{% set nominatorPerson = 1 %}{% endif %}
 {% if nominatorPronoun is not defined %}{% set nominatorPronoun = 'You' %}{% endif %}
 {% if nominatorPossessive is not defined %}{% set nominatorPossessive = "Your" %}{% endif %}
+{% if resetOptions is not defined %}{% set resetOptions = '{"keep": ["nominatorName", "nominatorEmail", "nominatorPhone"]}' %}{% endif %}
 
 {% block contentType %}
 
 
 <div id="submitNominee" class="fontSecondary">
-    <form name="Nominate" ng-submit="send('Nominate')" ng-controller="CustomApi" ng-sanitize="true" options='{"controller":"/nominations", "scrollTo":"#submitNominee", "scrollToOffset":-100, "response": {"success": "Thank you for submitting your nomination! We review every nomination we get. <br /><br /><a class=\"btn\" href=\"/submit-nominee\">Submit Another</a>"}}' ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
+    <form name="Nominate" ng-submit="send('Nominate')" ng-controller="CustomApi" ng-sanitize="true" options='{"controller":"/nominations", "scrollTo":"#submitNominee", "scrollToOffset":-100, "response": {"success": "Thank you for submitting your nomination! We review every nomination we get."}, "resetOptions": {{ resetOptions }} }' ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
         <input type="hidden" name="utmSource" ng-model="data.utmSource">
         <input type="hidden" name="utmMedium" ng-model="data.utmMedium">
         <input type="hidden" name="utmCampaign" ng-model="data.utmCampaign">
@@ -25,6 +26,11 @@
         <md-progress-circular md-mode="indeterminate" ng-show="status === 'sending'"></md-progress-circular>
 
         <p class="message" ng-show="response.length" ng-bind-html="response"></p>
+
+        <md-button class="btn" ng-click="reset('Nominate')">reset</md-button>
+        <div class="reset" ng-show="status == 'success'">
+            <md-button class="btn" ng-click="reset('Nominate')">Submit Another</md-button>
+        </div>
 
         <div ng-class="{sending: status === 'sending'}" ng-show="status !== 'success'">
 
@@ -135,7 +141,7 @@
 
                             <md-input-container>
                                 <label md-no-float class="noFloat">Links about your candidate.</label>
-                                <textarea name="nomineeLinks" ng-model="data.nomineeLinks" placeholder="" rows="1"></textarea>
+                                <textarea name="nomineeLinks" ng-model="data.nomineeLinks" placeholder="" rows="2"></textarea>
                                 <p class="hint">Include personal homepage, Youtube videos of them, etc.</p>
                             </md-input-container>
                         </div>
