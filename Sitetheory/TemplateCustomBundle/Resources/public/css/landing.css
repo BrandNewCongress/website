@@ -519,6 +519,7 @@
     display: block;
     margin: 0 4%;
     width: 92%;
+    line-height: .5;
 }
 #homeImageLinks a:hover img {
     opacity: .8;
