@@ -1,9 +1,6 @@
 # Brand New Congress Website
 
-
-
 ## Technical Background
-====================
 
 The current website is built on the Sitetheory.io platform, and implements Angular as a javascript framework to
 handle model management and interact with the Sitetheory API. Sitetheory is built using PHP on the Symfony framework and
@@ -20,13 +17,13 @@ and the Stratus javascript framework. Sitetheory is a private SaaS platform for 
 
 
 ## CMS Access
-==========
+
 - Admin Login: https://admin.sitetheory.io
 - The CMS will allow you to create new pages, and also validates you as a developer with permission to view the dev mode of the site.
 
 
 ## Development Preview Site
-========================
+
 - URL: https://bnc.sitetheory.net?env=dev
 - Modes: (trigger different modes of viewing the site)
     - Dev Environment: ?env=dev (or env=prd)
@@ -39,7 +36,6 @@ and the Stratus javascript framework. Sitetheory is a private SaaS platform for 
 
 
 ## Development Access
-==================
 
 - Type: FTPS (not SFTP because this is a node service not SSH account)
 - Host: beta001.sitetheory.io
@@ -48,7 +44,6 @@ and the Stratus javascript framework. Sitetheory is a private SaaS platform for 
 
 
 ## Workflows
-============
 
 ### Create New Custom Page
 
@@ -92,8 +87,7 @@ When you are logged in to the CMS Admin (admin.sitetheory.io) and you are browsi
 When you are complete with your development, you can push your feature upstream to the master repository. And then notify Chad and he can pull the latest repo on the development server so that everyone can see your work and review. If it looks good, we can then pull the latest repo on the production server to make it live for the world. This process will be automated in the near future.
 
 
-### Theming
-===========
+## Theming
 
 Anything can be customized, by adding a custom version of the file in your vhost by replicating the exact file structure
 of the content type ([vendor]/[bundle]/Resources/views/[file]).
