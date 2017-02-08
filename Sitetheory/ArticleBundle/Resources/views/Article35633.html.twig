@@ -9,6 +9,11 @@
 {% block mainColumnGutter %}
 {% endblock mainColumnGutter %}
 
+
+{% set sectionNameHardCoded = 'Support' %}
+{% set sectionMenuHardCoded = '2' %}
+{% set sectionMenuActive = 'nominateActive' %}
+
 {% if nominatorPerson is not defined %}{% set nominatorPerson = 1 %}{% endif %}
 {% if nominatorPronoun is not defined %}{% set nominatorPronoun = 'You' %}{% endif %}
 {% if nominatorPossessive is not defined %}{% set nominatorPossessive = "Your" %}{% endif %}
@@ -19,6 +24,29 @@
 
 
 <div id="submitNominee" class="fontSecondary">
+
+    <div>
+        <p class="pullout">We are recruiting incredible people to run for Congress in 2018 in a unified campaign behind a single plan to fix our government and our country.</p>
+
+        <p>We want a congress that looks like America. We want selfless leaders from all walks of life and all areas of our economy and society, representing every community, people who:</p>
+        <ul>
+            <li><em>Respected.</em> Are respected in their communities with a track record of service in their jobs, neighborhoods, religious organizations, charities, etc.</li>
+            <li><em></em>Have a history that shows they won’t sell out in DC, because many of their life choices have put others in front of their self interest.</li>
+            <li>Agree that America already has everything it needs to fix our economy, our healthcare system, our schools and our justice system — and that we can do it if we just have people in office who aren’t catering to corporations and special interest.</li>
+            <li>Will be strong fighters who will fight for big change and will not buckle under pressure.</li>
+            <li>Are non-dogmatic, optimistic people who believe the American people can build our country by working together.</li>
+            <li>Do not have any disdain or condescension for any group of Americans and have a high level of empathy.</li>
+            <li>Are good at what they do.</li>
+            <li>Are trusted by the people they currently serve.</li>
+            <li>Are not people who have spent a life in politics for the sake of advancing their own position.</li>
+            <li>Are ideally someone involved in doing work that actually keeps our country going: nurses, teachers, engineers, workers, moms and dads, social workers, veterans, law enforcement, first responders, managers, etc.</li>
+            <li>Have the skills that would make them good candidates against experienced incumbents — they’ve got to be able to talk, and to develop a grasp of all the major issues affecting their district.</li>
+            <li>Represent their district and will be someone people in their district can relate to and trust.</li>
+        </ul>
+    </div>
+    <br>
+    <hr>
+
     <form name="Nominate" ng-submit="send('Nominate')" ng-controller="CustomApi" ng-sanitize="true" options='{"controller":"/nominations", "scrollTo":"#submitNominee", "scrollToOffset":-100, "response": {"success": "Thank you for submitting your nomination! We review every nomination we get."}, "resetOptions": {{ resetOptions }} }' ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
         <input type="hidden" name="utmSource" ng-model="data.utmSource">
         <input type="hidden" name="utmMedium" ng-model="data.utmMedium">

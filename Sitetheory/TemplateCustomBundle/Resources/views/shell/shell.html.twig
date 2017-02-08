@@ -64,6 +64,7 @@ CSS STYLING
 
     <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/site.css') }}">
 
+
 {% endblock link %}
 
 
@@ -721,21 +722,32 @@ LAYOUT
     <!-- Level 2 Links -->
     <ul id="listLevel2" class="listUnstyled {{ navLevel2Font|default('fontSecondary') }}">
         <li class="siteNavLink" data-level="2">
-            <a href="/support" class="navLevel2 {% if sectionMenuActive == 'volunteerActive' %}active{% endif %}">
-                Support
+            <a href="/support" class="navLevel2 {% if sectionMenuActive == 'supportActive' %}active{% endif %}">
+                Overview
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="/Nominate" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">
+            <a href="/nominate" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">
                 Nominate
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
             <a href="https://goo.gl/forms/CGeULYdVgKTnW72D2" target="_blank"
                class="navLevel2 {% if sectionMenuActive == 'specialSkillsActive' %}active{% endif %}">
-                Special Skills
+                How Can You Help
             </a>
         </li>
+        <li class="siteNavLink" data-level="2">
+            <a href="/candidate-research" class="navLevel2 {% if sectionMenuActive == 'researchActive' %}active{% endif %}">
+                Candidate Research
+            </a>
+        </li>
+        <li class="siteNavLink" data-level="2">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8CfK0gUULEVpYFm9Eb4iyGOL-_iDl395qB0z4hny7ek4iNw/viewform" target="_blank" class="navLevel2">
+                District Research
+            </a>
+        </li>
+
         <li class="siteNavLink" data-level="2">
             <a href="https://docs.google.com/document/d/1Op0OaZNuykCJckSCn4vABDEr4VEdTrMeTsPCZFNSJo4/edit"
                target="_blank" class="navLevel2 {% if sectionMenuActive == 'organizeLocallyActive' %}active{% endif %}">
