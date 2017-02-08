@@ -12,6 +12,7 @@
 {% if nominatorPerson is not defined %}{% set nominatorPerson = 1 %}{% endif %}
 {% if nominatorPronoun is not defined %}{% set nominatorPronoun = 'You' %}{% endif %}
 {% if nominatorPossessive is not defined %}{% set nominatorPossessive = "Your" %}{% endif %}
+{% if nominatorPossessiveDirect is not defined %}{% set nominatorPossessiveDirect = "Your" %}{% endif %}
 {% if resetOptions is not defined %}{% set resetOptions = '{"keep": ["nominatorName", "nominatorEmail", "nominatorPhone"]}' %}{% endif %}
 
 {% block contentType %}
@@ -128,7 +129,7 @@
 
                         <div layout="column">
                             <md-input-container>
-                                <label md-no-float class="noFloat">Why would this person make a good candidate in {{ nominatorPronoun|lower }} district?</label>
+                                <label md-no-float class="noFloat">Why would this person make a good candidate in {{ nominatorPossessiveDirect|lower }} district?</label>
                                 <textarea name="nomineeProfile" ng-model="data.nomineeProfile" placeholder="" rows="3" required></textarea>
                                 <div ng-messages="Nominate.nomineeProfile.$error" role="alert">
                                     <div ng-message-exp="['required']">

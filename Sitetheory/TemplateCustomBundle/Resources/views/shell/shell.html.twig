@@ -62,10 +62,7 @@ CSS STYLING
 
     {{ parent() }}
 
-    {% stylesheets '@SitetheoryTemplateCustomBundle/Resources/public/css/site.css' filter='?uglifycss' filter='cssrewrite' %}
-    <link rel="stylesheet" href="{{ asset_url }}" data-file="site.css">
-    {% endstylesheets %}
-
+    <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/site.css') }}">
 
 {% endblock link %}
 

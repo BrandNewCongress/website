@@ -3,6 +3,7 @@
 {% if nominatorPerson is not defined %}{% set nominatorPerson = 2 %}{% endif %}
 {% if nominatorPronoun is not defined %}{% set nominatorPronoun = 'the Nominator' %}{% endif %}
 {% if nominatorPossessive is not defined %}{% set nominatorPossessive = "Nominator's" %}{% endif %}
+{% if nominatorPossessiveDirect is not defined %}{% set nominatorPossessiveDirect = "the Nominator's" %}{% endif %}
 {% if resetOptions is not defined %}{% set resetOptions = '{"keep": ["source", "sourceDetails", "sourceTeamName", "submitterEmail"]}' %}{% endif %}
 
 {# extend the main Nominate Form with additional fields at top #}
