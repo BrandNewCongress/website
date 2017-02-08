@@ -62,6 +62,14 @@ CSS STYLING
 
     {{ parent() }}
 
+    {% if environment.user.id == 1 or environment.user.id == 2 %}
+        {# TODO: once asset loads custom vhost files, load this way #}
+        {# #
+        {% stylesheets '@SitetheoryTemplateCustomBundle/Resources/public/css/site.css' filter='?uglifycss' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" data-file="site.css">
+        {% endstylesheets %}
+        {# #}
+    {% endif %}
     <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/site.css') }}">
 
 

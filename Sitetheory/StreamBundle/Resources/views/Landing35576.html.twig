@@ -46,6 +46,12 @@ CSS & JAVASCRIPT
 
 {% block link %}
     {{ parent() }}
+    {# TODO: once assetic is fixed to load local resources, change this to look like standard #}
+    {# #
+    {% stylesheets '@SitetheoryTemplateCustomBundle/Resources/public/css/site.css' filter='?uglifycss' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" data-file="site.css">
+    {% endstylesheets %}
+    {# #}
     <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/landing.css') }}">
 {% endblock link %}
 
@@ -395,27 +401,30 @@ LAYOUT
         #}
 
         <div id="homeSpecifics" class="shellVerticalPadding textCenter">
-            <h4>All the</h4>
-            <h1>Specifics</h1>
+
+            <h1>Get Involved!</h1>
 
             {# hide as soon as angular loads #}
             <div class="loader" ng-hide="true"></div>
 
             <div id="homeImageLinks" ng-cloak ng-cloak-reveal>
                 <div layout="row" layout-wrap>
-                    <div flex="100" flex-gt-xs="33">
-                        <a class="backgroundDark" href="/plan">
-                            <img data-src="lazy" class="easyTransition" src="{{ asset('bundles/sitetheorytemplatecustom/images/imageLinkPlan-xs.jpg') }}" alt="">
-                        </a>
-                    </div>
+
                     <div flex="100" flex-gt-xs="33">
                         <a  class="backgroundDark" href="/nominate">
                             <img data-src="lazy" class="easyTransition" src="{{ asset('bundles/sitetheorytemplatecustom/images/imageLinkNominate-xs.jpg') }}" alt="">
                         </a>
                     </div>
+
                     <div flex="100" flex-gt-xs="33">
-                        <a  class="backgroundDark" href="/support">
-                            <img data-src="lazy" class="easyTransition" src="{{ asset('bundles/sitetheorytemplatecustom/images/imageLinkVolunteer-xs.jpg') }}" alt="">
+                        <a class="backgroundDark" href="https://secure.actblue.com/contribute/page/brandnewcongress" target="_blank">
+                            <img data-src="lazy" class="easyTransition" src="{{ asset('bundles/sitetheorytemplatecustom/images/imageLinkDonate-xs.jpg') }}" alt="">
+                        </a>
+                    </div>
+
+                    <div flex="100" flex-gt-xs="33">
+                        <a  class="backgroundDark" href="https://goo.gl/forms/CGeULYdVgKTnW72D2" target="_blank">
+                            <img data-src="lazy" class="easyTransition" src="{{ asset('bundles/sitetheorytemplatecustom/images/imageLinkSpecialSkills-xs.jpg') }}" alt="">
                         </a>
                     </div>
                 </div>
