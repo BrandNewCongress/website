@@ -47,10 +47,11 @@
     <br>
     <hr>
 
-    <form name="Nominate" ng-submit="send('Nominate')" ng-controller="CustomApi" ng-sanitize="true" options='{"controller":"/nominations", "scrollTo":"#submitNominee", "scrollToOffset":-100, "response": {"success": "Thank you for submitting your nomination! We review every nomination we get."}, "resetOptions": {{ resetOptions }} }' ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
-        <input type="hidden" name="utmSource" ng-model="data.utmSource">
-        <input type="hidden" name="utmMedium" ng-model="data.utmMedium">
-        <input type="hidden" name="utmCampaign" ng-model="data.utmCampaign">
+
+    <form id="submitNomineeForm" name="Nominate" ng-submit="send('Nominate')" ng-controller="CustomApi" ng-sanitize="true" options='{"controller":"/nominations", "scrollTo":"#submitNomineeForm", "scrollToOffset":-100, "response": {"success": "Thank you for submitting your nomination! We review every nomination we get."}, "resetOptions": {{ resetOptions }} }' ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
+        <input type="hidden" name="utmSource" ng-model="model.data.utmSource">
+        <input type="hidden" name="utmMedium" ng-model="model.data.utmMedium">
+        <input type="hidden" name="utmCampaign" ng-model="model.data.utmCampaign">
 
         <md-progress-circular md-mode="indeterminate" ng-show="status === 'sending'"></md-progress-circular>
 
@@ -72,7 +73,7 @@
 
                             <md-input-container>
                                 <label md-no-float class="noFloat">{{ nominatorPossessive }} Name</label>
-                                <input name="nominatorName" type="text" ng-model="data.nominatorName" placeholder="" required>
+                                <input name="nominatorName" type="text" ng-model="model.data.nominatorName" placeholder="" required>
                                 <div ng-messages="Nominate.nominatorName.$error" role="alert">
                                     <div ng-message-exp="['required']">
                                         Please enter a name.
@@ -82,7 +83,7 @@
 
                             <md-input-container>
                                 <label md-no-float class="noFloat">{{ nominatorPossessive }} Email</label>
-                                <input name="nominatorEmail" type="text" ng-pattern="options.pattern.email" ng-model="data.nominatorEmail" placeholder="" required>
+                                <input name="nominatorEmail" type="text" ng-pattern="options.pattern.email" ng-model="model.data.nominatorEmail" placeholder="" required>
                                 <div ng-messages="Nominate.nominatorEmail.$error" role="alert">
                                     <div ng-message-exp="['required', 'pattern']">
                                         Please enter a valid email.
@@ -92,7 +93,7 @@
 
                             <md-input-container>
                                 <label md-no-float class="noFloat">{{ nominatorPossessive }} Phone</label>
-                                <input name="nominatorPhone" type="text" ng-model="data.nominatorPhone" placeholder="" required>
+                                <input name="nominatorPhone" type="text" ng-model="model.data.nominatorPhone" placeholder="" required>
                                 <div ng-messages="Nominate.nominatorPhone.$error" role="alert">
                                     <div ng-message-exp="['required']">
                                         Please enter a valid phone.
@@ -107,7 +108,7 @@
                         <div layout="column">
                             <md-input-container>
                                 <label md-no-float class="noFloat">Nominee's Name</label>
-                                <input name="nomineeName" ng-model="data.nomineeName" placeholder="" required>
+                                <input name="nomineeName" ng-model="model.data.nomineeName" placeholder="" required>
                                 <div ng-messages="Nominate.nomineeName.$error" role="alert">
                                     <div ng-message-exp="['required']">
                                         Please enter a name.
@@ -117,7 +118,7 @@
 
                             <md-input-container>
                                 <label md-no-float class="noFloat">Nominee's City</label>
-                                <input name="nomineeCity" ng-model="data.nomineeCity" placeholder="" required>
+                                <input name="nomineeCity" ng-model="model.data.nomineeCity" placeholder="" required>
                                 <div ng-messages="Nominate.nomineeCity.$error" role="alert">
                                     <div ng-message-exp="['required']">
                                         Please enter a city.
@@ -127,7 +128,7 @@
 
                             <md-input-container class="md-input-has-placeholder">
                                 <md-select-label md-no-float class="noFloat">Nominee's State <span class="required">*</span></md-select-label>
-                                <md-select aria-label="Nominee's State" name="nomineeState" ng-model="data.nomineeState" md-no-asterisk required="true">
+                                <md-select aria-label="Nominee's State" name="nomineeState" ng-model="model.data.nomineeState" md-no-asterisk required="true">
                                     {% verbatim %}
                                     <md-option ng-repeat="state in states" ng-value="state.value">
                                     {{ state.text }}
@@ -144,7 +145,7 @@
 
                             <md-input-container>
                                 <label md-no-float class="noFloat">Nominee's Congressional District</label>
-                                <input name="nomineeDistrict" ng-model="data.nomineeDistrict" placeholder="a number or 'AL' for at-large">
+                                <input name="nomineeDistrict" ng-model="model.data.nomineeDistrict" placeholder="a number or 'AL' for at-large">
                             </md-input-container>
                         </div>
                     </div>
@@ -158,7 +159,7 @@
                         <div layout="column">
                             <md-input-container>
                                 <label md-no-float class="noFloat">Why would this person make a good candidate in {{ nominatorPossessiveDirect|lower }} district?</label>
-                                <textarea name="nomineeProfile" ng-model="data.nomineeProfile" placeholder="" rows="3" required></textarea>
+                                <textarea name="nomineeProfile" ng-model="model.data.nomineeProfile" placeholder="" rows="3" required></textarea>
                                 <div ng-messages="Nominate.nomineeProfile.$error" role="alert">
                                     <div ng-message-exp="['required']">
                                         Please enter an answer.
@@ -169,7 +170,7 @@
 
                             <md-input-container>
                                 <label md-no-float class="noFloat">Links about your candidate.</label>
-                                <textarea name="nomineeLinks" ng-model="data.nomineeLinks" placeholder="" rows="2"></textarea>
+                                <textarea name="nomineeLinks" ng-model="model.data.nomineeLinks" placeholder="" rows="2"></textarea>
                                 <p class="hint">Include personal homepage, Youtube videos of them, etc.</p>
                             </md-input-container>
                         </div>
@@ -180,7 +181,7 @@
                         <div layout="column">
                             <md-input-container>
                                 <label md-no-float class="noFloat">Nominee's Email</label>
-                                <input name="nomineeEmail" type="text" ng-pattern="options.pattern.email" ng-model="data.nomineeEmail" placeholder="">
+                                <input name="nomineeEmail" type="text" ng-pattern="options.pattern.email" ng-model="model.data.nomineeEmail" placeholder="">
                                 <div ng-messages="Nominate.nomineeEmail.$error" role="alert">
                                     <div ng-message-exp="pattern">
                                         Please enter a valid email.
@@ -190,22 +191,22 @@
 
                             <md-input-container>
                                 <label md-no-float class="noFloat">Nominee's Phone</label>
-                                <input name="nomineePhone" type="text" ng-model="data.nomineePhone" placeholder="Separate multiple phone numbers with a semicolon">
+                                <input name="nomineePhone" type="text" ng-model="model.data.nomineePhone" placeholder="Separate multiple phone numbers with a semicolon">
                             </md-input-container>
 
                             <md-input-container>
                                 <label md-no-float class="noFloat">Nominee's Facebook</label>
-                                <input name="nomineeFacebook" ng-model="data.nomineeFacebook" placeholder="e.g. facebook.com/gwashington">
+                                <input name="nomineeFacebook" ng-model="model.data.nomineeFacebook" placeholder="e.g. facebook.com/gwashington">
                             </md-input-container>
 
                             <md-input-container>
                                 <label md-no-float class="noFloat">Nominee's LinkedIn</label>
-                                <input name="nomineeLinkedIn" ng-model="data.nomineeLinkedIn" placeholder="e.g. linkedin.com/in/george-washington">
+                                <input name="nomineeLinkedIn" ng-model="model.data.nomineeLinkedIn" placeholder="e.g. linkedin.com/in/george-washington">
                             </md-input-container>
 
                             <md-input-container>
                                 <label md-no-float class="noFloat">Nominee's Twitter</label>
-                                <input name="nomineeTwitter" ng-model="data.nomineeTwitter" placeholder="e.g. twitter.com/gwashington">
+                                <input name="nomineeTwitter" ng-model="model.data.nomineeTwitter" placeholder="e.g. twitter.com/gwashington">
                             </md-input-container>
                         </div>
                     </div>

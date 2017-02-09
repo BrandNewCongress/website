@@ -90,7 +90,7 @@ JAVASCRIPT
     <script>
         (function (root, factory) {
             if (typeof require === 'function') {
-                require(['stratus', 'underscore', 'jquery', 'angular', 'angular-material'], factory);
+                require(['stratus', 'underscore', 'jquery', 'angular', 'angular-material', 'stratus.services.model'], factory);
             } else {
                 factory(root.Stratus, root._, root.$);
             }
@@ -145,7 +145,7 @@ JAVASCRIPT
             <!-- End Track Signups -->
 
 
-            Stratus.Controllers.CustomApi = function ($scope, $element, $http, $attrs, $window) {
+            Stratus.Controllers.CustomApi = function ($scope, $element, $http, $attrs, $window, model) {
 
                 $scope.customMethods = customMethods;
 
@@ -158,8 +158,9 @@ JAVASCRIPT
                     return b + c * (tc * ts + -5 * ts * ts + 10 * tc + -10 * ts + 5 * t);
                 };
 
+
                 // Data Sent
-                $scope.data = {};
+                $scope.model = new model;
 
                 // OPTIONS
                 $scope.options = {
@@ -194,7 +195,9 @@ JAVASCRIPT
                     // Object or Array of Objects
                     onTime: null,
                     // Object to reset or keep fields, e.g. resetOptions.reset = ['foo', 'bar'] or resetOptions.keep = ['foo', 'bar']
-                    resetOptions: {}
+                    resetOptions: {},
+                    // Allow passing in dynamic options that will be used in select or checkbox fields, e.g. `"dynamicOptions": {"skills":{"web-design": "Web Design"}}`
+                    dynamicOptions: {}
                 };
 
                 // Merge Custom Options
@@ -267,28 +270,28 @@ JAVASCRIPT
                     if ($scope.options.resetOptions && $scope.options.resetOptions instanceof Object) {
                         if ('reset' in $scope.options.resetOptions) {
                             _.each($scope.options.resetOptions.reset, function (v) {
-                                if (v in $scope.data) $scope.data[v] = null;
+                                if (v in $scope.model.data) $scope.model.data[v] = null;
                             });
                         } else if ('keep' in $scope.options.resetOptions) {
-                            _.each($scope.data, function (v, i) {
+                            _.each($scope.model.data, function (v, i) {
                                 if (!_.contains($scope.options.resetOptions.keep, i)) {
-                                    $scope.data[i] = null;
+                                    $scope.model.data[i] = null;
                                 }
                             });
                         } else {
-                            $scope.data = {};
+                            $scope.model.data = {};
                         }
                     } else {
-                        $scope.data = {};
+                        $scope.model.data = {};
                     }
                     if (form && form in $scope) {
                         $scope[form].$setPristine();
                         $scope[form].$setUntouched();
                     }
                     // Track UTM Codes
-                    $scope.data.utmCampaign = $scope.customMethods.getUTMCode('utmCampaign');
-                    $scope.data.utmSource = $scope.customMethods.getUTMCode('utmSource');
-                    $scope.data.utmMedium = $scope.customMethods.getUTMCode('utmMedium');
+                    $scope.model.data.utmCampaign = $scope.customMethods.getUTMCode('utmCampaign');
+                    $scope.model.data.utmSource = $scope.customMethods.getUTMCode('utmSource');
+                    $scope.model.data.utmMedium = $scope.customMethods.getUTMCode('utmMedium');
                 };
 
                 $scope.reset();
@@ -368,10 +371,10 @@ JAVASCRIPT
                     $scope.options.prototype.dataType = $scope.options.contentType;
                     if ($scope.options.contentType == 'form') {
                         $scope.options.prototype.headers['Content-Type'] = 'application/x-www-form-urlencoded';
-                        $scope.options.prototype.data = $scope.serialize($scope.data);
+                        $scope.options.prototype.data = $scope.serialize($scope.model.data);
                     } else {
                         $scope.options.prototype.headers['Content-Type'] = 'application/json';
-                        $scope.options.prototype.data = $scope.data;
+                        $scope.options.prototype.data = $scope.model.data;
                     }
                     return $scope.submit(form);
                 };
@@ -470,9 +473,9 @@ SIGNUP FORM
           ng-sanitize="true"
           options='{"controller": "/people", "redirect":{"url":"https://secure.actblue.com/contribute/page/bncsignup", "popup":false}}'
           ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
-        <input type="hidden" name="utmSource" ng-value="data.utmSource">
-        <input type="hidden" name="utmMedium" ng-value="data.utmMedium">
-        <input type="hidden" name="utmCampaign" ng-value="data.utmCampaign">
+        <input type="hidden" name="utmSource" ng-value="model.data.utmSource">
+        <input type="hidden" name="utmMedium" ng-value="model.data.utmMedium">
+        <input type="hidden" name="utmCampaign" ng-value="model.data.utmCampaign">
         <md-progress-circular md-mode="indeterminate" ng-show="status === 'sending'"></md-progress-circular>
         <p class="message" ng-show="response.length" ng-bind-html="response"></p>
 
@@ -484,7 +487,7 @@ SIGNUP FORM
         <li>
             <md-input-container>
                 <label>Email</label>
-                <input name="email" type="email" ng-pattern="options.pattern.email" ng-model="data.email" required md-no-asterisk>
+                <input name="email" type="email" ng-pattern="options.pattern.email" ng-model="model.data.email" required md-no-asterisk>
                 <div ng-messages="Signup.email.$error" role="alert">
                     <div ng-message-exp="['required', 'pattern']">
                         Please enter a valid email.
@@ -495,7 +498,7 @@ SIGNUP FORM
         <li>
             <md-input-container>
                 <label>Zip</label>
-                <input name="zip" ng-pattern="options.pattern.zip" ng-model="data.zip" required md-no-asterisk>
+                <input name="zip" ng-pattern="options.pattern.zip" ng-model="model.data.zip" required md-no-asterisk>
                 <div ng-messages="Signup.zip.$error" role="alert">
                     <div ng-message-exp="['required', 'pattern']">
                         Please enter a valid zip code.
@@ -740,8 +743,8 @@ LAYOUT
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="https://goo.gl/forms/CGeULYdVgKTnW72D2" target="_blank"
-               class="navLevel2 {% if sectionMenuActive == 'specialSkillsActive' %}active{% endif %}">
+            <a href="/volunteer-skills" target="_blank"
+               class="navLevel2 {% if sectionMenuActive == 'volunteerSkillsActive' %}active{% endif %}">
                 How Can You Help
             </a>
         </li>
@@ -911,10 +914,10 @@ LAYOUT
                                 <a href="/support">Support</a>
                             </li>
                             <li>
-                                <a href="/Nominate">Nominate a Candidate</a>
+                                <a href="/nominate">Nominate a Candidate</a>
                             </li>
                             <li>
-                                <a href="https://goo.gl/forms/CGeULYdVgKTnW72D2" target="_blank">Special Skills</a>
+                                <a href="/volunteer" target="_blank">Volunteer</a>
                             </li>
                             <li>
                                 <a href="https://docs.google.com/document/d/1Op0OaZNuykCJckSCn4vABDEr4VEdTrMeTsPCZFNSJo4/edit"

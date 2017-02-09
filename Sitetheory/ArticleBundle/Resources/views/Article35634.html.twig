@@ -15,7 +15,7 @@
         <div layout="row" flex="100">
             <md-input-container class="md-input-has-placeholder" flex-gt-sm="45">
                 <md-select-label md-no-float class="noFloat">Source <span class="required">*</span></md-select-label>
-                <md-select aria-label="Submitter Source" name="source" ng-model="data.source" md-no-asterisk required>
+                <md-select aria-label="Submitter Source" name="source" ng-model="model.data.source" md-no-asterisk required>
                     <md-option value="Nominator Call">Nominator Call</md-option>
                     <md-option value="Research">Research</md-option>
                     <md-option value="Personal Contact">Personal Contact</md-option>
@@ -32,7 +32,7 @@
             <div flex-gt-sm="10"></div>
             <md-input-container class="md-input-has-placeholder" flex-gt-sm="45" ng-controller="CustomApi" options='{"controller":"/teams", "onLoad": "fetch"}'>
                 <md-select-label md-no-float class="noFloat">Your Team <span class="required">*</span></md-select-label>
-                <md-select aria-label="Submitter Team" name="sourceTeamName" ng-model="$parent.data.sourceTeamName" md-no-asterisk required>
+                <md-select aria-label="Submitter Team" name="sourceTeamName" ng-model="$parent.model.data.sourceTeamName" md-no-asterisk required>
                     {% verbatim %}
                     <md-option ng-repeat="team in results" ng-value="team.name">
                     {{ team.name }}
@@ -53,7 +53,7 @@
         <div layout="row" flex="100">
             <md-input-container flex-gt-sm="45">
                 <label md-no-float class="noFloat">Source details</label>
-                <textarea aria-label="Submitter Source Details" name="sourceDetails" type="text" ng-model="data.sourceDetails" row="1" placeholder="" required></textarea>
+                <textarea aria-label="Submitter Source Details" name="sourceDetails" type="text" ng-model="model.data.sourceDetails" row="1" placeholder="" required></textarea>
                 <div ng-messages="Nominate.sourceDetails.$error" role="alert">
                     <div ng-message-exp="['required']">
                         Please enter info.
@@ -65,7 +65,7 @@
 
             <md-input-container flex-gt-sm="45">
                 <label md-no-float class="noFloat">Your Email</label>
-                <input aria-label="Submitter Email" name="submitterEmail" type="text" ng-pattern="options.pattern.email" ng-model="data.submitterEmail" placeholder="" required>
+                <input aria-label="Submitter Email" name="submitterEmail" type="text" ng-pattern="options.pattern.email" ng-model="model.data.submitterEmail" placeholder="" required>
                 <div ng-messages="Nominate.submitterEmail.$error" role="alert">
                     <div ng-message-exp="['required', 'pattern']">
                         Please enter a valid email.
