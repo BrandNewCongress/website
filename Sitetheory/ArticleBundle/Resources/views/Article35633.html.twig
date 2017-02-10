@@ -147,6 +147,14 @@
                                 <label md-no-float class="noFloat">Nominee's Congressional District</label>
                                 <input name="nomineeDistrict" ng-model="model.data.nomineeDistrict" placeholder="a number or 'AL' for at-large">
                             </md-input-container>
+
+                            {#
+                            <md-input-container>
+                                <md-checkbox name="nominatorPersonal" ng-model="model.data.nomineePersonal" ng-value="1">I know this nominee personally.</md-checkbox>
+                            </md-input-container>
+                            #}
+
+
                         </div>
                     </div>
                 </div>
