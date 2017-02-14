@@ -526,13 +526,7 @@ LAYOUT
 ######
 #}
 
-{# Add border to bottom of sidebar #}
-{% block sidebarExtrasBottom %}
-    <div hide-gt-sm>
-        {{ block('socialMedia') }}
-    </div>
-    <div class="borderDashed sidebarBorder"></div>
-{% endblock sidebarExtrasBottom %}
+
 
 
 
@@ -776,6 +770,12 @@ LAYOUT
                 Donate
             </a>
         </li>
+        <li class="siteNavLink" data-level="2">
+            <a href="https://shop.brandnewcongress.org" target="_blank"
+               class="navLevel2">
+                BNC Store
+            </a>
+        </li>
     </ul>
 {% endblock menuSection2 %}
 
@@ -863,10 +863,29 @@ LAYOUT
         </ul>
     </div>
 
-
 {% endblock navSection %}
 
 {# End temporary hard coded menu #}
+
+
+
+{# Add border to bottom of sidebar #}
+{% block sidebarExtrasBottom %}
+    <div hide-gt-sm>
+        {{ block('socialMedia') }}
+    </div>
+    <div class="borderDashed sidebarBorder"></div>
+
+    <div id="sidebarAds">
+        <a href="https://shop.brandnewcongress.org" target="_blank" class="backgroundDark">
+            <div class="imageContainer">
+                <img src="{{ asset('bundles/sitetheorytemplatecustom/images/sidebarAdStore.png') }}" alt="">
+            </div>
+        </a>
+    </div>
+{% endblock sidebarExtrasBottom %}
+
+
 
 {# ADD FOOTER JOIN FORM AT BOTTOM OF BODY BLOCK #}
 {% block main %}
@@ -928,6 +947,9 @@ LAYOUT
                             </li>
                             <li>
                                 <a href="https://secure.actblue.com/contribute/page/brandnewcongress" target="_blank">Donate</a>
+                            </li>
+                            <li>
+                                <a href="https://shop.brandnewcongress.org/" target="_blank">BNC Store</a>
                             </li>
                         </ul>
                     </div>
