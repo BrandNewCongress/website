@@ -433,7 +433,7 @@ hr {
         right: 40px;
     }
     .sidebarContact {
-        margin: 30px 0;
+        margin: 30px 0 0;
         padding-top: 30px;
     }
     .sidebarContact a {
@@ -618,6 +618,16 @@ h2.sectionName {
 .siteNavLink a.navLevel2.active:hover {
     color: #FFF;
 }
+#sidebarAds a {
+    display: block;
+    margin-top: 24px;
+}
+#sidebarAds a .imageContainer {
+    transition: all .2s ease-out;
+}
+#sidebarAds a:hover .imageContainer {
+    opacity: .9;
+}
 @media (max-width:959px) {
     .mobileDrawer.mobileBackgroundDark {
         background: #111;
@@ -648,6 +658,10 @@ h2.sectionName {
     }
     .siteNavLink a.navLevel2 {
         font-size: 15px;
+    }
+    #sidebarAds a {
+        margin-top: 0;
+        margin-bottom: 16px;
     }
 }
 
