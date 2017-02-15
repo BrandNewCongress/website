@@ -21,18 +21,35 @@
 // Define AMD, Require.js, or Contextual Scope
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
-        define(['stratus', 'underscore', 'jquery', 'angular', 'angular-material', 'stratus.services.model'], factory);
+        define(['stratus', 'underscore', 'jquery', 'angular', 'angular-material', 'angular-sanitize', 'stratus.services.model', 'stratus.services.tracking'], factory);
     } else {
         factory(root.Stratus, root._, root.$);
     }
 }(this, function (Stratus, _, $) {
+
+    // Make Sure NG Sanitize is available (XSS)
+    Stratus.Modules.ngSanitize=true;
+
     // This Controller handles simple element binding
     // for a single scope to an API Object Reference.
-    Stratus.Controllers.Api = function ($scope, $element, $http, $attrs, $window, model) {
+    Stratus.Controllers.Api = function ($scope, $element, $http, $attrs, $window, $interpolate, model, tracking) {
 
-        $scope.customMethods = customMethods;
+        var uid = _.uniqueId('api_');
+        Stratus.Instances[uid] = $scope;
 
-        Stratus.Instances[_.uniqueId('api_')] = $scope;
+        // Options
+        $scope.model = new model;
+        $scope.tracking = new tracking;
+
+        var host = window.location.hostname.split('.').reverse();
+        var tld = host[1]+'.'+host[0];
+
+
+        // Tracking
+        Stratus.DOM.ready(function () {
+            $scope.tracking.setRefcode();
+        });
+
 
         // Custom Easing (Quintic) (for the counter page)
         $scope.easingFn = function (t, b, c, d) {
@@ -42,21 +59,20 @@
         };
 
 
-        // Data Sent
-        $scope.model = new model;
 
         // OPTIONS
         $scope.options = {
+            id: uid,
             pattern: {
                 email: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                 zip: /[a-zA-Z0-9 \-]{5,}/,
                 phone: /^[0-9]{10,}$/
             },
-            url: 'https://api.brandnewcongress.org',
+            url: null, // required
             controller: null, // e.g. '/people'
             response: {
                 invalid: 'There was a validation error, please check the fields below.',
-                success: 'Thanks for signing up! We\'ll be in touch shortly. In the meantime, please help us with a <a href="https://secure.actblue.com/contribute/page/brandnewcongress" target="_blank">much needed donation</a>.',
+                success: 'Thanks for your information! We review every submission and we\'ll be in touch.',
                 error: 'Sorry ;( looks like there was an error saving your info. Please email us directly so we can help.'
             },
             scrollTo: null,
@@ -77,15 +93,26 @@
             onLoad: null,
             // Object or Array of Objects
             onTime: null,
-            // Object to reset or keep fields, e.g. resetOptions.reset = ['foo', 'bar'] or resetOptions.keep = ['foo', 'bar']
-            resetOptions: {},
+            // Object to reset or clear fields, e.g. reset.reset = ['foo', 'bar'] or reset.clear = ['foo', 'bar']
+            reset: {},
             // Allow passing in dynamic options that will be used in select or checkbox fields, e.g. `"dynamicOptions": {"skills":{"web-design": "Web Design"}}`
             dynamicOptions: {}
         };
 
+
         // Merge Custom Options
-        if ($attrs.options && _.isJSON($attrs.options)) $scope.options = _.extendDeep($scope.options, JSON.parse($attrs.options));
-        $scope.options.prototype.url = $scope.options.url + $scope.options.controller;
+        if ($attrs.options) {
+            var optionsHydrated = $interpolate($attrs.options)($scope);
+            if(_.isJSON(optionsHydrated)) $scope.options = _.extendDeep($scope.options, JSON.parse(optionsHydrated));
+        }
+
+        // Error for required options
+        if(!$scope.options.url) console.error('You must provide an API url via the options.url attribute, e.g. https://api.domain.com.');
+        if(!$scope.options.controller) console.error('You must provide an API controller via the options.controller attribute, e.g. /people.');
+
+        if($scope.options.url) {
+            $scope.options.prototype.url = $scope.options.url + $scope.options.controller;
+        }
 
         $scope.states = [
             {"value": "AL", "text": "Alabama"},
@@ -150,14 +177,15 @@
             // Data Returned
             $scope.results = {};
 
-            if ($scope.options.resetOptions && $scope.options.resetOptions instanceof Object) {
-                if ('reset' in $scope.options.resetOptions) {
-                    _.each($scope.options.resetOptions.reset, function (v) {
+            if ($scope.options.reset && $scope.options.reset instanceof Object) {
+                if ('clear' in $scope.options.reset && $scope.options.reset.clear && $scope.options.reset.clear.length > 0) {
+                    _.each($scope.options.reset.clear, function (v) {
                         if (v in $scope.model.data) $scope.model.data[v] = null;
                     });
-                } else if ('keep' in $scope.options.resetOptions) {
+                } else if ('keep' in $scope.options.reset && $scope.options.reset.keep && $scope.options.reset.keep.length > 0) {
+                    // TODO: this is not keeping the fields like it should... it says that 'i' is not contained in the keep list despite console logs that show it does
                     _.each($scope.model.data, function (v, i) {
-                        if (!_.contains($scope.options.resetOptions.keep, i)) {
+                        if (!_.contains($scope.options.reset.keep, i)) {
                             $scope.model.data[i] = null;
                         }
                     });
@@ -172,13 +200,12 @@
                 $scope[form].$setUntouched();
             }
             // Track UTM Codes
-            $scope.model.data.utmCampaign = $scope.customMethods.getUTMCode('utmCampaign');
-            $scope.model.data.utmSource = $scope.customMethods.getUTMCode('utmSource');
-            $scope.model.data.utmMedium = $scope.customMethods.getUTMCode('utmMedium');
+            $scope.model.data.utmCampaign = $scope.tracking.getUTMCode('utmCampaign');
+            $scope.model.data.utmSource = $scope.tracking.getUTMCode('utmSource');
+            $scope.model.data.utmMedium = $scope.tracking.getUTMCode('utmMedium');
         };
 
         $scope.reset();
-
 
         // METHODS
         $scope.serialize = function (obj) {
@@ -217,14 +244,16 @@
                 $scope.status = 'error';
             }
 
-            var promise = $http($scope.options.prototype);
-            // Hack for Angular 1.6.0 Promise bug
-            if (promise.catch) {
-                promise.then(successCallback, errorCallback).catch(errorCallback);
-            } else {
-                promise.then(successCallback, errorCallback);
+            if($scope.options.prototype.url) {
+                var promise = $http($scope.options.prototype);
+                // Hack for Angular 1.6.0 Promise bug
+                if (promise.catch) {
+                    promise.then(successCallback, errorCallback).catch(errorCallback);
+                } else {
+                    promise.then(successCallback, errorCallback);
+                }
+                return promise;
             }
-            return promise;
         };
 
         // CUSTOM METHODS
@@ -237,8 +266,8 @@
         // Signup Method
         $scope.send = function (form) {
 
+            console.log($scope.options.scrollTo);
             if ($scope.options.scrollTo && $($scope.options.scrollTo)) {
-                var scrollToTarget = document.getElement;
                 $('html,body').animate({
                     scrollTop: $($scope.options.scrollTo).offset().top + $scope.options.scrollToOffset
                 }, 500);

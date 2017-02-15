@@ -201,23 +201,23 @@ hr {
     margin-top: 26px;
     padding-top: 26px;
     border: none;
-    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/borderDashedBold.png') repeat-x;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDashedBold.png') repeat-x;
     background-size: 8px;
 }
 .borderDashed {
     margin-top: 20px;
     padding-top: 20px;
-    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/borderDashed.png') repeat-x;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDashed.png') repeat-x;
     background-size: 6px;
 }
 .borderDashedLight {
     margin-top: 20px;
     padding-top: 20px;
-    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/borderDashedLight.png') repeat-x;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDashedLight.png') repeat-x;
     background-size: 6px;
 }
 .borderDashedBold {
-    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/borderDashedBold.png') repeat-x;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDashedBold.png') repeat-x;
     background-size: 8px;
 }
 
@@ -273,7 +273,7 @@ hr {
 
 .starLeft,
 .starRight {
-    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starBlack.png') no-repeat left 8px;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starBlack.png') no-repeat left 8px;
     background-size: 9px;
 }
 .starRight {
@@ -283,10 +283,10 @@ hr {
     padding: 0 26px;
 }
 .starPurple {
-    background-image: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starPurple.png');
+    background-image: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starPurple.png');
 }
 .starWhite {
-    background-image: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starWhite.png');
+    background-image: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starWhite.png');
 }
 
 
@@ -331,7 +331,7 @@ hr {
     font-size: 11px;
     font-weight: bold;
     color: #598089;
-    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starBlue.png') no-repeat right center;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starBlue.png') no-repeat right center;
     background-size: 9px;
 }
 #starLinkRight:hover {
@@ -598,7 +598,7 @@ h2.sectionName {
     font-size: 18px;
     font-weight: 300;
     color: #333;
-    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starPurple.png') no-repeat left 16px;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starPurple.png') no-repeat left 16px;
     background-size: 0;
 }
 .siteNavLink a.navLevel2:hover {
@@ -686,7 +686,7 @@ h1.pageTitle {
 .pageTitle .starLeft,
 .pageTitle .starRight {
     display: block;
-    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starWhite.png') no-repeat left 17px;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starWhite.png') no-repeat left 17px;
     background-size: 11px;
 }
 .pageTitle .starRight {
@@ -825,7 +825,7 @@ md-progress-circular path {
 #footerJoinForm .starRight {
     width: 13px;
     height: 36px;
-    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starWhite.png') no-repeat left 10px;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starWhite.png') no-repeat left 10px;
     background-size: 13px;
 }
 #footerJoinForm .starLeft {
@@ -1008,7 +1008,7 @@ md-progress-circular path {
     padding: 0 0 0 18px;
     font-weight: bold;
     color: #999;
-    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starPurple.png') no-repeat left 2px;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starPurple.png') no-repeat left 2px;
     background-size: 9px;
 }
 .siteMapColumn a:hover {

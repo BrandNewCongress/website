@@ -20,17 +20,17 @@
 
 /* Gather Development Information */
 var dev = (typeof document.cookie === 'string' && document.cookie.indexOf('env=') !== -1);
-var local = (typeof document.cookie === 'string' && document.cookie.indexOf('local=') !== -1) || true;
+var local = (typeof document.cookie === 'string' && document.cookie.indexOf('local=') !== -1);
 var suffix = (dev) ? '' : '.min';
 var dashSuffix = (dev) ? '' : '-min';
 var directory = (dev) ? '' : 'min/';
 var cacheTime = cacheTime || '1';
 
 /* Deployment Customization */
-var cdn = '//brandnewcongress.org/';
+var cdn = '//bnc.sitetheory.net/';
 var relative = 'assets/1/0/bundles/';
 var bundle = 'sitetheorystratus/';
-var vendorBundle = 'bnccore/';
+var vendorBundle = 'sitetheorycore/';
 
 // Begin Config Object
 requirejs.config({
@@ -42,7 +42,7 @@ requirejs.config({
     urlArgs: 'v=' + cacheTime,
 
     // Version Location (Disabled During Beta Testing)
-    baseUrl: ((dev || local) ? '/' : cdn) + relative,
+    baseUrl: (local ? '/' : cdn) + relative,
 
     // Dependencies
     shim: {
@@ -60,7 +60,8 @@ requirejs.config({
                 'angular-messages'
             ]
         },
-        'angular-sanitize': { deps: ['angular'] }
+        'angular-sanitize': { deps: ['angular'] },
+        'jquery-cookie': { deps: ['zepto'] },
     },
 
 
@@ -71,6 +72,7 @@ requirejs.config({
 
         /* Stratus Core Library */
         stratus: bundle + 'stratus/stratus' + suffix,
+        'stratus-lite': bundle + 'stratus/stratusLite' + suffix,
 
         /* Stratus Controllers */
         'stratus.controllers.generic': bundle + 'stratus/controllers/generic' + suffix,
@@ -113,6 +115,10 @@ requirejs.config({
         promise: bundle + 'stratus/bower_components/promise-polyfill/promise' + suffix,
         countUp: bundle + 'stratus/bower_components/countUp.js/countUp',
 
+        /* jQuery */
+        jquery: bundle + 'stratus/bower_components/jquery/dist/jquery' + suffix,
+        'jquery-cookie': bundle + 'stratus/bower_components/jquery.cookie/jquery.cookie',
+
         /* Angular */
         angular: bundle + 'stratus/bower_components/angular/angular' + suffix,
         'angular-animate': bundle + 'stratus/bower_components/angular-animate/angular-animate' + suffix,
@@ -130,8 +136,15 @@ requirejs.config({
         backbone: 'sitetheorycore/dist/backbone/backbone' + suffix,
         zepto: 'sitetheorycore/dist/zepto/zepto' + suffix,
 
-        /* Vendor Custom */
+
+        // TODO: add +suffix back to these JS files
+        /* Vendor Custom Controllers */
+        'stratus.services.tracking': vendorBundle + 'js/services/tracking' + suffix,
+
+        /* Vendor Custom Controllers */
         'stratus.controllers.api': vendorBundle + 'js/controllers/api' + suffix,
+
+        /* Vendor Custom Components */
         'stratus.components.formNominate': vendorBundle + 'js/components/formNominate' + suffix,
         'templates-form-nominate': vendorBundle + 'js/components/formNominate.html'
     }

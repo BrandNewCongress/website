@@ -1,0 +1,55 @@
+{
+  "name": "stratus.js",
+  "version": "0.6.1",
+  "description": "This platform intends to bridge the gap between Web Design and Development in a fast, flexible environment.",
+  "main": "stratus.html",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "bower": "~1.8.*",
+    "underscore": "~1.8.*"
+  },
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.0.*",
+    "gulp-cli": "~1.2.*",
+    "gulp-debug": "^3.0.0",
+    "gulp-dest": "~0.2.*",
+    "gulp-htmlmin": "^3.0.*",
+    "gulp-jscs": "~3.0.*",
+    "gulp-less": "^3.3.*",
+    "gulp-uglify": "~1.5.*",
+    "jshint": "~2.9.*",
+    "karma": "~0.13.*",
+    "karma-chrome-launcher": "~1.0.*",
+    "karma-firefox-launcher": "~1.0.*",
+    "karma-opera-launcher": "~1.0.*",
+    "karma-safari-launcher": "~1.0.*",
+    "uglify": "~0.1.*",
+    "vinyl-paths": "^2.1.0"
+  },
+  "scripts": {
+    "test": "gulp jscs",
+    "karma": "karma start --single-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sitetheory/stratus.git"
+  },
+  "author": "Sitetheory Development Team (https://sitetheory.io/)",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/Sitetheory/stratus/issues"
+  },
+  "homepage": "https://github.com/Sitetheory/stratus",
+  "keywords": [
+    "sitetheory",
+    "stratus",
+    "widgets",
+    "angular",
+    "backbone",
+    "underscore"
+  ]
+}

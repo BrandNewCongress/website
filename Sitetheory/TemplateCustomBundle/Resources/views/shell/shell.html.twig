@@ -134,8 +134,8 @@ JAVASCRIPT
                         }
                     }
                 },
-                trackSignup: function () {
-                    ga('send', 'event', 'SignupButton', 'click');
+                trackSignup: function (category, action) {
+                    ga('send', 'event', category, action);
                     return true;
                 }
             };
@@ -355,7 +355,6 @@ JAVASCRIPT
                 $scope.send = function (form) {
 
                     if ($scope.options.scrollTo && $($scope.options.scrollTo)) {
-                        var scrollToTarget = document.getElement;
                         $('html,body').animate({
                             scrollTop: $($scope.options.scrollTo).offset().top + $scope.options.scrollToOffset
                         }, 500);
@@ -454,7 +453,7 @@ Sharing
     <meta property="og:url" content="https://brandnewcongress.org">
     <meta property="og:type" content="website">
     <meta property="og:image"
-          content="https://brandnewcongress.org/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/BNCLogoShare.png">
+          content="https://brandnewcongress.org/assets/1/0/bundles/sitetheorytemplatecustom/images/BNCLogoShare.png">
     <meta property="og:title" content="{{ view.viewVersion.title | default('Brand New Congress') }}">
     <meta property="og:description"
           content="{{ view.viewVersion.description | default("Brand New Congress is a plan to recruit and run 400+ candidates for Congress in 2018.") }}">
@@ -469,7 +468,7 @@ SIGNUP FORM
 
 {% block registrationForm %}
 
-    <form name="Signup" ng-submit="send('Signup') && customMethods.trackSignup()" ng-controller="CustomApi"
+    <form name="Signup" ng-submit="send('Signup') && customMethods.trackSignup('SignupButton', 'click')" ng-controller="CustomApi"
           ng-sanitize="true"
           options='{"controller": "/people", "redirect":{"url":"https://secure.actblue.com/contribute/page/bncsignup", "popup":false}}'
           ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
