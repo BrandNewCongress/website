@@ -618,14 +618,14 @@ h2.sectionName {
 .siteNavLink a.navLevel2.active:hover {
     color: #FFF;
 }
-#sidebarAds a {
+#sidebarPromoArea a {
     display: block;
     margin-top: 24px;
 }
-#sidebarAds a .imageContainer {
+#sidebarPromoArea a .imageContainer {
     transition: all .2s ease-out;
 }
-#sidebarAds a:hover .imageContainer {
+#sidebarPromoArea a:hover .imageContainer {
     opacity: .9;
 }
 @media (max-width:959px) {
@@ -659,7 +659,7 @@ h2.sectionName {
     .siteNavLink a.navLevel2 {
         font-size: 15px;
     }
-    #sidebarAds a {
+    #sidebarPromoArea a {
         margin-top: 0;
         margin-bottom: 16px;
     }
