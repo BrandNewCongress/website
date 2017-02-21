@@ -1,12 +1,13 @@
 {
-  "name": "sia",
-  "homepage": "https://github.com/gutensite/sia",
+  "name": "BrandNewCongress-Website",
+  "homepage": "https://github.com/BrandNewCongress/website",
   "authors": [
-    "Alex Gurrola <alexgurrola@gutensite.com>"
+    "Daniela Meyer <daniela@gutensite.com>",
+    "Chadwick Meyer <chadwick@gutensite.com>"
   ],
-  "description": "Social Intelligence Assistant",
+  "description": "Brand New Congress Promo Site",
   "main": "",
-  "license": "PRIVATE",
+  "license": "PUBLIC",
   "ignore": [
     "**/.*",
     "node_modules",

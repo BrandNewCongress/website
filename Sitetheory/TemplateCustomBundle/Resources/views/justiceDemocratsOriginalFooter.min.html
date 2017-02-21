@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="initial-scale=1"><!-- So that mobile webkit will display zoomed in --><meta name="format-detection" content="telephone=no"><!-- disable auto telephone linking in iOS --><title>NationBuilder</title><style type="text/css">/* Resets:see reset.css for details */
+        body{background-color:#ffffff;-webkit-text-size-adjust:none; -ms-text-size-adjust:none;}
+        body{color:#333333;font-family:Times,'Times New Roman',serif;margin:0;padding:0;}
+        table{border-spacing:0;border-collapse:collapse;border-spacing:0;}
+        table td{border-collapse:collapse;}
+        p{margin-bottom:1em;}
+        img{max-width:100%;}
+
+        /* Constrain email width for small screens */
+        @media screen and (max-width:600px) {
+            table[class="container"] { width:100%!important; }
+        }
+
+        /* Give content more room on mobile */
+        @media screen and (max-width:480px) {
+            table[class="container"] { width:100%!important; }
+            div[class="body-content"]img { width:100%; }
+        }
+
+        /* Styles for forcing columns to rows */
+        @media only screen and (max-width:600px) {
+
+            /* force container columns to (horizontal) blocks */
+            table[class="container"] { width:100%!important; }
+        }</style></head><body style="margin:0; padding:0" bgcolor="#ffffff" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0"><!-- 100% wrapper --><table border="0" width="100%" height="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff"><tr><td align="center" valign="top" bgcolor="#ffffff" style="background-color:#ffffff"><!-- ### 600PX CONTAINER ### --><table width="600" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="background-color:#ffffff;margin-top:30px" class="container"><tr><td style="font-family:Times,'Times New Roman',serif;padding-left:15px;padding-right:15px;padding-top:30px;text-align:left" class="body-content">{{ body }}</td></tr><tr><td style="font-family:Times,'Times New Roman',serif;padding-left:15px;padding-right:15px;padding-top:30px">-=-=-<p style="color:#333333;font-size:14px;line-height:1.5">{{ settings.official_name }}{% if settings.has_address? %} &middot; {{ settings.address.one_line }} {% endif %}<br>This email was sent to <a style="color:#1488b9" href="{{ recipient.email }}">{{ recipient.email }}</a>. To stop receiving emails, <a style="color:#1488b9" href="{{ settings.site.unsubscribe_url }}">click here</a>. {% if broadcaster.has_twitter? or broadcaster.has_facebook? %}<br>You can also keep up with {{ broadcaster.name }} {% if broadcaster.has_twitter? and broadcaster.has_facebook_page? %} on <a style="color:#1488b9" href="{{ broadcaster.twitter_profile_url }}">Twitter</a> or <a style="color:#1488b9" href="{{ broadcaster.facebook_page_profile_url }}">Facebook</a>. {% elsif broadcaster.has_twitter? %} on <a style="color:#1488b9" href="{{ broadcaster.twitter_profile_url }}">Twitter</a>. {% elsif broadcaster.has_facebook_page? %} on <a style="color:#1488b9" href="{{ broadcaster.facebook_page_profile_url }}">Facebook</a>. {% endif %} {% endif %}</p>-=-=-</td></tr></table><p style="font-family:Times,'Times New Roman',serif;color:#414141;font-size:13px;padding:0;line-height:1.6;text-align:center">Created with <a href="http://nationbuilder.com" style="color:#1488b9">NationBuilder</a>, software for leaders.</p><!-- ### 600PX CONTAINER ###  --></td></tr></table><!--/100% wrapper--></body></html>

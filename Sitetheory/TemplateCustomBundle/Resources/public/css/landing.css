@@ -100,7 +100,7 @@
 #homeSlides {
     animation: itemsFadein .2s ease-out .5s forwards;
     -webkit-animation: itemsFadein .2s ease-out .5s forwards;
-    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/slideshow1.jpg') no-repeat center center;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/slideshow1.jpg') no-repeat center center;
     background-size: cover;
 }
 
@@ -123,12 +123,12 @@
     font-size: 26px;
     letter-spacing: .05em;
     color: #FFF;
-    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starWhite.png') no-repeat left 13px;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starWhite.png') no-repeat left 13px;
     background-size: 9px;
 }
 #slideText1 .starRight{
     padding-right: 30px;
-    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starWhite.png') no-repeat right 13px;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starWhite.png') no-repeat right 13px;
     background-size: 9px;
 }
 #slidesContent .h4Container {
@@ -473,7 +473,7 @@
 }*/
 .tempCandidateAsk .starRight,
 .tempCandidateAsk .starLeft {
-    background-image: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/starWhite.png');
+    background-image: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starWhite.png');
 }
 .tempCandidateAsk .starLeft {
     background-position: left 3px;
@@ -519,6 +519,7 @@
     display: block;
     margin: 0 4%;
     width: 92%;
+    line-height: .5;
 }
 #homeImageLinks a:hover img {
     opacity: .8;
@@ -549,7 +550,7 @@
 }
 #currentMedia h1 {
     padding-left: 55px;
-    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/mediaTitleIcon.png') no-repeat left center;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/mediaTitleIcon.png') no-repeat left center;
     background-size: 40px;
 }
 #currentMedia .borderDashedBold {
@@ -576,7 +577,7 @@
 }
 #FB-feedParent h1 {
     padding-left: 55px;
-    background: url('/sitetheory/v/1/0/bundles/sitetheorytemplatecustom/images/facebookTitleIcon.png') no-repeat left center;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/facebookTitleIcon.png') no-repeat left center;
     background-size: 40px;
 }
 #facebookPageContainer {

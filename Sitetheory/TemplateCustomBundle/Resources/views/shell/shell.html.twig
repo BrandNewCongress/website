@@ -10,7 +10,7 @@ SETTINGS
 {% set headerStructure = 'empty' %}
 
 {# Make mobile drawer slide in from right #}
-{%  set mobileDrawerDirection = 'mobileDrawerRight' %}
+{% set mobileDrawerDirection = 'mobileDrawerRight' %}
 
 {# Hide Sidebar Login until it's dynamically hidden for users with no membership feature #}
 {% block sidebarLogin %}
@@ -31,8 +31,8 @@ SETTINGS
 {% endif %}
 
 {# Sidebar fonts #}
-{%  set navLevel1Font = 'fontPrimary' %}
-{%  set navLevel2Font = 'fontSecondary' %}
+{% set navLevel1Font = 'fontPrimary' %}
+{% set navLevel2Font = 'fontSecondary' %}
 
 {# Hide page title in main column so it can be placed up by header #}
 {% block pageTitleMainColumn %}
@@ -62,7 +62,16 @@ CSS STYLING
 
     {{ parent() }}
 
+    {% if environment.user.id == 1 or environment.user.id == 2 %}
+        {# TODO: once asset loads custom vhost files, load this way #}
+        {# #
+        {% stylesheets '@SitetheoryTemplateCustomBundle/Resources/public/css/site.css' filter='?uglifycss' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" data-file="site.css">
+        {% endstylesheets %}
+        {# #}
+    {% endif %}
     <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/site.css') }}">
+
 
 {% endblock link %}
 
@@ -75,35 +84,83 @@ JAVASCRIPT
 {% block script %}
     {{ parent() }}
 
+
+
     {# SIGNUP FORM #}
     <script>
         (function (root, factory) {
             if (typeof require === 'function') {
-                require(['stratus', 'underscore', 'jquery', 'angular', 'angular-material'], factory);
+                require(['stratus', 'underscore', 'jquery', 'angular', 'angular-material', 'stratus.services.model'], factory);
             } else {
                 factory(root.Stratus, root._, root.$);
             }
         }(this, function (Stratus, _, $) {
 
-            Stratus.Controllers.CustomApi = function ($scope, $element, $http, $attrs, $window) {
 
+            <!-- Custom Track Signups -->
+            var customMethods = {
+                getParameterByName: function (name, url) {
+                    if (!url) url = window.location.href;
+                    name = name.replace(/[\[\]]/g, "\\$&");
+                    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"), results = regex.exec(url);
+                    if (!results) return null;
+                    if (!results[2]) return '';
+                    return decodeURIComponent(results[2].replace(/\+/g, " "));
+                },
+                parseURL: function (url) {
+                    var a = document.createElement('a');
+                    a.href = url;
+                    return a.hostname;
+                },
+                getUTMCode: function (name) {
+                    var value = this.getParameterByName(name);
+                    if (!value && name == 'utmSource') value = this.parseURL(document.referrer);
+                    return value
+                },
+                getRefcode: function () {
+                    var utmCampaign = this.getUTMCode('utmCampaign');
+                    var utmSource = this.getUTMCode('utmSource');
+                    var utmMedium = this.getUTMCode('utmMedium');
+                    return (utmCampaign ? (utmCampaign + "/") : "") + (utmSource ? utmSource : "") + (utmMedium ? ("/" + utmMedium) : "");
+                },
+                setRefcode: function () {
+                    var urlDonate = 'https://secure.actblue.com/contribute/page/brandnewcongress';
+                    var refCode = this.getRefcode();
+                    var donateLinks = document.querySelectorAll('[href="' + urlDonate + '"]');
+                    if (donateLinks.length > 0) {
+                        for (var index = 0; index < donateLinks.length; index++) {
+                            var donateLink = donateLinks[index];
+                            donateLink.href = urlDonate + '?refcode=' + refCode;
+                        }
+                    }
+                },
+                trackSignup: function (category, action) {
+                    ga('send', 'event', category, action);
+                    return true;
+                }
+            };
+            Stratus.DOM.ready(function () {
+                customMethods.setRefcode();
+            });
+            <!-- End Track Signups -->
+
+
+            Stratus.Controllers.CustomApi = function ($scope, $element, $http, $attrs, $window, model) {
+
+                $scope.customMethods = customMethods;
 
                 Stratus.Instances[_.uniqueId('custom_api_')] = $scope;
 
-                // DEFAULTS
-                $scope.response = '';
-                $scope.status = 'default';
-                // Data Sent
-                $scope.data = {};
-                // Data Returned
-                $scope.results = {};
-
-                // Custom Easing (Quintic)
+                // Custom Easing (Quintic) (for the counter page)
                 $scope.easingFn = function (t, b, c, d) {
                     var ts = (t /= d) * t;
                     var tc = ts * t;
                     return b + c * (tc * ts + -5 * ts * ts + 10 * tc + -10 * ts + 5 * t);
                 };
+
+
+                // Data Sent
+                $scope.model = new model;
 
                 // OPTIONS
                 $scope.options = {
@@ -113,9 +170,10 @@ JAVASCRIPT
                         phone: /^[0-9]{10,}$/
                     },
                     url: 'https://api.brandnewcongress.org',
-                    controller: '/people',
+                    controller: null, // e.g. '/people'
                     response: {
-                        success: 'Thanks for signing up! We\'ll be in touch shortly. In the meantime, please help us with a <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank">much needed donation</a>.',
+                        invalid: 'There was a validation error, please check the fields below.',
+                        success: 'Thanks for signing up! We\'ll be in touch shortly. In the meantime, please help us with a <a href="https://secure.actblue.com/contribute/page/brandnewcongress" target="_blank">much needed donation</a>.',
                         error: 'Sorry ;( looks like there was an error saving your info. Please email us directly so we can help.'
                     },
                     scrollTo: null,
@@ -135,58 +193,150 @@ JAVASCRIPT
                     // String of method name, or Array of Strings
                     onLoad: null,
                     // Object or Array of Objects
-                    onTime: null
+                    onTime: null,
+                    // Object to reset or keep fields, e.g. resetOptions.reset = ['foo', 'bar'] or resetOptions.keep = ['foo', 'bar']
+                    resetOptions: {},
+                    // Allow passing in dynamic options that will be used in select or checkbox fields, e.g. `"dynamicOptions": {"skills":{"web-design": "Web Design"}}`
+                    dynamicOptions: {}
                 };
 
                 // Merge Custom Options
-                if($attrs.options && _.isJSON($attrs.options)) $scope.options = _.extendDeep($scope.options, JSON.parse($attrs.options));
+                if ($attrs.options && _.isJSON($attrs.options)) $scope.options = _.extendDeep($scope.options, JSON.parse($attrs.options));
                 $scope.options.prototype.url = $scope.options.url + $scope.options.controller;
 
-                $scope.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY').split(' ').map(function(state) {
-                    return {abbrev: state};
-                });
+                $scope.states = [
+                    {"value": "AL", "text": "Alabama"},
+                    {"value": "AK", "text": "Alaska"},
+                    {"value": "AZ", "text": "Arizona"},
+                    {"value": "AR", "text": "Arkansas"},
+                    {"value": "CA", "text": "California"},
+                    {"value": "CO", "text": "Colorado"},
+                    {"value": "CT", "text": "Connecticut"},
+                    {"value": "DE", "text": "Delaware"},
+                    {"value": "FL", "text": "Florida"},
+                    {"value": "GA", "text": "Georgia"},
+                    {"value": "HI", "text": "Hawaii"},
+                    {"value": "ID", "text": "Idaho"},
+                    {"value": "IL", "text": "Illinois"},
+                    {"value": "IN", "text": "Indiana"},
+                    {"value": "IA", "text": "Iowa"},
+                    {"value": "KS", "text": "Kansas"},
+                    {"value": "KY", "text": "Kentucky"},
+                    {"value": "LA", "text": "Louisiana"},
+                    {"value": "ME", "text": "Maine"},
+                    {"value": "MD", "text": "Maryland"},
+                    {"value": "MA", "text": "Massachusetts"},
+                    {"value": "MI", "text": "Michigan"},
+                    {"value": "MN", "text": "Minnesota"},
+                    {"value": "MS", "text": "Mississippi"},
+                    {"value": "MO", "text": "Missouri"},
+                    {"value": "MT", "text": "Montana"},
+                    {"value": "NE", "text": "Nebraska"},
+                    {"value": "NV", "text": "Nevada"},
+                    {"value": "NH", "text": "New Hampshire"},
+                    {"value": "NJ", "text": "New Jersey"},
+                    {"value": "NM", "text": "New Mexico"},
+                    {"value": "NY", "text": "New York"},
+                    {"value": "NC", "text": "North Carolina"},
+                    {"value": "ND", "text": "North Dakota"},
+                    {"value": "OH", "text": "Ohio"},
+                    {"value": "OK", "text": "Oklahoma"},
+                    {"value": "OR", "text": "Oregon"},
+                    {"value": "PA", "text": "Pennsylvania"},
+                    {"value": "RI", "text": "Rhode Island"},
+                    {"value": "SC", "text": "South Carolina"},
+                    {"value": "SD", "text": "South Dakota"},
+                    {"value": "TN", "text": "Tennessee"},
+                    {"value": "TX", "text": "Texas"},
+                    {"value": "UT", "text": "Utah"},
+                    {"value": "VT", "text": "Vermont"},
+                    {"value": "VA", "text": "Virginia"},
+                    {"value": "WA", "text": "Washington"},
+                    {"value": "WV", "text": "West Virginia"},
+                    {"value": "WI", "text": "Wisconsin"},
+                    {"value": "WY", "text": "Wyoming"}
+                ];
 
-                $scope.statesFull = ('Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia, Wisconsin, Wyoming').split(', ').map(function(state) {
-                    return {abbrev: state};
-                });
+
+                // DEFAULTS
+                $scope.reset = function (form) {
+
+
+                    $scope.response = '';
+                    $scope.status = 'default';
+                    // Data Returned
+                    $scope.results = {};
+
+                    if ($scope.options.resetOptions && $scope.options.resetOptions instanceof Object) {
+                        if ('reset' in $scope.options.resetOptions) {
+                            _.each($scope.options.resetOptions.reset, function (v) {
+                                if (v in $scope.model.data) $scope.model.data[v] = null;
+                            });
+                        } else if ('keep' in $scope.options.resetOptions) {
+                            _.each($scope.model.data, function (v, i) {
+                                if (!_.contains($scope.options.resetOptions.keep, i)) {
+                                    $scope.model.data[i] = null;
+                                }
+                            });
+                        } else {
+                            $scope.model.data = {};
+                        }
+                    } else {
+                        $scope.model.data = {};
+                    }
+                    if (form && form in $scope) {
+                        $scope[form].$setPristine();
+                        $scope[form].$setUntouched();
+                    }
+                    // Track UTM Codes
+                    $scope.model.data.utmCampaign = $scope.customMethods.getUTMCode('utmCampaign');
+                    $scope.model.data.utmSource = $scope.customMethods.getUTMCode('utmSource');
+                    $scope.model.data.utmMedium = $scope.customMethods.getUTMCode('utmMedium');
+                };
+
+                $scope.reset();
+
 
                 // METHODS
-                $scope.serialize = function(obj) {
+                $scope.serialize = function (obj) {
                     var str = [];
-                    for(var p in obj)
+                    for (var p in obj) {
                         str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                    }
                     return str.join("&");
                 };
 
                 // General Submit
-                $scope.submit = function(form) {
+                $scope.submit = function (form) {
                     $scope.status = 'sending';
                     $scope.response = '';
                     // Success
                     function successCallback(response) {
-                        console.log('success', response);
                         if (response && (response.status === 200)) {
                             $scope.response = $scope.options.response.success;
                             $scope.status = 'success';
                             $scope.results = response.data;
-                            if($scope.options.redirect.url) {
-                                $window.location = $scope.options.redirect.url;
+                            if ($scope.options.redirect.url) {
+                                // Get UTM Tracking Referral Code
+                                var refcode = '?refcode=' + $scope.customMethods.getRefcode();
+                                $window.location = $scope.options.redirect.url + refcode;
                             }
-
                         } else {
-                            $scope.response = $scope.options.response.error;
+                            // @debug add response code
+                            $scope.response = $scope.options.response.error + ' [' + response.code + ': ' + response.data + ']';
                             $scope.status = 'error';
                         }
                     }
+
                     // Error
                     function errorCallback(response) {
-                        console.log('error', response);
-                        $scope.response = $scope.options.response.error;
+                        $scope.response = $scope.options.response.error + ' [' + response.code + ': ' + response.data + ']';
                         $scope.status = 'error';
                     }
+
                     var promise = $http($scope.options.prototype);
                     // Hack for Angular 1.6.0 Promise bug
-                    if(promise.catch) {
+                    if (promise.catch) {
                         promise.then(successCallback, errorCallback).catch(errorCallback);
                     } else {
                         promise.then(successCallback, errorCallback);
@@ -196,31 +346,34 @@ JAVASCRIPT
 
                 // CUSTOM METHODS
                 // General API Data Method
-                $scope.fetch = function() {
+                $scope.fetch = function () {
                     $scope.options.prototype.method = 'GET';
                     return $scope.submit();
                 };
 
                 // Signup Method
-                $scope.send = function(form) {
+                $scope.send = function (form) {
 
-                    // Scroll to top
-                    console.log('scroll', $scope.options.scrollTo, $($scope.options.scrollTo));
-                    if($scope.options.scrollTo && $($scope.options.scrollTo)) {
-                        var scrollToTarget = document.getElement;
+                    if ($scope.options.scrollTo && $($scope.options.scrollTo)) {
                         $('html,body').animate({
                             scrollTop: $($scope.options.scrollTo).offset().top + $scope.options.scrollToOffset
                         }, 500);
                     }
 
+                    if (!$scope[form].$valid) {
+                        $scope.response = $scope.options.response.invalid;
+                        $scope.status = 'error';
+                        return false;
+                    }
+
                     $scope.options.prototype.method = 'POST';
                     $scope.options.prototype.dataType = $scope.options.contentType;
-                    if($scope.options.contentType == 'form') {
+                    if ($scope.options.contentType == 'form') {
                         $scope.options.prototype.headers['Content-Type'] = 'application/x-www-form-urlencoded';
-                        $scope.options.prototype.data = $scope.serialize($scope.data);
+                        $scope.options.prototype.data = $scope.serialize($scope.model.data);
                     } else {
                         $scope.options.prototype.headers['Content-Type'] = 'application/json';
-                        $scope.options.prototype.data = $scope.data;
+                        $scope.options.prototype.data = $scope.model.data;
                     }
                     return $scope.submit(form);
                 };
@@ -262,19 +415,49 @@ JAVASCRIPT
         }));
     </script>
 
-    <!-- Google Tag Manager -->
-    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WWRN82"
-                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-WWRN82');</script>
-    <!-- End Google Tag Manager -->
+    <!-- Google Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-75845088-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics  -->
+
+
+
+
 
 {% endblock script %}
 
 
+
+{#
+############
+Sharing
+############
+#}
+{% block meta %}
+    {{ parent() }}
+    {# TODO: This is just here temporarily until the base.html.twig give the ability to select the preferred image in the admin #}
+    {# we may need to reload the page here in order to get the new image https://developers.facebook.com/tools/debug/ #}
+    <meta property="og:url" content="https://brandnewcongress.org">
+    <meta property="og:type" content="website">
+    <meta property="og:image"
+          content="https://brandnewcongress.org/assets/1/0/bundles/sitetheorytemplatecustom/images/BNCLogoShare.png">
+    <meta property="og:title" content="{{ view.viewVersion.title | default('Brand New Congress') }}">
+    <meta property="og:description"
+          content="{{ view.viewVersion.description | default("Brand New Congress is a plan to recruit and run 400+ candidates for Congress in 2018.") }}">
+{% endblock meta %}
 
 
 {#
@@ -285,20 +468,25 @@ SIGNUP FORM
 
 {% block registrationForm %}
 
-<form name="Signup" ng-submit="send(form)" ng-controller="CustomApi" ng-sanitize="true" options='{"redirect":{"url":"https://secure.actblue.com/contribute/page/bncsignup", "popup":false}}' ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
+    <form name="Signup" ng-submit="send('Signup') && customMethods.trackSignup('SignupButton', 'click')" ng-controller="CustomApi"
+          ng-sanitize="true"
+          options='{"controller": "/people", "redirect":{"url":"https://secure.actblue.com/contribute/page/bncsignup", "popup":false}}'
+          ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
+        <input type="hidden" name="utmSource" ng-value="model.data.utmSource">
+        <input type="hidden" name="utmMedium" ng-value="model.data.utmMedium">
+        <input type="hidden" name="utmCampaign" ng-value="model.data.utmCampaign">
+        <md-progress-circular md-mode="indeterminate" ng-show="status === 'sending'"></md-progress-circular>
+        <p class="message" ng-show="response.length" ng-bind-html="response"></p>
 
-    <md-progress-circular md-mode="indeterminate" ng-show="status === 'sending'"></md-progress-circular>
-    <p class="message" ng-show="response.length" ng-bind-html="response"></p>
+        <ul class="listInline divCenter fontSecondary" ng-show="status !== 'success'">
 
-    <ul class="listInline divCenter fontSecondary" ng-show="status !== 'success'">
+            {{ registrationFormBefore|default('')|raw }}
 
-        {{ registrationFormBefore|default('')|raw }}
-
-        {% verbatim %}
+            {% verbatim %}
         <li>
             <md-input-container>
                 <label>Email</label>
-                <input name="email" type="email" ng-pattern="options.pattern.email" ng-model="data.email" required md-no-asterisk>
+                <input name="email" type="email" ng-pattern="options.pattern.email" ng-model="model.data.email" required md-no-asterisk>
                 <div ng-messages="Signup.email.$error" role="alert">
                     <div ng-message-exp="['required', 'pattern']">
                         Please enter a valid email.
@@ -309,7 +497,7 @@ SIGNUP FORM
         <li>
             <md-input-container>
                 <label>Zip</label>
-                <input name="zip" ng-pattern="options.pattern.zip" ng-model="data.zip" required md-no-asterisk>
+                <input name="zip" ng-pattern="options.pattern.zip" ng-model="model.data.zip" required md-no-asterisk>
                 <div ng-messages="Signup.zip.$error" role="alert">
                     <div ng-message-exp="['required', 'pattern']">
                         Please enter a valid zip code.
@@ -318,14 +506,15 @@ SIGNUP FORM
             </md-input-container>
         </li>
         {% endverbatim %}
-        <li>
-            <button type="submit" class="btn formSubmit" ng-disabled="Signup.$invalid">{{ textSubmit|default('Count Me In') }}</button>
-        </li>
+            <li>
+                <button type="submit" class="btn formSubmit"
+                        ng-disabled="Signup.$invalid">{{ textSubmit|default('Count Me In') }}</button>
+            </li>
 
-        {{ registrationFormAfter|default('')|raw }}
+            {{ registrationFormAfter|default('')|raw }}
 
-    </ul>
-</form>
+        </ul>
+    </form>
 {% endblock registrationForm %}
 
 
@@ -336,13 +525,7 @@ LAYOUT
 ######
 #}
 
-{# Add border to bottom of sidebar #}
-{% block sidebarExtrasBottom %}
-    <div hide-gt-sm>
-        {{ block('socialMedia') }}
-    </div>
-    <div class="borderDashed sidebarBorder"></div>
-{% endblock sidebarExtrasBottom %}
+
 
 
 
@@ -366,11 +549,13 @@ LAYOUT
                         <img src="{{ asset('bundles/sitetheorytemplatecustom/images/planGraphic.png') }}" alt="">
                     </div>
                     <div id="logoHeader" class="textCenter">
-                        <a href="/"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogo.png') }}" alt=""></a>
+                        <a href="/"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogo.png') }}"
+                                         alt=""></a>
                     </div>
                     <div id="headerExtraLinks" class="positionRightBottom">
                         <div class="clearfix">
-                            <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank" class="btn btnContribute pullRight">Donate</a>
+                            <a href="https://secure.actblue.com/contribute/page/brandnewcongress" target="_blank"
+                               class="btn btnContribute pullRight">Donate</a>
                         </div>
                         <a id="starLinkRight" class="fontTertiary align-right" href="/Nominate">Nominate a Candidate</a>
                     </div>
@@ -398,14 +583,18 @@ LAYOUT
                                         Join
                                     </a>
                                 </li>
-                                <li class="delimiter"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}" alt="">
+                                <li class="delimiter"><img
+                                            src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}"
+                                            alt="">
                                 </li>
                                 <li id="navHelp" class="navMainLink">
                                     <a href="/support">
                                         Support
                                     </a>
                                 </li>
-                                <li class="delimiter"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}" alt="">
+                                <li class="delimiter"><img
+                                            src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}"
+                                            alt="">
                                 </li>
                                 <li id="navLearn" class="navMainLink">
                                     <a href="/plan">
@@ -422,17 +611,20 @@ LAYOUT
                             <div class="socialMedia {{ socialStyle|default('basicStyle') }}">
                                 <ul class="listInline">
                                     <li class="twitter">
-                                        <a class="positionAnchor" href="https://twitter.com/BrandNew535" title="Share on Twitter" target="_blank" data-reactid="123" target="_blank">
+                                        <a class="positionAnchor" href="https://twitter.com/BrandNew535"
+                                           title="Share on Twitter" target="_blank" data-reactid="123" target="_blank">
                                             {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/twitter.svg' %}{% block id %}footerTwitterIcon{% endblock %}{% endembed %}
                                         </a>
                                     </li>
                                     <li class="facebook">
-                                        <a class="positionAnchor" href="https://www.facebook.com/brandnewcongress" title="Facebook" data-reactid="125" target="_blank">
+                                        <a class="positionAnchor" href="https://www.facebook.com/brandnewcongress"
+                                           title="Facebook" data-reactid="125" target="_blank">
                                             {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/facebook.svg' %}{% block id %}footerFacebookIcon{% endblock %}{% endembed %}
                                         </a>
                                     </li>
                                     <li class="reddit">
-                                        <a class="positionAnchor" href="https://www.reddit.com/r/BrandNewCongress/" target="_blank">
+                                        <a class="positionAnchor" href="https://www.reddit.com/r/BrandNewCongress/"
+                                           target="_blank">
                                             {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/reddit.svg' %}{% block id %}footerRedditIcon{% endblock %}{% endembed %}
                                         </a>
                                     </li>
@@ -441,8 +633,12 @@ LAYOUT
                         {% endblock socialMedia %}
                         <!-- End Social Media -->
                     </div>
-                    <div class="headerOrnament verticalCenter centerLeft"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/tripleSquarePurple.png') }}" alt=""></div>
-                    <div class="headerOrnament verticalCenter centerRight"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/tripleSquarePurple.png') }}" alt=""></div>
+                    <div class="headerOrnament verticalCenter centerLeft"><img
+                                src="{{ asset('bundles/sitetheorytemplatecustom/images/tripleSquarePurple.png') }}"
+                                alt=""></div>
+                    <div class="headerOrnament verticalCenter centerRight"><img
+                                src="{{ asset('bundles/sitetheorytemplatecustom/images/tripleSquarePurple.png') }}"
+                                alt=""></div>
                 </div>
             </div>
         {% endblock header1 %}
@@ -469,8 +665,9 @@ LAYOUT
 
         {% block pageTitle %}
             <div class="siteMaxWidth siteSidePadding">
-                <h1 class="pageTitle" {{ block('editableView') }} data-type="text" data-property="viewVersion.title" data-render="click">
-                    <span  class="starLeft">
+                <h1 class="pageTitle" {{ block('editableView') }} data-type="text" data-property="viewVersion.title"
+                    data-render="click">
+                    <span class="starLeft">
                         <span class="starRight">{{ view.viewVersion.title }}</span>
                     </span>
                 </h1>
@@ -484,13 +681,14 @@ LAYOUT
 {# Retracting header uses only a few elements from the full header. Must come before mini header which is identical. #}
 {% block retractingHeaderContent %}
     <div class="clearfix">
-        <div id="logoRetractingHeader"  class="verticalCenter">
+        <div id="logoRetractingHeader" class="verticalCenter">
             <a href="/">
                 <img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogoHorizontal.png') }}" alt="">
             </a>
         </div>
         <div id="retractingContribute" class="verticalCenter hide-xs hide-sm">
-            <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank" class="btn btnContribute">Donate</a>
+            <a href="https://secure.actblue.com/contribute/page/brandnewcongress" target="_blank"
+               class="btn btnContribute">Donate</a>
         </div>
         <div>
             {{ block('navMain') }}
@@ -528,22 +726,35 @@ LAYOUT
     <!-- Level 2 Links -->
     <ul id="listLevel2" class="listUnstyled {{ navLevel2Font|default('fontSecondary') }}">
         <li class="siteNavLink" data-level="2">
-            <a href="/support" class="navLevel2 {% if sectionMenuActive == 'volunteerActive' %}active{% endif %}">
-                Support
+            <a href="/support" class="navLevel2 {% if sectionMenuActive == 'supportActive' %}active{% endif %}">
+                Overview
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="/Nominate" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">
+            <a href="/nominate" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">
                 Nominate
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="https://goo.gl/forms/CGeULYdVgKTnW72D2" target="_blank" class="navLevel2 {% if sectionMenuActive == 'specialSkillsActive' %}active{% endif %}">
-                Special Skills
+            <a href="https://goo.gl/forms/CGeULYdVgKTnW72D2" target="_blank"
+               class="navLevel2 {% if sectionMenuActive == 'volunteerSkillsActive' %}active{% endif %}">
+                How Can You Help
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="https://docs.google.com/document/d/1Op0OaZNuykCJckSCn4vABDEr4VEdTrMeTsPCZFNSJo4/edit" target="_blank" class="navLevel2 {% if sectionMenuActive == 'organizeLocallyActive' %}active{% endif %}">
+            <a href="/candidate-research" class="navLevel2 {% if sectionMenuActive == 'researchActive' %}active{% endif %}">
+                Candidate Research
+            </a>
+        </li>
+        <li class="siteNavLink" data-level="2">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8CfK0gUULEVpYFm9Eb4iyGOL-_iDl395qB0z4hny7ek4iNw/viewform" target="_blank" class="navLevel2">
+                District Research
+            </a>
+        </li>
+
+        <li class="siteNavLink" data-level="2">
+            <a href="https://docs.google.com/document/d/1Op0OaZNuykCJckSCn4vABDEr4VEdTrMeTsPCZFNSJo4/edit"
+               target="_blank" class="navLevel2 {% if sectionMenuActive == 'organizeLocallyActive' %}active{% endif %}">
                 Organize Locally
             </a>
         </li>
@@ -553,8 +764,15 @@ LAYOUT
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank" class="navLevel2 {% if sectionMenuActive == 'contributeActive' %}active{% endif %}">
+            <a href="https://secure.actblue.com/contribute/page/brandnewcongress" target="_blank"
+               class="navLevel2 {% if sectionMenuActive == 'contributeActive' %}active{% endif %}">
                 Donate
+            </a>
+        </li>
+        <li class="siteNavLink" data-level="2">
+            <a href="https://shop.brandnewcongress.org" target="_blank"
+               class="navLevel2">
+                BNC Store
             </a>
         </li>
     </ul>
@@ -595,8 +813,6 @@ LAYOUT
             {{ block('menuSection2') }}
         {% elseif sectionMenuHardCoded == '3' %}
             {{ block('menuSection3') }}
-        {% elseif sectionMenuHardCoded == '4' %}
-            {{ block('menuSection4') }}
         {% endif %}
 
     </div>
@@ -606,14 +822,14 @@ LAYOUT
     <div class="hide-gt-sm">
         <ul id="listLevel1" class="listUnstyled">
             <li data-level="1">
-                <div class="siteNavLink "  data-level="1">
+                <div class="siteNavLink " data-level="1">
                     <a href="#joinForm" class="navLevel1 fontPrimary">
                         Join
                     </a>
                 </div>
             </li>
             <li data-level="1">
-                <div class="siteNavLink"  data-level="1">
+                <div class="siteNavLink" data-level="1">
                     <a href="/submit-nominee" class="navLevel1 fontPrimary">
                         Candidates
                     </a>
@@ -621,7 +837,7 @@ LAYOUT
                 {{ block('menuSection1') }}
             </li>
             <li data-level="1">
-                <div class="siteNavLink"  data-level="1">
+                <div class="siteNavLink" data-level="1">
                     <a href="/support" class="navLevel1 fontPrimary">
                         Work With Us
                     </a>
@@ -629,7 +845,7 @@ LAYOUT
                 {{ block('menuSection2') }}
             </li>
             <li data-level="1">
-                <div class="siteNavLink {{ navLevel1Font|default('fontPrimary') }}"  data-level="1">
+                <div class="siteNavLink {{ navLevel1Font|default('fontPrimary') }}" data-level="1">
                     <a href="/plan" class="navLevel1 fontPrimary">
                         Learn
                     </a>
@@ -642,15 +858,33 @@ LAYOUT
                         us@brandnewcongress.org
                     </a>
                 </div>
-                {{ block('menuSection4') }}
             </li>
         </ul>
     </div>
 
-
 {% endblock navSection %}
 
 {# End temporary hard coded menu #}
+
+
+
+{# Add border to bottom of sidebar #}
+{% block sidebarExtrasBottom %}
+    <div hide-gt-sm>
+        {{ block('socialMedia') }}
+    </div>
+    <div class="borderDashed sidebarBorder"></div>
+
+    <div id="sidebarPromoArea">
+        <a href="https://shop.brandnewcongress.org" target="_blank" class="backgroundDark">
+            <div class="imageContainer">
+                <img src="{{ asset('bundles/sitetheorytemplatecustom/images/sidebarButtonStore.png') }}" alt="">
+            </div>
+        </a>
+    </div>
+{% endblock sidebarExtrasBottom %}
+
+
 
 {# ADD FOOTER JOIN FORM AT BOTTOM OF BODY BLOCK #}
 {% block main %}
@@ -678,77 +912,81 @@ LAYOUT
             <div id="siteMapNew" layout="row" layout-wrap class="hide-xs hide-sm">
                 <div flex="25">
                     <div class="siteMapColumn">
-                    <ul class="listUnstyled">
-                        <li class="siteMapHeader">
-                            <a class="fontTertiary" href="/submit-nominee" target="_blank">Candidates</a>
-                        </li>
-                        <li>
-                            <a href="/Nominate">Nominate a Candidate</a>
-                        </li>
-                    </ul>
+                        <ul class="listUnstyled">
+                            <li class="siteMapHeader">
+                                <a class="fontTertiary" href="/submit-nominee">Candidates</a>
+                            </li>
+                            <li>
+                                <a href="/Nominate">Nominate a Candidate</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div flex="25">
                     <div class="siteMapColumn">
-                    <ul class="listUnstyled">
-                        <li class="siteMapHeader">
-                            <a class="fontTertiary" href="/support">Support</a>
-                        </li>
-                        <li>
-                            <a href="/support">Support</a>
-                        </li>
-                        <li>
-                            <a href="/Nominate">Nominate a Candidate</a>
-                        </li>
-                        <li>
-                            <a  href="https://goo.gl/forms/CGeULYdVgKTnW72D2" target="_blank">Special Skills</a>
-                        </li>
-                        <li>
-                            <a href="https://docs.google.com/document/d/1Op0OaZNuykCJckSCn4vABDEr4VEdTrMeTsPCZFNSJo4/edit" target="_blank">Organize Locally</a>
-                        </li>
-                        <li>
-                            <a href="/call">Join a Call</a>
-                        </li>
-                        <li>
-                            <a href="https://secure.actblue.com/contribute/page/bncsignup" target="_blank">Donate</a>
-                        </li>
-                    </ul>
+                        <ul class="listUnstyled">
+                            <li class="siteMapHeader">
+                                <a class="fontTertiary" href="/support">Support</a>
+                            </li>
+                            <li>
+                                <a href="/support">Support</a>
+                            </li>
+                            <li>
+                                <a href="/nominate">Nominate a Candidate</a>
+                            </li>
+                            <li>
+                                <a href="https://goo.gl/forms/CGeULYdVgKTnW72D2" target="_blank">Volunteer</a>
+                            </li>
+                            <li>
+                                <a href="https://docs.google.com/document/d/1Op0OaZNuykCJckSCn4vABDEr4VEdTrMeTsPCZFNSJo4/edit"
+                                   target="_blank">Organize Locally</a>
+                            </li>
+                            <li>
+                                <a href="/call">Join a Call</a>
+                            </li>
+                            <li>
+                                <a href="https://secure.actblue.com/contribute/page/brandnewcongress" target="_blank">Donate</a>
+                            </li>
+                            <li>
+                                <a href="https://shop.brandnewcongress.org/" target="_blank">BNC Store</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div flex="25">
                     <div class="siteMapColumn">
-                    <ul class="listUnstyled">
-                        <li class="siteMapHeader">
-                            <a class="fontTertiary" href="/plan">Learn</a>
-                        </li>
-                        <li>
-                            <a href="/plan">Our Plan</a>
-                        </li>
-                        <li>
-                            <a href="/about">About Us</a>
-                        </li>
-                        <li>
-                            <a href="/faq">FAQ</a>
-                        </li>
-                    </ul>
+                        <ul class="listUnstyled">
+                            <li class="siteMapHeader">
+                                <a class="fontTertiary" href="/plan">Learn</a>
+                            </li>
+                            <li>
+                                <a href="/plan">Our Plan</a>
+                            </li>
+                            <li>
+                                <a href="/about">About Us</a>
+                            </li>
+                            <li>
+                                <a href="/faq">FAQ</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div flex="25">
                     <div class="siteMapColumn">
-                    <ul class="listUnstyled">
-                        <li class="siteMapHeader">
-                            <a class="fontTertiary" href="mailto:us@brandnewcongress.org">Contact</a>
-                        </li>
-                        <li>
-                            <a href="mailto:us@brandnewcongress.org">Contact Us</a>
-                        </li>
-                        <li>
-                            {# Social Media #}
-                            {% block footerSocialMedia %}
-                                {{ block('socialMedia') }}
-                            {% endblock footerSocialMedia %}
-                        </li>
-                    </ul>
+                        <ul class="listUnstyled">
+                            <li class="siteMapHeader">
+                                <a class="fontTertiary" href="mailto:us@brandnewcongress.org">Contact</a>
+                            </li>
+                            <li>
+                                <a href="mailto:us@brandnewcongress.org">Contact Us</a>
+                            </li>
+                            <li>
+                                {# Social Media #}
+                                {% block footerSocialMedia %}
+                                    {{ block('socialMedia') }}
+                                {% endblock footerSocialMedia %}
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -769,9 +1007,11 @@ LAYOUT
             <div id="footerLogo" class="textCenter">
                 <img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogoFooter.png') }}" alt="">
             </div>
-            <p class="smallLabel textCenter">Send questions to <a href="mailto:us@brandnewcongress.org">us@brandnewcongress.org</a></p>
+            <p class="smallLabel textCenter">Send questions to <a href="mailto:us@brandnewcongress.org">us@brandnewcongress.org</a>
+            </p>
             <div id="footerCredit" class="textCenter">
-                <p class="smallLabel">©2016 Brand New Congress. All rights reserved.<br>Paid for by Brand New Congress, brandnewcongress.org, not authorized by any candidate or candidate's committee.</p>
+                <p class="smallLabel">©2016 Brand New Congress. All rights reserved. P.O. Box 610563, North Miami, FL 33261
+                <br>Paid for by Brand New Congress, brandnewcongress.org, not authorized by any candidate or candidate's committee.</p>
                 <a class="smallLabel" href="http://www.sitetheory.io" target="_blank">
                     Website powered by Sitetheory
                 </a>
@@ -788,13 +1028,13 @@ LAYOUT
 {# Candidate Details #}
 
 {% block candidateReturnLink %}
-<strong>
-    <a class="returnLink divCenter fontBody" href="/submit-nominee">
-        <div class="starLeft starPurple">
-            <div class="starRight starPurple">
-                <div class="starText">Return to All Candidates</div>
+    <strong>
+        <a class="returnLink divCenter fontBody" href="/submit-nominee">
+            <div class="starLeft starPurple">
+                <div class="starRight starPurple">
+                    <div class="starText">Return to All Candidates</div>
+                </div>
             </div>
-        </div>
-    </a>
-</strong>
+        </a>
+    </strong>
 {% endblock candidateReturnLink %}
