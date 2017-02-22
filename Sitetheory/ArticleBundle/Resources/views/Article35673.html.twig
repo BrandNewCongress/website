@@ -18,6 +18,13 @@
 {% block contentType %}
 
     {% set dynamicOptions = '{
+        "availability": {
+            "available-0-5": "0-5",
+            "available-5-10": "5-10",
+            "available-10-20": "10-20",
+            "available-20-30": "20-30",
+            "available-30": "30+"
+        },
         "skills": {
             "skill-programming": "Web Development",
             "skill-web-design": "Web Design",
@@ -156,6 +163,25 @@
                             </md-input-container>
 
                         </div>
+                    </div>
+
+                    <div class="whiteframePadding" md-whiteframe="2">
+                        <md-input-container class="md-input-has-placeholder">
+                            <md-select-label md-no-float class="noFloat">How many hours can you contribute?<span class="required">*</span></md-select-label>
+                            <md-select aria-label="Your State" name="volunteerAvailability" ng-model="model.data.volunteerAvailability" md-no-asterisk required="true">
+                                {% verbatim %}
+                                <md-option ng-repeat="(key, value) in options.dynamicOptions.availability" ng-value="key">
+                                {{ value }}
+                                </md-option>
+                                {% endverbatim %}
+                            </md-select>
+                            <div ng-messages="Volunteer.volunteerAvailability.$error" role="alert">
+                                <div ng-message-exp="['required']">
+                                    Please select your availability.
+                                </div>
+                            </div>
+                            <div class="md-errors-spacer"></div>
+                        </md-input-container>
                     </div>
 
                 </div>
