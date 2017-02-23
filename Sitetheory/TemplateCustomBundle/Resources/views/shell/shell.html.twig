@@ -6,8 +6,8 @@ SETTINGS
 ########
 #}
 
-{# Remove padding on header so mini header can go full width #}
-{% set headerStructure = 'empty' %}
+{# Remove padding on header and sidebarToggle so mini header can go full width #}
+{% set headerStructure = '' %}
 
 {# Make mobile drawer slide in from right #}
 {% set mobileDrawerDirection = 'mobileDrawerRight' %}
@@ -48,6 +48,28 @@ SETTINGS
 
 {# Set Footer Site Map Brightness #}
 {% set siteMapBrightness = 'dark' %}
+
+{#
+###########
+SET FULL OR MINI HEADER
+###########
+#}
+{# If a specific header has not been requested and this is the first page visited on the site, give the full header #}
+{% if headerFull is not defined %}
+    {% if environment.history|length == 0 %}
+        {% set headerFull = true %}
+    {% else %}
+        {% set headerFull = false %}
+    {% endif %}
+{% endif %}
+
+{#
+###########
+SPECIAL APP CLASS TO CONTROL SIDEBAR TOGGLE
+###########
+#}
+
+{% block appClass %}{% if headerFull == false  %}headerIsMini {% endif %}{{ parent() }}{% endblock appClass %}
 
 
 
@@ -519,6 +541,7 @@ SIGNUP FORM
 
 
 
+
 {#
 ######
 LAYOUT
@@ -526,25 +549,13 @@ LAYOUT
 #}
 
 
-
-
-
 {% block headerContent %}
 
-
     {# The header in this design is extra tall so it's only used on the home page #}
-    {# If a specific header has not been requested and this is the first page visited on the site, give the full header #}
-    {% if headerFull is not defined and environment.history|length == 0 %}{% set headerFull = true %}{% endif %}
+    {% if headerFull == true %}
 
-
-    {% if headerFull is defined and headerFull == true %}
-
-        {{ block('sidebarToggleContainer') }}
-
-        {% block header1 %}
-
-            <div class="siteMaxWidth siteSidePadding">
-                <div id="header1" class="positionAnchor">
+        <div class="siteMaxWidth siteSidePadding">
+                <div id="headerContent" class="positionAnchor">
                     <div id="planGraphic" class="positionLeftCenter">
                         <img src="{{ asset('bundles/sitetheorytemplatecustom/images/planGraphic.png') }}" alt="">
                     </div>
@@ -641,7 +652,6 @@ LAYOUT
                                 alt=""></div>
                 </div>
             </div>
-        {% endblock header1 %}
 
     {% else %}
 
@@ -649,7 +659,6 @@ LAYOUT
         {% block headerMini %}
 
             <div id="headerMini" class="positionAnchor clearfix light">
-                {{ block('sidebarToggleRetracting') }}
                 {{ block('retractingHeaderContent') }}
             </div>
 
@@ -658,23 +667,18 @@ LAYOUT
     {% endif %}
 
 
-
-
     {# Place title above the sidebar/mainColumn row #}
-    {% block header3 %}
 
-        {% block pageTitle %}
-            <div class="siteMaxWidth siteSidePadding">
-                <h1 class="pageTitle" {{ block('editableView') }} data-type="text" data-property="viewVersion.title"
-                    data-render="click">
-                    <span class="starLeft">
-                        <span class="starRight">{{ view.viewVersion.title }}</span>
-                    </span>
-                </h1>
-            </div>
-        {% endblock pageTitle %}
-
-    {% endblock header3 %}
+    {% block pageTitle %}
+        <div class="siteMaxWidth siteSidePadding">
+            <h1 class="pageTitle" {{ block('editableView') }} data-type="text" data-property="viewVersion.title"
+                data-render="click">
+                <span class="starLeft">
+                    <span class="starRight">{{ view.viewVersion.title }}</span>
+                </span>
+            </h1>
+        </div>
+    {% endblock pageTitle %}
 
 {% endblock headerContent %}
 
@@ -867,8 +871,9 @@ LAYOUT
 
 
 
-{# Add border to bottom of sidebar #}
-{% block sidebarExtrasBottom %}
+{# Add social media & border to bottom of sidebar #}
+{% block sidebarContent %}
+    {{ parent() }}
     <div hide-gt-sm>
         {{ block('socialMedia') }}
     </div>
@@ -881,7 +886,7 @@ LAYOUT
             </div>
         </a>
     </div>
-{% endblock sidebarExtrasBottom %}
+{% endblock sidebarContent %}
 
 
 

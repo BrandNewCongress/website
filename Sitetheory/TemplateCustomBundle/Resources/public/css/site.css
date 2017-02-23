@@ -304,7 +304,7 @@ hr {
 /* HEADER */
 
 
-#header1 {
+#headerContent {
     margin: 60px 0 34px;
 }
 #planGraphic {
@@ -422,13 +422,17 @@ hr {
     #navHeader {
         display: none;
     }
-    #header .sidebarToggle {
-        top: 40px;
-        right: 65px;
+    #sidebarToggleContainer .sidebarToggle {
+        top: 0;
+        right: 0;
         left: inherit;
     }
-    #headerRetracting .sidebarToggle,
-    #headerMini .sidebarToggle {
+    #sidebarToggleContainer.offScreen.scrollUp.siteSidePadding,
+    .headerIsMini #sidebarToggleContainer.siteSidePadding {
+        padding: 0;
+    }
+    #sidebarToggleContainer.offScreen.scrollUp .sidebarToggle,
+    .headerIsMini #sidebarToggleContainer .sidebarToggle {
         top: 25px;
         right: 40px;
     }
@@ -455,7 +459,7 @@ hr {
     }
 }
 @media (max-width:959px) {
-    #header1 {
+    #headerContent {
         margin: 40px 0 0 0;
         padding-bottom: 36px;
         border-bottom: 3px solid #222;
