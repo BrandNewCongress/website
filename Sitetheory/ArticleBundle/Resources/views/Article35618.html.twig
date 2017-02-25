@@ -1,22 +1,24 @@
 {% extends 'SitetheoryArticleBundle::Article.html.twig' %}
 
 {# Load Profiles CSS #}
+{# TODO: allow specifying css to load from the admin #}
 {% block link %}
     {{ parent() }}
     {# TODO: once assetic is fixed to load local resources, change this to look like standard #}
-    {# #
-    {% stylesheets '@SitetheoryTemplateCustomBundle/Resources/public/css/site.css' filter='?uglifycss' filter='cssrewrite' %}
+    {#
+    {% stylesheets '@SitetheoryTemplateCustomBundle/Resources/public/css/profiles.css' filter='?uglifycss' filter='cssrewrite' %}
     <link rel="stylesheet" href="{{ asset_url }}" data-file="site.css">
     {% endstylesheets %}
-    {# #}
+    #}
     <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/profiles.css') }}">
 {% endblock link %}
 
-
+{# TODO: Make CMS manage menus #}
 {% set sectionNameHardCoded = 'Candidates' %}
 {% set sectionMenuHardCoded = '1' %}
 {% set sectionMenuActive = 'candidatesActive' %}
 
+{# TODO: control layout in CMS #}
 {# Hide sidebar on desktop #}
 {% set columnSidebar = 'hide-gt-sm' %}
 {% set columnMain = 'column100' %}
@@ -28,209 +30,3 @@
 {# Hide footer signup form #}
 {% block footerJoin %}
 {% endblock footerJoin %}
-
-{% block contentType %}
-<div id="candidateListPage" class="profileList">
-
-    <p class="divCenter textCenter pullout">We are excited to announce our first five potential candidates (<a href="#candidateList">below</a>)! We need to convince them we have the support needed to run their campaign.</p>
-
-
-    <h1>Progress</h1>
-    <div id="callToAction" class="borderDashedBold shellVerticalPadding" ng-controller="CustomApi" options='{"controller":"/people/count", "onLoad": "fetch", "onTime": {"time": "10s", "method":"fetch"}}'>
-        <p class="intro textCenter divCenter"><strong>If we get 500,000 people to sign up, we believe that we can convince these five people to run.</strong></p>
-
-        {# hide as soon as angular loads #}
-        <div class="loader" ng-hide="true"></div>
-
-        <div layout="row" layout-wrap ng-cloak>
-            <div flex="100" flex-gt-sm="33" flex-order="2" flex-order-gt-sm="1">
-                <div id="signUpProgress"class="positionAnchor">
-                    <div id="progressNumbers" class="positionAll">
-                        <div id="startNumber" class="positionLeftBottom smallLabel fontBody salmonText">0</div>
-                        <div id="endNumber" class="positionRightBottom smallLabel fontBody salmonText">500K</div>
-                        <div id="numberLine"></div>
-                    </div>
-                    <div id="progressBarContainer" class="positionAll">
-                        {# this uses the dynamic countUp value and not the results.count directly (so that it animates) #}
-                        <div id="progressBar" class="positionLeftTop salmon" style="max-width: 100%" ng-style="{'width':(100*(countUp.frameVal/500000))+'%'}"></div>
-                    </div>
-                    {% embed '@SitetheoryTemplateCustomBundle/Resources/public/images/progressBarCover.svg' %}{% block id %}footerRedditIcon{% endblock %}{% endembed %}
-                </div>
-            </div>
-            <div flex="100" flex-gt-sm="33" flex-order="1" flex-order-gt-sm="2">
-                <div class="divCenter textCenter">
-                    <div id="signUpLabel" class="divCenter">
-                        <div class="starLeft">
-                            <div class="starRight">
-                                <div class="starText fontPrimary salmonText">
-                                    Right Now
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="totalSignUp" class="borderDashed fontSecondary salmonText" count-up start-val="0" end-val="results.count" count-instance="countUp" duration="1.5" decimals="0" options="{easingFn: easingFn}" scroll-spy-event="elementFirstScrolledIntoView" scroll-spy></div>
-                </div>
-            </div>
-            <div flex="100" flex-gt-sm="33" flex-order="3">
-                <div id="candidateJoin" class="joinForm pullRight">
-                    <p hide-gt-sm class="textCenter divCenter"><strong>Sign up and help us convince our new draftees to run!</strong></p>
-                    <a id="joinForm" name="joinForm"></a>
-                    {{ block('registrationForm') }}
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <a name="candidateList"></a>
-    <h1>Our Draftees</h1>
-    <div class="borderDashedBold">
-        <div id="profileList">
-
-            {# hide as soon as angular loads #}
-            <div class="loader" ng-hide="true"></div>
-
-            <div layout="row" layout-wrap>
-
-                {# Profile Item 1 #}
-                <div class="profileContainer" flex="100" flex-gt-xs="50">
-                    <div layout="column" class="profileItem">
-                        <div flex-order="2" flex-order-gt-xs="1" class="clearfix">
-                            <div class="profileImage">
-                                <a href="/candidates/linda-wayman">
-                                    <img src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/LindaWayman.jpg') }}" alt="">
-                                </a>
-                            </div>
-                            <h2>Linda Wayman</h2>
-                            <h4>Educator</h4>
-                            <p class="profileBody">Decades-long educator in North Philadelphia who who became a superintendent, but stepped down to become principal of a chronically failing high school, turning the school around.
-                                <a href="/candidates/linda-wayman" class="readMore fontBody">Read More</a>
-                            </p>
-                        </div>
-                        <div flex-order="1" flex-order-gt-xs="2" class="profileExtra backgroundDark">
-                            <div class="starLeft starWhite">
-                                <div class="starRight starWhite">
-                                    <div class="starText fontPrimary textCenter">
-                                        Pennsylvania 1st
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {# End Profile Item #}
-
-                {# Profile Item 2 #}
-                <div class="profileContainer" flex="100" flex-gt-xs="50">
-                    <div layout="column" class="profileItem">
-                        <div flex-order="2" flex-order-gt-xs="1" class="clearfix">
-                            <div class="profileImage">
-                                <a href="/candidates/jordyn-lexton">
-                                    <img src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/JordynLexton.jpg') }}" alt="">
-                                </a>
-                            </div>
-                            <h2>Jordyn Lexton</h2>
-                            <h4>Fellowship Founder</h4>
-                            <p class="profileBody">Former teacher at Rikers Island prison; while campaigning to stop convicting children as adults, created Drive Change, a 1-year fellowship program in the food truck industry to help young people returning home from prison get jobs and education.
-                                <a href="/candidates/jordyn-lexton" class="readMore fontBody">Read More</a>
-                            </p>
-                        </div>
-                        <div flex-order="1" flex-order-gt-xs="2" class="profileExtra backgroundDark">
-                            <div class="starLeft starWhite">
-                                <div class="starRight starWhite">
-                                    <div class="starText fontPrimary textCenter">
-                                        New York 12th
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {# End Profile Item #}
-                {# Profile Item 3 #}
-                <div class="profileContainer" flex="100" flex-gt-xs="50">
-                    <div layout="column" class="profileItem">
-                        <div flex-order="2" flex-order-gt-xs="1" class="clearfix">
-                            <div class="profileImage">
-                                <a href="/candidates/kurt-rietema">
-                                    <img src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/KurtRietema.jpg') }}" alt="">
-                                </a>
-                            </div>
-                            <h2>Kurt Rietema</h2>
-                            <h4>Youth Pastor</h4>
-                            <p class="profileBody">Youth pastor for over a decade with YouthFront; started “Neighbor to Neighbor” to help immigrants and marginalized people become homeowners by creating fair, low-interest lending partnerships between churches and families that can’t access traditional home mortgages.
-                                <a href="/candidates/kurt-rietema" class="readMore fontBody">Read More</a>
-                            </p>
-                        </div>
-                        <div flex-order="1" flex-order-gt-xs="2" class="profileExtra backgroundDark">
-                            <div class="starLeft starWhite">
-                                <div class="starRight starWhite">
-                                    <div class="starText fontPrimary textCenter">
-                                        Kansas 3rd
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {# End Profile Item #}
-                {# Profile Item 4 #}
-                <div class="profileContainer" flex="100" flex-gt-xs="50">
-                    <div layout="column" class="profileItem">
-                        <div flex-order="2" flex-order-gt-xs="1" class="clearfix">
-                            <div class="profileImage">
-                                <a href="candidates/chardo-richardson">
-                                    <img src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/ChardoRichardson.jpg') }}" alt="">
-                                </a>
-                            </div>
-                            <h2>Chardo Richardson</h2>
-                            <h4>Civil Rights Lawyer</h4>
-                            <p class="profileBody">Air Force veteran with five tours of duty in Iraq and Afghanistan; now President of Central Florida ACLU chapter, fighter for workers’ rights with Working America, and founded Think LegalEase, a series of YouTube videos to make the law accessible.
-                                <a href="candidates/chardo-richardson" class="readMore fontBody">Read More</a>
-                            </p>
-                        </div>
-                        <div flex-order="1" flex-order-gt-xs="2" class="profileExtra backgroundDark">
-                            <div class="starLeft starWhite">
-                                <div class="starRight starWhite">
-                                    <div class="starText fontPrimary textCenter">
-                                        Florida 9th
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {# End Profile Item #}        
-
-                {# Profile Item 5 #}
-                <div class="profileContainer" flex="100" flex-gt-xs="50">
-                    <div layout="column" class="profileItem">
-                        <div flex-order="2" flex-order-gt-xs="1" class="clearfix">
-                            <div class="profileImage">
-                                <a href="/candidates/tynisha-tyson">
-                                    <img src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/TynishaTyson.jpg') }}" alt="">
-                                </a>
-                            </div>
-                            <h2>Tynisha Tyson</h2>
-                            <h4>Social Worker</h4>
-                            <p class="profileBody">Social worker at Milner Elementary; works with children who suffer from abuse, neglect, and extreme poverty to be an anchor in their lives. Has actively continued working as a social worker to help kids most in need despite opportunities to “move up.”
-                                <a href="/candidates/tynisha-tyson" class="readMore fontBody">Read More</a>
-                            </p>
-                        </div>
-                        <div flex-order="1" flex-order-gt-xs="2" class="profileExtra backgroundDark">
-                            <div class="starLeft starWhite">
-                                <div class="starRight starWhite">
-                                    <div class="starText fontPrimary textCenter">
-                                        Connecticut 1st
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {# End Profile Item #}                    
-            </div>
-        </div>
-    </div>
-</div>
-
-{% endblock contentType %}

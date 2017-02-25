@@ -1,6 +1,7 @@
 {% extends 'SitetheoryArticleBundle::Article.html.twig' %}
 
 
+{# TODO: make CMS manage layout #}
 {# Hide sidebar on desktop #}
 {% set columnSidebar = 'hide-gt-sm' %}
 {% set columnMain = 'column100' %}
@@ -9,10 +10,16 @@
 {% block mainColumnGutter %}
 {% endblock mainColumnGutter %}
 
-
+{# TODO: make CMS manage menu #}
 {% set sectionNameHardCoded = 'Support' %}
 {% set sectionMenuHardCoded = '2' %}
 {% set sectionMenuActive = 'nominateActive' %}
+
+
+{# TODO: this page is still 100% manual because it uses a form that is extended by the internal nominate form too #}
+{# We have created a Angular custom form to allow embedding which is located in
+CoreBundle/Resources/public/components/formNominate.js
+But it's not being used ATM because we haven't decided now to manage forms between BNC and JD #}
 
 {% if nominatorPerson is not defined %}{% set nominatorPerson = 1 %}{% endif %}
 {% if nominatorPronoun is not defined %}{% set nominatorPronoun = 'You' %}{% endif %}

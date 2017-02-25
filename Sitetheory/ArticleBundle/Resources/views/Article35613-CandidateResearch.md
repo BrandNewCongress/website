@@ -1,1 +1,740 @@
 Used to identify corresponding article at a glance.
+
+Archive
+```
+<div id="Nominate" class="customArticle">
+    <p class="pullout"><a href="/call">Join a call</a> to learn about how you can help us find candidates to run for Congress in 2018!</p>
+
+    <br>
+
+    <div class="iframeVideoWrapper">
+        <div style="width:100%;text-align:center;margin-top:10px;margin-bottom:10px">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/OdF7_GeaVso" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <br>
+    <h2>How to nominate a candidate for Brand New Congress</h2>
+
+    <p>Thank you for helping Brand New Congress to recruit candidates! Please first learn what we're looking for in candidates generally and in your district specifically by following the links below. Then nominate your candidate!</p>
+    <br>
+    <ul>
+        <li><a href="https://brandnewcongress.org/submit-nominee">Use this form to submit your nominations.</a></li>
+        <li>If you can't think of a candidate, please <a href="https://docs.google.com/forms/d/e/1FAIpQLSceYguZI_gngXf7dLOXN6xUkLRNsYfn0b2v-aDEvZKPH-j1dQ/viewform" target="_blank">suggest a local connector</a> who might like this idea and be able to help.</li>
+        <li><a href="https://www.govtrack.us/congress/members" target="_blank">Use this site to find your or your candidate's congressional district.</a></li>
+    </ul>
+
+    <br>
+    <hr>
+
+    <h2>Getting ready for the candidate search</h2>
+
+    <p>Our main focus right now is building our slate of BNC candidates, which means that the best way to help us out is continuing to nominate and research potential candidates! Please take the following steps to get started volunteering:</p>
+    <br>
+    <ul>
+        <li><a href="/call">Sign up for a candidate nomination orientation call</a> to learn more about our candidate search, ask questions, solicit feedback, and report back updates from your research experience!</li>
+        <li><a href="https://docs.google.com/document/d/1_Aob44aXGpc6OVOxzLNMSW-9_Hs7m5nghKYBGoeuUlE/edit?usp=sharing">Use this guide on candidate search best practices</a>. Each person looking for candidates will find their own personal flow of how to best work. This document goes over some thoughts on the candidate search process, how to track district searches so we don’t double up on efforts, how to search smart and what tools to use that will help you along the way. If you have suggestions for how to improve this guide or tips we shuold add, please send them to us@brandnewcongress.org.
+        </li>
+    </ul>
+
+    <br>
+    <hr>
+
+    <h2>What we're looking for in a candidate</h2>
+    <p>We’re looking for people from all walks of life and all fields of our economy and society, representing every community, who fit these criteria:</p>
+    <br>
+    <ul>
+        <li>They are respected in their communities with a track record of service in their jobs, neighborhoods, religious organizations, charities, etc.</li>
+        <li>We can tell from their life stories that they won't sell out in DC, because many of their life choices have put others in front of their self interest.</li>
+        <li>They agree with the BNC platform. They need to believe that America already has everything it needs to fix our economy, our healthcare system, our schools and our justice system -- and that we can just do it if we have the political will.</li>
+        <li>They are non-dogmatic, optimistic people who believe the American people can build our country by working together. They do not believe in any left wing or right wing silver bullet such as simply slashing government or simply growing government will solve all our problems.</li>
+        <li>They do not have any disdain or condescension for any group of Americans and have a high level of empathy.</li>
+        <li>They are good at what they do.</li>
+        <li>They are trusted by the people they currently serve</li>
+        <li>They have, in general, never held or sought public office, though this is not a hard and fast rule.</li>
+        <li>They are ideally someone involved in doing work that actually keeps our country going: nurses, teachers, engineers, workers, moms and dads, social workers, veterans, law enforcement, first responders, managers and we could go on and on with this list</li>
+        <li>They have the skills that would make them good candidates against experienced incumbents -- they’ve got to be able to talk, and to develop a grasp of all the major issues affecting their district.</li>
+        <li>They are a good fit for their district</li>
+    </ul>
+
+    <br>
+    <hr>
+
+    <h2>A few other things...</h2>
+
+    <ul>
+        <li>Do not nominate yourself. Ask others to nominate you.</li>
+        <li>Please be patient as we evaluate the nominations we receive. Our nomination process will be open until we announce our slate of candidates.</li>
+        <li>Candidates do NOT need to want to run. First, we'll find the good people we want to run, then we'll start drafting them to run.</li>
+        <li>We want to elect as many working and middle class people and people of color as possible. Working people and people of color are dramatically underrepresented in Congress today!</li>
+        <li>More than half of the people in America are women — more than half our candidates should be women too!</li>
+    </ul>
+
+    <br>
+    <hr>
+
+    <h2>Tips to check that the candidate is a good fit for their district</h2>
+
+    <p>The Brand New Congress will be running in over 400 districts across America - blue, red, and purple. Here are some things to note about the types of districts we’ll be running in:</p>
+    <br>
+    <ul>
+        <li>Do not nominate Democrats for Republican districts.</li>
+        <li>Do not nominate white people for majority person of color districts</li>
+        <li>In conservative Christian districts, candidates must come from the conservative Christian culture! There are tons of Christians who share and practice values of progressive social and economic justice.</li>
+        <li>In Democratic districts, candidates must come from a democratic, progressive background! That does not necessarily mean activists or organizers who have worked on political campaigns.</li>
+    </ul>
+
+
+    <!--
+    <br>
+    <hr>
+
+    <h2>Find out what we're looking for in your specific district:</h2>
+    <p>If you have insights or corrections you think should be made to one of our wiki pages, please email them to us@brandnewcongress.org.</p>
+
+    <div id="districtInfo" class="fontBody">
+
+        <h3>Alabama:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_AL-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_AL-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_AL-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_AL-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_AL-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_AL-06" target="_blank">06</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_AL-07" target="_blank">07</a>
+
+
+        <h3>Alaska:</h3>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_AK-AL" target="_blank">AL</a>
+
+        <h3>Arkansas:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_AR-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_AR-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_AR-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_AR-04" target="_blank">04</a>
+
+        <h3>Arizona:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_AZ-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_AZ-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_AZ-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_AZ-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_AZ-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_AZ-06" target="_blank">06</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_AZ-07" target="_blank">07</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_AZ-08" target="_blank">08</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_AZ-09" target="_blank">09</a>
+
+
+        <h3>California:</h3>
+
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-06" target="_blank">06</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-07" target="_blank">07</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-08" target="_blank">08</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-09" target="_blank">09</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-10" target="_blank">10</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-11" target="_blank">11</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-12" target="_blank">12</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-13" target="_blank">13</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-14" target="_blank">14</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-15" target="_blank">15</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-16" target="_blank">16</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-17" target="_blank">17</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-18" target="_blank">18</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-19" target="_blank">19</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-20" target="_blank">20</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-21" target="_blank">21</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-22" target="_blank">22</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-23" target="_blank">23</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-24" target="_blank">24</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-25" target="_blank">25</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-26" target="_blank">26</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-27" target="_blank">27</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-28" target="_blank">28</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-29" target="_blank">29</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-30" target="_blank">30</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-31" target="_blank">31</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-32" target="_blank">32</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-33" target="_blank">33</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-34" target="_blank">34</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-35" target="_blank">35</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-36" target="_blank">36</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-37" target="_blank">37</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-38" target="_blank">38</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-39" target="_blank">39</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-40" target="_blank">40</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-41" target="_blank">41</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-42" target="_blank">42</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-43" target="_blank">43</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-44" target="_blank">44</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-45" target="_blank">45</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-46" target="_blank">46</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-47" target="_blank">47</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-48" target="_blank">48</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-49" target="_blank">49</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-50" target="_blank">50</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-51" target="_blank">51</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-52" target="_blank">52</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CA-53" target="_blank">53</a>
+
+        <h3>Colorado:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CO-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CO-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CO-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CO-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CO-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CO-06" target="_blank">06</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CO-07" target="_blank">07</a>
+
+        <h3>Connecticut:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CT-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CT-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CT-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CT-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_CT-05" target="_blank">05</a>
+
+        <h3>Delaware</h3>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_DE-AL" target="_blank">AL</a>
+
+        <h3>Florida:</h3>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-06" target="_blank">06</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-07" target="_blank">07</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-08" target="_blank">08</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-09" target="_blank">09</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-10" target="_blank">10</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-11" target="_blank">11</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-12" target="_blank">12</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-13" target="_blank">13</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-14" target="_blank">14</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-15" target="_blank">15</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-16" target="_blank">16</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-17" target="_blank">17</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-18" target="_blank">18</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-19" target="_blank">19</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-20" target="_blank">20</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-21" target="_blank">21</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-22" target="_blank">22</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-23" target="_blank">23</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-24" target="_blank">24</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-25" target="_blank">25</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-26" target="_blank">26</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_FL-27" target="_blank">27</a>
+
+
+
+        <h3>Georgia:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_GA-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_GA-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_GA-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_GA-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_GA-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_GA-06" target="_blank">06</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_GA-07" target="_blank">07</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_GA-08" target="_blank">08</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_GA-09" target="_blank">09</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_GA-10" target="_blank">10</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_GA-11" target="_blank">11</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_GA-12" target="_blank">12</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_GA-13" target="_blank">13</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_GA-14" target="_blank">14</a>
+
+        <h3>Hawaii:</h3>
+
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_HI-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_HI-02" target="_blank">02</a>
+
+        <h3>Iowa:</h3>
+
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IA-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IA-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IA-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IA-04" target="_blank">04</a>
+
+        <h3>Idaho:</h3>
+
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_ID-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_ID-02" target="_blank">02</a>
+
+        <h3>Illinois:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IL-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IL-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IL-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IL-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IL-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IL-06" target="_blank">06</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IL-07" target="_blank">07</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IL-08" target="_blank">08</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IL-09" target="_blank">09</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IL-10" target="_blank">10</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IL-11" target="_blank">11</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IL-12" target="_blank">12</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IL-13" target="_blank">13</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IL-14" target="_blank">14</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IL-15" target="_blank">15</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IL-16" target="_blank">16</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IL-17" target="_blank">17</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IL-18" target="_blank">18</a>
+
+
+        <h3>Indiana:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IN-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IN-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IN-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IN-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IN-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IN-06" target="_blank">06</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IN-07" target="_blank">07</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IN-08" target="_blank">08</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_IN-09" target="_blank">09</a>
+
+
+        <h3>Kansas:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_KS-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_KS-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_KS-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_KS-04" target="_blank">04</a>
+
+
+        <h3>Kentucky:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_KY-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_KY-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_KY-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_KY-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_KY-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_KY-06" target="_blank">06</a>
+
+
+        <h3>Louisiana:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_LA-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_LA-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_LA-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_LA-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_LA-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_LA-06" target="_blank">06</a>
+
+
+        <h3>Maine:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_ME-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_ME-02" target="_blank">02</a>
+
+
+        <h3>Massachusetts:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MA-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MA-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MA-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MA-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MA-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MA-06" target="_blank">06</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MA-07" target="_blank">07</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MA-08" target="_blank">08</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MA-09" target="_blank">09</a>
+
+
+        <h3>Maryland:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MD-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MD-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MD-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MD-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MD-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MD-06" target="_blank">06</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MD-07" target="_blank">07</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MD-08" target="_blank">08</a>
+
+
+
+
+        <h3>Michigan:</h3>
+
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MI-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MI-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MI-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MI-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MI-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MI-06" target="_blank">06</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MI-07" target="_blank">07</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MI-08" target="_blank">08</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MI-09" target="_blank">09</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MI-10" target="_blank">10</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MI-11" target="_blank">11</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MI-12" target="_blank">12</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MI-13" target="_blank">13</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MI-14" target="_blank">14</a>
+
+
+        <h3>Minnesota:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MN-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MN-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MN-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MN-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MN-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MN-06" target="_blank">06</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MN-07" target="_blank">07</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MN-08" target="_blank">08</a>
+
+
+        <h3>Missouri:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MO-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MO-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MO-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MO-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MO-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MO-06" target="_blank">06</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MO-07" target="_blank">07</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MO-08" target="_blank">08</a>
+
+
+        <h3>Mississippi:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MS-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MS-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MS-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MS-04" target="_blank">04</a>
+
+
+        <h3>Montana:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_MT-AL" target="_blank">AL</a>
+
+
+        <h3>North Carolina:</h3>
+
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NC-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NC-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NC-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NC-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NC-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NC-06" target="_blank">06</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NC-07" target="_blank">07</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NC-08" target="_blank">08</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NC-09" target="_blank">09</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NC-10" target="_blank">10</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NC-11" target="_blank">11</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NC-12" target="_blank">12</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NC-13" target="_blank">13</a>
+
+
+        <h3>Nebraska:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NE-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NE-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NE-03" target="_blank">03</a>
+
+
+        <h3>New Hampshire:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NH-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NH-02" target="_blank">02</a>
+
+        <h3>New Jersey:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NJ-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NJ-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NJ-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NJ-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NJ-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NJ-06" target="_blank">06</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NJ-07" target="_blank">07</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NJ-08" target="_blank">08</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NJ-09" target="_blank">09</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NJ-10" target="_blank">10</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NJ-11" target="_blank">11</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NJ-12" target="_blank">12</a>
+
+
+        <h3>New Mexico:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NM-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NM-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NM-03" target="_blank">03</a>
+
+
+        <h3>Nevada:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NV-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NV-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NV-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NV-04" target="_blank">04</a>
+
+
+        <h3>New York:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-06" target="_blank">06</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-07" target="_blank">07</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-08" target="_blank">08</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-09" target="_blank">09</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-10" target="_blank">10</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-11" target="_blank">11</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-12" target="_blank">12</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-13" target="_blank">13</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-14" target="_blank">14</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-15" target="_blank">15</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-16" target="_blank">16</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-17" target="_blank">17</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-18" target="_blank">18</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-19" target="_blank">19</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-20" target="_blank">20</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-21" target="_blank">21</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-22" target="_blank">22</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-23" target="_blank">23</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-24" target="_blank">24</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-25" target="_blank">25</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-26" target="_blank">26</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_NY-27" target="_blank">27</a>
+
+
+        <h3>North Dakota:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_ND-AL" target="_blank">AL</a>
+
+
+        <h3>Ohio:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OH-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OH-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OH-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OH-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OH-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OH-06" target="_blank">06</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OH-07" target="_blank">07</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OH-08" target="_blank">08</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OH-09" target="_blank">09</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OH-10" target="_blank">10</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OH-11" target="_blank">11</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OH-12" target="_blank">12</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OH-13" target="_blank">13</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OH-14" target="_blank">14</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OH-15" target="_blank">15</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OH-16" target="_blank">16</a>
+
+
+        <h3>Oklahoma:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OK-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OK-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OK-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OK-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OK-05" target="_blank">05</a>
+
+
+        <h3>Oregon:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OR-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OR-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OR-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OR-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_OR-05" target="_blank">05</a>
+
+
+        <h3>Pennsylvania:</h3>
+
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_PA-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_PA-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_PA-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_PA-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_PA-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_PA-06" target="_blank">06</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_PA-07" target="_blank">07</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_PA-08" target="_blank">08</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_PA-09" target="_blank">09</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_PA-10" target="_blank">10</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_PA-11" target="_blank">11</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_PA-12" target="_blank">12</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_PA-13" target="_blank">13</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_PA-14" target="_blank">14</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_PA-15" target="_blank">15</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_PA-16" target="_blank">16</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_PA-17" target="_blank">17</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_PA-18" target="_blank">018</a>
+
+
+        <h3>Rhode Island:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_RI-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_RI-02" target="_blank">02</a>
+
+
+        <h3>South Carolina:</h3>
+
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_SC-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_SC-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_SC-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_SC-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_SC-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_SC-06" target="_blank">06</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_SC-07" target="_blank">07</a>
+
+
+        <h3>South Dakota:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_SD-AL" target="_blank">AL</a>
+
+
+        <h3>Tennessee:</h3>
+
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TN-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TN-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TN-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TN-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TN-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TN-06" target="_blank">06</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TN-07" target="_blank">07</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TN-08" target="_blank">08</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TN-09" target="_blank">09</a>
+
+
+        <h3>Texas:</h3>
+
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-06" target="_blank">06</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-07" target="_blank">07</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-08" target="_blank">08</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-09" target="_blank">09</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-10" target="_blank">10</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-11" target="_blank">11</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-12" target="_blank">12</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-13" target="_blank">13</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-14" target="_blank">14</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-15" target="_blank">15</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-16" target="_blank">16</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-17" target="_blank">17</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-18" target="_blank">18</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-19" target="_blank">19</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-20" target="_blank">20</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-21" target="_blank">21</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-22" target="_blank">22</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-23" target="_blank">23</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-24" target="_blank">24</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-25" target="_blank">25</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-26" target="_blank">26</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-27" target="_blank">27</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-28" target="_blank">28</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-29" target="_blank">29</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-30" target="_blank">30</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-31" target="_blank">31</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-32" target="_blank">32</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-33" target="_blank">33</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-34" target="_blank">34</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-35" target="_blank">35</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_TX-36" target="_blank">36</a>
+
+
+        <h3>Utah:</h3>
+
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_UT-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_UT-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_UT-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_UT-04" target="_blank">04</a>
+
+
+        <h3>Vermont:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_VT-AL" target="_blank">AL</a>
+
+
+        <h3>Virginia:</h3>
+
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_VA-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_VA-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_VA-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_VA-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_VA-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_VA-06" target="_blank">06</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_VA-07" target="_blank">07</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_VA-08" target="_blank">08</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_VA-09" target="_blank">09</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_VA-10" target="_blank">10</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_VA-11" target="_blank">11</a>
+
+
+        <h3>Washington:</h3>
+
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_WA-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_WA-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_WA-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_WA-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_WA-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_WA-06" target="_blank">06</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_WA-07" target="_blank">07</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_WA-08" target="_blank">08</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_WA-09" target="_blank">09</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_WA-10" target="_blank">10</a>
+
+
+        <h3>Wisconsin:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_WI-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_WI-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_WI-03" target="_blank">03</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_WI-04" target="_blank">04</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_WI-05" target="_blank">05</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_WI-06" target="_blank">06</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_WI-07" target="_blank">07</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_WI-08" target="_blank">08</a>
+
+
+        <h3>West Virginia:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_WV-01" target="_blank">01</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_WV-02" target="_blank">02</a>
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_WV-03" target="_blank">03</a>
+
+
+        <h3>Wyoming:</h3>
+
+        <a href="https://wiki.brandnewcongress.org/index.php?title=BNC_in_WY-AL" target="_blank">AL</a>
+
+
+
+    </div>
+    -->
+
+
+</div>
+```
