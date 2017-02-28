@@ -447,18 +447,14 @@ LAYOUT
                                     <div class="date pullRight">11.23.16</div>
                                     <h2 class="purpleText">On Rachel Maddow</h2>
                                 </div>
-                                <div class="iframeVideoWrapper">
-                                    <iframe width="550" height="300" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fbrandnewcongress%2Fvideos%2F844761672323970%2F&amp;show_text=0" frameborder="0" allowfullscreen="" data-reactid="95"></iframe>
-                                </div>
+                                <div id="videoMaddow" data-url="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fbrandnewcongress%2Fvideos%2F844761672323970%2F&amp;show_text=0"></div>
                             </div>
                             <div class="mediaItem">
                                 <div class="mediaHeader">
                                     <div class="date pullRight">11.23.16</div>
                                     <h2 class="purpleText">Now This</h2>
                                 </div>
-                                <div class="iframeVideoWrapper">
-                                    <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FNowThisElection%2Fvideos%2F1255138781184276%2F&amp;show_text=0" width="550" height="300" frameborder="0" allowfullscreen="" data-reactid="98"></iframe>
-                                </div>
+                                <div id="videoNowThis" data-url="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FNowThisElection%2Fvideos%2F1255138781184276%2F&amp;show_text=0"></div>
                             </div>
                         </div>
                     </div>
@@ -500,6 +496,18 @@ LAYOUT
                                     ////////////////
                                     // Functions
                                     ////////////////
+                                    function loadVideo(id) {
+                                        var container = document.getElementById(id);
+                                        if(!container) return false;
+                                        var url = container.getAttribute('data-url');
+                                        if(!url) return false;
+                                        var content = '<div class="iframeVideoWrapper"><iframe width="550" height="300" src="'+url+'" frameborder="0" allowfullscreen=""></iframe></div>';
+                                        container.innerHTML = content;
+                                    }
+                                    loadVideo('videoMaddow');
+                                    loadVideo('videoNowThis');
+
+
                                     function resizePlugin() {
                                         // Manually resize Facebook Plugin's span and iframe to be 100%
                                         var plugin = document.querySelector('.fb-page')
