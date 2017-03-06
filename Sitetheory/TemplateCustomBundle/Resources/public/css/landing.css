@@ -509,7 +509,7 @@
 
 
 
-/* SPECIFICS IMAGE LINKS */
+/* GET INVOLVED IMAGE LINKS */
 
 
 #homeImageLinks {
@@ -521,7 +521,14 @@
     width: 92%;
     line-height: .5;
 }
-#homeImageLinks a:hover img {
+#homeImageLinks a img {
+    width: 100%;
+}
+#homeImageLinks a .imageWrapper {
+    transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+}
+#homeImageLinks a:hover .imageWrapper {
     opacity: .8;
 }
 @media (max-width:600px) {
