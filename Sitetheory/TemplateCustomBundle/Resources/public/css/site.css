@@ -304,6 +304,32 @@ hr {
 /* HEADER */
 
 
+/* Temporary */
+
+#dayWithoutAWoman {
+    position: fixed;
+    z-index: 2000;
+    text-align: center;
+}
+#dayWithoutAWoman .textContainer {
+    z-index: 2001;
+    left: 0;
+    width: 100%;
+}
+#dayWithoutAWoman .blackCover {
+    background: #000;
+}
+#dayWithoutAWoman h1 {
+    color: #FFF;
+}
+#dayWithoutAWoman #BNCStrikeLogo {
+    margin-top: 55px;
+}
+#dayWithoutAWoman #BNCStrikeLogo img {
+    max-width: 200px;
+}
+
+
 #headerContent {
     margin: 60px 0 34px;
 }

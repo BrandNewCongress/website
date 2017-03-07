@@ -551,6 +551,7 @@ LAYOUT
 
 {% block headerContent %}
 
+
     {# The header in this design is extra tall so it's only used on the home page #}
     {% if headerFull == true %}
 
@@ -892,6 +893,7 @@ LAYOUT
 
 {# ADD FOOTER JOIN FORM AT BOTTOM OF BODY BLOCK #}
 {% block main %}
+
     {{ parent() }}
     {% block footerJoin %}
         <a id="joinForm" name="joinForm"></a>
