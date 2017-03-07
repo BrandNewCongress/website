@@ -55,7 +55,7 @@ But it's not being used ATM because we haven't decided now to manage forms betwe
     <hr>
 
 
-    <form id="submitNomineeForm" name="Nominate" ng-submit="send('Nominate')" ng-controller="CustomApi" ng-sanitize="true" options='{"controller":"/nominations", "scrollTo":"#submitNomineeForm", "scrollToOffset":-100, "response": {"success": "Thank you for submitting your nomination! We review every nomination we get."}, "resetOptions": {{ resetOptions }} }' ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
+    <form id="submitNomineeForm" name="Nominate" ng-submit="send('Nominate')" ng-controller="Api" ng-sanitize="true" options='{"url":"https://api.{{ environment.site.domainprimary }}", "controller":"/nominations", "scrollTo":"#submitNomineeForm", "scrollToOffset":-100, "response": {"success": "Thank you for submitting your nomination! We review every nomination we get."}, "resetOptions": {{ resetOptions }} }' ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
         <input type="hidden" name="utmSource" ng-model="model.data.utmSource">
         <input type="hidden" name="utmMedium" ng-model="model.data.utmMedium">
         <input type="hidden" name="utmCampaign" ng-model="model.data.utmCampaign">

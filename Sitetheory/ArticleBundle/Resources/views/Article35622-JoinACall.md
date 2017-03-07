@@ -7,8 +7,8 @@ Archive
 
     <md-list
         id="callList"
-        ng-controller="CustomApi"
-         options='{"controller":"/conference-calls/upcoming?name=BNC+Candidate+Nomination", "onLoad": "fetch"}'
+        ng-controller="Api"
+         options='{"url":"https://api.{{ environment.site.domainprimary }}", "controller":"/conference-calls/upcoming?name=BNC+Candidate+Nomination", "onLoad": "fetch"}'
          layout-padding ng-cloak>
 
         <!-- Header -->

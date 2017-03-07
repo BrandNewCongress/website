@@ -6,7 +6,7 @@ Archive
 <div class="profileList" id="candidateListPage">
     <p class="divCenter textCenter pullout">We are excited to announce our first five potential candidates (<a href="#candidateList">below</a>)! We need to convince them we have the support needed to run their campaign.</p>
     <h1>Progress</h1>
-    <div class="borderDashedBold shellVerticalPadding" id="callToAction" ng-controller="CustomApi" options='{"controller":"/people/count", "onLoad": "fetch", "onTime": {"time": "10s", "method":"fetch"}}'>
+    <div class="borderDashedBold shellVerticalPadding" id="callToAction" ng-controller="Api" options='{"url":"https://api.{{ environment.site.domainprimary }}", "controller":"/people/count", "onLoad": "fetch", "onTime": {"time": "10s", "method":"fetch"}}'>
         <p class="intro textCenter divCenter"><strong>If we get 500,000 people to sign up, we believe that we can convince these five people to run.</strong></p>
         <!-- hide as soon as angular loads -->
         <div class="loader" ng-hide="true"></div>
@@ -41,7 +41,7 @@ Archive
                     <p class="textCenter divCenter" hide-gt-sm=""><strong>Sign up and help us convince our new draftees to run!</strong></p>
                     <a id="joinForm" name="joinForm"></a>
                     <!-- Reuse Registration Form from shell -->
-                    <form class="positionAnchor" name="Signup" ng-class="status" ng-cloak="" ng-cloak-reveal="" ng-controller="CustomApi" ng-sanitize="true" ng-submit="send('Signup') && customMethods.trackSignup('SignupButton', 'click')" options='{"controller": "/people", "redirect":{"url":"https://secure.actblue.com/contribute/page/bncsignup", "popup":false}}'>
+                    <form class="positionAnchor" name="Signup" ng-class="status" ng-cloak="" ng-cloak-reveal="" ng-controller="Api" ng-sanitize="true" ng-submit="send('Signup') && customMethods.trackSignup('SignupButton', 'click')" options='{"url":"https://api.{{ environment.site.domainprimary }}", "controller": "/people", "redirect":{"url":"https://secure.actblue.com/contribute/page/bncsignup", "popup":false}}'>
                         <input type="hidden" name="utmSource" ng-value="model.data.utmSource">
                         <input type="hidden" name="utmMedium" ng-value="model.data.utmMedium">
                         <input type="hidden" name="utmCampaign" ng-value="model.data.utmCampaign">

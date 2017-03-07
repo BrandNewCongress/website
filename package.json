@@ -1,8 +1,8 @@
 {
-  "name": "stratus.js",
-  "version": "0.6.1",
-  "description": "This platform intends to bridge the gap between Web Design and Development in a fast, flexible environment.",
-  "main": "stratus.html",
+  "name": "BNC-website",
+  "version": "1.0.0",
+  "description": "BNC promo website.",
+  "main": "/",
   "directories": {
     "test": "test"
   },
@@ -36,14 +36,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sitetheory/stratus.git"
+    "url": "git+https://github.com/BrandNewCongress/website.git"
   },
-  "author": "Sitetheory Development Team (https://sitetheory.io/)",
+  "author": "BNC Team",
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {
-    "url": "https://github.com/Sitetheory/stratus/issues"
+    "url": "https://github.com/BrandNewCongress/website/issues"
   },
-  "homepage": "https://github.com/Sitetheory/stratus",
+  "homepage": "https://github.com/BrandNewCongress/website",
   "keywords": [
     "sitetheory",
     "stratus",

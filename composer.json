@@ -1,8 +1,8 @@
 {
-    "name": "SIA",
+    "name": "BNC",
     "license": "Private",
     "type": "project",
-    "description": "Social Intelligence Assistant",
+    "description": "Brand New Congress Website",
     "autoload": {
       "psr-4": {
         "": "src/",

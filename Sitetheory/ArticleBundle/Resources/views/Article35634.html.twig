@@ -33,7 +33,7 @@
 
 
             <div flex-gt-sm="10"></div>
-            <md-input-container class="md-input-has-placeholder" flex-gt-sm="45" ng-controller="CustomApi" options='{"controller":"/teams", "onLoad": "fetch"}'>
+            <md-input-container class="md-input-has-placeholder" flex-gt-sm="45" ng-controller="Api" options='{"url":"https://api.{{ environment.site.domainprimary }}", "controller":"/teams", "onLoad": "fetch"}'>
                 <md-select-label md-no-float class="noFloat">Your Team <span class="required">*</span></md-select-label>
                 <md-select aria-label="Submitter Team" name="sourceTeamName" ng-model="$parent.model.data.sourceTeamName" md-no-asterisk required>
                     {% verbatim %}
