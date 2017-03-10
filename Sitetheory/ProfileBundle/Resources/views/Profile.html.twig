@@ -1,0 +1,110 @@
+{% extends 'SitetheoryProfileBundle::Profile.html.twig' %}
+
+
+{% block link %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('bundles/sitetheoryprofile/css/Profile.css') }}">
+
+{% endblock link %}
+
+{% block pageTitle %}
+    <div class="siteMaxWidth siteSidePadding">
+        <h1 class="pageTitle">
+            <span class="starLeft">
+                <span class="starRight">Draftees</span>
+            </span>
+        </h1>
+    </div>
+{% endblock pageTitle %}
+
+{% block contentHeader %}
+    <div class="contentHeader profileDetails">
+
+        <p class="pullout">{% block contentHeaderText %}We are drafting Linda Wayman as a candidate to help lead BNC’s movement to fix our schools and make American education excellent for all students. Watch <a href="https://www.ted.com/talks/linda_cliatt_wayman_how_to_fix_a_broken_school_lead_fearlessly_love_hard" target="_blank">Linda’s TED talk: How to fix a broken school? Lead fearlessly, love hard.</a>{% endblock contentHeaderText %}</p>
+
+        <div class="borderDashedBold">&nbsp;</div>
+
+    </div>
+{% endblock contentHeader %}
+
+
+{% block contentType %}
+
+    <div id="contentProfile-{{ view.id }}" class="contentProfile profileDetails" {{ block('editableView') }}>
+
+        <div class="clearfix">
+
+            <div class="profileImageContainer positionAnchor">
+
+                <div class="profileImage primary-image">
+                    <img src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/LindaWayman.jpg') }}" alt="">
+                </div>
+
+                {% if view.viewVersion.images|length > 0 %}
+                    <div class="profileImage primary-image">
+                        <img src="//{{ view.viewVersion.images[0].url }}-xs.{{ view.viewVersion.images[0].extension }}"
+                             data-src="lazy" alt="{{ view.viewVersion.images[0].name }}">
+                    </div>
+                {% endif %}
+
+                {% block profileLocation %}
+                    <div class="profileLocation positionLeftBottom">
+                        <div class="salmon colorBox clearfix">
+                            <p class="fontPrimary">
+                            <span class="starLeft starWhite">
+                                <span class="starRight starWhite">
+                                    Pennsylvania 1st
+                                </span>
+                            </span>
+                            </p>
+                        </div>
+                    </div>
+                {% endblock profileLocation %}
+
+            </div>
+
+            {% if view.viewVersion.title is not empty %}
+                <h1>{{ view.viewVersion.title }}</h1>
+            {% endif %}
+
+            <h4 class="profilePosition">
+            {% block profilePosition %}
+                Educator
+            {% endblock profilePosition %}
+            </h4>
+
+
+            <h3 class="profileDescriptionHeader fontSecondary salmonText">
+                {% block profileDescriptionHeader %}
+                    Linda's Story
+                {% endblock profileDescriptionHeader %}
+            </h3>
+
+
+            {#
+            {% if view.viewVersion.meta.position is not empty %}
+
+                <h4 class="position" data-type="text"
+                    data-property="viewVersion.meta.position" {{ block('editableViewAttributes') }}>{{ view.viewVersion.meta.position }}</h4>
+
+            {% endif %}
+            #}
+
+            <div class="content" data-type="editor" data-property="viewVersion.text" {{ block('editableViewAttributes') }}>
+                {% autoescape false %}
+                    {{ view.viewVersion.text }}
+                {% endautoescape %}
+            </div>
+
+        </div>
+
+        <div class="borderDashedBold">&nbsp;</div>
+
+    </div>
+{% endblock contentType %}
+
+
+{# Hide footer signup form #}
+{% block footerJoin %}
+{% endblock footerJoin %}
