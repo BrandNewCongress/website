@@ -144,6 +144,7 @@ LAYOUT
                                     <!-- this uses the dynamic countUp value and not the results.count directly (so that it animates) -->
                                     <div id="progressBar" class="positionLeftTop salmon" style="max-width: 100%" ng-style="{'width':(100*(countUp.frameVal/500000))+'%'}"></div>
                                 </div>
+                                {% embed '@SitetheoryTemplateCustomBundle/Resources/public/images/progressBarCover.svg' %}{% block id %}americaMap{% endblock %}{% endembed %}
                             </div>
                         </div>
                         <div flex="100" flex-gt-sm="33" flex-order="1" flex-order-gt-sm="2">
@@ -161,38 +162,8 @@ LAYOUT
                         <div flex="100" flex-gt-sm="33" flex-order="3">
                             <div class="joinForm pullRight" id="candidateJoin">
                                 <p class="textCenter divCenter" hide-gt-sm=""><strong>Sign up and help us convince our new draftees to run!</strong></p>
-                                <a id="joinForm" name="joinForm"></a>
                                 <!-- Reuse Registration Form from shell -->
-                                <form class="positionAnchor" name="Signup" ng-class="status" ng-cloak="" ng-cloak-reveal="" ng-controller="Api" ng-sanitize="true" ng-submit="send('Signup') && tracking.send('SignupButton', 'click')" options='{"url":"https://api.{{ environment.site.domainprimary }}", "controller": "/people", "redirect":{"url":"https://secure.actblue.com/contribute/page/bncsignup", "popup":false}}'>
-                                    <input type="hidden" name="utmSource" ng-value="model.data.utmSource">
-                                    <input type="hidden" name="utmMedium" ng-value="model.data.utmMedium">
-                                    <input type="hidden" name="utmCampaign" ng-value="model.data.utmCampaign">
-
-                                    <p class="message" ng-show="response.length" ng-bind-html="response"></p>
-                                    <ul class="listInline divCenter fontSecondary" ng-show="status !== 'success'">
-                                        <li>
-                                            <md-input-container>
-                                                <label>Email</label>
-                                                <input name="email" type="email" ng-pattern="options.pattern.email" ng-model="model.data.email" required="" md-no-asterisk="">
-                                                <div ng-messages="Signup.email.$error" role="alert">
-                                                    <div ng-message-exp="['required', 'pattern']">Please enter a valid email.</div>
-                                                </div>
-                                            </md-input-container>
-                                        </li>
-                                        <li>
-                                            <md-input-container>
-                                                <label>Zip</label>
-                                                <input name="zip" ng-pattern="options.pattern.zip" ng-model="model.data.zip" required="" md-no-asterisk="">
-                                                <div ng-messages="Signup.zip.$error" role="alert">
-                                                    <div ng-message-exp="['required', 'pattern']">Please enter a valid zip code.</div>
-                                                </div>
-                                            </md-input-container>
-                                        </li>
-                                        <li>
-                                            <button class="btn formSubmit" ng-disabled="Signup.$invalid" type="submit">{{ textSubmit|default('Count Me In') }}</button>
-                                        </li>
-                                    </ul>
-                                </form>
+                                {{ block('registrationForm') }}
                             </div>
                         </div>
                     </div>

@@ -174,29 +174,29 @@ SIGNUP FORM
             {{ registrationFormBefore|default('')|raw }}
 
             {% verbatim %}
-        <li>
-            <md-input-container>
-                <label>Email</label>
-                <input name="email" type="email" ng-pattern="options.pattern.email" ng-model="model.data.email" required md-no-asterisk>
-                <div ng-messages="Signup.email.$error" role="alert">
-                    <div ng-message-exp="['required', 'pattern']">
-                        Please enter a valid email.
+            <li>
+                <md-input-container>
+                    <label>Email</label>
+                    <input name="email" type="email" ng-pattern="options.pattern.email" ng-model="model.data.email" required md-no-asterisk>
+                    <div ng-messages="Signup.email.$error" role="alert">
+                        <div ng-message-exp="['required', 'pattern']">
+                            Please enter a valid email.
+                        </div>
                     </div>
-                </div>
-            </md-input-container>
-        </li>
-        <li>
-            <md-input-container>
-                <label>Zip</label>
-                <input name="zip" ng-pattern="options.pattern.zip" ng-model="model.data.zip" required md-no-asterisk>
-                <div ng-messages="Signup.zip.$error" role="alert">
-                    <div ng-message-exp="['required', 'pattern']">
-                        Please enter a valid zip code.
+                </md-input-container>
+            </li>
+            <li>
+                <md-input-container>
+                    <label>Zip</label>
+                    <input name="zip" ng-pattern="options.pattern.zip" ng-model="model.data.zip" required md-no-asterisk>
+                    <div ng-messages="Signup.zip.$error" role="alert">
+                        <div ng-message-exp="['required', 'pattern']">
+                            Please enter a valid zip code.
+                        </div>
                     </div>
-                </div>
-            </md-input-container>
-        </li>
-        {% endverbatim %}
+                </md-input-container>
+            </li>
+            {% endverbatim %}
             <li>
                 <button type="submit" class="btn formSubmit"
                         ng-disabled="Signup.$invalid">{{ textSubmit|default('Count Me In') }}</button>
