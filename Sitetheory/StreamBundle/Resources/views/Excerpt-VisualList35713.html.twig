@@ -1,0 +1,47 @@
+{% extends 'SitetheoryStreamBundle::Excerpt-VisualList.html.twig' %}
+
+
+{#
+########
+SETTINGS
+########
+#}
+
+{# TEMPLATE SHELL ADJUSTMENTS - These will be the same for most home page streams #}
+
+{% set headerFull = true %}
+
+{% set sectionMenuActive = '' %}
+{% set sectionMenuHardCoded = '' %}
+
+{# Header image exists #}
+{% set streamClass = 'landingStream' %}
+
+{# Hide sidebar on desktop #}
+{% set columnSidebar = 'hide-gt-sm' %}
+{% set columnMain = 'flex=100' %}
+
+{# Hide gutter in main column #}
+{% block mainColumnGutter %}
+{% endblock mainColumnGutter %}
+
+{# Remove standard header image #}
+{% block headerImageInsideHeader %}
+{% endblock headerImageInsideHeader %}
+
+{# Hide page title #}
+{% block pageTitle %}
+{% endblock pageTitle %}
+
+{# Remove shell vertical content padding class to replace with stream padding #}
+{% set shellContentStructure = 'siteMaxWidth siteSidePadding' %}
+
+{% block listRow %}
+    {% verbatim %}
+        <div>{{ model.data.viewVersion.images }}</div>
+        <div>{{ model.data.viewVersion.position }}</div>
+        <div>{{ model.data.viewVersion.title }}</div>
+        <div>{{ model.data.viewVersion.description }}</div>
+        <div>{{ model.data.viewVersion.location }}</div>
+    {% endverbatim %}
+{% endblock listRow %}

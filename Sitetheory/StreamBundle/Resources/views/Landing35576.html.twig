@@ -87,21 +87,14 @@ LAYOUT
     {# Home Landing Layout #}
     <div class="clearfix">
 
-        {# hide as soon as angular loads
-        <div class="loader" ng-hide="true"></div>
 
-        {#
         <a href="/candidates">
-            <div id="announcementBanner">
-                <div layout="row" layout-align="center center">
-                    <div flex="none" id="newsLabel" class="salmon fontPrimary">News</div>
-                    <div flex="none" hide-xs hide-sm class="date fontPrimary">Dec 12</div>
-                    <p flex="grow" id="announcement" class="fontBody textCenter">We’ve announced our first 5 potential candidates. Help us convince them to run!<span hide-xs class="learnMore smallLabel salmonText">Learn More</span></p>
-                    <div flex="none" hide-xs class="doubleArrow fontTertiary"> >> </div>
-                </div>
+            <div id="announcementBanner" class="positionAnchor clearfix">
+                <div id="newsLabel" class="salmon fontPrimary verticalCenter">News</div>
+                <p id="announcement" class="fontBody textCenter">We’ve announced our first 24 candidate draftees. Help us convince them to run!<span hide-xs hide-sm class="learnMore smallLabel salmonText">Learn More</span></p>
+                <div hide-xs hide-sm class="doubleArrow fontTertiary verticalCenter"> >> </div>
             </div>
         </a>
-        #}
 
         <div id="homeSlides">
             <div id="slidesContent" class="textCenter">
@@ -128,8 +121,8 @@ LAYOUT
 
                 {# Fancy Signup Form with Map #}
 
-                <div class="borderDashedBold shellVerticalPadding" id="callToAction" ng-controller="Api" options='{"url":"https://api.{{ environment.site.domainprimary }}", "controller":"/people/count", "onLoad": "fetch", "onTime": {"time": "10s", "method":"fetch"}}'>
-                    <p class="intro textCenter divCenter"><strong>If we get 500,000 people to sign up, we believe that we can convince this first round of people to run.</strong></p>
+                <div id="progressAndJoin" ng-controller="Api" options='{"url":"https://api.{{ environment.site.domainprimary }}", "controller":"/people/count", "onLoad": "fetch", "onTime": {"time": "10s", "method":"fetch"}}'>
+                    <p class="intro textCenter divCenter"><strong>If we get 500,000 people to sign up, we believe that we can convince our first draftees to run.</strong></p>
                     <!-- hide as soon as angular loads -->
                     <div class="loader" ng-hide="true"></div>
                     <div layout="row" layout-wrap="" ng-cloak="">
@@ -270,7 +263,7 @@ LAYOUT
 
         <div class="sectionBorder backgroundDark"></div>
 
-        {#
+
         <a name="homeCandidates"></a>
         <div id="homeCandidates" class="shellVerticalPadding textCenter">
             <h4>Candidate</h4>
@@ -278,13 +271,13 @@ LAYOUT
 
             <p class="intro fontSecondary">These potential candidates represent the mix of public servants, entrepreneurs, local leaders, and national figures that we’re drafting. <strong>None of these people have yet agreed to run</strong> because they are all very committed to their causes and are not yet convinced they should take a leap of faith with Brand New Congress. But we have vetted them all and gotten to know them, so we would love to convince them to run by showing them that we have the support necessary to win. <a href='/candidates'>Help us convince them to run!</a></p>
 
-            {# hide as soon as angular loads
+            {# hide as soon as angular loads #}
             <div class="loader" ng-hide="true"></div>
 
             <div layout="row" layout-wrap ng-cloak ng-cloak-reveal>
                 <div flex-xs="100"  flex-gt-xs="33" class="candidateColumn">
 
-                    {# Candidate 1
+                    {# Candidate 1 #}
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
                             <div class="imageGradientBottom"></div>
@@ -309,7 +302,7 @@ LAYOUT
                     </div>
                 </div>
 
-                {# Candidate 2
+                {# Candidate 2 #}
                 <div flex-xs="100" flex-gt-xs="33" class="candidateColumn">
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
@@ -336,7 +329,7 @@ LAYOUT
                     </div>
                 </div>
 
-                {# Candidate 3
+                {# Candidate 3 #}
                 <div flex-xs="100"  flex-gt-xs="33" class="candidateColumn">
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
@@ -363,7 +356,7 @@ LAYOUT
                     </div>
                 </div>
 
-                {# Candidate 4
+                {# Candidate 4 #}
                 <div flex-xs="100"  flex-gt-xs="33" class="candidateColumn">
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
@@ -389,7 +382,7 @@ LAYOUT
                     </div>
                 </div>
 
-                {# Candidate 5
+                {# Candidate 5 #}
                 <div flex-xs="100"  flex-gt-xs="33" class="candidateColumn">
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
@@ -442,7 +435,6 @@ LAYOUT
             <a class="btn" href="https://secure.actblue.com/contribute/page/bncdec" target="_blank">Donate</a>
         </div>
         <div class="sectionBorder backgroundDark"></div>
-        #}
 
         <div id="homeSpecifics" class="shellVerticalPadding textCenter">
 

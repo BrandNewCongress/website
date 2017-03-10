@@ -8,138 +8,7 @@
     max-width: 600px;
 }
 
-/* USA progress bar */
 
-#signUpProgress {
-    margin-right: 20%;
-    max-width: 320px;
-}
-#progressBarContainer {
-    border: 5px solid #FFF;
-}
-#progressNumbers {
-    z-index: 10;
-    top: inherit;
-    height: 30px;
-}
-#startNumber {
-    transform: translateX(-8px);
-}
-#endNumber {
-    transform: translateX(32px);
-}
-#numberLine {
-    position: absolute;
-    left: 5px;
-    right: 5px;
-    bottom: 6px;
-    height: 1px;
-    border-top: 1px solid #333;
-}
-#signUpProgress svg {
-    margin-bottom: 16px;
-    position: relative;
-}
-#progressBarContainer {
-    bottom: 16px;
-    background: #EEE;
-}
-#progressBar {
-    bottom: 0;
-}
-@media (max-width: 959px) {
-    #signUpProgress {
-        margin: 50px auto 0 auto;
-    }
-    #progressNumbers {
-        transform: translateX(-15px);
-    }
-}
-
-/* Sign up numbers */
-
-
-#signUpLabel {
-    margin-top: 12px;
-    font-size: 20px;
-    letter-spacing: .05em;
-}
-#signUpLabel .starLeft,
-#signUpLabel .starRight {
-    background-image: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starPurple.png');
-}
-#totalSignUp {
-    font-size: 100px;
-    font-weight: 100;
-    line-height: .8;
-}
-#totalSignUp.borderDashed {
-    margin-top: 25px;
-    padding-top: 25px;
-}
-@media (max-width: 1200px) {
-    #totalSignUp {
-        font-size: 80px;
-    }
-}
-@media (max-width: 959px) {
-    #signUpLabel {
-        margin-top: 0;
-    }
-    #totalSignUp {
-        font-size: 100px;
-    }
-}
-
-
-/* Sign up form */
-
-
-#candidateJoin.joinForm .listInline li {
-    display: block;
-}
-/* Make input containers wider */
-#candidateJoin md-input-container {
-    margin: 8px 0;
-    width: 300px;
-}
-/* Prompt text */
-#candidateJoin md-input-container .md-placeholder,
-#candidateJoin md-input-container label:not(.md-no-float):not(.md-container-ignore) {
-    font-size: 18px;
-}
-#candidateJoin  .btn {
-    margin-top: -8px;
-    padding: 15px 0;
-    width: 300px;
-}
-
-@media (max-width: 1100px) {
-    #candidateJoin md-input-container,
-    #candidateJoin  .btn {
-        width: 260px;
-    }
-}
-@media (max-width: 1000px) {
-    #candidateJoin md-input-container,
-    #candidateJoin  .btn {
-        width: 220px;
-    }
-}
-@media (max-width: 959px) {
-    #candidateJoin p{
-        margin-bottom: 35px;
-        max-width: 500px;
-    }
-    #candidateJoin md-input-container,
-    #candidateJoin  .btn {
-        width: 300px;
-    }
-    #candidateJoin {
-        float: none;
-        margin-top: 60px;
-    }
-}
 
 
 /* General profile styling */
@@ -341,6 +210,7 @@
 }
 
 
+/* Call to Action Area */
 
 .profileDetails .candidateDetailsJoin,
 .profileDetails .candidateCallToAction {

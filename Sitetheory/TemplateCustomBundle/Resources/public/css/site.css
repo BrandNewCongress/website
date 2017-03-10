@@ -455,7 +455,7 @@ hr {
         display: none;
     }
     #sidebarToggleContainer .sidebarToggle {
-        top: 0;
+        top: 40px;
         right: 0;
         left: inherit;
     }
@@ -721,6 +721,7 @@ h2.sectionName {
 
 #shellContent.shellVerticalPadding {
     padding-top: 50px;
+    padding-bottom: 80px;
 }
 .mainColumnGutter {
     padding-left: 9%;

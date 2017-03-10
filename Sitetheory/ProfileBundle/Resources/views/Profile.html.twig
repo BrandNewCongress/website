@@ -38,36 +38,34 @@
 
 {% block contentType %}
 
-    <div id="contentProfile-{{ view.id }}" class="contentProfile profileDetails" {{ block('editableView') }}>
+    <div id="contentProfile-{{ view.id }}" class="contentProfile profileDetails">
 
         <div class="clearfix">
 
             <div class="profileImageContainer positionAnchor">
 
+
                 <div class="profileImage primary-image">
+                    {% block profileImage %}
                     <img src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/LindaWayman.jpg') }}" alt="">
+                    {% endblock profileImage %}
                 </div>
 
-                {% if view.viewVersion.images|length > 0 %}
-                    <div class="profileImage primary-image">
-                        <img src="//{{ view.viewVersion.images[0].url }}-xs.{{ view.viewVersion.images[0].extension }}"
-                             data-src="lazy" alt="{{ view.viewVersion.images[0].name }}">
-                    </div>
-                {% endif %}
 
-                {% block profileLocation %}
-                    <div class="profileLocation positionLeftBottom">
-                        <div class="salmon colorBox clearfix">
-                            <p class="fontPrimary">
-                            <span class="starLeft starWhite">
-                                <span class="starRight starWhite">
-                                    Pennsylvania 1st
-                                </span>
+                <div class="profileLocation positionLeftBottom">
+                    <div class="salmon colorBox clearfix">
+                        <p class="fontPrimary">
+                        <span class="starLeft starWhite">
+                            <span class="starRight starWhite">
+                                {% block profileLocation %}
+                                Pennsylvania 1st
+                                {% endblock profileLocation %}
                             </span>
-                            </p>
-                        </div>
+                        </span>
+                        </p>
                     </div>
-                {% endblock profileLocation %}
+                </div>
+
 
             </div>
 
@@ -76,9 +74,9 @@
             {% endif %}
 
             <h4 class="profilePosition">
-            {% block profilePosition %}
-                Educator
-            {% endblock profilePosition %}
+                {% block profilePosition %}
+                    Educator
+                {% endblock profilePosition %}
             </h4>
 
 
