@@ -159,7 +159,7 @@ SIGNUP FORM
 
 {% block registrationForm %}
 
-    <form name="Signup" ng-submit="send('Signup') && customMethods.trackSignup('SignupButton', 'click')" ng-controller="Api"
+    <form name="Signup" ng-submit="send('Signup') && tracking.send('SignupButton', 'click')" ng-controller="Api"
           ng-sanitize="true"
           options='{"url":"https://api.{{ environment.site.domainprimary }}", "controller": "/people", "redirect":{"url":"https://secure.actblue.com/contribute/page/bncsignup", "popup":false}}'
           ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
