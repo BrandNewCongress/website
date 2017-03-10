@@ -40,7 +40,11 @@ a:hover {
     text-transform: uppercase;
     background-color: #7932AC;
 }
-.btn:hover {
+.btn.btnSalmon {
+    background: #FF7A65;
+}
+.btn:hover,
+.btn.btnSalmon:hover {
     background-color: #222;
 }
 .btnBig {
@@ -650,6 +654,20 @@ h2.sectionName {
 .siteNavLink a.navLevel2.active:hover {
     color: #FFF;
 }
+
+
+.siteNavLink a.navLevel3 {
+    padding: 3px 0;
+    color: #000;
+    font-weight: bold;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+}
+.siteNavLink a.navLevel3:hover {
+    color: #7932AC;
+}
+
+/* Sidebar promo area */
 #sidebarPromoArea a {
     display: block;
     margin-top: 24px;
