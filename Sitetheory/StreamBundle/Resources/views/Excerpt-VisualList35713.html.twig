@@ -1,47 +1,84 @@
 {% extends 'SitetheoryStreamBundle::Excerpt-VisualList.html.twig' %}
 
 
+{% block link %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('bundles/sitetheoryprofile/css/Profile.css') }}">
+
+{% endblock link %}
+
+
+
+
+
+
 {#
 ########
 SETTINGS
 ########
 #}
 
-{# TEMPLATE SHELL ADJUSTMENTS - These will be the same for most home page streams #}
-
-{% set headerFull = true %}
-
-{% set sectionMenuActive = '' %}
-{% set sectionMenuHardCoded = '' %}
-
-{# Header image exists #}
-{% set streamClass = 'landingStream' %}
-
 {# Hide sidebar on desktop #}
 {% set columnSidebar = 'hide-gt-sm' %}
-{% set columnMain = 'flex=100' %}
+{% set columnMain = '' %}
 
 {# Hide gutter in main column #}
 {% block mainColumnGutter %}
 {% endblock mainColumnGutter %}
 
+
+
+{# Temporary Hard Coded Side Menu #}
+{% set sectionNameHardCoded = 'Candidates' %}
+{% set sectionMenuHardCoded = '1' %}
+{% set sectionMenuActive = 'drafteesActive' %}
+
+
+
 {# Remove standard header image #}
 {% block headerImageInsideHeader %}
 {% endblock headerImageInsideHeader %}
 
-{# Hide page title #}
-{% block pageTitle %}
-{% endblock pageTitle %}
 
-{# Remove shell vertical content padding class to replace with stream padding #}
-{% set shellContentStructure = 'siteMaxWidth siteSidePadding' %}
+
+{%  block contentType %}
+<div id="candidateListPage" class="profileList">
+
+    <p class="textCenter pullout">We are excited to announce our first potential candidates! We need to convince them we have the support needed to run their campaign.</p>
+
+
+    <h1>Our Draftees</h1>
+    <div class="borderDashedBold">
+        <div id="profileList">
+            {{ parent() }}
+        </div>
+    </div>
+</div>
+{%  endblock contentType %}
+
+
 
 {% block listRow %}
-    {% verbatim %}
-        <div>{{ model.data.viewVersion.images }}</div>
-        <div>{{ model.data.viewVersion.position }}</div>
-        <div>{{ model.data.viewVersion.title }}</div>
-        <div>{{ model.data.viewVersion.description }}</div>
-        <div>{{ model.data.viewVersion.location }}</div>
-    {% endverbatim %}
+
+    <div class="profileContainer">
+        <div class="profileItem" layout="column">
+            <div class="clearfix" flex-order="2" flex-order-gt-xs="1">
+                <div class="profileImage">
+                    <a href="/candidates/linda-wayman">{# {% verbatim %}{{ model.data.viewVersion.images }}{% endverbatim %} #}<img src="//cdn.sitetheory.io/nest001/814-LindaWayman-xs.jpg" alt="Linda Wayman" > </a>
+                </div>
+                <h2>{% verbatim %}{{ model.data.viewVersion.title }}{% endverbatim %}</h2>
+                <h4>{# {% verbatim %}{{ model.data.viewVersion.position }}{% endverbatim %} #} Educator</h4>
+                <p class="profileBody">{# {% verbatim %}{{ model.data.viewVersion.description }}{% endverbatim %} #}Decades-long educator in North Philadelphia who who became a superintendent, but stepped down to become principal of a chronically failing high school, turning the school around. <a class="readMore fontBody" href="/candidates/linda-wayman">Read More</a></p>
+            </div>
+            <div class="profileExtra backgroundDark" flex-order="1" flex-order-gt-xs="2">
+                <div class="starLeft starWhite">
+                    <div class="starRight starWhite">
+                        <div class="starText fontPrimary textCenter">{# {% verbatim %}{{ model.data.viewVersion.location }}{% endverbatim %} #}Pennsylvania 1st</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock listRow %}

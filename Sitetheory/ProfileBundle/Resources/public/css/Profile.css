@@ -3,12 +3,12 @@
 
 /* PROFILES LIST PAGE */
 
-#candidateListPage #callToAction .intro {
-    margin-bottom: 60px;
-    max-width: 600px;
+
+
+/* Temporary until the search bar can be hidden in admin */
+stratus-search {
+    display: none;
 }
-
-
 
 
 /* General profile styling */
@@ -19,7 +19,10 @@
     text-align: center;
     font-size: 35px;
 }
-.profileList .pullout,
+.profileList .pullout {
+    margin: 30px auto 60px;
+    max-width: 920px;
+}
 .profileDetails .pullout {
     margin-bottom: 60px;
     max-width: 920px;
@@ -41,10 +44,15 @@
     margin: 0 4%;
     padding-bottom: 120px;
 }
-.profileList .profileImage {
-    float: left;
-    max-width: 50%;
-    margin: 0 5% 22px 0;
+@media (min-width: 959px) {
+    .profileList .profileImage {
+        float: left;
+        width: 50%;
+        margin: 0 5% 16px 0;
+    }
+}
+.profileList .profileImage img {
+    width: 100%;
 }
 .profileList h2 {
     margin: 0 0 12px;
@@ -54,7 +62,7 @@
     margin-bottom: 26px;
 }
 .profileList .profileBody {
-    margin-bottom: 22px;
+    margin-bottom: 16px;
     padding-right: 3%;
 }
 .profileItem .readMore {
