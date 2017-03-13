@@ -439,6 +439,10 @@
 
 /* CANDIDATES SECTION */
 
+#homeCandidates img {
+    display: block;
+}
+
 
 /* Intro paragraph */
 
@@ -466,6 +470,8 @@
 /* Candidate Grid */
 
 .candidateColumn {
+    float: left;
+    width: 33%;
     transition: all 400ms ease-out 50ms;
 }
 .candidateContainer {
@@ -541,7 +547,17 @@
     opacity: 1;
 }
 
-
+@media (max-width: 959px) {
+    .candidateColumn {
+        width: 50%;
+    }
+}
+@media (max-width: 767px) {
+    .candidateColumn {
+        float: none;
+        width: 100%;
+    }
+}
 @media (min-width: 600px) and (max-width:1100px) {
     .candidateInfo .name {
         font-size: 11px;
@@ -633,7 +649,7 @@
 
 
 #candidatesAction {
-    padding: 45px 0;
+    padding: 0 0 80px 0;
 }
 #candidatesAction .btn {
     margin-top: 22px;
@@ -647,11 +663,13 @@
 #homeImageLinks {
     margin: 0 -1.333%;
 }
+#homeImageLinks img {
+    display: block;
+}
 #homeImageLinks a {
     display: block;
     margin: 0 4%;
     width: 92%;
-    line-height: .5;
 }
 #homeImageLinks a img {
     width: 100%;

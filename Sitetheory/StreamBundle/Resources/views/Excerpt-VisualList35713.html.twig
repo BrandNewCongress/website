@@ -59,26 +59,33 @@ SETTINGS
 
 
 
-{% block listRow %}
 
+
+{% block listRow %}
+    {% verbatim %}
     <div class="profileContainer">
         <div class="profileItem" layout="column">
             <div class="clearfix" flex-order="2" flex-order-gt-xs="1">
                 <div class="profileImage">
-                    <a href="/candidates/linda-wayman">{# {% verbatim %}{{ model.data.viewVersion.images }}{% endverbatim %} #}<img src="//cdn.sitetheory.io/nest001/814-LindaWayman-xs.jpg" alt="Linda Wayman" > </a>
+                    <a href="/candidates/linda-wayman"><img ng-src="image.url" ng-repeat="image in model.data.viewVersion.images"></a>
                 </div>
-                <h2>{% verbatim %}{{ model.data.viewVersion.title }}{% endverbatim %}</h2>
-                <h4>{# {% verbatim %}{{ model.data.viewVersion.position }}{% endverbatim %} #} Educator</h4>
-                <p class="profileBody">{# {% verbatim %}{{ model.data.viewVersion.description }}{% endverbatim %} #}Decades-long educator in North Philadelphia who who became a superintendent, but stepped down to become principal of a chronically failing high school, turning the school around. <a class="readMore fontBody" href="/candidates/linda-wayman">Read More</a></p>
+                <h2>{{ model.data.viewVersion.title }}</h2>
+                <h4>{{ model.data.viewVersion.position }}</h4>
+                <p class="profileBody">{{ model.data.viewVersion.description }}
+                    <a class="readMore fontBody" href="/candidates/linda-wayman">Read More</a>
+                </p>
             </div>
             <div class="profileExtra backgroundDark" flex-order="1" flex-order-gt-xs="2">
                 <div class="starLeft starWhite">
                     <div class="starRight starWhite">
-                        <div class="starText fontPrimary textCenter">{# {% verbatim %}{{ model.data.viewVersion.location }}{% endverbatim %} #}Pennsylvania 1st</div>
+                        <div ng-repeat="location in model.data.viewVersion.meta.locations" class="starText fontPrimary textCenter">
+                                {{ location }}
+                            Pennsylvania 1st
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+    {% endverbatim %}
 {% endblock listRow %}
