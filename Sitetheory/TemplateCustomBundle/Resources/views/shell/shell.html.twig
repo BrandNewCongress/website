@@ -422,6 +422,7 @@ LAYOUT
                         Jessica Hall
                     </a>
                 </li>
+                {#
                 <li class="siteNavLink" data-level="3">
                     <a href="/Tawanda-Jones" class="navLevel3">
                         Tawanda Jones
@@ -517,6 +518,7 @@ LAYOUT
                         Tamarah Begay
                     </a>
                 </li>
+                #}
             </ul>
 
         </li>
@@ -673,7 +675,7 @@ LAYOUT
 {# Add social media & border to bottom of sidebar #}
 {% block sidebarContent %}
     {{ parent() }}
-    <div hide-gt-sm>
+    <div ng-cloak hide-gt-sm>
         {{ block('socialMedia') }}
     </div>
     <div class="borderDashed sidebarBorder"></div>
