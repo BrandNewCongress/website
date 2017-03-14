@@ -65,7 +65,7 @@ SETTINGS
                 <div class="profileImage">
                     <a ng-href="{% verbatim %}{{ model.data.routingPrimary.url }}{% endverbatim %}">
                         <img ng-src="{% verbatim %}{{ image.url || '//thebenclark.files.wordpress.com/2014/03/facebook-default-no-profile-pic.jpg' }}{% endverbatim %}"
-                             ng-repeat="image in model.data.viewVersion.images">
+                             {# ng-repeat="image in model.data.viewVersion.images"#}>
                     </a>
                 </div>
                 <h2>{% verbatim %}{{ model.data.viewVersion.title }}{% endverbatim %}</h2>
