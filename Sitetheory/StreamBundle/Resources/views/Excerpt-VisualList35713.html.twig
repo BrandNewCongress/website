@@ -71,7 +71,7 @@ SETTINGS
                 <h2>{% verbatim %}{{ model.data.viewVersion.title }}{% endverbatim %}</h2>
                 <h4>{% verbatim %}{{ model.data.viewVersion.position }}{% endverbatim %}</h4>
                 <p class="profileBody">
-                    {% verbatim %}{{ model.data.viewVersion.text | truncate:{limit: 400} }}{% endverbatim %}
+                    <span ng-bind-html="model.data.viewVersion.text | truncate:{limit: 130}"></span>
                     <a class="readMore fontBody"
                        ng-href="{% verbatim %}{{ model.data.routingPrimary.url }}{% endverbatim %}">Read More</a>
                 </p>
