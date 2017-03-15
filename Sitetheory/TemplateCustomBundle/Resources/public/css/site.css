@@ -341,7 +341,17 @@ hr {
 }
 #planGraphic {
     margin-top: 10px;
-    max-width: 28%;
+    max-width: 190px;
+}
+#planGraphic img {
+    max-width: 138px;
+}
+#planGraphic h4 {
+    margin-bottom: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    line-height: 1.8;
 }
 #logoHeader img {
     margin-top: 8px;
@@ -920,7 +930,7 @@ md-progress-circular path {
 #footerJoinForm md-input-container .md-placeholder,
 #footerJoinForm md-input-container label:not(.md-no-float):not(.md-container-ignore) {
     left: 12px;
-    bottom: 80%;
+    bottom: 85%;
     font-size: 20px;
     color: #FFF;
 }

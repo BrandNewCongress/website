@@ -21,6 +21,17 @@
 }
 
 
+.homeActionBtns {
+    margin: 22px 0 6px;
+    text-align: center;
+}
+.homeActionBtns .btn {
+    display: inline-block;
+    margin: 0 3px;
+    padding: 10px 40px;
+    font-size: 17px;
+}
+
 /* ANNOUNCEMENT BANNER */
 
 
@@ -86,13 +97,55 @@
 
 /* SLIDESHOW */
 
+#slideshowLink .slideshowImage {
+    transition: all .2s ease-out;
+}
+#slideshowLink:hover .slideshowImage {
+    opacity: .6;
+}
+#homeSlides {
+    margin-top: 50px;
+    text-align: right;
+}
+#homeSlides img {
+    display: block;
+    width: 100%;
+}
+#slidesContent {
+    position: absolute;
+    top: 17%;
+    right: 8%;
+    text-align: right;
+}
+#slidesContent h4 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    color: #FFF;
+}
+#slidesContent p {
+    margin: 0 0 36px 0;
+    font-size: 100px;
+    font-weight: 100;
+    color: #FFF;
+    text-transform: uppercase;
+    line-height: 1;
+}
+#homeSlides .btn {
+    transition: all .2s ease-out;
+    display: inline;
+}
+#slideshowLink:hover .btn {
+    color: #111;
+    background: #FFF;
+}
+/* Original slideshow
 #homeSlides {
     animation: itemsFadein .2s ease-out .5s forwards;
     -webkit-animation: itemsFadein .2s ease-out .5s forwards;
     background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/slideshow1.jpg') no-repeat center center;
     background-size: cover;
 }
-
 #slidesContent {
     margin: 28px auto 0 auto;
     padding: 120px 60px;
@@ -157,17 +210,22 @@
         font-size: 10px;
     }
 }
-
+*/
 
 
 /* Progress & Join Area */
 
 #homeJoin h1 {
+    margin-bottom: 50px;
     padding: 4px 0;
     color: #FFF;
 }
+#homeJoin .shellVerticalPadding {
+    padding-top: 45px;
+}
 #progressAndJoin .intro {
     margin-bottom: 80px;
+    font-size: 20px;
 }
 #signUpProgress {
     margin-right: 20%;
@@ -359,7 +417,7 @@
 /* WELCOME SECTION */
 
 #welcome {
-    max-width: 1000px;
+    max-width: 860px;
 }
 #welcome p:first-child {
     margin: 10px 0 -10px 0;
@@ -453,9 +511,10 @@
     margin-top: 30px;
 }
 #homeCandidates p.intro {
-    margin: 20px 0 40px;
+    margin: 20px auto 50px;
     padding: 0;
-    font-size: 15px;
+    max-width: 860px;
+    font-size: 16px;
 }
 #homeCandidates p.intro a {
     color: #333;
@@ -465,14 +524,23 @@
     color: #7932AC;
     text-decoration: none;
 }
-
+#homeCandidates .bodyLarge {
+    margin: 0 0 50px 0;
+}
 
 /* Candidate Grid */
 
+.candidateGrid {
+    margin: 40px auto 0;
+    max-width: 1000px;
+}
 .candidateColumn {
     float: left;
     width: 33%;
     transition: all 400ms ease-out 50ms;
+}
+.candidateColumn .candidateImage {
+    cursor: pointer;
 }
 .candidateContainer {
     margin: 35px 3px 15px 3px;
@@ -501,10 +569,10 @@
     color: #FFF;
 }
 .candidateInfo .name {
-    font-size: 12px;
+    font-size: 14px;
 }
 .candidateInfo .title {
-    font-size: 9px;
+    font-size: 11px;
 }
 /* image */
 .candidateImage {
@@ -555,22 +623,13 @@
 @media (max-width: 767px) {
     .candidateColumn {
         float: none;
+        margin: 0 auto;
         width: 100%;
+        max-width: 400px;
     }
 }
 @media (min-width: 600px) and (max-width:1100px) {
-    .candidateInfo .name {
-        font-size: 11px;
-    }
-    .candidateInfo .title {
-        font-size: 8px;
-    }
-    .candidateDistrict p {
-        font-size: 15px;
-    }
-    .candidateBio {
-        font-size: 13px;
-    }
+
 }
 
 /* Temporary nominate area to fill empty candidate slot */

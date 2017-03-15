@@ -13,6 +13,9 @@ stratus-search {
 
 /* General profile styling */
 
+#candidateListPage {
+    padding-bottom: 60px;
+}
 .profileList h1,
 .profileDetails h1 {
     margin: 0 0 26px;
@@ -34,6 +37,7 @@ stratus-search {
 /* Profile List */
 
 #profileList {
+    padding-top: 60px;
 }
 .profileContainer {
     position: relative;
@@ -41,14 +45,24 @@ stratus-search {
 .profileItem {
     margin: 60px 4% 100px;
 }
+.profileList .profileImage {
+    background: #111;
+}
+.profileList .profileImage a {
+    transition: all .2s ease-out;
+}
+.profileList .profileImage a:hover {
+    opacity: .8;
+}
 @media (min-width: 959px) {
     .profileList .profileImage {
         float: left;
         width: 50%;
-        margin: 0 5% 16px 0;
+        margin: 0 5% 4px 0;
     }
 }
 .profileList .profileImage img {
+    display: block;
     width: 100%;
 }
 .profileList h2 {
@@ -56,7 +70,9 @@ stratus-search {
     font-size: 18px;
 }
 .profileList h4 {
-    margin-bottom: 26px;
+    margin: 26px 0;
+    font-size: 11px;
+    letter-spacing: .1em;
 }
 .profileList .profileBody {
     margin-bottom: 16px;
@@ -247,7 +263,7 @@ stratus-search {
     width: 285px;
 }
 .profileDetails .candidateCallToAction .btn.btnSalmon {
-    margin-bottom: 30px;
+    margin-bottom: 14px;
 }
 .joinForm md-input-container {
     width: 280px;

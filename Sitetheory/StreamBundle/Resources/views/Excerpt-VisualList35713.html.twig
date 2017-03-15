@@ -70,7 +70,8 @@ SETTINGS
                             <img ng-show="!model.data.viewVersion.images.length" src="{{ asset('bundles/sitetheoryprofile/images/profilePlaceholder.png') }}">
                         </a>
                     </div>
-                    <h2>{% verbatim %}{{ model.data.viewVersion.title }}{% endverbatim %}</h2>
+                    <h2>{% verbatim %}<a
+                           ng-href="{{ model.data.routingPrimary.url }}">{{ model.data.viewVersion.title }}</a>{% endverbatim %}</h2>
                     <h4>{% verbatim %}{{ model.data.viewVersion.meta.position }}{% endverbatim %}</h4>
                     <p class="profileBody">
                         <span ng-bind-html="model.data.viewVersion.text | truncate:{limit: 130}"></span>

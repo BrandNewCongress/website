@@ -26,17 +26,19 @@
 {% endblock pageTitle %}
 
 {% block contentHeader %}
-    <div class="contentHeader profileDetails clearfix">
+    {% if view.viewVersion.description is not empty %}
+        <div class="contentHeader profileDetails clearfix">
 
-        <p class="pullout">
-            {% block contentHeaderText %}
-                {{ view.viewVersion.description|raw }}
-            {% endblock contentHeaderText %}
-        </p>
+            <p class="pullout">
+                {% block contentHeaderText %}
+                    {{ view.viewVersion.description|raw }}
+                {% endblock contentHeaderText %}
+            </p>
 
-        <div class="borderDashedBold">&nbsp;</div>
+            <div class="borderDashedBold">&nbsp;</div>
 
-    </div>
+        </div>
+    {% endif %}
 {% endblock contentHeader %}
 
 

@@ -87,7 +87,7 @@ LAYOUT
     {# Home Landing Layout #}
     <div class="clearfix">
 
-
+        {#
         <a href="/candidates">
             <div id="announcementBanner" class="positionAnchor clearfix">
                 <div id="newsLabel" class="salmon fontPrimary verticalCenter">News</div>
@@ -95,23 +95,20 @@ LAYOUT
                 <div hide-xs hide-sm class="doubleArrow fontTertiary verticalCenter"> >> </div>
             </div>
         </a>
+        #}
 
-        <div id="homeSlides">
-            <div id="slidesContent" class="textCenter">
-                <div id="slideText1" class="fontPrimary starLeft">
-                    <div class="starRight">Our Goal</div>
+        <a id="slideshowLink" href="/#homeJoin">
+            <div id="homeSlides" class="positionAnchor purple">
+                <div class="slideshowImage">
+                    <img data-src="lazy" src="{{ asset('bundles/sitetheorytemplatecustom/images/homeImageMain/slideshowDraftees-xs.jpg') }}" alt="">
                 </div>
-                <p class="bodyLarge">Elect a Brand New Congress that works for all Americans.</p>
-                <div flex="nogrow" id="h4Container" layout="row">
-                    <div flex class="borderDashedLight">&nbsp;</div>
-                    <div flex-xs="100" flex-sm="60" flex-gt-md="none">
-                        <h4 class="yellowText">We’re running 400+ candidates in a single campaign to rebuild our country.
-</h4>
-                    </div>
-                    <div flex class="borderDashedLight">&nbsp;</div>
+                <div id="slidesContent">
+                    <h4 class="fontTertiary">ANNOUNCING OUR FIRST CANDIDATE</h4>
+                    <p class="fontSecondary">Draftees</p>
+                    <div class="btn btnBig btnSalmon" href="/#homeJoin">Convince them to run</div>
                 </div>
             </div>
-        </div>
+        </a>
 
         <div id="homeJoin">
             <div class="shellVerticalPadding">
@@ -175,6 +172,8 @@ LAYOUT
 
         <div class="borderDashedBold">
             <div id="welcome" class="divCenter textCenter shellVerticalPadding">
+                <h4>Congress is</h4>
+                <h1>Broken</h1>
                 <div class="content bodyLarge fontSecondary" ng-model="model.data.viewVersion.text" {{ block('editableViewAttributes') }}>
                     {% autoescape false %}
                         {{ view.viewVersion.text }}
@@ -269,31 +268,41 @@ LAYOUT
             <h4>Candidate</h4>
             <h1>Draftees</h1>
 
-            <p class="intro fontSecondary">These potential candidates represent the mix of public servants, entrepreneurs, local leaders, and national figures that we’re drafting. <strong>None of these people have yet agreed to run</strong> because they are all very committed to their causes and are not yet convinced they should take a leap of faith with Brand New Congress. But we have vetted them all and gotten to know them, so we would love to convince them to run by showing them that we have the support necessary to win. <a href='/#homeJoin'>Help us convince them to run!</a></p>
-
+            <p class="intro fontSecondary">Meet our first draftees! These are exceptional leaders that you nominated. They are public servants, entrepreneurs, local leaders, and national figures. If they are going to set aside their important work to run for congress, they need to know we have the momentum to get them there.</p>
 
             <div class="clearfix">
+                <p class="bodyLarge">These draftees have not agreed to run yet. Help us convince them.</p>
+
+                <div class="homeActionBtns">
+                    <a class="btn" href="/#homeJoin">Sign Up</a>
+                    <a class="btn" href="/Volunteer">Volunteer</a>
+                </div>
+            </div>
+
+
+            <div class="clearfix candidateGrid">
                 <div class="candidateColumn">
 
                     {# Candidate 1 #}
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
                             <div class="imageGradientBottom"></div>
-                            <a href="/candidates">
+                            <a href="/Cori-Bush">
                                 <div class="candidateInfo">
-                                    <p class="name fontSecondary">Linda Wayman</p>
-                                    <p class="title fontTertiary">Educator</p>
+                                    <p class="name fontSecondary">Cori Bush</p>
+                                    <p class="title fontTertiary">Pastor & Nurse</p>
                                     <div class="candidateBio fontBody">
-                                        Decades-long educator in North Philadelphia who who became a superintendent, but stepped down to become principal of a chronically failing high school, turning the school around.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean consectetur enim ut justo accumsan fermentum. Morbi vitae posuere nisl.
                                     </div>
                                 </div>
                                 <div class="candidateImageCover positionAll"></div>
-                                <img data-src="lazy" src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/LindaWayman-xs.jpg') }}" alt=""></a>
+                                <img data-src="lazy" src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/CoriBush-xs.jpg') }}" alt="">
+                            </a>
                         </div>
                         <div class="borderDashed">
                             <div class="candidateDistrict fontPrimary starLeft divCenter">
                                 <p class="starRight">
-                                    Pennsylvania 1st
+                                    Missouri 1st
                                 </p>
                             </div>
                         </div>
@@ -305,22 +314,22 @@ LAYOUT
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
                             <div class="imageGradientBottom"></div>
-                            <a href="/candidates">
+                            <a href="/Jamie-Moffett">
                                 <div class="candidateInfo">
-                                    <p class="name fontSecondary">Jordyn Lexton</p>
-                                    <p class="title fontTertiary">Fellowship Founder</p>
+                                    <p class="name fontSecondary">Jamie Moffett</p>
+                                    <p class="title fontTertiary">Documentary Filmmaker</p>
                                     <div class="candidateBio fontBody">
-                                        Former teacher at Rikers Island prison; while campaigning to stop convicting children as adults, created Drive Change, a 1-year fellowship program in the food truck industry to help young people returning home from prison get jobs and education.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean consectetur enim ut justo accumsan fermentum. Morbi vitae posuere nisl.
                                     </div>
                                 </div>
                                 <div class="candidateImageCover positionAll"></div>
-                                <img data-src="lazy" src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/JordynLexton-xs.jpg') }}" alt="">
+                                <img data-src="lazy" src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/JamieMoffett-xs.jpg') }}" alt="">
                             </a>
                         </div>
                         <div class="borderDashed">
                             <div class="candidateDistrict fontPrimary starLeft divCenter">
                                 <p class="starRight">
-                                    New York 12th
+                                    Pennsylvania 1st
                                 </p>
                             </div>
                         </div>
@@ -332,22 +341,22 @@ LAYOUT
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
                             <div class="imageGradientBottom"></div>
-                            <a href="/candidates">
+                            <a href="/Tamarah-Begay">
                                 <div class="candidateInfo">
-                                    <p class="name fontSecondary">Kurt Rietema</p>
-                                    <p class="title fontTertiary">Youth Pastor</p>
+                                    <p class="name fontSecondary">Tamarah Begay</p>
+                                    <p class="title fontTertiary">CEO</p>
                                     <div class="candidateBio fontBody">
-                                        Youth pastor for over a decade with YouthFront; started “Neighbor to Neighbor” to help immigrants and marginalized people become homeowners by creating fair, low-interest lending partnerships between churches and families that can’t access traditional home mortgages.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean consectetur enim ut justo accumsan fermentum. Morbi vitae posuere nisl.
                                     </div>
                                 </div>
                                 <div class="candidateImageCover positionAll"></div>
-                                <img  data-src="lazy" src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/KurtRietema-xs.jpg') }}" alt="">
+                                <img  data-src="lazy" src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/TamarahBegay-xs.jpg') }}" alt="">
                             </a>
                         </div>
                         <div class="borderDashed">
                             <div class="candidateDistrict fontPrimary starLeft divCenter">
                                 <p class="starRight">
-                                    Kansas 3rd
+                                    New Mexico 3rd
                                 </p>
                             </div>
                         </div>
@@ -359,7 +368,7 @@ LAYOUT
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
                             <div class="imageGradientBottom"></div>
-                            <a href="/candidates">
+                            <a href="/Chardo-Richardson">
                                 <div class="candidateInfo">
                                     <p class="name fontSecondary">Chardo Richardson</p>
                                     <p class="title fontTertiary">Civil Rights Lawyer</p>
@@ -431,8 +440,8 @@ LAYOUT
 
         <div id="homeSpecifics" class="shellVerticalPadding textCenter">
 
-            <h4>Here's What</h4>
-            <h1>You Can Do</h1>
+            <h4>Ready to</h4>
+            <h1>Do Something?</h1>
 
             <div id="homeImageLinks">
                 <div class="clearfix">
