@@ -82,7 +82,7 @@ SETTINGS
                     <div class="starLeft starWhite">
                         <div class="starRight starWhite">
                             <div class="starText fontPrimary textCenter">
-                                {{ model.data.viewVersion.subtitle }}
+                                {% verbatim %}{{ model.data.viewVersion.subtitle }}{% endverbatim %}
                             </div>
                             {# FIXME: The locations below are not completely bug free, so we're using subtitles above
                             <div ng-repeat="location in model.data.viewVersion.meta.locations"
