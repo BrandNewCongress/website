@@ -47,7 +47,12 @@
 
                 <div class="profileImage primary-image">
                     {% block profileImage %}
-                    <img src="{{ asset('bundles/sitetheorytemplatecustom/images/candidates/LindaWayman.jpg') }}" alt="">
+                        {% set image = view.viewVersion.images|first %}
+                        {% if image is not empty %}
+                            <img src="{{ image.url }}" alt="">
+                        {% else %}
+                            <img src="{{ asset('bundles/sitetheoryprofile/images/profilePlaceholder.png') }}" alt="">
+                        {% endif %}
                     {% endblock profileImage %}
                 </div>
 
@@ -75,14 +80,14 @@
 
             <h4 class="profilePosition">
                 {% block profilePosition %}
-                    Educator
+                    {{ view.viewVersion.meta.position }}
                 {% endblock profilePosition %}
             </h4>
 
 
             <h3 class="profileDescriptionHeader fontSecondary salmonText">
                 {% block profileDescriptionHeader %}
-                    Linda's Story
+                    {{ view.viewVersion.title | split(' ')[0] }}'s Story
                 {% endblock profileDescriptionHeader %}
             </h3>
 
@@ -110,7 +115,7 @@
             <div class="stGrid column50">
                 <div class="candidateDetailsJoin joinForm">
                     <h3 class="fontSecondary salmonText">Sign Up!</h3>
-                    <p>If you’d like to see Linda run for Congress.
+                    <p>If you’d like to see {{ view.viewVersion.title | split(' ')[0] }} run for Congress.
                     </p>
                     {{ block('registrationForm') }}
                 </div>
