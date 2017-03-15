@@ -81,11 +81,15 @@ SETTINGS
                 <div class="profileExtra backgroundDark" flex-order="1" flex-order-gt-xs="2">
                     <div class="starLeft starWhite">
                         <div class="starRight starWhite">
+                            <div class="starText fontPrimary textCenter">
+                                {{ model.data.viewVersion.subtitle }}
+                            </div>
+                            {# FIXME: The locations below are not completely bug free, so we're using subtitles above
                             <div ng-repeat="location in model.data.viewVersion.meta.locations"
                                  class="starText fontPrimary textCenter">
                                 {% verbatim %}{{ location }}{% endverbatim %}
-                                {# Pennsylvania 1st #}
                             </div>
+                            #}
                         </div>
                     </div>
                 </div>
