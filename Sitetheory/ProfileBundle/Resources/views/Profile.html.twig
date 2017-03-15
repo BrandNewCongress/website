@@ -52,11 +52,7 @@
                 <div class="profileImage primary-image">
                     {% block profileImage %}
                         {% set image = view.viewVersion.images|first %}
-                        {% if image is not empty %}
-                            <img src="{{ image.url }}" alt="">
-                        {% else %}
-                            <img src="{{ asset('bundles/sitetheoryprofile/images/profilePlaceholder.png') }}" alt="">
-                        {% endif %}
+                        <img src="{{ image is not empty ? image.url : asset('bundles/sitetheoryprofile/images/profilePlaceholder.png') }}" alt="">
                     {% endblock profileImage %}
                 </div>
 
