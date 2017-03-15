@@ -28,7 +28,11 @@
 {% block contentHeader %}
     <div class="contentHeader profileDetails clearfix">
 
-        <p class="pullout">{% block contentHeaderText %}We are drafting Linda Wayman as a candidate to help lead BNC’s movement to fix our schools and make American education excellent for all students. Watch <a href="https://www.ted.com/talks/linda_cliatt_wayman_how_to_fix_a_broken_school_lead_fearlessly_love_hard" target="_blank">Linda’s TED talk: How to fix a broken school? Lead fearlessly, love hard.</a>{% endblock contentHeaderText %}</p>
+        <p class="pullout">
+            {% block contentHeaderText %}
+                {{ view.viewVersion.description|raw }}
+            {% endblock contentHeaderText %}
+        </p>
 
         <div class="borderDashedBold">&nbsp;</div>
 
@@ -63,7 +67,7 @@
                         <span class="starLeft starWhite">
                             <span class="starRight starWhite">
                                 {% block profileLocation %}
-                                Pennsylvania 1st
+                                    {{ view.viewVersion.subtitle }}
                                 {% endblock profileLocation %}
                             </span>
                         </span>
