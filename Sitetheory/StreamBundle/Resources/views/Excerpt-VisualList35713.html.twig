@@ -67,9 +67,7 @@ SETTINGS
                         <a ng-href="{% verbatim %}{{ model.data.routingPrimary.url }}{% endverbatim %}">
                             <img ng-src="{% verbatim %}{{ image.url }}{% endverbatim %}"
                                  ng-repeat="image in model.data.viewVersion.images | limitTo:1">
-                            <img ng-show="!model.data.viewVersion.images.length"
-                                 src="//thebenclark.files.wordpress.com/2014/03/facebook-default-no-profile-pic.jpg">
-                            {# TODO: Daniela, please replace the weird default image I put above. #}
+                            <img ng-show="!model.data.viewVersion.images.length" src="{{ asset('bundles/sitetheoryprofile/images/profilePlaceholder.png') }}">
                         </a>
                     </div>
                     <h2>{% verbatim %}{{ model.data.viewVersion.title }}{% endverbatim %}</h2>

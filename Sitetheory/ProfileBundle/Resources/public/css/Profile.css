@@ -34,15 +34,12 @@ stratus-search {
 /* Profile List */
 
 #profileList {
-    margin: 0 -2%;
-    padding-top: 60px;
 }
 .profileContainer {
     position: relative;
 }
 .profileItem {
-    margin: 0 4%;
-    padding-bottom: 120px;
+    margin: 60px 4% 100px;
 }
 @media (min-width: 959px) {
     .profileList .profileImage {
@@ -69,10 +66,7 @@ stratus-search {
     display: block;
 }
 .profileExtra {
-    position: absolute;
-    right: 4%;
-    bottom: 80px;
-    left: 4%;
+    margin-top: 12px;
     padding: 5px 12px;
     color: #FFF;
 }
