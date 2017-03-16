@@ -19,6 +19,10 @@ SETTINGS
 ########
 #}
 
+
+{% set listAttributes = 'md-cols-xs="1" md-cols-gt-xs="2" md-row-height-xs="4:9" md-row-height-sm="3:6"  md-row-height-md="7:6" md-row-height-gt-md="5:4"' %}
+
+
 {# Hide sidebar on desktop #}
 {% set columnSidebar = 'hide-gt-sm' %}
 {% set columnMain = '' %}
@@ -62,7 +66,7 @@ SETTINGS
     <md-grid-tile ng-repeat="model in collection.models | filter:{data:{viewVersion:{title:'!null'}}}">
         <div class="profileContainer">
             <div class="profileItem" layout="column">
-                <div class="clearfix" flex-order="2" flex-order-gt-xs="1">
+                <div class="clearfix" flex-order="2" flex-order-gt-sm="1">
                     <div class="profileImage">
                         <a ng-href="{% verbatim %}{{ model.data.routingPrimary.url }}{% endverbatim %}">
                             <img ng-src="{% verbatim %}{{ image.url }}{% endverbatim %}"
@@ -79,7 +83,7 @@ SETTINGS
                            ng-href="{% verbatim %}{{ model.data.routingPrimary.url }}{% endverbatim %}">Read More</a>
                     </p>
                 </div>
-                <div class="profileExtra backgroundDark" flex-order="1" flex-order-gt-xs="2">
+                <div class="profileExtra backgroundDark" flex-order="1" flex-order-gt-sm="2">
                     <div class="starLeft starWhite">
                         <div class="starRight starWhite">
                             <div class="starText fontPrimary textCenter">

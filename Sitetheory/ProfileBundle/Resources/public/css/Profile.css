@@ -16,6 +16,9 @@ stratus-search {
 #candidateListPage {
     padding-bottom: 60px;
 }
+#candidateListPage .borderDashedBold {
+    padding-top: 60px;
+}
 .profileList h1,
 .profileDetails h1 {
     margin: 0 0 26px;
@@ -36,9 +39,6 @@ stratus-search {
 
 /* Profile List */
 
-#profileList {
-    padding-top: 60px;
-}
 .profileContainer {
     position: relative;
 }
@@ -66,7 +66,7 @@ stratus-search {
     width: 100%;
 }
 .profileList h2 {
-    margin: 0 0 12px;
+    margin: -4px 0 12px;
     font-size: 18px;
 }
 .profileList h4 {
@@ -75,7 +75,6 @@ stratus-search {
     letter-spacing: .1em;
 }
 .profileList .profileBody {
-    margin-bottom: 16px;
     padding-right: 3%;
 }
 .profileItem .readMore {
@@ -113,9 +112,9 @@ stratus-search {
         max-width: 40%;
     }
     #profileList h4 {
-        margin-bottom: 16px;
+        margin: 16px 0;
     }
-    .profileList .profileBody {
+    .profileList .profileBody p {
         font-size: 13px;
     }
 }
@@ -132,12 +131,16 @@ stratus-search {
         margin: 0 0 30px 0;
         max-width: 100%;
     }
-    .profileList .profileBody {
-        font-size: 15px;
+    #profileList h4 {
+        margin: 13px 0;
     }
     .profileExtra {
-        right: 10%;
-        left: 10%;
+        margin-bottom: 16px;
+    }
+}
+@media (min-width: 601px) and (max-width: 959px) {
+    .profileList .profileBody p {
+        font-size: 13px;
     }
 }
 @media (max-width: 600px) {
@@ -151,13 +154,6 @@ stratus-search {
     .profileItem .readMore {
         display: block;
         margin-top: 20px;
-    }
-    .profileExtra {
-        position: relative;
-        right: inherit;
-        bottom: inherit;
-        left: inherit;
-        margin-bottom: 16px;
     }
 }
 
