@@ -231,8 +231,8 @@ LAYOUT
                         <img src="{{ asset('bundles/sitetheorytemplatecustom/images/planGraphicSmall.png') }}" alt="">
                     </div>
                     <div id="logoHeader" class="textCenter">
-                        <a href="/"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogo.png') }}"
-                                         alt=""></a>
+                        <a href="/" aria-label="Go to Home"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogo.png') }}"
+                                         alt="BNC Logo"></a>
                     </div>
                     <div id="headerExtraLinks" class="positionRightBottom">
                         <div class="clearfix">
@@ -294,19 +294,19 @@ LAYOUT
                                 <ul class="listInline">
                                     <li class="twitter">
                                         <a class="positionAnchor" href="https://twitter.com/BrandNew535"
-                                           title="Share on Twitter" target="_blank" data-reactid="123" target="_blank">
+                                           title="Share on Twitter" aria-label="Share on Twitter" target="_blank" data-reactid="123" target="_blank">
                                             {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/twitter.svg' %}{% block id %}footerTwitterIcon{% endblock %}{% endembed %}
                                         </a>
                                     </li>
                                     <li class="facebook">
                                         <a class="positionAnchor" href="https://www.facebook.com/brandnewcongress"
-                                           title="Facebook" data-reactid="125" target="_blank">
+                                           title="Facebook" aria-label="Share on Facebook" data-reactid="125" target="_blank">
                                             {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/facebook.svg' %}{% block id %}footerFacebookIcon{% endblock %}{% endembed %}
                                         </a>
                                     </li>
                                     <li class="reddit">
                                         <a class="positionAnchor" href="https://www.reddit.com/r/BrandNewCongress/"
-                                           target="_blank">
+                                           title="Reddit" aria-label="Share on Reddit" target="_blank">
                                             {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/reddit.svg' %}{% block id %}footerRedditIcon{% endblock %}{% endembed %}
                                         </a>
                                     </li>
