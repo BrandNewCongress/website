@@ -59,11 +59,6 @@ CSS & JAVASCRIPT
     {{ parent() }}
     {# Code for Facebook Page Plugin: #FB-feedComponent #}
     <script id="facebook-jssdk" async="true" src="//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=162487723815676"></script>
-
-    {# IF we want to switch to Twitter. Hiding the FB widget below breaks the FB videos in the left column so that would need to be looked at when switching
-    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-    #}
-
 {% endblock script %}
 
 
@@ -102,37 +97,16 @@ LAYOUT
         </a>
         #}
 
-        <a id="slideshowLink" href="/nominate">
-            <div id="homeSlides" class="positionAnchor salmon">
-
+        <a id="slideshowLink" href="/#homeJoin">
+            <div id="homeSlides" class="positionAnchor purple">
                 <div class="slideshowImage">
-                    <img data-src="lazy" src="{{ asset('bundles/sitetheorytemplatecustom/images/homeImageMain/slideshowMap-xs.jpg') }}" alt="">
+                    <img data-src="lazy" src="{{ asset('bundles/sitetheorytemplatecustom/images/homeImageMain/slideshowDraftees-xs.jpg') }}" alt="">
                 </div>
-
-                <div id="slidesContent" class="textCenter">
-                    <div id="slideText1" class="fontPrimary starLeft">
-                        <div class="starRight">Our Goal</div>
-                    </div>
-                    <p class="bodyLarge">Elect a Brand New Congress that works for all Americans.</p>
-                    <div flex="nogrow" id="h4Container" layout="row">
-                        <div flex class="borderDashedLight">&nbsp;</div>
-                        <div flex-xs="100" flex-sm="60" flex-gt-md="none">
-                            <h4 class="yellowText">We need to find the best people in every district in America. <span class="ctaHover">Nominate someone now.</span>
-                            </h4>
-                        </div>
-                        <div flex class="borderDashedLight">&nbsp;</div>
-                    </div>
-                </div>
-
-
-                {# Draftees Ad
-
                 <div id="slidesContent">
                     <h4 class="fontTertiary">ANNOUNCING OUR FIRST CANDIDATE</h4>
                     <p class="fontSecondary">Draftees</p>
                     <div class="btn btnBig btnSalmon" href="/#homeJoin">Convince them to run</div>
                 </div>
-                #}
             </div>
         </a>
 
@@ -531,17 +505,8 @@ LAYOUT
                 <div id="FB-feedParent" flex="100" flex-gt-xs="50">
 
                     <div id="currentSocial">
-
-                        {#
-                       <h1>Converse</h1>
-
-                       <div id="twitterContainer" class="borderDashedBold clearfix">
-                           <a class="twitter-timeline" data-width="580" data-height="800" data-link-color="#2B7BB9" href="https://twitter.com/BrandNew535">Tweets by BrandNew535</a>
-                       </div>
-                        #}
-
-                       <h1>Comment</h1>
-                       {# TODO: put this in a BNCCoreBundle so it can be reused easily #}
+                        <h1>Comment</h1>
+                        {# TODO: put this in a BNCCoreBundle so it can be reused easily #}
                         {# Script to fix the facebook resize issue #}
                         <script>
                             // Use Require.js or Contextual Scope
@@ -652,7 +617,6 @@ LAYOUT
                             }));
                         </script>
                         <div id="facebookPageContainer" class="borderDashedBold clearfix"></div>
-
                     </div>
                 </div>
             </div>

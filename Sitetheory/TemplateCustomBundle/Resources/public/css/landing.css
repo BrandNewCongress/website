@@ -101,7 +101,7 @@
     transition: all .2s ease-out;
 }
 #slideshowLink:hover .slideshowImage {
-    opacity: .6;
+    opacity: .2;
 }
 #homeSlides {
     margin-top: 50px;
@@ -111,6 +111,7 @@
     display: block;
     width: 100%;
 }
+/* New draftees slideshow
 #slidesContent {
     position: absolute;
     top: 17%;
@@ -139,19 +140,20 @@
     color: #111;
     background: #FFF;
 }
-/* Original slideshow
-#homeSlides {
-    animation: itemsFadein .2s ease-out .5s forwards;
-    -webkit-animation: itemsFadein .2s ease-out .5s forwards;
-    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/slideshow1.jpg') no-repeat center center;
-    background-size: cover;
-}
-#slidesContent {
-    margin: 28px auto 0 auto;
-    padding: 120px 60px;
-    max-width: 900px;
-}
+*/
 
+/* Modified original slideshow */
+
+#slidesContent {
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 120px 60px;
+    width: 100%;
+    max-width: 960px;
+}
 #slidesContent .bodyLarge {
     margin: 40px 0;
     color: #FFF;
@@ -184,6 +186,8 @@
     display: block;
 }
 #slidesContent h4 {
+    transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
     margin: 0;
     padding: 16px 20px;
     font-size: 12px;
@@ -193,6 +197,13 @@
 #slidesContent .borderDashedLight {
     margin-top: 24px;
     padding-top: 0;
+}
+#homeSlides:hover h4 {
+    transform: scale(1.03);
+    -webkit-transform: scale(1.03);
+}
+#homeSlides:hover .ctaHover {
+    color: #FFF;
 }
 @media (max-width:960px) {
     #homeSlides {
@@ -204,13 +215,31 @@
         padding: 80px 60px;
     }
     #slidesContent .bodyLarge {
+        margin: 20px 0;
         font-size: 30px;
     }
     #slidesContent h4 {
         font-size: 10px;
     }
 }
-*/
+@media (max-width:767px) {
+    #homeSlides {
+        overflow: hidden;
+    }
+    .slideshowImage {
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        position: relative;
+        left: 50%;
+        height: 528px;
+        width: 800px;
+     }
+    .slideshowImage img {
+        height: 528px;
+        width: 800px;
+        max-width: 800px;
+    }
+}
 
 
 /* Progress & Join Area */
@@ -770,7 +799,7 @@
     background-size: 40px;
 }
 #currentMedia .borderDashedBold {
-    padding-top: 28px;
+    padding-top: 10px;
 }
 #currentMedia h2 {
     text-transform: uppercase;
@@ -791,13 +820,14 @@
 #currentSocial {
     margin-left: 5%;
 }
-#FB-feedParent h1 {
+#currentSocial h1 {
     padding-left: 55px;
     background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/facebookTitleIcon.png') no-repeat left center;
     background-size: 40px;
 }
+#twitterContainer,
 #facebookPageContainer {
-    padding-top: 55px;
+    padding-top: 35px;
 }
 @media (max-width:600px) {
     #currentMedia {
