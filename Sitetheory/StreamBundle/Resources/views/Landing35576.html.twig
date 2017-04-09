@@ -145,7 +145,7 @@ LAYOUT
                 {# Fancy Signup Form with Map #}
                 <a name="homeJoin"></a>
                 <div id="progressAndJoin" ng-controller="Api" options='{"url":"https://api.{{ environment.site.domainprimary }}", "controller":"/people/count", "onLoad": "fetch", "onTime": {"time": "10s", "method":"fetch"}}'>
-                    <p class="intro textCenter divCenter"><strong>300,000 people want to fix our broken system. Help us get to to 500,000.</strong></p>
+                    <p class="intro textCenter divCenter"><strong><span ng-cloak="true">{% verbatim %}{{ results.count | number }}{% endverbatim %}</span><span ng-hide="results.count">300,000</span> people want to fix our broken system. Help us get to to 500,000.</strong></p>
                     <!-- hide as soon as angular loads -->
                     <div class="loader" ng-hide="true"></div>
                     <div layout="row" layout-wrap="" ng-cloak="">
