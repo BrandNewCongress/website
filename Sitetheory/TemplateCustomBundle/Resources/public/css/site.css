@@ -665,7 +665,9 @@ h2.sectionName {
     color: #FFF;
 }
 
-
+#siteNavigationSidebar ul#listLevel3 {
+    display: none !important;
+}
 .siteNavLink a.navLevel3 {
     padding: 3px 0;
     color: #000;
