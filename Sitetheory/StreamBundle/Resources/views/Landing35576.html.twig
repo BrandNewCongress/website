@@ -144,8 +144,10 @@ LAYOUT
 
                 {# Fancy Signup Form with Map #}
                 <a name="homeJoin"></a>
+                {# TEMPORARILY HIDE DYNAMIC NUMBER TILL API WORKS #}
+                {#
                 <div id="progressAndJoin" ng-controller="Api" options='{"url":"https://api.{{ environment.site.domainprimary }}", "controller":"/people/count", "onLoad": "fetch", "onTime": {"time": "10s", "method":"fetch"}}'>
-                    <p class="intro textCenter divCenter"><strong><span ng-cloak="">{% verbatim %}{{ results.count | number }}{% endverbatim %}</span><span ng-hide="results.count">300,000</span> people want to fix our broken system. Help us get to to 500,000.</strong></p>
+                    <p class="intro textCenter divCenter"><strong><span ng-cloak="true">{% verbatim %}{{ results.count | number }}{% endverbatim %}</span><span ng-hide="results.count">213,367</span> people want to fix our broken system. Help us get to to 500,000.</strong></p>
                     <!-- hide as soon as angular loads -->
                     <div class="loader" ng-hide="true"></div>
                     <div layout="row" layout-wrap="" ng-cloak="">
@@ -173,6 +175,47 @@ LAYOUT
                                     </div>
                                 </div>
                                 <div id="totalSignUp" class="borderDashed fontSecondary salmonText" count-up="" start-val="0" end-val="results.count" count-instance="countUp" duration="1.5" decimals="0" options="{easingFn: easingFn}" scroll-spy-event="elementFirstScrolledIntoView" scroll-spy=""></div>
+                            </div>
+                        </div>
+                        <div flex="100" flex-gt-sm="33" flex-order="3">
+                            <div class="joinForm pullRight" id="candidateJoin">
+                                <p class="textCenter divCenter" hide-gt-sm=""><strong>Sign up and help us convince our new draftees to run!</strong></p>
+                                <!-- Reuse Registration Form from shell -->
+                                {{ block('registrationForm') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                #}
+
+                <div id="progressAndJoin">
+                    <p class="intro textCenter divCenter"><strong>213,367 people want to fix our broken system. Help us get to to 500,000.</strong></p>
+                    <!-- hide as soon as angular loads -->
+                    <div class="loader" ng-hide="true"></div>
+                    <div layout="row" layout-wrap="" ng-cloak="">
+                        <div flex="100" flex-gt-sm="33" flex-order="2" flex-order-gt-sm="1">
+                            <div class="positionAnchor" id="signUpProgress">
+                                <div class="positionAll" id="progressNumbers">
+                                    <div class="positionLeftBottom smallLabel fontBody salmonText" id="startNumber">0</div>
+                                    <div class="positionRightBottom smallLabel fontBody salmonText" id="endNumber">500K</div>
+                                    <div id="numberLine"></div>
+                                </div>
+                                <div class="positionAll" id="progressBarContainer">
+                                    <div id="progressBar" class="positionLeftTop salmon" style="max-width: 100%" ng-style="{'width':(100*(countUp.frameVal/500000))+'%'}"></div>
+                                </div>
+                                {% embed '@SitetheoryTemplateCustomBundle/Resources/public/images/progressBarCover.svg' %}{% block id %}americaMap{% endblock %}{% endembed %}
+                            </div>
+                        </div>
+                        <div flex="100" flex-gt-sm="33" flex-order="1" flex-order-gt-sm="2">
+                            <div class="divCenter textCenter">
+                                <div class="divCenter" id="signUpLabel">
+                                    <div class="starLeft">
+                                        <div class="starRight">
+                                            <div class="starText fontPrimary salmonText">Right Now</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="totalSignUp" class="borderDashed fontSecondary salmonText" count-up="" start-val="0" end-val="213367" count-instance="countUp" duration="1.5" decimals="0" options="{easingFn: easingFn}" scroll-spy-event="elementFirstScrolledIntoView" scroll-spy=""></div>
                             </div>
                         </div>
                         <div flex="100" flex-gt-sm="33" flex-order="3">
