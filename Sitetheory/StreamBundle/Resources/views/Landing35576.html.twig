@@ -243,9 +243,9 @@ LAYOUT
             <div id="welcome" class="divCenter textCenter shellVerticalPadding">
                 <h4>Congress is</h4>
                 <h1>Broken</h1>
-                <div class="content bodyLarge fontSecondary" ng-model="model.data.viewVersion.text" {{ block('editableViewAttributes') }}>
+                <div class="content bodyLarge fontSecondary" ng-model="model.data.version.text" {{ block('editableViewAttributes') }}>
                     {% autoescape false %}
-                        {{ view.viewVersion.text }}
+                        {{ content.version.text }}
                     {% endautoescape %}
                 </div>
             </div>

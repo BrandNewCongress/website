@@ -147,9 +147,9 @@ Sharing
         <meta property="og:type" content="website">
         <meta property="og:image"
               content="https://brandnewcongress.org/assets/1/0/bundles/sitetheorytemplatecustom/images/BNCLogoShare.png">
-        <meta property="og:title" content="{{ view.viewVersion.title | default('Brand New Congress') }}">
+        <meta property="og:title" content="{{ content.version.title | default('Brand New Congress') }}">
         <meta property="og:description"
-              content="{{ view.viewVersion.description | default("Brand New Congress is a plan to recruit and run 400+ candidates for Congress in 2018.") }}">
+              content="{{ content.version.description | default("Brand New Congress is a plan to recruit and run 400+ candidates for Congress in 2018.") }}">
     {% endblock openGraph %}
 {% endblock meta %}
 
@@ -345,10 +345,10 @@ LAYOUT
 
     {% block pageTitle %}
         <div class="siteMaxWidth siteSidePadding">
-            <h1 class="pageTitle" {{ block('editableView') }} data-type="text" data-property="viewVersion.title"
+            <h1 class="pageTitle" {{ block('editableView') }} data-type="text" data-property="version.title"
                 data-render="click">
                 <span class="starLeft">
-                    <span class="starRight">{{ view.viewVersion.title }}</span>
+                    <span class="starRight">{{ content.version.title }}</span>
                 </span>
             </h1>
         </div>
@@ -820,7 +820,7 @@ LAYOUT
 {# FOOTER #}
 
 
-{% block viewFooter %}
+{% block contentFooter %}
     <div id="footerBackground">
         <div id="footer" class="siteMaxWidth siteSidePadding dark">
             <div id="footerLogo" class="textCenter">
@@ -838,7 +838,7 @@ LAYOUT
         </div>
     </div>
 
-{% endblock viewFooter %}
+{% endblock contentFooter %}
 
 
 
