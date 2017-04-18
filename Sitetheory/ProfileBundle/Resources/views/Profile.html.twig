@@ -98,12 +98,12 @@
             {% if content.version.meta.position is not empty %}
 
                 <h4 class="position" data-type="text"
-                    data-property="version.meta.position" {{ block('editableViewAttributes') }}>{{ content.version.meta.position }}</h4>
+                    data-property="version.meta.position" {{ block('editableContentAttributes') }}>{{ content.version.meta.position }}</h4>
 
             {% endif %}
             #}
 
-            <div class="content profileDescription" data-type="editor" data-property="version.text" {{ block('editableViewAttributes') }}>
+            <div class="content profileDescription" data-type="editor" data-property="version.text" {{ block('editableContentAttributes') }}>
                 {% autoescape false %}
                     {{ content.version.text }}
                 {% endautoescape %}
