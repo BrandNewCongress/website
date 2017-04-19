@@ -664,11 +664,8 @@ h2.sectionName {
 .siteNavLink a.navLevel2.active:hover {
     color: #FFF;
 }
-
-#siteNavigationSidebar ul#listLevel3 {
-    display: none !important;
-}
 .siteNavLink a.navLevel3 {
+    display: none;
     padding: 3px 0;
     color: #000;
     font-weight: bold;
