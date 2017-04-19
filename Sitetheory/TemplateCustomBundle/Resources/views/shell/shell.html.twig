@@ -84,6 +84,9 @@ CSS STYLING
 
     {{ parent() }}
 
+    {# Angular Material #}
+    <link rel="stylesheet" satisfies="angular-material.css" href="{{ asset('bundles/sitetheorystratus/stratus/bower_components/angular-material/angular-material' ~ minified ~ '.css') }}">
+
 
     {# TODO: once asset loads custom vhost files, load this way #}
     {# #
@@ -345,7 +348,7 @@ LAYOUT
 
     {% block pageTitle %}
         <div class="siteMaxWidth siteSidePadding">
-            <h1 class="pageTitle" {{ block('editableView') }} data-type="text" data-property="version.title"
+            <h1 class="pageTitle" {{ block('editableContent') }} data-type="text" data-property="version.title"
                 data-render="click">
                 <span class="starLeft">
                     <span class="starRight">{{ content.version.title }}</span>
