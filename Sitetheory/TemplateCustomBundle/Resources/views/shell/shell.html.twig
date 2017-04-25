@@ -277,7 +277,7 @@ LAYOUT
                                 </li>
                                 <li id="navHelp" class="navMainLink">
                                     <a href="/support">
-                                        Support
+                                        Action
                                     </a>
                                 </li>
                                 <li class="delimiter"><img
@@ -286,7 +286,7 @@ LAYOUT
                                 </li>
                                 <li id="navLearn" class="navMainLink">
                                     <a href="/plan">
-                                        Learn
+                                        Plan
                                     </a>
                                 </li>
                             </ul>
@@ -549,7 +549,12 @@ LAYOUT
         </li>
         <li class="siteNavLink" data-level="2">
             <a href="/volunteer" class="navLevel2 {% if sectionMenuActive == 'volunteerSkillsActive' %}active{% endif %}">
-                How Can You Help
+                Volunteer
+            </a>
+        </li>
+        <li class="siteNavLink" data-level="2">
+            <a href="/Open-Positions" class="navLevel2 {% if sectionMenuActive == 'jobsActive' %}active{% endif %}">
+                Open Positions
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
@@ -600,11 +605,6 @@ LAYOUT
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="/about" class="navLevel2 {% if sectionMenuActive == 'aboutActive' %}active{% endif %}">
-                About Us
-            </a>
-        </li>
-        <li class="siteNavLink" data-level="2">
             <a href="/faq" class="navLevel2 {% if sectionMenuActive == 'faqActive' %}active{% endif %}">
                 FAQ
             </a>
@@ -650,7 +650,7 @@ LAYOUT
             <li data-level="1">
                 <div class="siteNavLink" data-level="1">
                     <a href="/support" class="navLevel1 fontPrimary">
-                        Work With Us
+                        Action
                     </a>
                 </div>
                 {{ block('menuSection2') }}
@@ -658,7 +658,7 @@ LAYOUT
             <li data-level="1">
                 <div class="siteNavLink {{ navLevel1Font|default('fontPrimary') }}" data-level="1">
                     <a href="/plan" class="navLevel1 fontPrimary">
-                        Learn
+                        Plan
                     </a>
                 </div>
                 {{ block('menuSection3') }}
@@ -739,7 +739,7 @@ LAYOUT
                     <div class="siteMapColumn">
                         <ul class="listUnstyled">
                             <li class="siteMapHeader">
-                                <a class="fontTertiary" href="/support">Support</a>
+                                <a class="fontTertiary" href="/support">Action</a>
                             </li>
                             <li>
                                 <a href="/support">Support</a>
@@ -748,7 +748,10 @@ LAYOUT
                                 <a href="/nominate">Nominate a Candidate</a>
                             </li>
                             <li>
-                                <a href="/volunteer">How Can You Help</a>
+                                <a href="/volunteer">Volunteer</a>
+                            </li>
+                            <li>
+                                <a href="/Open-Positions">Open Positions</a>
                             </li>
                             <li>
                                 <a href="/candidate-research">Candidate Research</a>
@@ -776,13 +779,10 @@ LAYOUT
                     <div class="siteMapColumn">
                         <ul class="listUnstyled">
                             <li class="siteMapHeader">
-                                <a class="fontTertiary" href="/plan">Learn</a>
+                                <a class="fontTertiary" href="/plan">Plan</a>
                             </li>
                             <li>
                                 <a href="/plan">Our Plan</a>
-                            </li>
-                            <li>
-                                <a href="/about">About Us</a>
                             </li>
                             <li>
                                 <a href="/faq">FAQ</a>
@@ -794,7 +794,10 @@ LAYOUT
                     <div class="siteMapColumn">
                         <ul class="listUnstyled">
                             <li class="siteMapHeader">
-                                <a class="fontTertiary" href="mailto:us@brandnewcongress.org">Contact</a>
+                                <a class="fontTertiary" href="/About">About</a>
+                            </li>
+                            <li>
+                                <a href="/about">About Us</a>
                             </li>
                             <li>
                                 <a href="mailto:us@brandnewcongress.org">Contact Us</a>
