@@ -818,9 +818,27 @@ md-input-container.md-input-has-placeholder md-select-label.noFloat {
 }
 
 .joinForm .listInline li {
+    position: relative;
     margin: 0 8px;
     vertical-align: top;
 }
+.joinForm .fieldInfo {
+    float: left;
+    padding-right: 5px;
+}
+.joinForm .fieldInfo md-icon {
+    width: 30px;
+    height: 30px;
+    min-height: 30px;
+    min-width: 30px;
+}
+.joinForm .fieldInfo md-icon svg g {
+    fill: #222;
+}
+.joinForm .fieldInfo:hover md-icon svg g {
+    fill: #666;
+}
+
 /* Make input containers wider */
 .joinForm md-input-container {
     width: 260px;
@@ -862,6 +880,11 @@ md-progress-circular path {
     font-weight: 300;
     color: #7932AC;
 }
+.joinForm .legalAgreement {
+    margin-top: 8px;
+    font-size: 10px;
+    text-align: right;
+}
 @media (max-width:959px) {
     .joinForm .listInline li {
         display: block;
@@ -884,6 +907,12 @@ md-progress-circular path {
     font-size: 32px;
     color: #FFF;
 }
+#footerJoinForm .fieldInfo md-icon {
+    margin-top: 10px;
+}
+#footerJoinForm .fieldInfo md-icon svg g {
+    fill: #FFF;
+}
 #footerJoinForm .starLeft,
 #footerJoinForm .starRight {
     width: 13px;
@@ -898,20 +927,19 @@ md-progress-circular path {
     margin: 8px 0 0 22px;
     background-position: right 10px;
 }
-@media (max-width:959px) {
-    #footerJoinForm {
-        padding: 40px 0;
-    }
-    #footerJoinForm h1 {
-        margin: 0 0 16px 0;
-        text-align: center;
-    }
+#footerJoinForm  .legalAgreement {
+    transform: translateY(-15px);
+    -webkit-transform: translateY(-15px);
+    margin: 0 auto;
+    padding: 0 40px;
+    max-width: 1060px;
+    text-align: center;
+    color: #FFF;
 }
-
-
-
-/* FOOTER JOIN FORM */
-
+#footerJoinForm  .legalAgreement .blueText {
+    color: #FFF;
+    text-decoration: underline;
+}
 #footerJoinForm .listInline li {
     vertical-align: top;
     margin: 0 3px;
@@ -970,8 +998,42 @@ md-progress-circular path {
     color: #FFF;
     background: #222;
 }
-
+@media (min-width:960px) and (max-width: 1199px) {
+    #footerJoinForm h1 {
+        font-size: 20px;
+        max-width: 100px;
+    }
+    #footerJoinForm md-input-container {
+        width: 180px;
+    }
+    #footerJoinForm .listInline li:first-child,
+    #footerJoinForm .listInline li:last-child {
+        display: none;
+    }
+}
 @media (max-width:959px) {
+    #footerJoinForm {
+        padding: 40px 0;
+    }
+    #footerJoinForm h1 {
+        margin: 0 0 16px 0;
+        text-align: center;
+    }
+    #footerJoinForm  .fieldInfo {
+        transform: translateX(-30px);
+        -webkit-transform: translateX(-30px);
+        position: absolute;
+        top: 5px;
+        left: 0;
+        float: none;
+        padding-right: 0;
+    }
+    #footerJoinForm  .legalAgreement {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        margin: 10px auto 20px;
+        padding: 0 40px;
+    }
     #footerJoinForm .listInline li {
         display: block;
     }

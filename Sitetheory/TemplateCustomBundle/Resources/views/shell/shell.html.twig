@@ -191,6 +191,21 @@ SIGNUP FORM
                     </div>
                 </md-input-container>
             </li>
+            <li class="hasInfo">
+                <div class="fieldInfo">
+                    <md-tooltip>We will only use this to remind you to vote!</md-tooltip>
+                    <md-icon class="" md-svg-src="/Api/Resource?path=@SitetheoryCoreBundle:images/icons/actionButtons/info.svg"></md-icon>
+                </div>
+                <md-input-container>
+                    <label>Phone</label>
+                    <input name="phone" type="phone" ng-pattern="options.pattern.phone" ng-model="model.data.phone" required md-no-asterisk>
+                    <div ng-messages="Signup.phone.$error" role="alert">
+                        <div ng-message-exp="['required', 'pattern']">
+                            Please enter a valid phone number.
+                        </div>
+                    </div>
+                </md-input-container>
+            </li>
             <li>
                 <md-input-container>
                     <label>Zip</label>
@@ -211,6 +226,7 @@ SIGNUP FORM
             {{ registrationFormAfter|default('')|raw }}
 
         </ul>
+        <div class="legalAgreement fontBody">By signing up, I consent to receive emails from <span class="blueText"><md-tooltip>Committed to electing a brand new, corruption-free Congress that represents all Americans.</md-tooltip>Brand New Congress</span> and <span class="blueText"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats.</span></div>
     </form>
 {% endblock registrationForm %}
 
