@@ -1347,3 +1347,94 @@ md-input-container .md-input {
     right: 50%;
     top: 0;
 }
+
+
+
+
+/* PLATFORM */
+
+
+.platform .bodyLarge {
+    font-weight: bold;
+    font-size: 24px;
+}
+.platformDivider {
+    margin: 70px 0;
+    height: 17px;
+    background: #222;
+}
+.platform h2 {
+    margin: 0 0 40px;
+    padding-bottom: 40px;
+    font-size: 35px;
+    font-weight: normal;
+    letter-spacing: .02em;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDashedBold.png') repeat-x left bottom;
+    background-size: 7px;
+}
+.platform h3 {
+    margin-bottom: 35px;
+    font-weight: bold;
+}
+.platform h4 {
+    margin-bottom: 0;
+    font-size: 11px;
+    letter-spacing: .15em;
+}
+.platform hr {
+    margin: 40px 0;
+    padding: 0;
+    height: 2px;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDashed.png') repeat-x;
+    background-size: 6px;
+}
+.platform ul {
+    margin: 0;
+    padding: 0;
+}
+.platform ul li {
+    margin: 16px 0;
+    list-style: none;
+}
+.platform .sublist ul {
+    margin-top: 40px;
+}
+.platform .sublist ul li {
+    list-style-type: disc;
+    margin: 6px 0 6px 60px;
+    padding-left: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    background: none;
+}
+
+
+/* Platform intro */
+
+.platformIntro .bodyLarge {
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starSalmon.png') no-repeat left 5px;
+    background-size: 20px;
+}
+.platformIntro .bodyLarge,
+.platformIntro p {
+    padding-left: 40px;
+}
+.platformIntro ul li .borderDashed {
+    margin-top: 35px;
+}
+.platformIntro ul li {
+    background-position: 0 6px;
+}
+
+
+/* Platform main */
+
+.platformMain ul li {
+    padding: 0 0 0 40px;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starSalmon.png') no-repeat;
+    background-size: 20px;
+}
+
