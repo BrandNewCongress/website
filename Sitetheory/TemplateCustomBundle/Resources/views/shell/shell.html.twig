@@ -744,6 +744,12 @@ LAYOUT
         <div id="siteMapContainer" class="siteMaxWidth siteSidePadding fontSecondary dark">
 
             <div id="siteMapNew" layout="row" layout-wrap class="hide-xs hide-sm">
+                {#
+                {% set menuPrimary = menu(content) %}
+                {% set menuSection = menu(content, 'section') %}
+                {% dump(menuPrimary) %}
+                {% dump(menuSection) %}
+                #}
                 <div flex="25">
                     <div class="siteMapColumn">
                         <ul class="listUnstyled">
