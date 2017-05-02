@@ -758,14 +758,20 @@ LAYOUT
             <div id="siteMapNew" layout="row" layout-wrap class="hide-xs hide-sm">
                 {% if environment.user is not empty and environment.user.id == 2 %}
                     {% set menuPrimary = menu(content) %}
-                    {% for key, link in menuPrimary if link is not empty %}
-                        <li id="{{ link.name|lower }}Btn"
-                            class="menuMainButton{% if link.active is defined and link.active == true %} active{% else %} dormant{% endif %}">
-                            <a href="{{ link.route }}">
-                                <div class="btnText">{{ link.name }}</div>
-                            </a>
-                        </li>
-                    {% endfor %}
+                    <div flex="25">
+                        <div class="siteMapColumn">
+                            <ul class="listUnstyled">
+                                <li class="siteMapHeader">
+                                    <a class="fontTertiary" href="#">Dynamic</a>
+                                </li>
+                                {% for key, link in menuPrimary if link is not empty %}
+                                    <li class="{% if link.active is defined and link.active == true %}active{% else %}dormant{% endif %}">
+                                        <a href="{{ link.route }}">{{ link.name }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
                 {% else %}
                     <div flex="25">
                         <div class="siteMapColumn">
