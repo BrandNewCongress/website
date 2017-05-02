@@ -192,11 +192,13 @@ SIGNUP FORM
                     </div>
                 </md-input-container>
             </li>
-            <li class="hasInfo">
+            <li> <!-- class="hasInfo" -->
+                <!--
                 <div class="fieldInfo">
                     <md-tooltip>We will only use this to remind you to vote!</md-tooltip>
                     <md-icon class="" md-svg-src="/Api/Resource?path=@SitetheoryCoreBundle:images/icons/actionButtons/info.svg"></md-icon>
                 </div>
+                -->
                 <md-input-container>
                     <label>Phone</label>
                     <input name="phone" type="phone" ng-pattern="options.pattern.phone" ng-model="model.data.phone" required md-no-asterisk>
