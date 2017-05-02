@@ -69,7 +69,7 @@ SPECIAL APP CLASS TO CONTROL SIDEBAR TOGGLE
 ###########
 #}
 
-{% block appClass %}{% if headerFull == false  %}headerIsMini {% endif %}{{ parent() }}{% endblock appClass %}
+{% block appClass %}{% if headerFull == false %}headerIsMini {% endif %}{{ parent() }}{% endblock appClass %}
 
 
 
@@ -85,7 +85,8 @@ CSS STYLING
     {{ parent() }}
 
     {# Angular Material #}
-    <link rel="stylesheet" satisfies="angular-material.css" href="{{ asset('bundles/sitetheorystratus/stratus/bower_components/angular-material/angular-material' ~ minified ~ '.css') }}">
+    <link rel="stylesheet" satisfies="angular-material.css"
+          href="{{ asset('bundles/sitetheorystratus/stratus/bower_components/angular-material/angular-material' ~ minified ~ '.css') }}">
 
 
     {# TODO: once asset loads custom vhost files, load this way #}
@@ -119,10 +120,10 @@ JAVASCRIPT
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
             i[r] = i[r] || function () {
-                        (i[r].q = i[r].q || []).push(arguments)
-                    }, i[r].l = 1 * new Date();
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
             a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0];
+                m = s.getElementsByTagName(o)[0];
             a.async = 1;
             a.src = g;
             m.parentNode.insertBefore(a, m)
@@ -226,7 +227,9 @@ SIGNUP FORM
             {{ registrationFormAfter|default('')|raw }}
 
         </ul>
-        <div class="legalAgreement fontBody">By signing up, I consent to receiving emails from <span class="blueText"><md-tooltip>Committed to electing a brand new, corruption-free Congress that represents all Americans.</md-tooltip>Brand New Congress</span> and <span class="blueText"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats.</span></div>
+        <div class="legalAgreement fontBody">By signing up, I consent to receiving emails from <span class="blueText"><md-tooltip>Committed to electing a brand new, corruption-free Congress that represents all Americans.</md-tooltip>Brand New Congress</span>
+            and <span class="blueText"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats.</span>
+        </div>
     </form>
 {% endblock registrationForm %}
 
@@ -247,104 +250,108 @@ LAYOUT
     {% if headerFull == true %}
 
         <div class="siteMaxWidth siteSidePadding clearfix">
-                <div id="headerContent" class="positionAnchor">
-                    <div id="planGraphic" class="positionLeftCenter">
-                        <h4 class="blueText">ONE NATIONAL CAMPAIGN TO ELECT HUNDREDS OF CANDIDATES TO A BRAND NEW CONGRESS</h4>
-                        <img src="{{ asset('bundles/sitetheorytemplatecustom/images/planGraphicSmall.png') }}" alt="">
-                    </div>
-                    <div id="logoHeader" class="textCenter">
-                        <a href="/" aria-label="Go to Home"><img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogo.png') }}"
-                                         alt="BNC Logo"></a>
-                    </div>
-                    <div id="headerExtraLinks" class="positionRightBottom">
-                        <div class="clearfix">
-                            <a href="https://secure.actblue.com/contribute/page/brandnewcongress" target="_blank"
-                               class="btn btnContribute pullRight">Donate</a>
-                        </div>
-                        <a id="starLinkRight" class="fontTertiary align-right" href="/Nominate">Nominate a Candidate</a>
-                    </div>
+            <div id="headerContent" class="positionAnchor">
+                <div id="planGraphic" class="positionLeftCenter">
+                    <h4 class="blueText">ONE NATIONAL CAMPAIGN TO ELECT HUNDREDS OF CANDIDATES TO A BRAND NEW
+                        CONGRESS</h4>
+                    <img src="{{ asset('bundles/sitetheorytemplatecustom/images/planGraphicSmall.png') }}" alt="">
                 </div>
-                <div id="header2" class="siteMaxWidth siteSidePadding positionAnchor ">
-                    <div id="headerContact" class="fontSecondary verticalCenter centerLeft clearfix">
-                        <a href="mailto:us@brandnewcongress.org" target="_blank">
-                            <div class="headerOrnament positionAnchor pullLeft">
-                                <div class="square square1 easyTransition">
-                                </div>
-                                <div class="square square2">
-                                </div>
-                                <div class="square square3 easyTransition">
-                                </div>
-                            </div>
-                            <div class="btnText">Contact Us</div>
-                        </a>
+                <div id="logoHeader" class="textCenter">
+                    <a href="/" aria-label="Go to Home"><img
+                                src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogo.png') }}"
+                                alt="BNC Logo"></a>
+                </div>
+                <div id="headerExtraLinks" class="positionRightBottom">
+                    <div class="clearfix">
+                        <a href="https://secure.actblue.com/contribute/page/brandnewcongress" target="_blank"
+                           class="btn btnContribute pullRight">Donate</a>
                     </div>
+                    <a id="starLinkRight" class="fontTertiary align-right" href="/Nominate">Nominate a Candidate</a>
+                </div>
+            </div>
+            <div id="header2" class="siteMaxWidth siteSidePadding positionAnchor ">
+                <div id="headerContact" class="fontSecondary verticalCenter centerLeft clearfix">
+                    <a href="mailto:us@brandnewcongress.org" target="_blank">
+                        <div class="headerOrnament positionAnchor pullLeft">
+                            <div class="square square1 easyTransition">
+                            </div>
+                            <div class="square square2">
+                            </div>
+                            <div class="square square3 easyTransition">
+                            </div>
+                        </div>
+                        <div class="btnText">Contact Us</div>
+                    </a>
+                </div>
 
-                    {% block navMain %}
-                        <div id="navHeader" class="navMainContainer divCenter">
-                            <ul class="listInline fontPrimary">
-                                <li id="navJoin" class="navMainLink">
-                                    <a href="#joinForm">
-                                        Join
+                {% block navMain %}
+                    <div id="navHeader" class="navMainContainer divCenter">
+                        <ul class="listInline fontPrimary">
+                            <li id="navJoin" class="navMainLink">
+                                <a href="#joinForm">
+                                    Join
+                                </a>
+                            </li>
+                            <li class="delimiter"><img
+                                        src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}"
+                                        alt="">
+                            </li>
+                            <li id="navHelp" class="navMainLink">
+                                <a href="/support">
+                                    Action
+                                </a>
+                            </li>
+                            <li class="delimiter"><img
+                                        src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}"
+                                        alt="">
+                            </li>
+                            <li id="navLearn" class="navMainLink">
+                                <a href="/plan">
+                                    Plan
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                {% endblock navMain %}
+
+                <div id="headerSocial" class="verticalCenter">
+                    <!-- Social Media -->
+                    {% block socialMedia %}
+                        <div class="socialMedia {{ socialStyle|default('basicStyle') }}">
+                            <ul class="listInline">
+                                <li class="twitter">
+                                    <a class="positionAnchor" href="https://twitter.com/BrandNew535"
+                                       title="Share on Twitter" aria-label="Share on Twitter" target="_blank"
+                                       data-reactid="123" target="_blank">
+                                        {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/twitter.svg' %}{% block id %}footerTwitterIcon{% endblock %}{% endembed %}
                                     </a>
                                 </li>
-                                <li class="delimiter"><img
-                                            src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}"
-                                            alt="">
-                                </li>
-                                <li id="navHelp" class="navMainLink">
-                                    <a href="/support">
-                                        Action
+                                <li class="facebook">
+                                    <a class="positionAnchor" href="https://www.facebook.com/brandnewcongress"
+                                       title="Facebook" aria-label="Share on Facebook" data-reactid="125"
+                                       target="_blank">
+                                        {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/facebook.svg' %}{% block id %}footerFacebookIcon{% endblock %}{% endembed %}
                                     </a>
                                 </li>
-                                <li class="delimiter"><img
-                                            src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}"
-                                            alt="">
-                                </li>
-                                <li id="navLearn" class="navMainLink">
-                                    <a href="/plan">
-                                        Plan
+                                <li class="reddit">
+                                    <a class="positionAnchor" href="https://www.reddit.com/r/BrandNewCongress/"
+                                       title="Reddit" aria-label="Share on Reddit" target="_blank">
+                                        {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/reddit.svg' %}{% block id %}footerRedditIcon{% endblock %}{% endembed %}
                                     </a>
                                 </li>
                             </ul>
                         </div>
-                    {% endblock navMain %}
-
-                    <div id="headerSocial" class="verticalCenter">
-                        <!-- Social Media -->
-                        {% block socialMedia %}
-                            <div class="socialMedia {{ socialStyle|default('basicStyle') }}">
-                                <ul class="listInline">
-                                    <li class="twitter">
-                                        <a class="positionAnchor" href="https://twitter.com/BrandNew535"
-                                           title="Share on Twitter" aria-label="Share on Twitter" target="_blank" data-reactid="123" target="_blank">
-                                            {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/twitter.svg' %}{% block id %}footerTwitterIcon{% endblock %}{% endembed %}
-                                        </a>
-                                    </li>
-                                    <li class="facebook">
-                                        <a class="positionAnchor" href="https://www.facebook.com/brandnewcongress"
-                                           title="Facebook" aria-label="Share on Facebook" data-reactid="125" target="_blank">
-                                            {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/facebook.svg' %}{% block id %}footerFacebookIcon{% endblock %}{% endembed %}
-                                        </a>
-                                    </li>
-                                    <li class="reddit">
-                                        <a class="positionAnchor" href="https://www.reddit.com/r/BrandNewCongress/"
-                                           title="Reddit" aria-label="Share on Reddit" target="_blank">
-                                            {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/reddit.svg' %}{% block id %}footerRedditIcon{% endblock %}{% endembed %}
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        {% endblock socialMedia %}
-                        <!-- End Social Media -->
-                    </div>
-                    <div class="headerOrnament verticalCenter centerLeft"><img
-                                src="{{ asset('bundles/sitetheorytemplatecustom/images/tripleSquarePurple.png') }}"
-                                alt=""></div>
-                    <div class="headerOrnament verticalCenter centerRight"><img
-                                src="{{ asset('bundles/sitetheorytemplatecustom/images/tripleSquarePurple.png') }}"
-                                alt=""></div>
+                    {% endblock socialMedia %}
+                    <!-- End Social Media -->
                 </div>
+                <div class="headerOrnament verticalCenter centerLeft"><img
+                            src="{{ asset('bundles/sitetheorytemplatecustom/images/tripleSquarePurple.png') }}"
+                            alt=""></div>
+                <div class="headerOrnament verticalCenter centerRight"><img
+                            src="{{ asset('bundles/sitetheorytemplatecustom/images/tripleSquarePurple.png') }}"
+                            alt=""></div>
             </div>
+        </div>
 
     {% else %}
 
@@ -564,27 +571,32 @@ LAYOUT
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="/Open-Positions" class="navLevel2 {% if sectionMenuActive == 'jobsPositionsActive' %}active{% endif %}">
+            <a href="/Open-Positions"
+               class="navLevel2 {% if sectionMenuActive == 'jobsPositionsActive' %}active{% endif %}">
                 Job Positions
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="/Volunteer-Positions" class="navLevel2 {% if sectionMenuActive == 'volunteerPositionActive' %}active{% endif %}">
+            <a href="/Volunteer-Positions"
+               class="navLevel2 {% if sectionMenuActive == 'volunteerPositionActive' %}active{% endif %}">
                 Volunteer Positions
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="/volunteer" class="navLevel2 {% if sectionMenuActive == 'volunteerSkillsActive' %}active{% endif %}">
+            <a href="/volunteer"
+               class="navLevel2 {% if sectionMenuActive == 'volunteerSkillsActive' %}active{% endif %}">
                 Get Started Volunteering!
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="/candidate-research" class="navLevel2 {% if sectionMenuActive == 'researchActive' %}active{% endif %}">
+            <a href="/candidate-research"
+               class="navLevel2 {% if sectionMenuActive == 'researchActive' %}active{% endif %}">
                 Candidate Research
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8CfK0gUULEVpYFm9Eb4iyGOL-_iDl395qB0z4hny7ek4iNw/viewform" target="_blank" class="navLevel2">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8CfK0gUULEVpYFm9Eb4iyGOL-_iDl395qB0z4hny7ek4iNw/viewform"
+               target="_blank" class="navLevel2">
                 District Research
             </a>
         </li>
@@ -744,12 +756,12 @@ LAYOUT
         <div id="siteMapContainer" class="siteMaxWidth siteSidePadding fontSecondary dark">
 
             <div id="siteMapNew" layout="row" layout-wrap class="hide-xs hide-sm">
-                {#
                 {% set menuPrimary = menu(content) %}
                 {% set menuSection = menu(content, 'section') %}
+                {# #
                 {% dump(menuPrimary) %}
                 {% dump(menuSection) %}
-                #}
+                {# #}
                 <div flex="25">
                     <div class="siteMapColumn">
                         <ul class="listUnstyled">
@@ -787,7 +799,8 @@ LAYOUT
                                 <a href="/candidate-research">Candidate Research</a>
                             </li>
                             <li>
-                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8CfK0gUULEVpYFm9Eb4iyGOL-_iDl395qB0z4hny7ek4iNw/viewform" target="_blank">District Research</a>
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8CfK0gUULEVpYFm9Eb4iyGOL-_iDl395qB0z4hny7ek4iNw/viewform"
+                                   target="_blank">District Research</a>
                             </li>
                             <li>
                                 <a href="https://docs.google.com/document/d/1Op0OaZNuykCJckSCn4vABDEr4VEdTrMeTsPCZFNSJo4/edit"
@@ -845,8 +858,6 @@ LAYOUT
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 {% endblock footerSiteMap %}
@@ -862,11 +873,15 @@ LAYOUT
             <div id="footerLogo" class="textCenter">
                 <img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogoFooter.png') }}" alt="">
             </div>
-            <p class="smallLabel textCenter">Press contact <a href="mailto:press@brandnewcongress.org">press@brandnewcongress.org</a><span hide-xs hide-sm>&nbsp;&nbsp;|&nbsp;&nbsp;</span><br hide-gt-sm>General contact <a href="mailto:us@brandnewcongress.org">us@brandnewcongress.org</a>
+            <p class="smallLabel textCenter">Press contact <a href="mailto:press@brandnewcongress.org">press@brandnewcongress.org</a><span
+                        hide-xs hide-sm>&nbsp;&nbsp;|&nbsp;&nbsp;</span><br hide-gt-sm>General contact <a
+                        href="mailto:us@brandnewcongress.org">us@brandnewcongress.org</a>
             </p>
             <div id="footerCredit" class="textCenter">
-                <p class="smallLabel">©2016 Brand New Congress. All rights reserved. P.O. Box 610563, North Miami, FL 33261
-                <br>Paid for by Brand New Congress, brandnewcongress.org, not authorized by any candidate or candidate's committee.</p>
+                <p class="smallLabel">©2016 Brand New Congress. All rights reserved. P.O. Box 610563, North Miami, FL
+                    33261
+                    <br>Paid for by Brand New Congress, brandnewcongress.org, not authorized by any candidate or
+                    candidate's committee.</p>
                 <a class="smallLabel" href="http://www.sitetheory.io" target="_blank">
                     Website powered by Sitetheory
                 </a>
