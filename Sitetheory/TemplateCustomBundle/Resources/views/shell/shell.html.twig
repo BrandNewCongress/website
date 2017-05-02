@@ -758,124 +758,127 @@ LAYOUT
         <div id="siteMapContainer" class="siteMaxWidth siteSidePadding fontSecondary dark">
 
             <div id="siteMapNew" layout="row" layout-wrap class="hide-xs hide-sm">
-                {#
-                {% if environment.user is not empty and environment.user.id == 2 %}
-                    {% set menuPrimary = menu(content, 'full') %}
-                    {% for key, link in menuPrimary if link is not empty and link.route != '/' %}
+                {% if environment.user is not empty %}
+                    {% set siteMap = menu(content) %}
+                    {% for key, link in siteMap if link is not empty and link.route != '/' %}
                         <div flex="25">
                             <div class="siteMapColumn">
                                 <ul class="listUnstyled">
                                     <li class="siteMapHeader">
-                                        <a class="fontTertiary" href="{{ link.route }}">{{ link.name }}</a>
+                                        <a class="fontTertiary" href="{{ link.route }}"
+                                           {% if link.browserTarget is not empty %}target="{{ link.browserTarget }}"{% endif %}>
+                                            {{ link.name }}
+                                        </a>
                                     </li>
-                                    {% for key, link in menuPrimary if link is not empty and link.route != '/' %}
-                                        <li class="{% if link.active is defined and link.active == true %}active{% else %}dormant{% endif %}">
-                                            <a href="{{ link.route }}">{{ link.name }}</a>
+                                    {% for key, child in link.nestChildren if child is not empty and child.route != '/' %}
+                                        <li class="{% if child.active is defined and child.active == true %}active{% else %}dormant{% endif %}">
+                                            <a href="{{ child.route }}"
+                                               {% if child.browserTarget is not empty %}target="{{ child.browserTarget }}"{% endif %}>
+                                                {{ child.name }}
+                                            </a>
                                         </li>
                                     {% endfor %}
                                 </ul>
                             </div>
                         </div>
                     {% endfor %}
-                {% else %}
-                #}
-                    <div flex="25">
-                        <div class="siteMapColumn">
-                            <ul class="listUnstyled">
-                                <li class="siteMapHeader">
-                                    <a class="fontTertiary" href="/submit-nominee">Candidates</a>
-                                </li>
-                                <li>
-                                    <a href="/Nominate">Nominate a Candidate</a>
-                                </li>
-                            </ul>
-                        </div>
+                {% endif %}
+                <div flex="25">
+                    <div class="siteMapColumn">
+                        <ul class="listUnstyled">
+                            <li class="siteMapHeader">
+                                <a class="fontTertiary" href="/submit-nominee">Candidates</a>
+                            </li>
+                            <li>
+                                <a href="/Nominate">Nominate a Candidate</a>
+                            </li>
+                        </ul>
                     </div>
-                    <div flex="25">
-                        <div class="siteMapColumn">
-                            <ul class="listUnstyled">
-                                <li class="siteMapHeader">
-                                    <a class="fontTertiary" href="/support">Action</a>
-                                </li>
-                                <li>
-                                    <a href="/support">Action Overview</a>
-                                </li>
-                                <li>
-                                    <a href="/nominate">Nominate a Candidate</a>
-                                </li>
-                                <li>
-                                    <a href="/Open-Positions">Job Positions</a>
-                                </li>
-                                <li>
-                                    <a href="/Volunteer-Positions">Volunteer Positions</a>
-                                </li>
-                                <li>
-                                    <a href="/volunteer">Get Started Volunteering!</a>
-                                </li>
-                                <li>
-                                    <a href="/candidate-research">Candidate Research</a>
-                                </li>
-                                <li>
-                                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8CfK0gUULEVpYFm9Eb4iyGOL-_iDl395qB0z4hny7ek4iNw/viewform"
-                                       target="_blank">District Research</a>
-                                </li>
-                                <li>
-                                    <a href="https://docs.google.com/document/d/1Op0OaZNuykCJckSCn4vABDEr4VEdTrMeTsPCZFNSJo4/edit"
-                                       target="_blank">Organize Locally</a>
-                                </li>
-                                <li>
-                                    <a href="/call">Join a Call</a>
-                                </li>
-                                <li>
-                                    <a href="https://secure.actblue.com/contribute/page/brandnewcongress"
-                                       target="_blank">Donate</a>
-                                </li>
-                                <li>
-                                    <a href="https://shop.brandnewcongress.org/" target="_blank">BNC Store</a>
-                                </li>
-                            </ul>
-                        </div>
+                </div>
+                <div flex="25">
+                    <div class="siteMapColumn">
+                        <ul class="listUnstyled">
+                            <li class="siteMapHeader">
+                                <a class="fontTertiary" href="/support">Action</a>
+                            </li>
+                            <li>
+                                <a href="/support">Action Overview</a>
+                            </li>
+                            <li>
+                                <a href="/nominate">Nominate a Candidate</a>
+                            </li>
+                            <li>
+                                <a href="/Open-Positions">Job Positions</a>
+                            </li>
+                            <li>
+                                <a href="/Volunteer-Positions">Volunteer Positions</a>
+                            </li>
+                            <li>
+                                <a href="/volunteer">Get Started Volunteering!</a>
+                            </li>
+                            <li>
+                                <a href="/candidate-research">Candidate Research</a>
+                            </li>
+                            <li>
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8CfK0gUULEVpYFm9Eb4iyGOL-_iDl395qB0z4hny7ek4iNw/viewform"
+                                   target="_blank">District Research</a>
+                            </li>
+                            <li>
+                                <a href="https://docs.google.com/document/d/1Op0OaZNuykCJckSCn4vABDEr4VEdTrMeTsPCZFNSJo4/edit"
+                                   target="_blank">Organize Locally</a>
+                            </li>
+                            <li>
+                                <a href="/call">Join a Call</a>
+                            </li>
+                            <li>
+                                <a href="https://secure.actblue.com/contribute/page/brandnewcongress"
+                                   target="_blank">Donate</a>
+                            </li>
+                            <li>
+                                <a href="https://shop.brandnewcongress.org/" target="_blank">BNC Store</a>
+                            </li>
+                        </ul>
                     </div>
-                    <div flex="25">
-                        <div class="siteMapColumn">
-                            <ul class="listUnstyled">
-                                <li class="siteMapHeader">
-                                    <a class="fontTertiary" href="/plan">Plan</a>
-                                </li>
-                                <li>
-                                    <a href="/plan">Our Plan</a>
-                                </li>
-                                <li>
-                                    <a href="/faq">FAQ</a>
-                                </li>
-                            </ul>
-                        </div>
+                </div>
+                <div flex="25">
+                    <div class="siteMapColumn">
+                        <ul class="listUnstyled">
+                            <li class="siteMapHeader">
+                                <a class="fontTertiary" href="/plan">Plan</a>
+                            </li>
+                            <li>
+                                <a href="/plan">Our Plan</a>
+                            </li>
+                            <li>
+                                <a href="/faq">FAQ</a>
+                            </li>
+                        </ul>
                     </div>
-                    <div flex="25">
-                        <div class="siteMapColumn">
-                            <ul class="listUnstyled">
-                                <li class="siteMapHeader">
-                                    <a class="fontTertiary" href="/About">About</a>
-                                </li>
-                                <li>
-                                    <a href="/about">About Us</a>
-                                </li>
-                                <li>
-                                    <a href="mailto:us@brandnewcongress.org">Contact Us</a>
-                                </li>
-                                <li>
-                                    <a href="/privacy">Privacy Policy</a>
-                                </li>
-                                <li>
-                                    {# Social Media #}
-                                    {% block footerSocialMedia %}
-                                        {{ block('socialMedia') }}
-                                    {% endblock footerSocialMedia %}
-                                </li>
-                            </ul>
-                        </div>
+                </div>
+                <div flex="25">
+                    <div class="siteMapColumn">
+                        <ul class="listUnstyled">
+                            <li class="siteMapHeader">
+                                <a class="fontTertiary" href="/About">About</a>
+                            </li>
+                            <li>
+                                <a href="/about">About Us</a>
+                            </li>
+                            <li>
+                                <a href="mailto:us@brandnewcongress.org">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="/privacy">Privacy Policy</a>
+                            </li>
+                            <li>
+                                {# Social Media #}
+                                {% block footerSocialMedia %}
+                                    {{ block('socialMedia') }}
+                                {% endblock footerSocialMedia %}
+                            </li>
+                        </ul>
                     </div>
-                {#{% endif %}#}
+                </div>
             </div>
         </div>
     </div>
