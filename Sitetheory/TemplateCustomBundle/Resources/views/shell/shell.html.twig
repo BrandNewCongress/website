@@ -758,6 +758,7 @@ LAYOUT
         <div id="siteMapContainer" class="siteMaxWidth siteSidePadding fontSecondary dark">
 
             <div id="siteMapNew" layout="row" layout-wrap class="hide-xs hide-sm">
+                {#
                 {% if environment.user is not empty and environment.user.id == 2 %}
                     {% set menuPrimary = menu(content, 'full') %}
                     {% for key, link in menuPrimary if link is not empty and link.route != '/' %}
@@ -777,6 +778,7 @@ LAYOUT
                         </div>
                     {% endfor %}
                 {% else %}
+                #}
                     <div flex="25">
                         <div class="siteMapColumn">
                             <ul class="listUnstyled">
@@ -873,7 +875,7 @@ LAYOUT
                             </ul>
                         </div>
                     </div>
-                {% endif %}
+                {#{% endif %}#}
             </div>
         </div>
     </div>
