@@ -759,21 +759,23 @@ LAYOUT
 
             <div id="siteMapNew" layout="row" layout-wrap class="hide-xs hide-sm">
                 {% if environment.user is not empty and environment.user.id == 2 %}
-                    {% set menuPrimary = menu(content) %}
-                    <div flex="25">
-                        <div class="siteMapColumn">
-                            <ul class="listUnstyled">
-                                <li class="siteMapHeader">
-                                    <a class="fontTertiary" href="#">Dynamic</a>
-                                </li>
-                                {% for key, link in menuPrimary if link is not empty %}
-                                    <li class="{% if link.active is defined and link.active == true %}active{% else %}dormant{% endif %}">
-                                        <a href="{{ link.route }}">{{ link.name }}</a>
+                    {% set menuPrimary = menu(content, 'full') %}
+                    {% for key, link in menuPrimary if link is not empty and link.route != '/' %}
+                        <div flex="25">
+                            <div class="siteMapColumn">
+                                <ul class="listUnstyled">
+                                    <li class="siteMapHeader">
+                                        <a class="fontTertiary" href="{{ link.route }}">{{ link.name }}</a>
                                     </li>
-                                {% endfor %}
-                            </ul>
+                                    {% for key, link in menuPrimary if link is not empty and link.route != '/' %}
+                                        <li class="{% if link.active is defined and link.active == true %}active{% else %}dormant{% endif %}">
+                                            <a href="{{ link.route }}">{{ link.name }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+                    {% endfor %}
                 {% else %}
                     <div flex="25">
                         <div class="siteMapColumn">
