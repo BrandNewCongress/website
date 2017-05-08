@@ -1,0 +1,1 @@
+This is the custom Candidate Landing page stream for all candidates. This will probably become the standard template once we get everything streaming perfectly and editable in the admin. But for the time being, it is just being extended by individual custom templates for each candidate stream.
