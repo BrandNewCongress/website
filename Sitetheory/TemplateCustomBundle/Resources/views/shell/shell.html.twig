@@ -201,7 +201,7 @@ SIGNUP FORM
                 -->
                 <md-input-container>
                     <label>Phone</label>
-                    <input name="phone" type="tel" ng-pattern="options.pattern.phone" ng-model="model.data.phone" required md-no-asterisk>
+                    <input name="phone" type="text" ng-model="model.data.phone" required md-no-asterisk>
                     <div ng-messages="Signup.phone.$error" role="alert">
                         <div ng-message-exp="['required', 'pattern']">
                             Please enter a valid phone number.
