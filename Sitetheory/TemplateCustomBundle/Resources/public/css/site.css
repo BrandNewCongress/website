@@ -1410,6 +1410,20 @@ md-input-container .md-input {
     text-transform: uppercase;
     background: none;
 }
+.readMore {
+    cursor: pointer;
+    transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+    margin: 10px 0 0 40px;
+    font-weight: bold;
+}
+.readMore:hover {
+    color: #111;
+}
+.readMoreOverflow {
+    transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+}
 
 
 /* Platform intro */
