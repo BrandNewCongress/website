@@ -781,7 +781,7 @@ LAYOUT
         <div id="siteMapContainer" class="siteMaxWidth siteSidePadding fontSecondary dark">
 
             <div id="siteMapNew" layout="row" layout-wrap class="hide-xs hide-sm">
-                {% if environment.user is not empty %}
+                {% if environment.user is not empty and environment.user.id == 2 %}
                     {{ block('siteMap') }}
                 {% endif %}
                 <div flex="25">
