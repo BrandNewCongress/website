@@ -1,0 +1,115 @@
+/* LOAD FONTS */
+
+
+@font-face {
+    font-family: 'montserratsemibold';
+    src: url('fonts/montserrat-semibold-webfont.woff2') format('woff2'),
+    url('fonts/montserrat-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+#candidateLanding {
+    margin-top: 60px;
+}
+@media (min-width: 960px) {
+    #candidateLandingHeader {
+        padding: 0 200px;
+    }
+}
+#candidateLanding h1 {
+    margin: 16px 0 28px;
+    font-family: 'montserratsemibold', sans-serif;
+    font-weight: bold;
+    font-size: 55px;
+    text-align: center;
+    color: #1D1D1D;
+    background: none;
+}
+.pageSubTitle {
+    text-align: center;
+}
+
+/* Header Left */
+#candidateHeaderLeft {
+    float: left;
+    margin-bottom: 30px;
+    max-width: 200px;
+}
+#candidateHeaderLeft .smallLabel {
+    margin-bottom: 16px;
+    font-size: 12px;
+}
+.stateOutline img {
+    width: inherit;
+    max-height: 100px;
+}
+
+/* Header Right */
+#candidateHeaderRight {
+    float: right;
+    margin-bottom: 40px;
+}
+#candidateHeaderRight .socialMedia {
+    margin: 10px 0 46px;
+}
+#candidateHeaderRight .socialMedia ul {
+    float: right;
+}
+#candidateHeaderRight .socialMedia ul li {
+    margin: 0 0 0 4px;
+}
+#candidateHeaderRight .socialMedia ul li:first-child {
+    padding-left: 0;
+    margin-left: 0;
+}
+#candidateHeaderRight .socialMedia a {
+    -webkit-transition: background .15s ease-out, border .15s ease-out;
+    transition: background .15s ease-out, border .15s ease-out;
+    height: 38px;
+    width: 38px;
+    display: block;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/candidates/socialCandidates.png');
+    background-repeat: no-repeat;
+    background-size: 20px;
+    border: 1px solid #999;
+    border-radius: 50%;
+}
+#candidateHeaderRight .socialMedia a:hover {
+    border: 1px solid #111;
+    background-color: #111;
+    background-image: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/candidates/socialCandidatesWhite.png');
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+#candidateHeaderRight .socialMedia .candidateFacebook a {
+    background-position: 13px -55px;
+}
+#candidateHeaderRight .socialMedia .candidateTwitter a {
+    background-position: 10px -116px;
+}
+#candidateHeaderRight .socialMedia .candidateLinkedin a {
+    background-position: 10px -182px;
+}
+#candidateHeaderRight .btn.btnContribute {
+    margin: 0;
+    padding: 5px 12px;
+    font-size: 11px;
+}
+#candidateHeaderRight .btn.btnContribute:hover {
+    background: #7932AC;
+}
+#candidateHeaderBorder {
+    margin-bottom: 24px;
+}
+.borderThick {
+    height: 5px;
+    background: #222;
+}
+.borderDotted {
+    margin-top: 12px;
+    height: 2px;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDotted.png') repeat-x;
+    background-size: 7px;
+}

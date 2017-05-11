@@ -1,5 +1,5 @@
 /* LOAD FONTS */
-@import '//fonts.googleapis.com/css?family=Raleway:400,700|Roboto+Slab:100,300,400,700';
+@import '//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto+Slab:100,300,400,700';
 
 @font-face {
     font-family: 'u.s._101regular';
@@ -79,7 +79,7 @@ h3 {
 h4 {
     -webkit-font-smoothing: subpixel-antialiased;
     color: #000;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: .25em;
@@ -150,7 +150,7 @@ p {
 h3,
 h4,
 .smallLabel {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 
