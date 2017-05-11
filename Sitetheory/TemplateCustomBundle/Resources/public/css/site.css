@@ -226,7 +226,9 @@ hr {
     background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDashedBold.png') repeat-x;
     background-size: 8px;
 }
-
+.sectionBorder {
+    height: 17px;
+}
 
 /* COLORS (In order of most to least commonly used) */
 
