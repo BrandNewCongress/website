@@ -13,6 +13,9 @@
 #candidateLanding {
     margin-top: 60px;
 }
+
+/*  CANDIDATE LANDING HEADER */
+
 @media (min-width: 960px) {
     #candidateLandingHeader {
         padding: 0 200px;
@@ -113,11 +116,15 @@
     background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDotted.png') repeat-x;
     background-size: 7px;
 }
+
+/*  CANDIDATE HERO SHOT */
+
 .candidateHero img {
     width: 100%;
 }
 
 
+/*  WELCOME AREA */
 
 #welcome {
     max-width: 1100px;
@@ -135,7 +142,8 @@
 }
 
 
-/* Excerpt Area */
+/*  EXCERPTS AREA */
+
 .candidateExcerpts {
     margin-top: 50px;
 }
@@ -145,16 +153,13 @@
 .candidateExcerpts img {
     width: 100%;
 }
-.candidateExcerpts .btn,
-.candidateExcerpts .btn:link,
-.candidateExcerpts .btn:visited,
-.candidateExcerpts .btn:active {
+.candidateExcerpts .btn {
     display: inline-block;
-    margin-top: 18px;
+    margin-top: 14px;
     color: #FFF;
     font-size: 12px;
     letter-spacing: .07em;
-    padding: 15px 35px;
+    padding: 12px 35px;
     background: #171717;
 }
 .candidateExcerpts .btn:hover {
@@ -174,9 +179,9 @@
 }
 .candidateExcerpts .linkList li a {
     display: block;
-    padding: 20px 6%;
+    padding: 20px 10% 20px 6%;
     font-weight: bold;
-    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/doubleArrow.png') no-repeat right center;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/doubleArrow.png') no-repeat 94% center;
     background-size: 12px;
 }
 .candidateExcerpts .linkList li a:hover {
@@ -215,18 +220,27 @@
     background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDotted.png') repeat-x left bottom;
     background-size: 7px;
 }
+#excerptsRow1 p,
+#excerptsRow1 li{
+    font-size: 14px;
+}
 #excerptsRow1 .excerptContainer {
     padding: 0 10%;
     text-align: center;
 }
-#excerptsRow1 .excerptContainer ul {
+#excerptsRow1 .excerptContainer ul{
     text-align: left;
+    margin: 0 0 0 10px;
+    padding: 0 0 0 10px;
 }
-#excerptsRow1 .salmon .excerptContainer h3 {
+#excerptsRow1 .excerptContainer li {
+    padding: 0;
+}
+#excerptsRow1 .salmon h3 {
     color: #FFF;
     background-image: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDottedLight.png');
 }
-#excerptsRow1 .salmon .excerptContainer p {
+#excerptsRow1 .salmon p {
     color: #FFF;
 }
 #excerptsRow1 .salmon .btn:hover {
@@ -236,12 +250,64 @@
 #excerptsRow1 .column3 {
     background: #EFEFEF;
 }
-
-
+@media (min-width: 1050px) and (max-width:1150px) {
+    #excerptsRow1 h3,
+    #excerptsRow1 .salmon h3{
+        margin-bottom: 0;
+        padding-bottom: 16px;
+        background: none;
+    }
+    .candidateExcerpts .btn {
+        margin-top: 10px;
+        font-size: 11px;
+        padding: 8px 35px;
+    }
+}
+@media (min-width: 960px) and (max-width:1049px) {
+    #excerptsRow1 h3,
+    #excerptsRow1 .salmon h3{
+        margin-bottom: 0;
+        padding-bottom: 8px;
+        font-size: 16px;
+        background: none;
+    }
+    #excerptsRow1 p,
+    #excerptsRow1 li {
+        font-size: 13px;
+    }
+    .candidateExcerpts .btn {
+        margin-top: 10px;
+        font-size: 11px;
+        padding: 5px 35px;
+    }
+}
+@media (max-width:959px) {
+    #excerptsRow1 .column3 .excerptContainer {
+        padding: 0 5%;
+    }
+}
+@media (min-width:600px) and (max-width:700px) {
+    #excerptsRow1 h3,
+    #excerptsRow1 .salmon h3{
+        margin-bottom: 0;
+        padding-bottom: 8px;
+        font-size: 16px;
+        background: none;
+    }
+    #excerptsRow1 p,
+    #excerptsRow1 li {
+        font-size: 13px;
+    }
+    .candidateExcerpts .btn {
+        margin-top: 10px;
+        font-size: 11px;
+        padding: 5px 35px;
+    }
+}
 
 /* Excerpts Row 2 Structure */
 #excerptsRow2 {
-    margin-bottom: 80px;
+    margin-bottom: 60px;
 }
 #excerptsRow2 .excerptContainer {
     margin: 0 5px;
@@ -267,4 +333,58 @@
 #excerptsRow2 .column2 .excerptContainer h3 {
     padding-top: 26px;
     color: #FF7A65;
+}
+
+
+#candidateLandingEvents {
+    border-top: 5px solid #FF7A65;
+}
+#candidateLandingEvents h3 {
+    padding-top: 26px;
+    color: #FF7A65;
+}
+
+
+
+/*  QUOTE AREA */
+
+#candidateQuote {
+    margin: 70px 0;
+    background: #5F2787;
+}
+#candidateQuote img {
+    display: block;
+    opacity: .25;
+    width: 100%;
+}
+#quote {
+    z-index: 10;
+    width: 100%;
+    padding: 0 10%;
+    text-align: center;
+}
+#quote p {
+    margin: 0;
+    color: #FFF;
+    font-size: 38px;
+}
+@media (max-width:1150px) {
+    #quote p {
+        font-size: 30px;
+    }
+}
+@media (max-width:1050px) {
+    #quote p {
+        font-size: 26px;
+    }
+}
+@media (max-width:959px) {
+    #quote p {
+        font-size: 20px;
+    }
+}
+@media (max-width:600px) {
+    #quote p {
+        font-size: 16px;
+    }
 }
