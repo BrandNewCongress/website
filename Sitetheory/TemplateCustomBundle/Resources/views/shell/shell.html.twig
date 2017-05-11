@@ -201,7 +201,7 @@ SIGNUP FORM
                 -->
                 <md-input-container>
                     <label>Phone</label>
-                    <input name="phone" type="phone" ng-pattern="options.pattern.phone" ng-model="model.data.phone" required md-no-asterisk>
+                    <input name="phone" type="text" ng-model="model.data.phone" required md-no-asterisk>
                     <div ng-messages="Signup.phone.$error" role="alert">
                         <div ng-message-exp="['required', 'pattern']">
                             Please enter a valid phone number.
@@ -265,8 +265,12 @@ LAYOUT
                 </div>
                 <div id="headerExtraLinks" class="positionRightBottom">
                     <div class="clearfix">
-                        <a href="https://secure.actblue.com/contribute/page/brandnewcongress" target="_blank"
-                           class="btn btnContribute pullRight">Donate</a>
+                        {# IF THE VISIT IS FROM A CANDIDATE SITE DISPLAY SPECIAL LINK BACK TO LANDING PAGE #}
+                        {% if content.data.candidate.url is defined and content.data.candidate.url is not empty %}
+                            <a href="{{ content.data.candidate.url }}" class="btn btnCandidateLanding pullRight">{{ content.data.candidate.name }}</a>
+                        {% else %}
+                            <a href="https://secure.actblue.com/contribute/page/brandnewcongress" target="_blank" class="btn btnContribute pullRight">Donate</a>
+                        {% endif %}
                     </div>
                     <a id="starLinkRight" class="fontTertiary align-right" href="/Nominate">Nominate a Candidate</a>
                 </div>
@@ -393,8 +397,12 @@ LAYOUT
             </a>
         </div>
         <div id="retractingContribute" class="verticalCenter hide-xs hide-sm">
-            <a href="https://secure.actblue.com/contribute/page/brandnewcongress" target="_blank"
-               class="btn btnContribute">Donate</a>
+            {# IF THE VISIT IS FROM A CANDIDATE SITE DISPLAY SPECIAL LINK BACK TO LANDING PAGE #}
+            {% if content.data.candidate.url is defined and content.data.candidate.url is not empty %}
+                <a href="{{ content.data.candidate.url }}" class="btn btnCandidateLanding">{{ content.data.candidate.name }}</a>
+            {% else %}
+                <a href="https://secure.actblue.com/contribute/page/brandnewcongress" target="_blank" class="btn btnContribute">Donate</a>
+            {% endif %}
         </div>
         <div>
             {{ block('navMain') }}

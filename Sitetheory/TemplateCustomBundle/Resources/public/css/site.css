@@ -1,5 +1,5 @@
 /* LOAD FONTS */
-@import '//fonts.googleapis.com/css?family=Raleway:400,700|Roboto+Slab:100,300,400,700';
+@import '//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto+Slab:100,300,400,700';
 
 @font-face {
     font-family: 'u.s._101regular';
@@ -79,7 +79,7 @@ h3 {
 h4 {
     -webkit-font-smoothing: subpixel-antialiased;
     color: #000;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: .25em;
@@ -150,7 +150,7 @@ p {
 h3,
 h4,
 .smallLabel {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -226,7 +226,9 @@ hr {
     background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDashedBold.png') repeat-x;
     background-size: 8px;
 }
-
+.sectionBorder {
+    height: 17px;
+}
 
 /* COLORS (In order of most to least commonly used) */
 
@@ -1388,11 +1390,11 @@ md-input-container .md-input {
     background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDashed.png') repeat-x;
     background-size: 6px;
 }
-.platform ul {
+.platformIntro ul {
     margin: 0;
     padding: 0;
 }
-.platform ul li {
+.platformIntro ul li {
     margin: 16px 0;
     list-style: none;
 }
@@ -1410,13 +1412,27 @@ md-input-container .md-input {
     text-transform: uppercase;
     background: none;
 }
+.readMore {
+    cursor: pointer;
+    transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+    margin: 10px 0 0 40px;
+    font-weight: bold;
+}
+.readMore:hover {
+    color: #111;
+}
+.readMoreOverflow {
+    transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+}
 
 
 /* Platform intro */
 
 .platformIntro .bodyLarge {
     background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starSalmon.png') no-repeat left 5px;
-    background-size: 20px;
+    background-size: 18px;
 }
 .platformIntro .bodyLarge,
 .platformIntro p {
@@ -1432,9 +1448,15 @@ md-input-container .md-input {
 
 /* Platform main */
 
-.platformMain ul li {
+.platformMain h3 {
+    margin-top: 40px;
     padding: 0 0 0 40px;
     background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starSalmon.png') no-repeat;
     background-size: 20px;
 }
-
+.platformMain p {
+    padding: 0 0 0 40px;
+}
+.platformMain p.bodyLarge {
+    padding: 0;
+}

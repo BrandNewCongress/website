@@ -1,0 +1,576 @@
+/* LOAD FONTS */
+
+
+@font-face {
+    font-family: 'montserratsemibold';
+    src: url('fonts/montserrat-semibold-webfont.woff2') format('woff2'),
+    url('fonts/montserrat-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+#candidateLanding {
+    margin-top: 60px;
+}
+
+/*  CANDIDATE LANDING HEADER */
+
+@media (min-width: 960px) {
+    #candidateLandingHeader {
+        padding: 0 200px;
+    }
+}
+#candidateLanding h1 {
+    margin: 16px 0 28px;
+    font-family: 'montserratsemibold', sans-serif;
+    font-weight: bold;
+    font-size: 55px;
+    text-align: center;
+    color: #1D1D1D;
+    background: none;
+}
+.pageSubTitle {
+    text-align: center;
+}
+
+/* Header Left */
+#candidateHeaderLeft {
+    float: left;
+    margin-bottom: 30px;
+    max-width: 200px;
+}
+#candidateHeaderLeft .smallLabel {
+    margin-bottom: 16px;
+    font-size: 12px;
+}
+.stateOutline img {
+    width: inherit;
+    max-height: 100px;
+}
+
+/* Header Right */
+#candidateHeaderRight {
+    float: right;
+    margin-bottom: 40px;
+}
+#candidateHeaderRight .socialMedia {
+    margin: 10px 0 46px;
+}
+#candidateHeaderRight .socialMedia ul {
+    float: right;
+}
+#candidateHeaderRight .socialMedia ul li {
+    margin: 0 0 0 4px;
+}
+#candidateHeaderRight .socialMedia ul li:first-child {
+    padding-left: 0;
+    margin-left: 0;
+}
+#candidateHeaderRight .socialMedia a {
+    -webkit-transition: background .15s ease-out, border .15s ease-out;
+    transition: background .15s ease-out, border .15s ease-out;
+    height: 38px;
+    width: 38px;
+    display: block;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/candidates/socialCandidates.png');
+    background-repeat: no-repeat;
+    background-size: 20px;
+    border: 1px solid #999;
+    border-radius: 50%;
+}
+#candidateHeaderRight .socialMedia a:hover {
+    border: 1px solid #111;
+    background-color: #111;
+    background-image: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/candidates/socialCandidatesWhite.png');
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+#candidateHeaderRight .socialMedia .candidateFacebook a {
+    background-position: 13px -55px;
+}
+#candidateHeaderRight .socialMedia .candidateTwitter a {
+    background-position: 10px -116px;
+}
+#candidateHeaderRight .socialMedia .candidateLinkedin a {
+    background-position: 10px -182px;
+}
+#candidateHeaderRight .btn.btnContribute {
+    margin: 0;
+    padding: 5px 12px;
+    font-size: 11px;
+}
+#candidateHeaderRight .btn.btnContribute:hover {
+    background: #7932AC;
+}
+#candidateHeaderBorder {
+    margin-bottom: 24px;
+}
+.borderThick {
+    height: 5px;
+    background: #222;
+}
+.borderDotted {
+    margin-top: 12px;
+    height: 2px;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDotted.png') repeat-x;
+    background-size: 7px;
+}
+
+/*  CANDIDATE HERO SHOT */
+
+.candidateHero img {
+    width: 100%;
+}
+
+
+/*  WELCOME AREA */
+
+#welcome {
+    max-width: 1100px;
+    margin: 82px auto;
+    text-align: center;
+}
+#welcome h2 {
+    margin: 0 0 40px;
+    font-size: 36px;
+    letter-spacing: .05em;
+}
+#welcome .bodyLarge {
+    font-size: 28px;
+    line-height: 1.6;
+}
+
+
+/* JOIN AREA */
+
+
+.join_container {
+    background: rgba(121,50,172,.93);
+}
+.join_container h2 {
+    margin: 0;
+    padding: 0;
+    color: #FFF;
+    font-size: 20px;
+}
+.join_container .inputBlock input {
+    display: block;
+    box-sizing: border-box;
+    margin: 8px auto 0;
+    padding: 14px 10px;
+    width: 86%;
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    background: rgba(255,255,255,.14);
+    border: none;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    transform: translateX(10px);
+    color: #FFF;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: #FFF;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: #FFF;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: #FFF;
+}
+.join_container .btn {
+    display: block;
+    margin: 8px auto 0;
+    padding: 14px 10px;
+    width: 86%;
+    font-size: 15px;
+    color: #111;
+    border: none;
+    background: linear-gradient(#FFFFFF, #EAEAEA);
+    background: -webkit-linear-gradient(#FFFFFF, #EAEAEA);
+}
+.join_container .btn:hover {
+    color: #FFF;
+    background: #111;
+}
+.join_container .legalAgreement {
+    position: relative;
+    margin: 10px 10px 0;
+    font-size: 10px;
+    text-align: center;
+    color: #EEE;
+}
+.join_container .tipText {
+    text-decoration: underline;
+}
+.join_container .myTip {
+    transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+    transform: scale(.7);
+    -webkit-transform: scale(.7);
+    position: absolute;
+    left: 0;
+    top: 100%;
+    margin-top: 12px;
+    padding: 5px 5%;
+    width: 90%;
+    opacity: 0;
+    visibility: hidden;
+    background: rgba(33,33,33,.8);
+}
+.join_container .tipText:hover .myTip {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+
+
+/* Home version */
+#homeJoin {
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    right: 50px;
+    z-index: 100;
+    box-shadow: 1px 3px 5px rgba(0,0,0,.3);
+}
+#homeJoin .join_container {
+    float: right;
+    padding: 36px 10%;
+    width: 300px;
+    text-align: center;
+}
+#homeJoin h2 {
+    font-size: 26px;
+}
+#homeJoin p {
+    margin: 20px 0;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 1.3;
+    color: #FFF;
+}
+
+@media (max-width:1250px) {
+    #homeJoin .join_container {
+        width: 250px;
+    }
+    #homeJoin h2 {
+        font-size: 24px;
+    }
+    .join_container p {
+        font-size: 22px;
+    }
+}
+@media (max-width:1100px) {
+    #homeJoin .join_container {
+        padding: 26px 10%;
+    }
+    #homeJoin .module_container {
+        width: 210px;
+    }
+    #homeJoin p {
+        font-size: 18px;
+    }
+    .join_container .fakeField {
+        padding: 15px 6px;
+    }
+    .join_container .btn {
+        display: block;
+        padding: 16px 15px;
+    }
+}
+@media (max-width:959px) {
+    #homeJoin {
+        transform: none;
+        -webkit-transform: none;
+        position: relative;
+        top: inherit;
+        right: inherit;
+        margin-top: -1px;
+    }
+    #homeJoin .join_container {
+        width: inherit;
+        float: none;
+        box-shadow: none;
+    }
+    #homeJoin h2 {
+        font-size: 28px;
+    }
+    #homeJoin .fakeField,
+    #homeJoin .btn {
+        width: 30%;
+        display: inline-block;
+    }
+    #shellJoin .fakeField,
+    #shellJoin .btn {
+        display: block;
+    }
+}
+@media (max-width:600px) {
+    #homeJoin .join_container .fakeField,
+    #homeJoin .join_container .btn {
+        display: block;
+        margin: 6px auto;
+        width: 280px;
+        padding: 16px 0;
+    }
+}
+
+
+
+
+/*  EXCERPTS AREA */
+
+.candidateExcerpts {
+    margin-top: 50px;
+}
+.candidateExcerpts h3 {
+    font-size: 20px;
+}
+.candidateExcerpts img {
+    width: 100%;
+}
+.candidateExcerpts .btn {
+    display: inline-block;
+    margin-top: 14px;
+    color: #FFF;
+    font-size: 12px;
+    letter-spacing: .07em;
+    padding: 12px 35px;
+    background: #171717;
+}
+.candidateExcerpts .btn:hover {
+    background: #7932AC;
+}
+
+
+/* Link Lists */
+.candidateExcerpts .linkList li {
+    transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+    margin-bottom: 6px;
+    background: #F5F5F5;
+}
+.candidateExcerpts .linkList li:hover {
+    background: #7932AC;
+}
+.candidateExcerpts .linkList li a {
+    display: block;
+    padding: 20px 10% 20px 6%;
+    font-weight: bold;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/doubleArrow.png') no-repeat 94% center;
+    background-size: 12px;
+}
+.candidateExcerpts .linkList li a:hover {
+    color: #FFF;
+}
+
+
+/* Image Buttons */
+.candidateExcerpts .imageButton h3 {
+    z-index: 100;
+    width: 100%;
+    padding: 0 10%;
+    opacity: 0;
+    text-align: center;
+    color: #FFF;
+}
+.candidateExcerpts .imageButton * {
+    transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+}
+.candidateExcerpts .imageButton img {
+    display: block;
+}
+.candidateExcerpts .imageButton a:hover h3 {
+    opacity: 1;
+}
+.candidateExcerpts .imageButton a:hover .imageContainer {
+    opacity: .5;
+}
+
+
+/* Excerpts Row 1 */
+#excerptsRow1 h3 {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDotted.png') repeat-x left bottom;
+    background-size: 7px;
+}
+#excerptsRow1 p,
+#excerptsRow1 li{
+    font-size: 14px;
+}
+#excerptsRow1 .excerptContainer {
+    padding: 0 10%;
+    text-align: center;
+}
+#excerptsRow1 .excerptContainer ul{
+    text-align: left;
+    margin: 0 0 0 10px;
+    padding: 0 0 0 10px;
+}
+#excerptsRow1 .excerptContainer li {
+    padding: 0;
+}
+#excerptsRow1 .salmon h3 {
+    color: #FFF;
+    background-image: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDottedLight.png');
+}
+#excerptsRow1 .salmon p {
+    color: #FFF;
+}
+#excerptsRow1 .salmon .btn:hover {
+    color: #111;
+    background: #FFF;
+}
+#excerptsRow1 .column3 {
+    background: #EFEFEF;
+}
+@media (min-width: 1050px) and (max-width:1150px) {
+    #excerptsRow1 h3,
+    #excerptsRow1 .salmon h3{
+        margin-bottom: 0;
+        padding-bottom: 16px;
+        background: none;
+    }
+    .candidateExcerpts .btn {
+        margin-top: 10px;
+        font-size: 11px;
+        padding: 8px 35px;
+    }
+}
+@media (min-width: 960px) and (max-width:1049px) {
+    #excerptsRow1 h3,
+    #excerptsRow1 .salmon h3{
+        margin-bottom: 0;
+        padding-bottom: 8px;
+        font-size: 16px;
+        background: none;
+    }
+    #excerptsRow1 p,
+    #excerptsRow1 li {
+        font-size: 13px;
+    }
+    .candidateExcerpts .btn {
+        margin-top: 10px;
+        font-size: 11px;
+        padding: 5px 35px;
+    }
+}
+@media (max-width:959px) {
+    #excerptsRow1 .column3 .excerptContainer {
+        padding: 0 5%;
+    }
+}
+@media (min-width:600px) and (max-width:700px) {
+    #excerptsRow1 h3,
+    #excerptsRow1 .salmon h3{
+        margin-bottom: 0;
+        padding-bottom: 8px;
+        font-size: 16px;
+        background: none;
+    }
+    #excerptsRow1 p,
+    #excerptsRow1 li {
+        font-size: 13px;
+    }
+    .candidateExcerpts .btn {
+        margin-top: 10px;
+        font-size: 11px;
+        padding: 5px 35px;
+    }
+}
+
+/* Excerpts Row 2 Structure */
+#excerptsRow2 {
+    margin-bottom: 60px;
+}
+#excerptsRow2 .excerptContainer {
+    margin: 0 5px;
+}
+#excerptsRow2 .column1 .excerptContainer {
+    margin-left: 0;
+}
+#excerptsRow2 .column3 .excerptContainer {
+    margin-right: 0;
+}
+
+/* Excerpts Row 2 Titles */
+#excerptsRow2 .column1 .excerptContainer {
+    border-top: 5px solid #7932AC;
+}
+#excerptsRow2 .column2 .excerptContainer {
+    border-top: 5px solid #FF7A65;
+}
+#excerptsRow2 .column1 .excerptContainer h3 {
+    padding-top: 26px;
+    color: #7932AC;
+}
+#excerptsRow2 .column2 .excerptContainer h3 {
+    padding-top: 26px;
+    color: #FF7A65;
+}
+
+
+#candidateLandingEvents {
+    border-top: 5px solid #FF7A65;
+}
+#candidateLandingEvents h3 {
+    padding-top: 26px;
+    color: #FF7A65;
+}
+
+
+
+/*  QUOTE AREA */
+
+#candidateQuote {
+    margin: 70px 0;
+    background: #5F2787;
+}
+#candidateQuote img {
+    display: block;
+    opacity: .25;
+    width: 100%;
+}
+#quote {
+    z-index: 10;
+    width: 100%;
+    padding: 0 10%;
+    text-align: center;
+}
+#quote p {
+    margin: 0;
+    color: #FFF;
+    font-size: 38px;
+}
+@media (max-width:1150px) {
+    #quote p {
+        font-size: 30px;
+    }
+}
+@media (max-width:1050px) {
+    #quote p {
+        font-size: 26px;
+    }
+}
+@media (max-width:959px) {
+    #quote p {
+        font-size: 20px;
+    }
+}
+@media (max-width:600px) {
+    #quote p {
+        font-size: 16px;
+    }
+}
