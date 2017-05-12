@@ -166,8 +166,8 @@ TODO: this should be converted to the Candidate Landing Stream, but it's all har
 
 
     {% block candidateLandingEvents %}
-    <div id="candidateLandingEvents">
-        <md-list id="eventList" layout-padding="" ng-cloak="" ng-controller="Api" options='{"url":"https://api.brandnewcongress.org","controller":"/events?candidate={{ content.version.title | replace({" ": ""})| lower }}", "onLoad": "fetch"}' ng-if="status == 'success' && results.length">
+    <div id="candidateLandingEvents" ng-cloak="" ng-controller="Api" options='{"url":"https://api.brandnewcongress.org","controller":"/events?candidate={{ content.version.title | replace({" ": ""})| lower }}", "onLoad": "fetch"}'>
+        <md-list id="eventList" layout-padding="" ng-if="status == 'success' && results.length">
             <h3>Coming Up</h3>
             <div id="eventListHeader">
                 <div class="clearfix">
@@ -192,7 +192,7 @@ TODO: this should be converted to the Candidate Landing Stream, but it's all har
             <!-- List Body with Repeating Rows -->
             <md-list-item layout="row" layout-align="space-between center" layout-wrap="" layout-xs="column" ng-repeat="model in results">
                 <div class="action">
-                    <md-button aria-label="join" class="md-fab md-primary" href="{{model.url}}"> RSVP </md-button>
+                    <md-button aria-label="join" class="md-fab md-primary" href="{{model.url}}" target="_blank"> RSVP </md-button>
                 </div>
                 <div class="info">
                     <div class="eventTitle"><em>{{ model.title }}</em></div>
