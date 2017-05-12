@@ -99,7 +99,7 @@ TODO: this should be converted to the Candidate Landing Stream, but it's all har
         <div class="borderDotted">&nbsp;</div>
     </div>
     <div class="positionAnchor" id="heroArea">
-        <div class="candidateHero"><img stratus-src src="{{ content.version.images[0].url }}"></div>
+        <div class="candidateHero">{% if content.version.images.count > 0 %}<img stratus-src src="{{ content.version.images[0].url }}">{% else %}<!-- No Image Specified -->{% endif %}</div>
         <a name="homeJoin"></a>
         <div id="homeJoin" ng-cloak="">
             <div class="join_container clearfix">
