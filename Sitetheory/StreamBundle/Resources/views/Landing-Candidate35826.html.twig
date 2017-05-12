@@ -1,0 +1,60 @@
+{% extends 'SitetheoryStreamBundle::Landing-Candidate.html.twig' %}
+
+{# Load Site CSS #}
+{% block link %}
+
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/candidateLanding.css') }}">
+
+
+{% endblock link %}
+
+
+{% set sectionMenuActive = '' %}
+{% set sectionMenuHardCoded = '' %}
+
+{# Header image exists #}
+{% set streamClass = 'landingStream' %}
+
+{# Hide sidebar on desktop #}
+{% set columnSidebar = 'hide-gt-sm' %}
+{% set columnMain = '' %}
+
+{# Hide gutter in main column #}
+{% block mainColumnGutter %}
+{% endblock mainColumnGutter %}
+
+{# Remove standard header image #}
+{% block headerImageInsideHeader %}
+{% endblock headerImageInsideHeader %}
+
+
+{#
+NOTE: this should be converted to the Candidate Landing Stream
+#}
+
+{# Customizations for the Landing-Candidate.html.twig #}
+{% block candidateLandingDonateUrl %}https://secure.actblue.com/contribute/page/paulajean2018{% endblock candidateLandingDonateUrl %}
+{% block candidateState %}West Virginia{% endblock candidateState %}
+{% block candidateStateImgUrl %}//cdn.sitetheory.io/nest001/2026-westVirginia-xs.png{% endblock candidateStateImgUrl %}
+{% block candidateSocialMediaList %}
+    <li class="candidateTwitter">
+        <a href="https://twitter.com/paulajean2018" target="_blank"> </a>
+    </li>
+    <li class="candidateFacebook">
+        <a href="https://www.facebook.com/paulajean2018" target="_blank"> </a>
+    </li>
+    <li class="candidateLinkedin">
+        <a href="" target="_blank"> </a>
+    </li>
+{% endblock candidateSocialMediaList %}
+{% block candidateLandingQuoteImgSrc %}//cdn.sitetheory.io/nest001/2030-quoteBackgroundPaula-xs.jpg{% endblock candidateLandingQuoteImgSrc %}
+{% block candidateLandingQuoteText %}&ldquo;The industrial revolution was built on the backs of coal miners - our backs. We&rsquo;ve provided power to America. It&rsquo;s time to empower ourselves.&rdquo;{% endblock candidateLandingQuoteText %}
+
+
+
+
+
+
+
