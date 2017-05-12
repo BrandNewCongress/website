@@ -1412,16 +1412,22 @@ md-input-container .md-input {
     text-transform: uppercase;
     background: none;
 }
-.readMore {
+.readMore,
+.readLess {
     cursor: pointer;
     transition: all .2s ease-out;
     -webkit-transition: all .2s ease-out;
-    margin: 10px 0 0 40px;
+    margin: 0 0 0 10px;
     font-weight: bold;
 }
-.readMore:hover {
+.readMore.Less {
+    display: none;
+}
+.readMore:hover,
+.readLess:hover {
     color: #111;
 }
+.readMore.less
 .readMoreOverflow {
     transition: all .2s ease-out;
     -webkit-transition: all .2s ease-out;
@@ -1449,14 +1455,23 @@ md-input-container .md-input {
 /* Platform main */
 
 .platformMain h3 {
-    margin-top: 40px;
+    margin: 46px 0 16px;
     padding: 0 0 0 40px;
     background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starSalmon.png') no-repeat;
     background-size: 20px;
+}
+.platformMain h3:first-of-type {
+    margin-top: 0;
 }
 .platformMain p {
     padding: 0 0 0 40px;
 }
 .platformMain p.bodyLarge {
     padding: 0;
+}
+.platformMain p.introExtra {
+    padding-left: 0;
+}
+.platformMain ul {
+    margin: 0 40px;
 }
