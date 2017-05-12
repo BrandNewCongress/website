@@ -1,40 +1,27 @@
 {% extends 'SitetheoryArticleBundle::Article.html.twig' %}
 
+{# TODO: make CMS manage menu #}
+{% set sectionNameHardCoded = 'Platform' %}
+{% set sectionMenuHardCoded = '3' %}
+{% set sectionMenuActive = 'platformActive' %}
+
 {% block contentType %}
 <div class="platform platformBNC">
     <h2 class="fontPrimary">We, the American People</h2>
     <div class="platformIntro">
-        <ul>
-            <li>
-                <p class="bodyLarge blueText">Have the potential to overcome our greatest problems</p>
-                <p>We have 320 million amazing people, vast natural resources, the best universities and research centers in the world, and an economy still rich with capital and innovation despite 40 years of economic decline.</p>
-                <div class="borderDashed"></div>
-            </li>
-            <li>
-                <p class="bodyLarge blueText">Can rebuild our communities, economy and schools.</p>
-                <p>We believe America is finally poised to ensure true liberty and justice for all by:</p>
-                <div class="sublist">
-                    <ul>
-                        <li>guaranteeing quality education, healthcare and childcare</li>
-                        <li>reversing mass incarceration</li>
-                        <li>reforming our entire justice system</li>
-                    </ul>
-                </div>
-                <div class="borderDashed"></div>
-            </li>
-            <li>
-                <p class="bodyLarge blueText">Can reclaim our government.</p>
-                <p>We believe we can restore our democracy by removing the corrupting influence of money from politics.</p>
-            </li>
-        </ul>
+        <p class="bodyLarge blueText">Have everything we need to reverse our economic decline and achieve prosperity for all our citizens; we have 320 million amazing people, vast natural resources, the best universities in the world, and an economy abundant with capital and innovation.</p>
+        <p>The only thing standing in our way is the corrupt and complacent political establishment. Once we elect a Brand New Congress, we know that America can finally do what is necessary to bring about true liberty and justice for all: reinvest in American industry, repair our crumbling infrastructure, rekindle our struggling schools, build an all-renewable energy system, eliminate burdensome regulations, rebuild our broken healthcare system, reform our unjust criminal justice system and restore the promise of democracy.</p>
     </div>
     <div class="platformDivider">
         <br>
     </div>
     <div class="platformMain">
         <h4>OUR BRAND NEW CONGRESS WILL</h4>
+        <br>
+        <br>
+
         <h2 class="fontPrimary">Rebuild Our Economy</h2>
-        <p class="bodyLarge blueText">America has fallen into a long-term, economic decline. Over the past 4 decades, America has lost millions of high-wage jobs and failed to replace them. 40% of Americans make less than $20,000 per year.</p>
+        <p class="bodyLarge blueText">America has fallen into a long-term, economic decline. Wages have been stagnant since the 1970s. Over the past 4 decades, America has lost millions of high-wage jobs and failed to replace them, leaving many American workers with a low-paying service job or no job at all.</p>
         <p class="bodyLarge blueText">To reverse this economic decline once and for all, we will kickstart new high-wage industries, modernize old industries, build a 100% renewable energy economy, repair our crumbling infrastructure and rebuild local communities. We will:</p>
         <br>
         <h3>Rebuild American Industry</h3>
@@ -88,7 +75,6 @@
         <p class="introExtra">
             Private insurance companies have been allowed by generations of corrupt politicians to become monopolies with the power to extort many hundreds of billions of dollars from the American people each year. The health insurance industry spent $150 billion dollars last year in lobbying expenses alone, to protect their monopolies — money that could have been spent on providing care and saving lives. Our Medicare for All plan will provide all Americans with Medicare, increase the number of doctors and care facilities and stop Big Pharma from gouging American consumers.
         </p>
-        <br>
 
         <h3>Provide all Americans with healthcare through Medicare</h3>
         <p>This will include high-quality general, dental, vision, and mental health coverage. Medicare is more efficient than any private insurance provider and is accepted by 95% of doctors. Under our plan, private insurance companies will be allowed to compete with each other in a truly free market to offer supplemental insurance plans.</p>
@@ -137,6 +123,83 @@
             Ending the War on Drugs is a priority for Americans across party lines. Especially in light of the ongoing opioid crisis, more and more people are realizing that incarcerating people for nonviolent crimes does not fix the problem at all — it creates new problems. Therefore, instead of waging a failed war, we should commit government resources to mental health support and drug diversion. Drug diversion programs have proven successful in giving those who would otherwise have a criminal record a second chance. Instead of criminal sanctions, they go through the drug courts and must complete various programs while remaining sober. This is an effective alternative for ameliorating the harm that comes from hard drug use, while freeing up the court system to handle more serious crimes. We will work with states, the DOJ, and the Department of Health and Human Services to create drug diversion programs all over the country, which will focus on treatment for those who have issues with substance abuse. The federal government will provide states with the funding to implement these programs effectively. <span class="readLess fontSecondary purpleText {% verbatim %}{{ openMyStuff5 ? 'Less' : 'More' }}{% endverbatim %}" ng-click="openMyStuff5=!openMyStuff5">Read Less</span>
             </p>
         </div>
+
+        <h3>Expand and defend due process protections</h3>
+        <p>BNC is calling for expanded protection and definition of the rights of prisoners, probationers, parolees and students. For prisoners, we will work to further define prisoners’ right to counsel at the Federal level and provide state funding for competent counsel to the indigent, and ensure a timely process for the evaluation of cases so that people do not spend longer than 6 months without being convicted. We will also push for legal changes to further expand and protect the right of all Americans to vote, repeal the exception to the 13th Amendment and provide prisoners the same labor rights we will expand for unions. Part of this due process expansion will come with further services for prisoners with needs. Additionally, a major priority will be to increase prison facility standards, thereby curbing the inhumane treatment of prisoners. The rights of probationers and parolees must be guarded as well. For example, while the Supreme Court requires minimal due process rights for arresting and formal revocation of parole and probation, their right to an attorney is non-existent, except under certain circumstances. Additionally, in the granting of parole, full due process guarantees are not required. We must change this through legislation in order to guarantee people have a fair shot at their second chance. <span class="readMore fontSecondary purpleText {% verbatim %}{{ openMyStuff6 ? 'Less' : 'More' }}{% endverbatim %}" ng-click="openMyStuff6=!openMyStuff6">Read More</span></p>
+        <div class="readMoreOverflow" ng-cloak ng-show="openMyStuff6">
+            <p>Lastly, students must have greater due process protections as well. While the Supreme Court held that students may not be suspended without a hearing, many states do not require schools to publicize clear sets of expectations for students and their parents.  This means that there is little to no clarity as to what behaviors are prohibited. Further, there are also no identified procedures which enumerate the rights of students, or the ability to appeal for reinstatement. Additionally, school officials are often required to report certain infractions to law enforcement.  Often, evidence used to legally incriminate students may be obtained in violation of the Constitutional prohibitions against unreasonable searches, seizures, and interrogations, policy vagueness and self-incrimination. Together, this leads to the over policing of youth, which is often discriminatory, promotes a school to prison pipeline, and denies them the education they need. <span class="readLess fontSecondary purpleText {% verbatim %}{{ openMyStuff6 ? 'Less' : 'More' }}{% endverbatim %}" ng-click="openMyStuff6=!openMyStuff6">Read Less</span></p>
+        </div>
+
+        <h3>End police militarization and improve oversight</h3>
+        <p>We will work to ensure that the government stops stocking local police departments military-grade weapons. Instead, we will fund police departments to implement proven community policing practices under civilian governing boards. Our military functions under direct civilian control — so should law enforcement. <span class="readMore fontSecondary purpleText {% verbatim %}{{ openMyStuff7 ? 'Less' : 'More' }}{% endverbatim %}" ng-click="openMyStuff7=!openMyStuff7">Read More</span></p>
+        <div class="readMoreOverflow" ng-cloak ng-show="openMyStuff7">
+            <p>Additionally, we will work to improve federal civil rights laws to make it easier to hold officers and policy makers accountable for criminal acts of police violence, while increasing the funding for the DOJ’s Civil Rights Division to execute these laws. We will also increase funding for the DOJ’s National Institute of Justice to advance research on criminal justice reform and restructuring. BNC will work to strengthen the DOJ’s Practice or Pattern Unit by stopping discriminatory law enforcement practices. <span class="readLess fontSecondary purpleText {% verbatim %}{{ openMyStuff7 ? 'Less' : 'More' }}{% endverbatim %}" ng-click="openMyStuff7=!openMyStuff7">Read Less</span></p>
+        </div>
+
+        <h3>Returning judicial discretion to judges</h3>
+        <p>Judicial discretion has eroded due to the politicization of law enforcement. Loss of discretion means that judges are compelled to deliver sentences that are often harsher than the crime committed. If discretion is given back to the courts, judges may have greater latitude in delivering a sentence that gives an individual in the system a chance to get his or her life back on track, rather than waste away in prison for years. BNC plans to return this discretion by first removing mandatory minimums both prospectively and retroactively. The Sentencing Commission has done all it can in adjusting sentencing guidelines and showing that retroactive relief does not impact public safety. Now Congress must act to obtain meaningful reform by eliminating mandatory sentencing requirements. BNC will act be moving away from mandatory minimum sentences that focus on penalizing non-violent offenders. We will also work to decriminalize non-violent federal offenses while promoting greater guidance and review of criminal regulations promulgated by federal agencies, in order to guard against federal overreach.</p>
+
+
+        <hr>
+        <h2 class="fontPrimary">FIGHT FOR FAMILIES</h2>
+
+        <p class="bodyLarge blueText">American families are struggling. 40% of Americans face the impossible task of raising their families on less than $20,000 per year. Millions of young people’s lives are ruined by broken schools and a broken K-12 education system. Here’s our plan to help families live better lives:
+        </p>
+        <h3>Support parents, children and families</h3>
+        <p>We will expand the earned income tax credit by $1 trillion for families raising children. In addition, we will make 6 months of family leave available to all parents — both women and men. We will also build and fund of a new network of childcare centers.</p>
+        <h3>Fix America’s broken schools</h3>
+        <p>America contains thousands of the best schools in the world — and thousands of the worst schools in the world. Millions of young people’s lives are being ruined in those broken schools. Fixing schools is not rocket science and does not require a cultural revolution — it’s a management task. A range of evidence-based best practices covering teaching methods, teacher training and school discipline have been demonstrated to work over and over again. <span class="readMore fontSecondary purpleText {% verbatim %}{{ openMyStuff8 ? 'Less' : 'More' }}{% endverbatim %}" ng-click="openMyStuff8=!openMyStuff8">Read More</span></p>
+        <div class="readMoreOverflow" ng-cloak ng-show="openMyStuff8">
+            <p>However, communities where schools are failing are justifiably skeptical of reform efforts after decades of being used as guinea pigs for billionaire-funded education reform proposals.</p>
+
+            <p>Therefore, we will first invite struggling school districts to participate in a voluntary reform effort to prove that our plan will work — and then lead a national movement for all struggling districts to adopt the reform program. Participating districts will receive funding along with infusions of teachers and principals, management training and teacher training.</p>
+
+            <p>One nationwide reform that will apply to all districts from the start will be a federal grant program to ensure that all districts receive adequate funding regardless of their local property tax base. Our current system leads to great inequality between school districts. <span class="readLess fontSecondary purpleText {% verbatim %}{{ openMyStuff8 ? 'Less' : 'More' }}{% endverbatim %}" ng-click="openMyStuff8=!openMyStuff8">Read Less</span></p>
+        </div>
+
+        <h3>Keep abortion legal and safe for all women — while reducing abortions</h3>
+        <p>Brand New Congress is working to elect new leaders in both deep-blue and deep-red districts. Some BNC candidates in red districts identify as personally anti-abortion; BNC candidates in blue districts identify as pro-choice. But these partisan labels are beside the point. Why? Because regardless of their district or party, all BNC candidates will support keeping abortion legal and safe for all women, while advocating for programs to reduce the total number of abortions through better access to education, family planning, birth control, economic alternatives and more. Fundamentally, this is an issue of giving women and families the freedom to listen to their consciences and make their own decisions, while providing them with the best possible alternatives so that total abortions are reduced.
+        </p>
+
+        <hr>
+        <h2 class="fontPrimary">CLEAN UP WASHINGTON D.C.</h2>
+
+        <h3>Eliminate regulations that tilt the playing field in favor of big businesses over small businesses</h3>
+        <p>We will establish a department in the small business administration that identifies burdensome regulations that are strangling the potential of America’s small businesses. This department will make recommendations to  Congress for which regulations to repeal. One example of a program that currently favors big businesses over small businesses is America’s system of employer-based health insurance. Big businesses can afford massive HR departments to administer and manage a vast, complex stew of health insurance plans for their employees — but small businesses cannot. With our Medicare For All plan, we will eliminate the employer-based health insurance system, freeing up small businesses to grow their business, raise wages, innovate, and compete with big businesses on a fairer playing field. </p>
+
+        <h3>Cut taxes for middle and lower income Americans and simplify the tax code</h3>
+        <p>Middle and working class people pay a higher tax rate than wealthy people when you add up all the sales, property, local and other taxes and fees that Americans pay. Our plan will lower taxes and provide tax rebates and refunds to working and middle class people. While we’re at it, we will eliminate the need to file federal taxes, which is an unnecessary nuisance for millions of Americans — especially since, for regular W2 employees, the government already knows how much you owe. We will work with state tax agencies to eliminate filing for state and local taxes. Our plan will bring U.S. corporate taxes into line with global norms, then offer amnesty for U.S. wealth and profits stashed in tax havens. We will slash tax loopholes and giveaways throughout the tax code: they overwhelmingly benefit big business over small business. </p>
+
+        <h3>Get money out of politics once and for all</h3>
+        <p>We will reform our electoral system to create a more perfect democracy: This will include removing money from politics, getting rid of the electoral college, investigating alternative voting systems such as ranked choice voting, and making election day a national holiday. In addition, we must improve the actual mechanics of voting to make it easier to vote and to defend against electoral fraud.</p>
+
+        <hr>
+        <h2 class="fontPrimary">REFORM OUR IMMIGRATION SYSTEM</h2>
+
+        <p class="bodyLarge blueText">Today, the United States, for almost the only time in our history, has net-negative immigration — because decent paying jobs are drying up. Our plan to reverse America’s economic decline and rebuild our country is going to demand huge numbers of new workers. Our economy will once again be begging for new immigrants. We believe that immigration makes America stronger — it always has. Here is our plan to reform our nation’s broken immigration system:
+        </p>
+        <h3>Create a swift and secure roadmap to citizenship</h3>
+        <p>For America’s 11 million undocumented immigrants. One of our great strengths as a society and economy is our healthy population growth, thanks to immigration. The idea that America would be better off deporting 11 million contributors to our society and economy is ludicrous. Immigrants pay taxes and perform millions of important jobs. We need them. </p>
+
+        <h3>Implement an employment verification system</h3>
+        <p>Like E-Verify that prevents employers from hiring undocumented workers in the first place. This would be far better than the current regime of “I-9 raids” that make immigrants vulnerable to abuse by employers and rarely result in serious penalties for employers.</p>
+
+        <h3>Establish legal immigration centers around the world</h3>
+        <p>To recruit the best working families in Latin America and the Caribbean and elsewhere to join the American family. Not only does this provide a safer path to America for potential immigrants, but it enables us to finally be proactive about our immigration policy, instead of always being reactive.  </p>
+
+        <h3>Secure the Borders</h3>
+        <p>We want immigrants to come to America — but we do not want them coming here in unsafe and illegal ways. Today, too many potential immigrants risk their lives by illicitly crossing desert borderers and paying human smugglers. To fix this problem, we must establish a safer way for potential immigrants to come to America — and we also must secure the border. Of course, Trump’s border wall will be completely ineffective (not to mention outrageously expensive). Truly effective border control is about high-tech night vision cameras, paying staff to monitor them, and non-stop enforcement that will let potential immigrants know that the only way to work in the U.S. is to enter through legal, safe channels.
+        </p>
+
+        <hr>
+        <h2 class="fontPrimary">STOP FIGHTING RECKLESS WARS</h2>
+
+        <p class="bodyLarge blueText">We must stop fighting reckless, costly wars and focus on keeping America safe. America has been a force for good in the world many times over. Unfortunately, careless and arrogant politicians have too often made America a force of reckless destruction around the world.
+        </p>
+        <br>
+        <p>Most recently, the totally unnecessary war in Iraq created conditions that anti-Western terrorists had been dreaming of for decades. Our actions that toppled Muammar Gaddafi added Libya to the list of chaotic failed states where Islamic terror groups could thrive. Those actions emboldened a range of anti-government actors in Syria, including anti-Western terrorists. The U.S. government encouraged those actors to rebel, helping to plunge Syria into chaos, and expanding the zone of free operation for terror groups. The rise of ISIS was in part thanks to George W. Bush’s rush to war in Iraq, in which he made ISIS’s founder famous and a magnet for new recruits and resources. </p>
+        <p>We need to turn the page on this track record of destruction and chaos. We need to start following a policy of respecting the internal politics of sovereign nations.</p>
+        <p>With that said, Brand New Congress is not isolationist. We believe that America must take action as part of the international community to protect peace and human rights when necessary. We stand totally against “wars of choice” and will stop presidents from taking America to war unnecessarily. We believe that the best role America can play in the world is to support economic development through industry and investment as we did with the Marshall Plan after World War II. Supporting economic development will help build up our own economy as much as it will help others. </p>
     </div>
 </div>
     {% endblock contentType %}
