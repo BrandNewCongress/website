@@ -1258,7 +1258,7 @@ md-progress-circular path {
 }
 
 
-/* JOIN A CALL */
+/* JOIN A CALL AND EVENTS LIST */
 
 #JoinCall .bodyLarge {
     margin-bottom: 50px;
@@ -1271,18 +1271,19 @@ md-progress-circular path {
     font-size: 16px;
     margin-bottom: 0;
 }
-#callList .md-button.md-default-theme.md-primary.md-raised,
-#callList .md-button.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab,
-#callList .md-button.md-primary.md-fab {
+.md-button.md-default-theme.md-primary.md-raised,
+.md-button.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab,
+.md-button.md-primary.md-fab {
     transition: all .2s ease-out;
     background: #FF7A65;
 }
-#callList .md-button.md-default-theme.md-primary.md-raised:hover,
-#callList .md-button.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab:hover,
-#callList .md-button.md-primary.md-fab:hover {
+.md-button.md-default-theme.md-primary.md-raised:hover,
+.md-button.md-primary.md-raised:hover,
+.md-button.md-default-theme.md-primary.md-fab:hover,
+.md-button.md-primary.md-fab:hover {
     background: #7932AC;
 }
-#callList md-list-item {
+md-list-item {
     border-bottom: 1px solid #DDD;
 }
 @media (max-width:959px) {
@@ -1305,9 +1306,9 @@ md-progress-circular path {
     md-list-item:before {
         content: normal;
     }
-    #callList .md-button.md-default-theme.md-primary.md-raised,
-    #callList .md-button.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab,
-    #callList .md-button.md-primary.md-fab {
+    .md-button.md-default-theme.md-primary.md-raised,
+    .md-button.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab,
+    .md-button.md-primary.md-fab {
         margin-bottom: 14px;
     }
 }

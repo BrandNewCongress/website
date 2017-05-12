@@ -100,13 +100,12 @@ TODO: this should be converted to the Candidate Landing Stream, but it's all har
     </div>
     <div class="positionAnchor" id="heroArea">
         <div class="candidateHero">{% if content.version.images.count > 0 %}<img stratus-src src="{{ content.version.images[0].url }}">{% else %}<!-- No Image Specified -->{% endif %}</div>
-        <a name="homeJoin"></a>
-        <div id="homeJoin" ng-cloak="">
+        <div id="candidateLandingJoin" ng-cloak="">
             <div class="join_container clearfix">
-                <h2 class="fontTe">Sign Up!</h2>
-                <p>To join me in the fight for our future against Joe Manchin.</p>
+                <h2 class="fontTertiary">Sign Up!</h2>
+                <p>{{ block('candidateJoinText') }}</p>
                 <!-- Don't use IDs here since this is used in 3 places and multiple IDs will break some JS -->
-                <form class="positionAnchor" name="Signup" ng-class="status" ng-cloak="" ng-cloak-reveal="" ng-controller="Api" ng-sanitize="true" ng-submit="send('Signup') && tracking.send('SignupButton', 'click')" options='{"url":"https://api.brandnewcongress.org", "controller": "/people", "redirect":{"url":"{{ block("candidateLandingDonateUrl") }}", "popup":false}}'>
+                <form class="positionAnchor joinForm" name="Signup" ng-class="status" ng-cloak="" ng-cloak-reveal="" ng-controller="Api" ng-sanitize="true" ng-submit="send('Signup') && tracking.send('SignupButton', 'click')" options='{"url":"https://api.brandnewcongress.org", "controller": "/people", "redirect":{"url":"{{ block("candidateLandingDonateUrl") }}", "popup":false}}'>
                     <input type="hidden" name="utmSource" ng-value="model.data.utmSource">
                     <input type="hidden" name="utmMedium" ng-value="model.data.utmMedium">
                     <input type="hidden" name="utmCampaign" ng-value="model.data.utmCampaign">
@@ -149,7 +148,7 @@ TODO: this should be converted to the Candidate Landing Stream, but it's all har
                             <button class="btn formSubmit" ng-disabled="Signup.$invalid" type="submit">Sign Me Up</button>
                         </li>
                     </ul>
-                    <div class="legalAgreement fontBody">By signing up, I consent to receiving emails from <span class="blueText"><md-tooltip>Committed to electing a brand new, corruption-free Congress that represents all Americans.</md-tooltip>Brand New Congress</span> and <span class="blueText"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats.</span></div>
+                    <div class="legalAgreement fontBody">By signing up, I consent to receiving emails from <span class="tip"><md-tooltip>Committed to electing a brand new, corruption-free Congress that represents all Americans.</md-tooltip>Brand New Congress</span> and <span class="tip"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats.</span></div>
                 </form>
             </div>
         </div>
@@ -166,52 +165,56 @@ TODO: this should be converted to the Candidate Landing Stream, but it's all har
 
 
     {% block candidateLandingEvents %}
-    <div id="candidateLandingEvents" ng-cloak="" ng-controller="Api" options='{"url":"https://api.brandnewcongress.org","controller":"/events?candidate={{ content.version.title | replace({" ": ""})| lower }}", "onLoad": "fetch"}'>
-        <md-list id="eventList" layout-padding="" ng-if="status == 'success' && results.length">
-            <h3>Coming Up</h3>
-            <div id="eventListHeader">
-                <div class="clearfix">
-                    <div class="stGrid column15">&nbsp;</div>
-                    <div class="stGrid column30">
-                        <h2>Event</h2>
+    <div ng-cloak="" ng-controller="Api" options='{"url":"https://api.brandnewcongress.org","controller":"/events?candidate={{ content.version.title | replace({" ": ""})| lower }}", "onLoad": "fetch"}'>
+        <div id="candidateLandingEvents">
+            <md-list id="eventList" layout-padding="" ng-if="status == 'success' && results.length">
+                <h3>Coming Up</h3>
+                <div id="eventListHeader">
+                    <div hide-xs hide-sm class="clearfix">
+                        <div class="stGrid column20">&nbsp;</div>
+                        <div class="stGrid column40">
+                            <h2 class="fontTertiary">Event</h2>
+                        </div>
+                        <div class="stGrid column40">
+                            <h2 class="fontTertiary">Location</h2>
+                        </div>
                     </div>
-                    <div class="stGrid column25">
-                        <h2>Location</h2>
+                    <h2 hide-gt-sm="">Scheduled Events</h2>
+                </div>
+                <div class="borderDotted"></div>
+                <!-- Progress Bar -->
+                {#
+                <md-list-item layout="row" layout-align="space-between center" ng-if="status == 'success' && !results.length">
+                    <div class="error" flex="">There are no scheduled events at this time.</div>
+                </md-list-item>
+                #}
+                {% verbatim %}
+                <!-- List Body with Repeating Rows -->
+                <md-list-item layout-gt-sm="row" layout-wrap="" layout-align="center start" ng-repeat="model in results">
+                    <div flex-order-xs="3" flex-order-sm="3" class="action stGrid column20 fontTertiary">
+                        <md-button aria-label="join" class="md-fab md-primary" href="{{model.url}}" target="_blank"> RSVP </md-button>
                     </div>
-                </div>
-                <h2 hide-gt-xs="">Scheduled Events</h2>
-            </div>
+                    <div class="info stGrid column40 fontSecondary">
+                        <div class="eventTitle"><em>{{ model.title }}</em></div>
+                        <div class="time">{{ model.startTime | date: 'MMM d @ h:mm a' : model.timeZoneOffset }} - <span class="newDay" ng-if="(model.startTime | date: 'MMM d') != (model.endTime | date: 'MMM d')">{{ model.endTime | date: 'MMM d' : model.timeZoneOffset }}</span> {{ model.endTime | date : 'h:mm a' : model.timeZoneOffset }}</div>
+                    </div>
+                    <div class="location stGrid column40 fontSecondary">
+                        <div class="locationName"><em><a ng-href="https://www.google.com/maps/place/{{ model.venue.address.address1 + ', ' + model.venue.address.city + ', ' + model.venue.address.state + ', ' + model.venue.address.zip }}" target="_blank">{{ model.venue.name }}</a></em></div>
+                        <div class="locationAddress">{{ model.venue.address.address1 }}</div>
+                        <div class="locationAddress locationAddress2" ng-if="model.venue.address.address2">{{ model.venue.address.address2 }}</div>
+                        <div class="locationCity">{{ model.venue.address.city }} {{ model.venue.address.state }} {{ model.venue.address.zip }}</div>
+                    </div>
+                </md-list-item>
+                {% endverbatim %}
 
-            <!-- Progress Bar -->
-            {#
-            <md-list-item layout="row" layout-align="space-between center" ng-if="status == 'success' && !results.length">
-                <div class="error" flex="">There are no scheduled events at this time.</div>
-            </md-list-item>
-            #}
-            {% verbatim %}
-            <!-- List Body with Repeating Rows -->
-            <md-list-item layout="row" layout-align="space-between center" layout-wrap="" layout-xs="column" ng-repeat="model in results">
-                <div class="action">
-                    <md-button aria-label="join" class="md-fab md-primary" href="{{model.url}}" target="_blank"> RSVP </md-button>
-                </div>
-                <div class="info">
-                    <div class="eventTitle"><em>{{ model.title }}</em></div>
-                    <div class="time">{{ model.startTime | date: 'MMM d @ h:mm a' : model.timeZoneOffset }} - <span class="newDay" ng-if="(model.startTime | date: 'MMM d') != (model.endTime | date: 'MMM d')">{{ model.endTime | date: 'MMM d' : model.timeZoneOffset }}</span> {{ model.endTime | date : 'h:mm a' : model.timeZoneOffset }}</div>
-                </div>
-                <div class="location">
-                    <div class="locationName"><em><a ng-href="https://www.google.com/maps/place/{{ model.venue.address.address1 + ', ' + model.venue.address.city + ', ' + model.venue.address.state + ', ' + model.venue.address.zip }}" target="_blank">{{ model.venue.name }}</a></em></div>
-                    <div class="locationAddress">{{ model.venue.address.address1 }}</div>
-                    <div class="locationAddress locationAddress2" ng-if="model.venue.address.address2">{{ model.venue.address.address2 }}</div>
-                    <div class="locationCity">{{ model.venue.address.city }} {{ model.venue.address.state }} {{ model.venue.address.zip }}</div>
-                </div>
-            </md-list-item>
-            {% endverbatim %}
-
-        </md-list>
+            </md-list>
+        </div>
     </div>
     {% endblock candidateLandingEvents %}
 
     {% block candidateLandingQuote %}
+
+    <div hide-gt-sm class="mobileDonate"><a class="btn btnSalmon btnDonate" href="{{ block("candidateLandingDonateUrl") }}" target="_blank">Support {{ content.version.title }}</a></div>
     <div class="positionAnchor" id="candidateQuote">
         <div id="quoteImage"><img stratus-src src="{{ block("candidateLandingQuoteImgSrc") }}"></div>
         <div class="verticalCenter" id="quote">
@@ -223,22 +226,25 @@ TODO: this should be converted to the Candidate Landing Stream, but it's all har
     {% endblock candidateLandingQuote %}
 
     {% block candidateLandingEndorsements %}
-    <div class="clearfix" id="endorsements">
-        <div class="stGrid column30"></div>
-        <div class="stGrid column70">
-            <div class="module_body">
-                <div class="BNCmark"><img src="https://31c778c7521482f5a8d2-c35065887f454e8d4a2d033e01a0fefd.ssl.cf1.rackcdn.com/1257155-custom.png"></div>
-                <h2>About Brand New Congress</h2>
-                <div class="intro">
-                    <p>I am joining a team with hundreds of other candidates in a single campaign to rebuild our country. Together we can accomplish amazing things.</p>
-                </div>
-                <div class="planGraphic"><img src="https://31c778c7521482f5a8d2-c35065887f454e8d4a2d033e01a0fefd.ssl.cf1.rackcdn.com/1257161-custom.png"></div>
-                <p class="body">BNC candidates like {{ content.version.title }} are completely funded by small donations from real Americans. As a Senator, {{ content.version.title }} will be free to serve, rather than fundraise and meet with lobbyists. {{ content.version.title }} will work for all Americans without pressure from corporations and special interests.</p>
-                <p>&nbsp;</p>
-                <p class="body"><strong>It will take millions of dollars and thousands of volunteers to elect a corruption-free Congress, so consider supporting {{ content.version.title }} now. Every dollar matters.</strong></p>
-                {# TODO: create a custom field for the donation link #}
-                <div class="clearfix" id="bnc_area_cta"><a class="btn btn_salmon btn_donate" href="{{ block("candidateLandingDonateUrl") }}" target="_blank">Donate</a>
-                    <a class="btn btn_volunteer" href="https://brandnewcongress.org/volunteer?candidate=35825" target="_blank">Volunteer</a></div>
+    <div id="bncArea">
+        <div class="moduleBody">
+            <div class="BNCmark">
+                <a href="/">
+                    <img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogoMarkOnly.png') }}" alt="">
+                </a>
+            </div>
+            <h2>About Brand New Congress</h2>
+            <div class="intro">
+                <p>I am joining a team with hundreds of other candidates in a single campaign to rebuild our country.</p>
+            </div>
+            <div class="planGraphic">
+                <img src="{{ asset('bundles/sitetheorytemplatecustom/images/planGraphicPurple.png') }}" alt="">
+            </div>
+            <p class="body">BNC candidates like {{ content.version.title }} are completely funded by small donations from real Americans. As a Senator, {{ content.version.title }} will be free to serve, rather than fundraise and meet with lobbyists. {{ content.version.title }} will work for all Americans without pressure from corporations and special interests.</p>
+            <p class="body"><strong>It will take millions of dollars and thousands of volunteers to elect a corruption-free Congress, so consider supporting {{ content.version.title }} now. Every dollar matters.</strong></p>
+            {# TODO: create a custom field for the donation link #}
+            <div class="clearfix" id="bncAreaCTA"><a class="btn btnSalmon btnDonate" href="{{ block("candidateLandingDonateUrl") }}" target="_blank">Donate</a>
+                <a class="btn btnVolunteer" href="https://brandnewcongress.org/volunteer?candidate={{ block("candidateProfileId") }}" target="_blank">Volunteer</a>
             </div>
         </div>
     </div>
