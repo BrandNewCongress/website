@@ -12,14 +12,14 @@
 {# TODO: make CMS manage menu #}
 {% set sectionNameHardCoded = 'Candidates' %}
 {% set sectionMenuHardCoded = '1' %}
-{% set sectionMenuActive = 'drafteesActive' %}
+{% set sectionMenuActive = 'candidatesActive' %}
 
 
 {% block pageTitle %}
     <div class="siteMaxWidth siteSidePadding">
         <h1 class="pageTitle">
             <span class="starLeft">
-                <span class="starRight">Draftees</span>
+                <span class="starRight">Candidates</span>
             </span>
         </h1>
     </div>
@@ -60,7 +60,7 @@
 
 
                 <div class="profileLocation positionLeftBottom">
-                    <div class="salmon colorBox clearfix">
+                    <div class="purple colorBox clearfix">
                         <p class="fontPrimary">
                         <span class="starLeft starWhite">
                             <span class="starRight starWhite">
@@ -77,7 +77,7 @@
             </div>
 
             {% if content.version.title is not empty %}
-                <h1>{{ content.version.title }}</h1>
+                <h1 class="fontTertiary">{{ content.version.title }}</h1>
             {% endif %}
 
             <h4 class="profilePosition">
@@ -85,13 +85,6 @@
                     {{ content.version.meta.position }}
                 {% endblock profilePosition %}
             </h4>
-
-
-            <h3 class="profileDescriptionHeader fontSecondary salmonText">
-                {% block profileDescriptionHeader %}
-                    {{ content.version.title | split(' ')[0] }}'s Story
-                {% endblock profileDescriptionHeader %}
-            </h3>
 
 
             {#
@@ -117,7 +110,7 @@
             <div class="stGrid column50">
                 <div class="candidateDetailsJoin joinForm">
                     <h3 class="fontSecondary salmonText">Sign Up!</h3>
-                    <p>If you’d like to see {{ content.version.title | split(' ')[0] }} run for Congress.
+                    <p>To support {{ content.version.title }} for Congress.
                     </p>
                     {{ block('registrationForm') }}
                 </div>

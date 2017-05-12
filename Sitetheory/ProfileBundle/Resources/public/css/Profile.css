@@ -19,7 +19,11 @@ stratus-search {
 #candidateListPage .borderDashedBold {
     padding-top: 60px;
 }
-.profileList h1,
+.profileList h1 {
+    margin: 0 0 26px;
+    text-align: center;
+    font-size: 35px;
+}
 .profileDetails h1 {
     margin: 0 0 26px;
     text-align: center;
@@ -30,8 +34,8 @@ stratus-search {
     max-width: 920px;
 }
 .profileDetails .pullout {
-    margin-bottom: 60px;
-    max-width: 920px;
+    margin: 40px 0;
+    color: #7932AC;
 }
 .profileImage img {
     width: 100%;
@@ -187,7 +191,9 @@ stratus-search {
 }
 .profileDetails h1 {
     margin: -4px 0 12px;
+    font-weight: bold;
     text-align: left;
+    letter-spacing: 0;
 }
 .profileDetails h3 {
     margin-bottom: 20px;
