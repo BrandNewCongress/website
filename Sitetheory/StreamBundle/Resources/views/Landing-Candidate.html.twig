@@ -29,8 +29,33 @@
 {% block headerImageInsideHeader %}
 {% endblock headerImageInsideHeader %}
 
+
+
+
+{# CUSTOM FIELDS FOR CANDIDATES #}
+{# TODO: these need to eventually all be dynamic fields in the Stream Content Type so that they are edited in the CMS #}
+
+{% block candidateLandingDonateUrl %}https://secure.actblue.com/contribute/page/brandnewcongress{% endblock candidateLandingDonateUrl %}
+{% block candidateState %}{% endblock candidateState %}
+{% block candidateStateImgUrl %}{% endblock candidateStateImgUrl %}
+{% block candidateSocialMediaList %}
+    <li class="candidateTwitter">
+        <a href="" target="_blank"> </a>
+    </li>
+    <li class="candidateFacebook">
+        <a href="" target="_blank"> </a>
+    </li>
+    <li class="candidateLinkedin">
+        <a href="" target="_blank"> </a>
+    </li>
+{% endblock candidateSocialMediaList %}
+{% block candidateLandingQuoteImgSrc %}{% endblock candidateLandingQuoteImgSrc %}
+{% block candidateLandingQuoteText %}{% endblock candidateLandingQuoteText %}
+
+
+
 {#
-NOTE: this should be converted to the Candidate Landing Stream
+TODO: this should be converted to the Candidate Landing Stream, but it's all hard coded for the time being so we can customize for each candidate
 #}
 
 {% block contentType %}
@@ -52,14 +77,173 @@ NOTE: this should be converted to the Candidate Landing Stream
 
     </div>
 
+    <div class="clearfix">
+        <div id="candidateHeaderLeft">
+            <p class="smallLabel purpleText">The great state of
+                <br>{{ block("candidateState") }}</p>
+            <div class="stateOutline positionAnchor">
+                <div class="stateOutline positionAnchor"><img stratus-src src="{{ block("candidateStateImgUrl") }}"></div>
+            </div>
+        </div>
+        <div id="candidateHeaderRight">
+            <div class="socialMedia basicStyle clearfix">
+                <ul class="listInline">
+                    {{ block("candidateSocialMediaList") }}
+                </ul>
+            </div>
+            <div class="candidateHeaderContribute"><a class="btn btnContribute" href="" target="_blank">Support {{ content.version.title }}</a></div>
+        </div>
+    </div>
+    <div id="candidateHeaderBorder">
+        <div class="borderThick">&nbsp;</div>
+        <div class="borderDotted">&nbsp;</div>
+    </div>
+    <div class="positionAnchor" id="heroArea">
+        <div class="candidateHero"><img stratus-src src="{{ content.version.images[0] }}"></div>
+        <a name="homeJoin"></a>
+        <div id="homeJoin" ng-cloak="">
+            <div class="join_container clearfix">
+                <h2 class="fontTe">Sign Up!</h2>
+                <p>To join me in the fight for our future against Joe Manchin.</p>
+                <!-- Don't use IDs here since this is used in 3 places and multiple IDs will break some JS -->
+                <form class="positionAnchor" name="Signup" ng-class="status" ng-cloak="" ng-cloak-reveal="" ng-controller="Api" ng-sanitize="true" ng-submit="send('Signup') && tracking.send('SignupButton', 'click')" options='{"url":"https://api.brandnewcongress.org", "controller": "/people", "redirect":{"url":"{{ block("candidateLandingDonateUrl") }}", "popup":false}}'>
+                    <input type="hidden" name="utmSource" ng-value="model.data.utmSource">
+                    <input type="hidden" name="utmMedium" ng-value="model.data.utmMedium">
+                    <input type="hidden" name="utmCampaign" ng-value="model.data.utmCampaign">
+                    <p class="message" ng-show="response.length" ng-bind-html="response"></p>
+                    <ul class="listInline divCenter fontSecondary" ng-show="status !== 'success'">
+                        <li>
+                            <md-input-container>
+                                <label>Email</label>
+                                <input name="email" type="email" ng-pattern="options.pattern.email" ng-model="model.data.email" required="" md-no-asterisk="">
+                                <div ng-messages="Signup.email.$error" role="alert">
+                                    <div ng-message-exp="['required', 'pattern']">Please enter a valid email.</div>
+                                </div>
+                            </md-input-container>
+                        </li>
+                        <li>
+                            {#
+                            <div class="fieldInfo">
+                                <md-tooltip>We will only use this to remind you to vote!</md-tooltip>
+                                <md-icon class="" md-svg-src="/Api/Resource?path=@SitetheoryCoreBundle:images/icons/actionButtons/info.svg"></md-icon>
+                            </div>
+                            #}
+                            <md-input-container>
+                                <label>Phone</label>
+                                <input name="phone" type="text" ng-model="model.data.phone" required="" md-no-asterisk="">
+                                <div ng-messages="Signup.phone.$error" role="alert">
+                                    <div ng-message-exp="['required', 'pattern']">Please enter a valid phone number.</div>
+                                </div>
+                            </md-input-container>
+                        </li>
+                        <li>
+                            <md-input-container>
+                                <label>Zip</label>
+                                <input name="zip" ng-pattern="options.pattern.zip" ng-model="model.data.zip" required="" md-no-asterisk="">
+                                <div ng-messages="Signup.zip.$error" role="alert">
+                                    <div ng-message-exp="['required', 'pattern']">Please enter a valid zip code.</div>
+                                </div>
+                            </md-input-container>
+                        </li>
+                        <li>
+                            <button class="btn formSubmit" ng-disabled="Signup.$invalid" type="submit">Sign Me Up</button>
+                        </li>
+                    </ul>
+                    <div class="legalAgreement fontBody">By signing up, I consent to receiving emails from <span class="blueText"><md-tooltip>Committed to electing a brand new, corruption-free Congress that represents all Americans.</md-tooltip>Brand New Congress</span> and <span class="blueText"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats.</span></div>
+                </form>
+            </div>
+        </div>
+    </div>
 
+
+    {# TODO: MAIN BODY TEMPORARILY COMING IN FROM THE TEXT AREA OF THE EDITOR. EVENTUALLY IT WILL NEED TO WORK LIKE A REAL STREAM #}
     <div class="content" data-type="editor" data-property="version.text" {{ block('editableContentAttributes') }}>
         {% autoescape false %}
             {{ content.version.text }}
         {% endautoescape %}
     </div>
 
+
+
+    {% block candidateLandingEvents %}
+    <div id="candidateLandingEvents">
+        <md-list id="eventList" layout-padding="" ng-cloak="" ng-controller="Api" options='{"url":"https://api.brandnewcongress.org","controller":"/events?candidate={{ content.version.title | replace({" ": ""}) }}", "onLoad": "fetch"}'>
+            <div ng-if="status == 'success' && results.length">
+                <h3>Coming Up</h3>
+                <div id="eventListHeader">
+                    <div class="clearfix">
+                        <div class="stGrid column15">&nbsp;</div>
+                        <div class="stGrid column30">
+                            <h2>Event</h2>
+                        </div>
+                        <div class="stGrid column25">
+                            <h2>Location</h2>
+                        </div>
+                    </div>
+                    <h2 hide-gt-xs="">Scheduled Events</h2>
+                </div>
+                <!-- Progress Bar -->
+                {#
+                <md-list-item layout="row" layout-align="space-between center" ng-if="status == 'success' && !results.length">
+                    <div class="error" flex="">There are no scheduled events at this time.</div>
+                </md-list-item>
+                #}
+                <!-- List Body with Repeating Rows -->
+                <md-list-item layout="row" layout-align="space-between center" layout-wrap="" layout-xs="column" ng-repeat="model in results">
+                    <div class="action">
+                        <md-button aria-label="join" class="md-fab md-primary" href="{{model.url}}"> RSVP </md-button>
+                    </div>
+                    <div class="info">
+                        <div class="eventTitle"><em>{{ model.title }}</em></div>
+                        <div class="time">{{ model.startTime | date: 'MMM d @ h:mm a' : model.timeZoneOffset }} - <span class="newDay" ng-if="(model.startTime | date: 'MMM d') != (model.endTime | date: 'MMM d')">{{ model.endTime | date: 'MMM d' : model.timeZoneOffset }}</span> {{ model.endTime | date : 'h:mm a' : model.timeZoneOffset }}</div>
+                    </div>
+                    <div class="location">
+                        <div class="locationName"><em><a ng-href="https://www.google.com/maps/place/{{ model.venue.address.address1 + ', ' + model.venue.address.city + ', ' + model.venue.address.state + ', ' + model.venue.address.zip }}" target="_blank">{{ model.venue.name }}</a></em></div>
+                        <div class="locationAddress">{{ model.venue.address.address1 }}</div>
+                        <div class="locationAddress locationAddress2" ng-if="model.venue.address.address2">{{ model.venue.address.address2 }}</div>
+                        <div class="locationCity">{{ model.venue.address.city }} {{ model.venue.address.state }} {{ model.venue.address.zip }}</div>
+                    </div>
+                </md-list-item>
+            </div>
+        </md-list>
     </div>
+    {% endblock candidateLandingEvents %}
+
+    {% block candidateLandingQuote %}
+    <div class="positionAnchor" id="candidateQuote">
+        <div id="quoteImage"><img stratus-src src="{{ block("candidateLandingQuoteImgSrc") }}"></div>
+        <div class="verticalCenter" id="quote">
+            <p class="bodyLarge">
+                {{ block("candidateLandingQuoteText") }}
+            </p>
+        </div>
+    </div>
+    {% block candidateLandingQuote %}
+
+    {% block candidateLandingEndorsements %}
+    <div class="clearfix" id="endorsements">
+        <div class="stGrid column30"></div>
+        <div class="stGrid column70">
+            <div class="module_body">
+                <div class="BNCmark"><img src="https://31c778c7521482f5a8d2-c35065887f454e8d4a2d033e01a0fefd.ssl.cf1.rackcdn.com/1257155-custom.png"></div>
+                <h2>About Brand New Congress</h2>
+                <div class="intro">
+                    <p>I am joining a team with hundreds of other candidates in a single campaign to rebuild our country. Together we can accomplish amazing things.</p>
+                </div>
+                <div class="planGraphic"><img src="https://31c778c7521482f5a8d2-c35065887f454e8d4a2d033e01a0fefd.ssl.cf1.rackcdn.com/1257161-custom.png"></div>
+                <p class="body">BNC candidates like {{ content.version.title }} are completely funded by small donations from real Americans. As a Senator, {{ content.version.title }} will be free to serve, rather than fundraise and meet with lobbyists. {{ content.version.title }} will work for all Americans without pressure from corporations and special interests.</p>
+                <p>&nbsp;</p>
+                <p class="body"><strong>It will take millions of dollars and thousands of volunteers to elect a corruption-free Congress, so consider supporting {{ content.version.title }} now. Every dollar matters.</strong></p>
+                {# TODO: create a custom field for the donation link #}
+                <div class="clearfix" id="bnc_area_cta"><a class="btn btn_salmon btn_donate" href="{{ block("candidateLandingDonateUrl") }}" target="_blank">Donate</a>
+                    <a class="btn btn_volunteer" href="https://brandnewcongress.org/volunteer?candidate=35825" target="_blank">Volunteer</a></div>
+            </div>
+        </div>
+    </div>
+    {% block candidateLandingEndorsements %}
+
+
+
 {% endblock contentType %}
 
 
