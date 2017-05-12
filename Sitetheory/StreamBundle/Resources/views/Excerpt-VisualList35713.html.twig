@@ -49,11 +49,8 @@ SETTINGS
 {% block contentType %}
     <div id="candidateListPage" class="profileList">
 
-        <p class="textCenter pullout">We are excited to announce our first potential candidates! We need to convince
-            them we have the support needed to run their campaign.</p>
+        <p class="textCenter pullout">We are excited to announce our first candidates! Several more candidates will be announcing their campaigns next week and in the weeks to come.</p>
 
-
-        <h1>Our Draftees</h1>
         <div class="borderDashedBold">
             <div id="profileList">
                 {{ parent() }}
@@ -67,6 +64,8 @@ SETTINGS
         <div class="profileContainer">
             <div class="profileItem" layout="column">
                 <div class="clearfix" flex-order="2" flex-order-gt-sm="1">
+                    <h2 class="fontTertiary">{% verbatim %}<a
+                           ng-href="{{ model.data.routingPrimary.url }}">{{ model.data.version.title }}</a>{% endverbatim %}</h2>
                     <div class="profileImage">
                         <a ng-href="{% verbatim %}{{ model.data.routingPrimary.url }}{% endverbatim %}">
                             <img ng-src="{% verbatim %}{{ image.url }}{% endverbatim %}"
@@ -74,8 +73,6 @@ SETTINGS
                             <img ng-show="!model.data.version.images.length" src="{{ asset('bundles/sitetheoryprofile/images/profilePlaceholder.png') }}">
                         </a>
                     </div>
-                    <h2>{% verbatim %}<a
-                           ng-href="{{ model.data.routingPrimary.url }}">{{ model.data.version.title }}</a>{% endverbatim %}</h2>
                     <h4>{% verbatim %}{{ model.data.version.meta.position }}{% endverbatim %}</h4>
                     <p class="profileBody">
                         <span ng-bind-html="model.data.version.text | truncate:{limit: 130}"></span>

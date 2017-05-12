@@ -41,6 +41,7 @@ stratus-search {
 
 .profileContainer {
     position: relative;
+    text-align: center;
 }
 .profileItem {
     margin: 60px 4% 100px;
@@ -54,20 +55,18 @@ stratus-search {
 .profileList .profileImage a:hover {
     opacity: .8;
 }
-@media (min-width: 959px) {
-    .profileList .profileImage {
-        float: left;
-        width: 50%;
-        margin: 0 5% 4px 0;
-    }
+.profileList .profileImage {
+    width: 100%;
+    margin: 0 0 40px;
 }
+
 .profileList .profileImage img {
     display: block;
     width: 100%;
 }
 .profileList h2 {
     margin: -4px 0 12px;
-    font-size: 18px;
+    font-size: 28px;
 }
 .profileList h4 {
     margin: 26px 0;
@@ -76,6 +75,13 @@ stratus-search {
 }
 .profileList .profileBody {
     padding-right: 3%;
+}
+.profileList .profileBody p {
+    font-size: 15px;
+    font-weight: normal;
+}
+.profileList .profileBody h2 {
+    display: none;
 }
 .profileItem .readMore {
     display: block;
