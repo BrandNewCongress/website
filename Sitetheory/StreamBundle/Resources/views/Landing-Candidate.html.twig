@@ -99,7 +99,7 @@ TODO: this should be converted to the Candidate Landing Stream, but it's all har
         <div class="borderDotted">&nbsp;</div>
     </div>
     <div class="positionAnchor" id="heroArea">
-        <div class="candidateHero"><img stratus-src src="{{ content.version.images[0] }}"></div>
+        <div class="candidateHero"><img stratus-src src="{{ content.version.images[0].url }}"></div>
         <a name="homeJoin"></a>
         <div id="homeJoin" ng-cloak="">
             <div class="join_container clearfix">
@@ -167,44 +167,46 @@ TODO: this should be converted to the Candidate Landing Stream, but it's all har
 
     {% block candidateLandingEvents %}
     <div id="candidateLandingEvents">
-        <md-list id="eventList" layout-padding="" ng-cloak="" ng-controller="Api" options='{"url":"https://api.brandnewcongress.org","controller":"/events?candidate={{ content.version.title | replace({" ": ""}) }}", "onLoad": "fetch"}'>
-            <div ng-if="status == 'success' && results.length">
-                <h3>Coming Up</h3>
-                <div id="eventListHeader">
-                    <div class="clearfix">
-                        <div class="stGrid column15">&nbsp;</div>
-                        <div class="stGrid column30">
-                            <h2>Event</h2>
-                        </div>
-                        <div class="stGrid column25">
-                            <h2>Location</h2>
-                        </div>
+        <md-list id="eventList" layout-padding="" ng-cloak="" ng-controller="Api" options='{"url":"https://api.brandnewcongress.org","controller":"/events?candidate={{ content.version.title | replace({" ": ""})| lower }}", "onLoad": "fetch"}' ng-if="status == 'success' && results.length">
+            <h3>Coming Up</h3>
+            <div id="eventListHeader">
+                <div class="clearfix">
+                    <div class="stGrid column15">&nbsp;</div>
+                    <div class="stGrid column30">
+                        <h2>Event</h2>
                     </div>
-                    <h2 hide-gt-xs="">Scheduled Events</h2>
+                    <div class="stGrid column25">
+                        <h2>Location</h2>
+                    </div>
                 </div>
-                <!-- Progress Bar -->
-                {#
-                <md-list-item layout="row" layout-align="space-between center" ng-if="status == 'success' && !results.length">
-                    <div class="error" flex="">There are no scheduled events at this time.</div>
-                </md-list-item>
-                #}
-                <!-- List Body with Repeating Rows -->
-                <md-list-item layout="row" layout-align="space-between center" layout-wrap="" layout-xs="column" ng-repeat="model in results">
-                    <div class="action">
-                        <md-button aria-label="join" class="md-fab md-primary" href="{{model.url}}"> RSVP </md-button>
-                    </div>
-                    <div class="info">
-                        <div class="eventTitle"><em>{{ model.title }}</em></div>
-                        <div class="time">{{ model.startTime | date: 'MMM d @ h:mm a' : model.timeZoneOffset }} - <span class="newDay" ng-if="(model.startTime | date: 'MMM d') != (model.endTime | date: 'MMM d')">{{ model.endTime | date: 'MMM d' : model.timeZoneOffset }}</span> {{ model.endTime | date : 'h:mm a' : model.timeZoneOffset }}</div>
-                    </div>
-                    <div class="location">
-                        <div class="locationName"><em><a ng-href="https://www.google.com/maps/place/{{ model.venue.address.address1 + ', ' + model.venue.address.city + ', ' + model.venue.address.state + ', ' + model.venue.address.zip }}" target="_blank">{{ model.venue.name }}</a></em></div>
-                        <div class="locationAddress">{{ model.venue.address.address1 }}</div>
-                        <div class="locationAddress locationAddress2" ng-if="model.venue.address.address2">{{ model.venue.address.address2 }}</div>
-                        <div class="locationCity">{{ model.venue.address.city }} {{ model.venue.address.state }} {{ model.venue.address.zip }}</div>
-                    </div>
-                </md-list-item>
+                <h2 hide-gt-xs="">Scheduled Events</h2>
             </div>
+
+            <!-- Progress Bar -->
+            {#
+            <md-list-item layout="row" layout-align="space-between center" ng-if="status == 'success' && !results.length">
+                <div class="error" flex="">There are no scheduled events at this time.</div>
+            </md-list-item>
+            #}
+            {% verbatim %}
+            <!-- List Body with Repeating Rows -->
+            <md-list-item layout="row" layout-align="space-between center" layout-wrap="" layout-xs="column" ng-repeat="model in results">
+                <div class="action">
+                    <md-button aria-label="join" class="md-fab md-primary" href="{{model.url}}"> RSVP </md-button>
+                </div>
+                <div class="info">
+                    <div class="eventTitle"><em>{{ model.title }}</em></div>
+                    <div class="time">{{ model.startTime | date: 'MMM d @ h:mm a' : model.timeZoneOffset }} - <span class="newDay" ng-if="(model.startTime | date: 'MMM d') != (model.endTime | date: 'MMM d')">{{ model.endTime | date: 'MMM d' : model.timeZoneOffset }}</span> {{ model.endTime | date : 'h:mm a' : model.timeZoneOffset }}</div>
+                </div>
+                <div class="location">
+                    <div class="locationName"><em><a ng-href="https://www.google.com/maps/place/{{ model.venue.address.address1 + ', ' + model.venue.address.city + ', ' + model.venue.address.state + ', ' + model.venue.address.zip }}" target="_blank">{{ model.venue.name }}</a></em></div>
+                    <div class="locationAddress">{{ model.venue.address.address1 }}</div>
+                    <div class="locationAddress locationAddress2" ng-if="model.venue.address.address2">{{ model.venue.address.address2 }}</div>
+                    <div class="locationCity">{{ model.venue.address.city }} {{ model.venue.address.state }} {{ model.venue.address.zip }}</div>
+                </div>
+            </md-list-item>
+            {% endverbatim %}
+
         </md-list>
     </div>
     {% endblock candidateLandingEvents %}
@@ -218,7 +220,7 @@ TODO: this should be converted to the Candidate Landing Stream, but it's all har
             </p>
         </div>
     </div>
-    {% block candidateLandingQuote %}
+    {% endblock candidateLandingQuote %}
 
     {% block candidateLandingEndorsements %}
     <div class="clearfix" id="endorsements">
@@ -240,7 +242,7 @@ TODO: this should be converted to the Candidate Landing Stream, but it's all har
             </div>
         </div>
     </div>
-    {% block candidateLandingEndorsements %}
+    {% endblock candidateLandingEndorsements %}
 
 
 
