@@ -55,7 +55,7 @@
                 <div class="profileImage primary-image">
                     {% block profileImage %}
                         {% set image = content.version.images|first %}
-                        <img src="{{ image is not empty ? image.url : asset('bundles/sitetheoryprofile/images/profilePlaceholder.png') }}" alt="">
+                        <img stratus-src="{{ image is not empty ? image.url : asset('bundles/sitetheoryprofile/images/profilePlaceholder.png') }}" alt="">
                     {% endblock profileImage %}
                 </div>
 

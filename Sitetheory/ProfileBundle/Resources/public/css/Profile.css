@@ -66,7 +66,7 @@ stratus-search {
 }
 .profileList .profileImage {
     width: 100%;
-    margin: 0 0 20px;
+    margin: 0;
 }
 
 .profileList .profileImage img {
@@ -99,7 +99,7 @@ stratus-search {
     display: block;
 }
 .profileExtra {
-    margin-top: 12px;
+    margin-bottom: 20px;
     padding: 5px 12px;
     color: #FFF;
 }
