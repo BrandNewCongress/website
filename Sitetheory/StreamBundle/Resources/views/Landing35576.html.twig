@@ -463,20 +463,39 @@ LAYOUT
                     <div id="currentMedia">
                         <h1>Watch</h1>
                         <div id="currentMediaContainer" class="borderDashedBold clearfix">
+
                             <div class="mediaItem">
-                                <div class="mediaHeader">
-                                    <div class="date pullRight">11.23.16</div>
-                                    <h2 class="purpleText">On Rachel Maddow</h2>
-                                </div>
-                                <div id="videoMaddow" data-url="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fbrandnewcongress%2Fvideos%2F844761672323970%2F&amp;show_text=0"></div>
-                            </div>
-                            <div class="mediaItem">
+                                {#
                                 <div class="mediaHeader">
                                     <div class="date pullRight">11.23.16</div>
                                     <h2 class="purpleText">Now This</h2>
                                 </div>
                                 <div id="videoNowThis" data-url="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FNowThisElection%2Fvideos%2F1255138781184276%2F&amp;show_text=0"></div>
+                                #}
+                                <div class="mediaHeader">
+                                    <div class="date pullRight">05.13.17</div>
+                                    <h2 class="purpleText">Cori Bush for U.S. Congress</h2>
+                                </div>
+                                <div id="videoCoriBush" data-url="https://www.youtube.com/embed/-MojPt5F4z8?rel=0&amp;showinfo=0"></div>
                             </div>
+
+                            <div class="mediaItem">
+                                {#
+                                <div class="mediaHeader">
+                                    <div class="date pullRight">11.23.16</div>
+                                    <h2 class="purpleText">On Rachel Maddow</h2>
+                                </div>
+                                <div id="videoMaddow" data-url="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fbrandnewcongress%2Fvideos%2F844761672323970%2F&amp;show_text=0"></div>
+                                #}
+                                <div class="mediaHeader">
+                                    <div class="date pullRight">05.13.17</div>
+                                    <h2 class="purpleText">Paula Jean Announces Her Run</h2>
+                                </div>
+                                <div id="videoPaulaJean" data-url="https://www.youtube.com/embed/-GH235GTcug?rel=0&amp;showinfo=0"></div>
+
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
@@ -527,6 +546,8 @@ LAYOUT
                                     ////////////////
                                     // Functions
                                     ////////////////
+                                    /*
+                                    // Facebook Loader
                                     function loadVideo(id) {
                                         var container = document.getElementById(id);
                                         if(!container) return false;
@@ -537,6 +558,20 @@ LAYOUT
                                     }
                                     loadVideo('videoMaddow');
                                     loadVideo('videoNowThis');
+                                    */
+                                    // Youtube Loader
+                                    function loadVideo(id) {
+                                        var container = document.getElementById(id);
+                                        if(!container) return false;
+                                        var url = container.getAttribute('data-url');
+                                        if(!url) return false;
+                                        var content = '<div class="iframeVideoWrapper"><iframe width="550" height="309" src="'+url+'" frameborder="0" allowfullscreen=""></iframe></div>';
+                                        container.innerHTML = content;
+                                    }
+                                    loadVideo('videoCoriBush');
+                                    loadVideo('videoPaulaJean');
+
+
 
 
                                     function resizePlugin() {
