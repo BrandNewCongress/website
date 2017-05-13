@@ -82,7 +82,7 @@ TODO: this should be converted to the Candidate Landing Stream, but it's all har
             <p class="smallLabel purpleText">The great state of
                 <br>{{ block("candidateState") }}</p>
             <div class="stateOutline positionAnchor">
-                <div class="stateOutline positionAnchor"><img stratus-src src="{{ block("candidateStateImgUrl") }}"></div>
+                <div class="stateOutline positionAnchor"><img id="stateOutline" stratus-src src="{{ block("candidateStateImgUrl") }}"></div>
             </div>
         </div>
         <div id="candidateHeaderRight">
@@ -99,7 +99,7 @@ TODO: this should be converted to the Candidate Landing Stream, but it's all har
         <div class="borderDotted">&nbsp;</div>
     </div>
     <div class="positionAnchor" id="heroArea">
-        <div class="candidateHero">{% if content.version.images.count > 0 %}<img stratus-src src="{{ content.version.images[0].url }}">{% else %}<!-- No Image Specified -->{% endif %}</div>
+        <div class="candidateHero">{% if content.version.images.count > 0 %}<img id="heroImage" stratus-src src="{{ content.version.images[0].url }}">{% else %}<!-- No Image Specified -->{% endif %}</div>
         <div id="candidateLandingJoin" ng-cloak="">
             <div class="join_container clearfix">
                 <h2 class="fontTertiary">Sign Up!</h2>

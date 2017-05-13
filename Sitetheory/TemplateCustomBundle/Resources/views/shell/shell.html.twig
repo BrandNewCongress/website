@@ -114,7 +114,7 @@ JAVASCRIPT
     {{ parent() }}
 
 
-
+    {# TODO: Google Analytics ID should be stored as an Integration in the site settings #}
     <!-- Google Analytics -->
     <script>
         (function (i, s, o, g, r, a, m) {
@@ -135,27 +135,6 @@ JAVASCRIPT
 
 {% endblock script %}
 
-
-
-{#
-############
-Sharing
-############
-#}
-{% block meta %}
-    {{ parent() }}
-    {# TODO: This is just here temporarily until the base.html.twig give the ability to select the preferred image in the admin #}
-    {# we may need to reload the page here in order to get the new image https://developers.facebook.com/tools/debug/ #}
-    {% block openGraph %}
-        <meta property="og:url" content="https://brandnewcongress.org">
-        <meta property="og:type" content="website">
-        <meta property="og:image"
-              content="https://brandnewcongress.org/assets/1/0/bundles/sitetheorytemplatecustom/images/BNCLogoShare.png">
-        <meta property="og:title" content="{{ content.version.title | default('Brand New Congress') }}">
-        <meta property="og:description"
-              content="{{ content.version.description | default("Brand New Congress is a plan to recruit and run 400+ candidates for Congress in 2018.") }}">
-    {% endblock openGraph %}
-{% endblock meta %}
 
 
 {#
