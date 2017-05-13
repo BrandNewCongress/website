@@ -32,6 +32,7 @@
 }
 .pageSubTitle {
     text-align: center;
+    font-size: 12px;
 }
 
 /* Header Left */
@@ -42,11 +43,11 @@
 }
 #candidateHeaderLeft .smallLabel {
     margin-bottom: 16px;
-    font-size: 12px;
+    font-size: 11px;
 }
 .stateOutline img {
     width: inherit;
-    max-height: 100px;
+    max-height: 90px;
 }
 
 

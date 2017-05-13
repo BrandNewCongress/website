@@ -51,7 +51,7 @@ SETTINGS
 
         <p class="textCenter pullout">We are excited to announce our first candidates! Several more candidates will be announcing their campaigns next week and in the weeks to come.</p>
 
-        <div class="borderDashedBold">
+        <div class="">
             <div id="profileList">
                 {{ parent() }}
             </div>
@@ -68,14 +68,14 @@ SETTINGS
                            ng-href="{{ model.data.routingPrimary.url }}">{{ model.data.version.title }}</a>{% endverbatim %}</h2>
                     <div class="profileImage">
                         <a ng-href="{% verbatim %}{{ model.data.routingPrimary.url }}{% endverbatim %}">
-                            <img ng-src="{% verbatim %}{{ image.url }}{% endverbatim %}"
+                            <img stratus-src="{% verbatim %}{{ image.url }}{% endverbatim %}"
                                  ng-repeat="image in model.data.version.images | limitTo:1">
                             <img ng-show="!model.data.version.images.length" src="{{ asset('bundles/sitetheoryprofile/images/profilePlaceholder.png') }}">
                         </a>
                     </div>
                     <h4>{% verbatim %}{{ model.data.version.meta.position }}{% endverbatim %}</h4>
                     <p class="profileBody">
-                        <span ng-bind-html="model.data.version.text | truncate:{limit: 220}"></span>
+                        <span ng-bind-html="model.data.version.text | truncate:{limit: 200}"></span>
                         <a class="readMore fontBody"
                            ng-href="{% verbatim %}{{ model.data.routingPrimary.url }}{% endverbatim %}">Read More</a>
                     </p>

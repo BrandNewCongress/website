@@ -14,9 +14,12 @@ stratus-search {
 /* General profile styling */
 
 #candidateListPage {
-    padding-bottom: 60px;
+    padding-bottom: 120px;
 }
 #candidateListPage .borderDashedBold {
+    padding-top: 60px;
+}
+#profileList {
     padding-top: 60px;
 }
 .profileList h1 {
@@ -33,6 +36,9 @@ stratus-search {
     margin: 30px auto 60px;
     max-width: 920px;
 }
+.profileList .readMore {
+    margin: 0;
+}
 .profileDetails .pullout {
     margin: 40px 0;
     color: #7932AC;
@@ -45,7 +51,6 @@ stratus-search {
 
 .profileContainer {
     position: relative;
-    text-align: center;
 }
 .profileItem {
     margin: 60px 4% 100px;
@@ -61,7 +66,7 @@ stratus-search {
 }
 .profileList .profileImage {
     width: 100%;
-    margin: 0 0 40px;
+    margin: 0 0 20px;
 }
 
 .profileList .profileImage img {
@@ -69,8 +74,11 @@ stratus-search {
     width: 100%;
 }
 .profileList h2 {
-    margin: -4px 0 12px;
-    font-size: 28px;
+    margin: 12px 0;
+    padding-bottom: 18px;
+    font-size: 32px;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDashedBold.png') repeat-x left bottom;
+    background-size: 7px;
 }
 .profileList h4 {
     margin: 26px 0;
