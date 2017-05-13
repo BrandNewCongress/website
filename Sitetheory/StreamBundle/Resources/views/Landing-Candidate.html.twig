@@ -68,9 +68,8 @@ TODO: this should be converted to the Candidate Landing Stream, but it's all har
                     data-render="click">
                     {{ content.version.title }}
                 </h1>
-                <h4 class="pageSubTitle" {{ block('editableContent') }} data-type="text" data-property="version.title"
-                    data-render="click">
-                    {{ content.version.subtitle }}
+                <h4 class="pageSubTitle">
+                    {{ block('candidateOfficeFull') }}
                 </h4>
             </div>
         </div>
@@ -79,8 +78,8 @@ TODO: this should be converted to the Candidate Landing Stream, but it's all har
 
     <div class="clearfix">
         <div id="candidateHeaderLeft">
-            <p class="smallLabel purpleText">The great state of
-                <br>{{ block("candidateState") }}</p>
+            <p class="smallLabel purpleText">
+                {{ block("candidateState") }}</p>
             <div class="stateOutline positionAnchor">
                 <div class="stateOutline positionAnchor"><img id="stateOutline" stratus-src src="{{ block("candidateStateImgUrl") }}"></div>
             </div>
@@ -214,7 +213,7 @@ TODO: this should be converted to the Candidate Landing Stream, but it's all har
 
     {% block candidateLandingQuote %}
 
-    <div hide-gt-sm class="mobileDonate"><a class="btn btnSalmon btnDonate" href="{{ block("candidateLandingDonateUrl") }}" target="_blank">Support {{ content.version.title }}</a></div>
+    <div ng-cloak hide-gt-sm class="mobileDonate"><a class="btn btnSalmon btnDonate" href="{{ block("candidateLandingDonateUrl") }}" target="_blank">Support {{ content.version.title }}</a></div>
     <div class="positionAnchor" id="candidateQuote">
         <div id="quoteImage"><img stratus-src src="{{ block("candidateLandingQuoteImgSrc") }}"></div>
         <div class="verticalCenter" id="quote">
@@ -240,7 +239,7 @@ TODO: this should be converted to the Candidate Landing Stream, but it's all har
             <div class="planGraphic">
                 <img src="{{ asset('bundles/sitetheorytemplatecustom/images/planGraphicPurple.png') }}" alt="">
             </div>
-            <p class="body">BNC candidates like {{ content.version.title }} are completely funded by small donations from real Americans. As a Senator, {{ content.version.title }} will be free to serve, rather than fundraise and meet with lobbyists. {{ content.version.title }} will work for all Americans without pressure from corporations and special interests.</p>
+            <p class="body">BNC candidates like {{ content.version.title }} are completely funded by small donations from real Americans. As a {{ block("candidateOffice") }}, {{ content.version.title }} will be free to serve, rather than fundraise and meet with lobbyists. {{ content.version.title }} will work for all Americans without pressure from corporations and special interests.</p>
             <p class="body"><strong>It will take millions of dollars and thousands of volunteers to elect a corruption-free Congress, so consider supporting {{ content.version.title }} now. Every dollar matters.</strong></p>
             {# TODO: create a custom field for the donation link #}
             <div class="clearfix" id="bncAreaCTA"><a class="btn btnSalmon btnDonate" href="{{ block("candidateLandingDonateUrl") }}" target="_blank">Donate</a>

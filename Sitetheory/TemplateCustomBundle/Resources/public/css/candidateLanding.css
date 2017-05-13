@@ -518,9 +518,7 @@ md-input-container.md-input-focused label:not(.md-no-float), md-input-container.
 }
 
 /* Excerpts Row 2 Structure */
-#excerptsRow2 {
-    margin-bottom: 60px;
-}
+
 #excerptsRow2 .excerptContainer {
     margin: 0 5px;
 }
@@ -559,9 +557,11 @@ md-input-container.md-input-focused label:not(.md-no-float), md-input-container.
 
 
 #candidateLandingEvents h3 {
-    border-top: 5px solid #FF7A65;
-    padding-top: 26px;
+    margin-top: 30px;
+    padding: 26px 0 0 0;
+    font-size: 20px;
     color: #FF7A65;
+    border-top: 5px solid #FF7A65;
 }
 #eventListHeader h2 {
     margin-bottom: 0;
@@ -620,7 +620,7 @@ md-input-container.md-input-focused label:not(.md-no-float), md-input-container.
 }
 
 #candidateQuote {
-    margin: 70px 0;
+    margin: 50px 0 60px;
     background: #5F2787;
 }
 #candidateQuote img {
