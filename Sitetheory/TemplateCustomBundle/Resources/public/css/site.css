@@ -47,6 +47,16 @@ a:hover {
 .btn.btnSalmon:hover {
     background-color: #222;
 }
+.btn.btnSalmonInverse {
+    border: 1px solid #FF7A65;
+    background: #FFF;
+    color: #FF7A65;
+}
+.btn.btnSalmonInverse:hover {
+    background-color: #222;
+    color: #FFF;
+    border: none;
+}
 .btnBig {
     padding: 12px 30px;
     font-size: 16px;

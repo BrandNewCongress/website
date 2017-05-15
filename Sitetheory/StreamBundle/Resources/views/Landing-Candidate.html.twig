@@ -34,7 +34,7 @@
 
 {# CUSTOM FIELDS FOR CANDIDATES #}
 {# TODO: these need to eventually all be dynamic fields in the Stream Content Type so that they are edited in the CMS #}
-
+{% if joinSubscriptions is not defined %}{% set joinSubscriptions = "" %}{% endif %}
 {% block classJoinForm %}joinFormAlignRight{% endblock classJoinForm %}
 {% block candidateLandingDonateUrl %}https://secure.actblue.com/contribute/page/brandnewcongress{% endblock candidateLandingDonateUrl %}
 {% block candidateState %}{% endblock candidateState %}
@@ -105,10 +105,10 @@ TODO: this should be converted to the Candidate Landing Stream, but it's all har
                 <h2 class="fontTertiary">Sign Up!</h2>
                 <p>{{ block('candidateJoinText') }}</p>
                 <!-- Don't use IDs here since this is used in 3 places and multiple IDs will break some JS -->
-                <form class="positionAnchor joinForm" name="Signup" ng-class="status" ng-cloak="" ng-cloak-reveal="" ng-controller="Api" ng-sanitize="true" ng-submit="send('Signup') && tracking.send('SignupButton', 'click')" options='{"url":"https://api.brandnewcongress.org", "controller": "/people", "redirect":{"url":"{{ block("candidateLandingDonateUrl") }}", "popup":false}}'>
-                    <input type="hidden" name="utmSource" ng-value="model.data.utmSource">
-                    <input type="hidden" name="utmMedium" ng-value="model.data.utmMedium">
-                    <input type="hidden" name="utmCampaign" ng-value="model.data.utmCampaign">
+                <form class="positionAnchor joinForm" name="Signup" ng-class="status" ng-cloak="" ng-cloak-reveal="" ng-controller="Api" ng-sanitize="true" ng-submit="send('Signup') && tracking.send('SignupButton', 'click')" options='{"url":"https://api.brandnewcongress.org", "controller": "/people", "redirect":{"url":"{{ block("candidateLandingDonateUrl") }}", "popup":false}}'
+                    ng-init="model.data.subscriptions = '{{ joinSubscriptions }}'; model.data.candidate = '{{ content.version.title | replace({" ": ""}) | lower }}'; "
+                    >
+                    {# Hidden fields just need to be initialized with ng-init. And utmSource, utmMedium, utmCampaign are set in Api controller. #}
                     <p class="message" ng-show="response.length" ng-bind-html="response"></p>
                     <ul class="listInline divCenter fontSecondary" ng-show="status !== 'success'">
                         <li>

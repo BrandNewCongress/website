@@ -148,10 +148,9 @@ SIGNUP FORM
     <form name="Signup" ng-submit="send('Signup') && tracking.send('SignupButton', 'click')" ng-controller="Api"
           ng-sanitize="true"
           options='{"url":"https://api.{{ environment.site.domainprimary }}", "controller": "/people", "redirect":{"url":"https://secure.actblue.com/contribute/page/bncsignup", "popup":false}}'
-          ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal>
-        <input type="hidden" name="utmSource" ng-value="model.data.utmSource">
-        <input type="hidden" name="utmMedium" ng-value="model.data.utmMedium">
-        <input type="hidden" name="utmCampaign" ng-value="model.data.utmCampaign">
+          ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal
+          ng-init="model.data.subscriptions = '{{ joinSubscriptions }}'; model.data.candidate = '{{ content.version.title | replace({" ": ""}) | lower }}'; ">
+        {# Hidden fields just need to be initialized with ng-init. And utmSource, utmMedium, utmCampaign are set in Api controller. #}
         <md-progress-circular md-mode="indeterminate" ng-show="status === 'sending'"></md-progress-circular>
         <p class="message" ng-show="response.length" ng-bind-html="response"></p>
 
@@ -208,8 +207,10 @@ SIGNUP FORM
             {{ registrationFormAfter|default('')|raw }}
 
         </ul>
-        <div class="legalAgreement fontBody">By signing up, I consent to receiving emails from <span class="blueText"><md-tooltip>Committed to electing a brand new, corruption-free Congress that represents all Americans.</md-tooltip>Brand New Congress</span>
-            and <span class="blueText"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats.</span>
+        <div class="legalAgreement fontBody">By signing up, I consent to receiving emails from <span class="blueText"><md-tooltip>Committed to electing a brand new, corruption-free Congress that represents all Americans.</md-tooltip>Brand New Congress</span>.
+
+            {# We are not including this on default signups now. #}
+            {#and <span class="blueText"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats.</span>#}
         </div>
     </form>
 {% endblock registrationForm %}
