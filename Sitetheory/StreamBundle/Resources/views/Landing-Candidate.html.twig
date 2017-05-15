@@ -35,6 +35,7 @@
 {# CUSTOM FIELDS FOR CANDIDATES #}
 {# TODO: these need to eventually all be dynamic fields in the Stream Content Type so that they are edited in the CMS #}
 
+{% block classJoinForm %}joinFormAlignRight{% endblock classJoinForm %}
 {% block candidateLandingDonateUrl %}https://secure.actblue.com/contribute/page/brandnewcongress{% endblock candidateLandingDonateUrl %}
 {% block candidateState %}{% endblock candidateState %}
 {% block candidateStateImgUrl %}{% endblock candidateStateImgUrl %}
@@ -99,7 +100,7 @@ TODO: this should be converted to the Candidate Landing Stream, but it's all har
     </div>
     <div class="positionAnchor" id="heroArea">
         <div class="candidateHero">{% if content.version.images.count > 0 %}<img id="heroImage" stratus-src src="{{ content.version.images[0].url }}">{% else %}<!-- No Image Specified -->{% endif %}</div>
-        <div id="candidateLandingJoin" ng-cloak="">
+        <div id="candidateLandingJoin" ng-cloak="" class="{{ block('classJoinForm') }}">
             <div class="join_container clearfix">
                 <h2 class="fontTertiary">Sign Up!</h2>
                 <p>{{ block('candidateJoinText') }}</p>

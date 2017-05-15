@@ -200,10 +200,15 @@
     -webkit-transform: translateY(-50%);
     position: absolute;
     top: 50%;
-    right: 50px;
     z-index: 10;
     background: rgba(121,50,172,.93);
     box-shadow: 1px 3px 5px rgba(0,0,0,.3);
+}
+#candidateLandingJoin.joinFormAlignRight {
+    right: 50px;
+}
+#candidateLandingJoin.joinFormAlignLeft {
+    left: 50px;
 }
 #candidateLandingJoin .join_container {
     float: right;
@@ -290,9 +295,13 @@ md-input-container.md-input-focused label:not(.md-no-float), md-input-container.
     }
 }
 @media (max-width:1150px) {
-    #candidateLandingJoin {
+    #candidateLandingJoin.joinFormAlignRight {
         right: 30px;
     }
+    #candidateLandingJoin.joinFormAlignLeft {
+        left: 30px;
+    }
+
     #candidateLandingJoin .join_container {
         padding: 20px 5%;
     }
@@ -324,14 +333,17 @@ md-input-container.md-input-focused label:not(.md-no-float), md-input-container.
     #candidateLandingJoin {
         float: none;
         margin-top: 60px;
-    }
-    #candidateLandingJoin {
         transform: none;
         -webkit-transform: none;
         position: relative;
         top: inherit;
-        right: inherit;
         margin-top: -1px;
+    }
+    #candidateLandingJoin.joinFormAlignRight {
+        right: inherit;
+    }
+    #candidateLandingJoin.joinFormAlignLeft {
+        left: inherit;
     }
     #candidateLandingJoin .join_container {
         width: inherit;

@@ -1,0 +1,61 @@
+{% extends '@SitetheoryStreamBundle/Landing-Candidate.html.twig' %}
+
+{# Load Site CSS #}
+{% block link %}
+
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/candidateLanding.css') }}">
+
+
+{% endblock link %}
+
+
+{% set sectionMenuActive = '' %}
+{% set sectionMenuHardCoded = '' %}
+
+{# Header image exists #}
+{% set streamClass = 'landingStream' %}
+
+{# Hide sidebar on desktop #}
+{% set columnSidebar = 'hide-gt-sm' %}
+{% set columnMain = '' %}
+
+{# Hide gutter in main column #}
+{% block mainColumnGutter %}
+{% endblock mainColumnGutter %}
+
+{# Remove standard header image #}
+{% block headerImageInsideHeader %}
+{% endblock headerImageInsideHeader %}
+
+
+{#
+NOTE: this should be converted to the Candidate Landing Stream
+#}
+
+{# Customizations for the Landing-Candidate.html.twig #}
+{% block classJoinForm %}joinFormAlignLeft{% endblock classJoinForm %}
+{% block candidateLandingDonateUrl %}https://secure.actblue.com/contribute/page/ocasio2018{% endblock candidateLandingDonateUrl %}
+{% block candidateJoinText %}[CANDIDATE JOIN TEXT].{% endblock candidateJoinText %}
+{% block candidateState %}The great state of <br>New York{% endblock candidateState %}
+{% block candidateStateImgUrl %}//cdn.sitetheory.io/nest001/0000-NewYork-xs.png{% endblock candidateStateImgUrl %}
+{% block candidateProfileId %}35833{% endblock candidateProfileId %}
+{% block candidateOffice %}Representative{% endblock candidateOffice %}
+{% block candidateOfficeFull %}For United States Congress 2018{% endblock candidateOfficeFull %}
+{% block candidateSocialMediaList %}
+    <li class="candidateTwitter">
+        <a href="https://twitter.com/ocasio2018" target="_blank"> </a>
+    </li>
+    <li class="candidateFacebook">
+        <a href="https://www.facebook.com/ocasio2018" target="_blank"> </a>
+    </li>
+{% endblock candidateSocialMediaList %}
+{% block candidateLandingQuoteImgSrc %}//cdn.sitetheory.io/nest001/2030-quoteBackgroundAlexandriaOcasio-xs.jpg{% endblock candidateLandingQuoteImgSrc %}
+{% block candidateLandingQuoteText %}[CANDIDATE QUOTE]{% endblock candidateLandingQuoteText %}
+
+
+
+
+
+
