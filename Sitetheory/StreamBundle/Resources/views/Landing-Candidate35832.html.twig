@@ -35,9 +35,10 @@ NOTE: this should be converted to the Candidate Landing Stream
 #}
 
 {# Customizations for the Landing-Candidate.html.twig #}
+{# TODO: put the slug back to 'candidateSlug': (content.version.title | replace({" ": ""}) | lower), #}
 {% if custom is not defined %}
     {% set custom = {
-    'candidateSlug': (content.version.title | replace({" ": ""}) | lower),
+    'candidateSlug': 'alexandriaocasio',
     'joinSubscriptions': 'justicedemocrats',
     'classJoin': 'joinFormAlignLeft',
     'twitterName': 'aiocasio',
@@ -51,7 +52,7 @@ NOTE: this should be converted to the Candidate Landing Stream
     'officeFull': 'For United States Congress 2018',
     'joinHeader': 'Join me in the battle to unseat Joseph Crowley and create a progressive future.',
     'introTitle': "Investing in Our Communities",
-    'introText': "New York's 14th congressional district urgently needs access to more reliable jobs, increased access to family support services like parental leave and free childcare. I will fight for universal access to quality education from pre-K until college regardless of income and enrollment status because your ZIP code should never determine your quality of life.",
+    'introText': "New York’s 14th congressional district urgently needs access to more reliable jobs, increased access to family support services like parental leave and free childcare. I will fight for universal access to quality education from pre-K until college regardless of income and enrollment status because your ZIP code should never determine your quality of life.",
     'bioShort': 'Alexandria Ocasio-Cortez is a veteran organizer, advocate, and entrepreneur. In her career she has helped women in the developing world obtain small business loans, trained Latino youth to be future business leaders, and advocated for working people',
     'quote': "I realized from a very early age that the advantages afforded me weren't options for my cousins simply because of county lines.",
     'imageActionShot': '//cdn.sitetheory.io/nest001/2070/Alexandria%20Ocasio%20Landing%20Action%20Shot%202-xs.jpg',
