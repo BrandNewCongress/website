@@ -35,25 +35,52 @@ NOTE: this should be converted to the Candidate Landing Stream
 #}
 
 {# Customizations for the Landing-Candidate.html.twig #}
-{% set joinSubscriptions = "justicedemocrats" %}
-{% block classJoinForm %}joinFormAlignLeft{% endblock classJoinForm %}
-{% block candidateLandingDonateUrl %}https://secure.actblue.com/contribute/page/anthonyclark{% endblock candidateLandingDonateUrl %}
-{% block candidateJoinText %}[CANDIDATE JOIN TEXT].{% endblock candidateJoinText %}
-{% block candidateState %}The great state of <br>Illinois{% endblock candidateState %}
-{% block candidateStateImgUrl %}//cdn.sitetheory.io/nest001/0000-Illinois-xs.png{% endblock candidateStateImgUrl %}
-{% block candidateProfileId %}35839{% endblock candidateProfileId %}
-{% block candidateOffice %}Representative{% endblock candidateOffice %}
-{% block candidateOfficeFull %}For United States Congress 2018{% endblock candidateOfficeFull %}
-{% block candidateSocialMediaList %}
-    <li class="candidateTwitter">
-        <a href="https://twitter.com/anthonyclark2018" target="_blank"> </a>
-    </li>
-    <li class="candidateFacebook">
-        <a href="https://www.facebook.com/anthonyclark2018" target="_blank"> </a>
-    </li>
-{% endblock candidateSocialMediaList %}
-{% block candidateLandingQuoteImgSrc %}//cdn.sitetheory.io/nest001/0000-quoteBackgroundAnthonyClark-xs.jpg{% endblock candidateLandingQuoteImgSrc %}
-{% block candidateLandingQuoteText %}[CANDIDATE QUOTE]{% endblock candidateLandingQuoteText %}
+{% if custom is not defined %}
+    {% set custom = {
+    'candidateSlug': (content.version.title | replace({" ": ""}) | lower),
+    'joinSubscriptions': 'justicedemocrats',
+    'classJoin': 'joinFormAlignLeft',
+    'twitterName': 'AnthonyVClark1',
+    'facebookName': 'Anthony-V-Clark-758350044343921',
+    'linkedinName': '',
+    'state': 'Illinois',
+    'stateLong': 'The Great State of Illinois',
+    'district': 'IL-07',
+    'districtLong': 'Illinois 7th',
+    'office': 'Representative',
+    'officeFull': 'For United States Congress 2018',
+    'joinHeader': "Join me in the fight to achieve liberty and justice for all.",
+    'introTitle': "Justice, Jobs, and Education",
+    'introText': "Anthony Clark is a high school teacher and founder of the Suburban Unity Alliance. He believes it’s time this country lives up to its promise of liberty and justice for all. Anthony is here to work with you in the fight for criminal justice reform, public education funding and responsible job creation.",
+    'bioShort': "Born and raised in Oak Park, Illinois, to a working class family, Anthony Clark is a high school special education teacher and active community organizer. In the Summer of 2016, Anthony founded the Suburban Unity Alliance, an organization dedicated",
+    'quote': "In order to truly make a difference in this world, we have to change things on a systemic level.  We can't keep being reactive.",
+    'imageActionShot': '//cdn.sitetheory.io/nest001/2062-Anthony%20Clark%20Landing%20Action%20Shot-xs.jpg',
+    'imageModuleStore': '//cdn.sitetheory.io/nest001/2073/Anthony%20Clark%20Landing%20Store%20Module-xs.jpg',
+    'imageStateOutline': '//cdn.sitetheory.io/nest001/2072/IL-07%20Landing%20State%20Outline-xs.png',
+    'imageQuoteBackground': '',
+    'urlDonate': 'https://secure.actblue.com/contribute/page/anthonyclark2018',
+    'urlStore': 'https://shop.brandnewcongress.org/products/anthony-clark-2018'
+    }
+    %}
+{% endif %}
+
+
+{# CODE BLOCKS #}
+{% block candidateAgendaList %}
+    <li>Ensure divide between police and community ends by demilitarizing police.</li>
+    <li>Combat job crisis by incentivizing local hiring and supporting small business.</li>
+    <li>Ensure the public schools receive adequate funding.</li>
+    <li>Fund vocational programs and technical schools.</li>
+    <li>End the war on drugs and remove mandatory minimum sentences.</li>
+{% endblock candidateAgendaList %}
+
+{% block candidateHowToVoteList %}
+    <li class="clearfix"><a class="module_list_padding" href="https://www.elections.il.gov/votinginformation/register.aspx" target="_blank"> Register to Vote </a></li>
+    <li class="clearfix"><a class="module_list_padding" href="https://www.elections.il.gov/InfoForVoters.aspx" target="_blank"> Find Your Polling Place </a></li>
+    <li class="clearfix"><a class="module_list_padding" href="https://ova.elections.il.gov/RegistrationLookup.aspx" target="_blank"> Registration Lookup </a></li>
+    <li class="clearfix"><a class="module_list_padding" href="http://www.elections.il.gov/InfoForVoters.aspx" target="_blank"> Voting Methods in Illinois</a></li>
+    <li class="clearfix"><a class="module_list_padding" href="http://fairelectionsnetwork.com/wp-content/uploads/Illinois-Guide-to-Voter-Registration-Drives.pdf" target="_blank"> Host a Voter Registration Drive </a></li>
+{% endblock candidateHowToVoteList %}
 
 
 

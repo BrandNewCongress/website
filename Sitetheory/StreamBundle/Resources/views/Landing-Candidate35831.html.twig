@@ -3,9 +3,9 @@
 {# Load Site CSS #}
 {% block link %}
 
-    {{ parent() }}
+{{ parent() }}
 
-    <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/candidateLanding.css') }}">
+<link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/candidateLanding.css') }}">
 
 
 {% endblock link %}
@@ -35,24 +35,53 @@ NOTE: this should be converted to the Candidate Landing Stream
 #}
 
 {# Customizations for the Landing-Candidate.html.twig #}
-{% set joinSubscriptions = "justicedemocrats" %}
-{% block candidateLandingDonateUrl %}https://secure.actblue.com/contribute/page/votecoribush{% endblock candidateLandingDonateUrl %}
-{% block candidateJoinText %}If you want me to fight in Congress for justice and a thriving St. Louis.{% endblock candidateJoinText %}
-{% block candidateState %}Serving the people of <br>Missouri 1st{% endblock candidateState %}
-{% block candidateStateImgUrl %}//cdn.sitetheory.io/nest001/2042/missouri1st-xs.png{% endblock candidateStateImgUrl %}
-{% block candidateProfileId %}35723{% endblock candidateProfileId %}
-{% block candidateOffice %}Congresswoman{% endblock candidateOffice %}
-{% block candidateOfficeFull %}For United States Congress 2018{% endblock candidateOfficeFull %}
-{% block candidateSocialMediaList %}
-    <li class="candidateTwitter">
-        <a href="https://twitter.com//voteCoriBush" target="_blank"> </a>
-    </li>
-    <li class="candidateFacebook">
-        <a href="https://www.facebook.com/VoteCoriBush" target="_blank"> </a>
-    </li>
-{% endblock candidateSocialMediaList %}
-{% block candidateLandingQuoteImgSrc %}//cdn.sitetheory.io/nest001/2036/quoteBackgroundImageCori-xs.jpg{% endblock candidateLandingQuoteImgSrc %}
-{% block candidateLandingQuoteText %}&ldquo;I understand feeling overlooked by politicians and government. It’s my duty as a public servant to represent everyone and to fight for what is right until we see change.&rdquo;{% endblock candidateLandingQuoteText %}
+{% if custom is not defined %}
+    {% set custom = {
+    'candidateSlug': (content.version.title | replace({" ": ""}) | lower),
+    'joinSubscriptions': 'justicedemocrats',
+    'classJoin': 'joinFormAlignRight',
+    'twitterName': 'voteCoriBush',
+    'facebookName': 'voteCoriBush',
+    'linkedinName': '',
+    'state': 'Missouri',
+    'stateLong': 'The Great State of Missouri',
+    'district': 'MO-01',
+    'districtLong': 'Missouri 1st',
+    'office': 'Representative',
+    'officeFull': 'For United States Congress 2018',
+    'joinHeader': 'If you want me to fight in Congress for justice and a thriving St. Louis.',
+    'introTitle': "Fighting for Jobs, Justice and Medicare for All",
+    'introText': "The people of Missouri's 1st district need a representative who understands their struggles and will fight for real solutions. Cori Bush is a former teacher, a registered nurse and a pastor. She's a single mother and an engaged citizen. More importantly, she's a fighter. This is not the time for baby steps. Incremental change is no change at all when families are struggling to put food on the table or find justice in the streets. Cori is running to bring transformative change to St. Louis and all of Missouri's 1st. Stand with Cori, because she stands by you.",
+    'bioShort': "Cori&#39;s work as a mental health nurse in St. Louis and her experience overcoming injustice and hardship will make her an exceptional representative for the people in Missouri&#39;s 1st District.",
+    'quote': "I understand feeling overlooked by politicians and government. It’s my duty as a public servant to represent everyone and to fight for what is right until we see change.",
+    'imageActionShot': '//cdn.sitetheory.io/nest001/2039/homeImageModule-xs.jpg',
+    'imageModuleStore': '//cdn.sitetheory.io/nest001/2040/imageModuleStoreCori-xs.jpg',
+    'imageStateOutline': '//cdn.sitetheory.io/nest001/2042/missouri1st-xs.png',
+    'imageQuoteBackground': '//cdn.sitetheory.io/nest001/2036/quoteBackgroundImageCori-xs.jpg',
+    'urlDonate': 'https://secure.actblue.com/contribute/page/votecoribush',
+    'urlStore': ''
+    }
+    %}
+{% endif %}
+
+
+
+{# CODE BLOCKS #}
+{% block candidateAgendaList %}
+    <li>Replacing the school-to-prison pipeline with a school-to-prosperity pipeline.</li>
+    <li>Medicare for all and affordable medication.</li>
+    <li>Raising the federal minimum wage to $15.</li>
+    <li>Workers rights &amp; job training.</li>
+{% endblock candidateAgendaList %}
+
+{% block candidateHowToVoteList %}
+    <li class="clearfix"><a class="module_list_padding" href="https://www.stlouis-mo.gov/government/departments/board-election-commissioners/documents/voter-registration-application-stlcity.cfm" target="_blank"> Register to Vote </a></li>
+    <li class="clearfix"><a class="module_list_padding" href="https://www.stlouis-mo.gov/government/departments/board-election-commissioners/polling-places.cfm" target="_blank"> Find Your Polling Place </a></li>
+    <li class="clearfix"><a class="module_list_padding" href="https://s1.sos.mo.gov/elections/voterlookup/" target="_blank">Check your voter registration</a></li>
+    <li class="clearfix"><a class="module_list_padding" href="https://www.stlouis-mo.gov/government/departments/board-election-commissioners/voter/inactive-voter-list.cfm" target="_blank"> Check the inactive voter list </a></li>
+{% endblock candidateHowToVoteList %}
+
+
 
 
 

@@ -35,25 +35,51 @@ NOTE: this should be converted to the Candidate Landing Stream
 #}
 
 {# Customizations for the Landing-Candidate.html.twig #}
-{% set joinSubscriptions = "justicedemocrats" %}
-{% block classJoinForm %}joinFormAlignLeft{% endblock classJoinForm %}
-{% block candidateLandingDonateUrl %}https://secure.actblue.com/contribute/page/michaelhepburn{% endblock candidateLandingDonateUrl %}
-{% block candidateJoinText %}[CANDIDATE JOIN TEXT].{% endblock candidateJoinText %}
-{% block candidateState %}The great state of <br>Florida{% endblock candidateState %}
-{% block candidateStateImgUrl %}//cdn.sitetheory.io/nest001/0000-Florida-xs.png{% endblock candidateStateImgUrl %}
-{% block candidateProfileId %}35838{% endblock candidateProfileId %}
-{% block candidateOffice %}Representative{% endblock candidateOffice %}
-{% block candidateOfficeFull %}For United States Congress 2018{% endblock candidateOfficeFull %}
-{% block candidateSocialMediaList %}
-    <li class="candidateTwitter">
-        <a href="https://twitter.com/michaelhepburn" target="_blank"> </a>
-    </li>
-    <li class="candidateFacebook">
-        <a href="https://www.facebook.com/michaelhepburn" target="_blank"> </a>
-    </li>
-{% endblock candidateSocialMediaList %}
-{% block candidateLandingQuoteImgSrc %}//cdn.sitetheory.io/nest001/0000-xxxx-xs.jpg{% endblock candidateLandingQuoteImgSrc %}
-{% block candidateLandingQuoteText %}[CANDIDATE QUOTE]{% endblock candidateLandingQuoteText %}
+{% if custom is not defined %}
+    {% set custom = {
+    'candidateSlug': (content.version.title | replace({" ": ""}) | lower),
+    'joinSubscriptions': 'justicedemocrats',
+    'classJoin': 'joinFormAlignLeft',
+    'twitterName': 'VoteHepburn',
+    'facebookName': 'VoteHepburn',
+    'linkedinName': '',
+    'state': 'Florida',
+    'stateLong': 'The Great State of Florida',
+    'district': 'FL-27',
+    'districtLong': 'Florida 27th',
+    'office': 'Representative',
+    'officeFull': 'For United States Congress 2018',
+    'joinHeader': 'If you believe South Florida is a paradise worth protecting and investing in.',
+    'introTitle': "It&rsquo;s Time for a New Perspective",
+    'introText': "I will stand for fair and equal justice, and advocate for the expansion of Social Security, Medicare and comprehensive healthcare for all – since it is a right not a privilege. South Florida desperately needs a 21st century economy,  built on the foundation of a living wage, affordable housing, and financial investments in rebuilding our infrastructure and transit systems.",
+    'bioShort': 'Michael Hepburn was born and raised in Miami’s Little Haiti. After losing his father in the 7th grade, he discovered a deep desire to be part of something bigger than himself. He was lucky in that the magnet school he attended exposed him to',
+    'quote': "It occurred to me that the education that made my early success possible would've been completely unattainable without strong, well-funded public schools, reliable public transportation, and the support of my neighbors.",
+    'imageActionShot': '//cdn.sitetheory.io/nest001/2059-Michael%20Hepburn%20Landing%20Action%20Shot-xs.jpg',
+    'imageModuleStore': '//cdn.sitetheory.io/nest001/2068/Michael%20Hepburn%20Landing%20Store%20Module-xs.jpg',
+    'imageStateOutline': '//cdn.sitetheory.io/nest001/2067/FL-27%20Landing%20State%20Outline-xs.png',
+    'imageQuoteBackground': '',
+    'urlDonate': 'https://secure.actblue.com/contribute/page/VoteHepburn',
+    'urlStore': 'https://shop.brandnewcongress.org/collections/tshirts/products/michael-hepburn-2018-campaign-shirt'
+    }
+    %}
+{% endif %}
+
+
+{# CODE BLOCKS #}
+{% block candidateAgendaList %}
+    <li>Combat climate change and its effects on climate gentrification.</li>
+    <li>Build a new frontier for creating new jobs in South Florida with a living wage.</li>
+    <li>Provide healthcare for all: ZERO Copays, ZERO Deductible, vision coverage included.</li>
+    <li>Put an end to speculative real estate investing.</li>
+    <li>Ensure debt free higher education.</li>
+{% endblock candidateAgendaList %}
+
+{% block candidateHowToVoteList %}
+    <li class="clearfix"><a class="module_list_padding" href="http://dos.myflorida.com/elections/for-voters/voter-registration/register-to-vote-or-update-your-information/" target="_blank"> Register to Vote </a></li>
+    <li class="clearfix"><a class="module_list_padding" href="http://dos.myflorida.com/elections/for-voters/check-your-voter-status-and-polling-place/" target="_blank"> Find Your Polling Place </a></li>
+    <li class="clearfix"><a class="module_list_padding" href="http://dos.myflorida.com/elections/for-voters/voting/" target="_blank"> Voting Methods in Florida</a></li>
+    <li class="clearfix"><a class="module_list_padding" href="http://dos.myflorida.com/elections/for-voters/voter-registration/third-party-voter-registration-organizations/" target="_blank"> Host a Voter Registration Drive </a></li>
+{% endblock candidateHowToVoteList %}
 
 
 

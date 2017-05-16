@@ -35,25 +35,52 @@ NOTE: this should be converted to the Candidate Landing Stream
 #}
 
 {# Customizations for the Landing-Candidate.html.twig #}
-{% set joinSubscriptions = "justicedemocrats" %}
-{% block classJoinForm %}joinFormAlignLeft{% endblock classJoinForm %}
-{% block candidateLandingDonateUrl %}https://secure.actblue.com/contribute/page/ocasio2018{% endblock candidateLandingDonateUrl %}
-{% block candidateJoinText %}[CANDIDATE JOIN TEXT].{% endblock candidateJoinText %}
-{% block candidateState %}The great state of <br>New York{% endblock candidateState %}
-{% block candidateStateImgUrl %}//cdn.sitetheory.io/nest001/0000-NewYork-xs.png{% endblock candidateStateImgUrl %}
-{% block candidateProfileId %}35833{% endblock candidateProfileId %}
-{% block candidateOffice %}Representative{% endblock candidateOffice %}
-{% block candidateOfficeFull %}For United States Congress 2018{% endblock candidateOfficeFull %}
-{% block candidateSocialMediaList %}
-    <li class="candidateTwitter">
-        <a href="https://twitter.com/ocasio2018" target="_blank"> </a>
-    </li>
-    <li class="candidateFacebook">
-        <a href="https://www.facebook.com/ocasio2018" target="_blank"> </a>
-    </li>
-{% endblock candidateSocialMediaList %}
-{% block candidateLandingQuoteImgSrc %}//cdn.sitetheory.io/nest001/2030-quoteBackgroundAlexandriaOcasio-xs.jpg{% endblock candidateLandingQuoteImgSrc %}
-{% block candidateLandingQuoteText %}[CANDIDATE QUOTE]{% endblock candidateLandingQuoteText %}
+{% if custom is not defined %}
+    {% set custom = {
+    'candidateSlug': (content.version.title | replace({" ": ""}) | lower),
+    'joinSubscriptions': 'justicedemocrats',
+    'classJoin': 'joinFormAlignLeft',
+    'twitterName': 'aiocasio',
+    'facebookName': 'Ocasio2018',
+    'linkedinName': '',
+    'state': 'New York',
+    'state': 'The Great State of New York',
+    'district': 'NY-14',
+    'district': 'New York 14th',
+    'office': 'Representative',
+    'officeFull': 'For United States Congress 2018',
+    'joinHeader': 'Join me in the battle to unseat Joseph Crowley and create a progressive future.',
+    'introTitle': "Investing in Our Communities",
+    'introText': "New York's 14th congressional district urgently needs access to more reliable jobs, increased access to family support services like parental leave and free childcare. I will fight for universal access to quality education from pre-K until college regardless of income and enrollment status because your ZIP code should never determine your quality of life.",
+    'bioShort': 'Alexandria Ocasio-Cortez is a veteran organizer, advocate, and entrepreneur. In her career she has helped women in the developing world obtain small business loans, trained Latino youth to be future business leaders, and advocated for working people',
+    'quote': "I realized from a very early age that the advantages afforded me weren't options for my cousins simply because of county lines.",
+    'imageActionShot': '//cdn.sitetheory.io/nest001/2070/Alexandria%20Ocasio%20Landing%20Action%20Shot%202-xs.jpg',
+    'imageModuleStore': '//cdn.sitetheory.io/nest001/2071/Alexandria%20Ocasio%20Landing%20Store%20Module-xs.jpg',
+    'imageStateOutline': '//cdn.sitetheory.io/nest001/2069/NY-14%20Landing%20State%20Outline-xs.png',
+    'imageQuoteBackground': '',
+    'urlDonate': 'https://secure.actblue.com/contribute/page/ocasio2018',
+    'urlStore': 'https://shop.brandnewcongress.org/collections/tshirts/products/ocasio-2018-shirt'
+    }
+    %}
+{% endif %}
+
+
+
+{# CODE BLOCKS #}
+{% block candidateAgendaList %}
+    <li>Ensure universal access to quality education regardless of income.</li>
+    <li>Make early childhood education available to all children during critical years of learning.</li>
+    <li>Reform our broken criminal justice system.</li>
+    <li>Invest in our healthcare system.</li>
+    <li>Create clean energy jobs.</li>
+{% endblock candidateAgendaList %}
+
+{% block candidateHowToVoteList %}
+    <li class="clearfix"><a class="module_list_padding" href="http://www.elections.ny.gov/votingregister.html" target="_blank"> Register to Vote </a></li>
+    <li class="clearfix"><a class="module_list_padding" href="https://voterlookup.elections.state.ny.us/votersearch.aspx" target="_blank"> Find Your Polling Place </a></li>
+    <li class="clearfix"><a class="module_list_padding" href="https://www.elections.ny.gov/VotingMachines.html" target="_blank"> Voting Methods in New York</a></li>
+    <li class="clearfix"><a class="module_list_padding" href="http://fairelectionsnetwork.com/wp-content/uploads/New-York-Guide-to-Voter-Registration-Drives.pdf" target="_blank"> Host a Voter Registration Drive </a></li>
+{% endblock candidateHowToVoteList %}
 
 
 

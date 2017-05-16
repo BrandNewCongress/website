@@ -35,24 +35,53 @@ NOTE: this should be converted to the Candidate Landing Stream
 #}
 
 {# Customizations for the Landing-Candidate.html.twig #}
-{% set joinSubscriptions = "justicedemocrats" %}
-{% block candidateLandingDonateUrl %}https://secure.actblue.com/contribute/page/paulajean2018{% endblock candidateLandingDonateUrl %}
-{% block candidateJoinText %}To join me in the fight for our future against Joe Manchin.{% endblock candidateJoinText %}
-{% block candidateState %}The great state of <br>West Virginia{% endblock candidateState %}
-{% block candidateStateImgUrl %}//cdn.sitetheory.io/nest001/2026-westVirginia-xs.png{% endblock candidateStateImgUrl %}
-{% block candidateProfileId %}35825{% endblock candidateProfileId %}
-{% block candidateOffice %}Senator{% endblock candidateOffice %}
-{% block candidateOfficeFull %}For United States Senate 2018{% endblock candidateOfficeFull %}
-{% block candidateSocialMediaList %}
-    <li class="candidateTwitter">
-        <a href="https://twitter.com/paulajean2018" target="_blank"> </a>
-    </li>
-    <li class="candidateFacebook">
-        <a href="https://www.facebook.com/paulajean2018" target="_blank"> </a>
-    </li>
-{% endblock candidateSocialMediaList %}
-{% block candidateLandingQuoteImgSrc %}//cdn.sitetheory.io/nest001/2030-quoteBackgroundPaula-xs.jpg{% endblock candidateLandingQuoteImgSrc %}
-{% block candidateLandingQuoteText %}&ldquo;The industrial revolution was built on the backs of coal miners - our backs. We&rsquo;ve provided power to America. It&rsquo;s time to empower ourselves.&rdquo;{% endblock candidateLandingQuoteText %}
+{% if custom is not defined %}
+    {% set custom = {
+    'candidateSlug': (content.version.title | replace({" ": ""}) | lower),
+    'joinSubscriptions': 'justicedemocrats',
+    'classJoin': 'joinFormAlignRight',
+    'twitterName': 'paulajean2018',
+    'facebookName': 'paulajean2018',
+    'linkedinName': '',
+    'state': 'West Virginia',
+    'stateLong': 'The Great State of West Virginia',
+    'district': 'WV-SN-1',
+    'districtLong': 'West Virginia Senate',
+    'office': 'Senator',
+    'officeFull': 'For United States Senate 2018',
+    'joinHeader': 'To join me in the fight for our future against Joe Manchin.',
+    'introTitle': "Time to Invest in Ourselves",
+    'introText': "West Virginia coal powered a nation. Now it’s time for West Virginia to invest in ourselves. I'm ready to fight for Medicare for all, universal pre-K, free tech schools and colleges, and a multi-billion dollar investment in West Virginian infrastructure, industry and innovation.",
+    'bioShort': "I am a native of Mullens, West Virginia, and my coal mining roots run deep. I&rsquo;m a coal miner&rsquo;s daughter, granddaughter, niece and stepdaughter. As a child, I felt a deep sense of pride in our state&rsquo;s coal industry. I felt pride that West Virginia&rsquo;s coal",
+    'quote': "The industrial revolution was built on the backs of coal miners - our backs. We&rsquo;ve provided power to America. It&rsquo;s time to empower ourselves.",
+    'imageActionShot': '//cdn.sitetheory.io/nest001/2027-homeExcerptImage-xs.jpg',
+    'imageModuleStore': '//cdn.sitetheory.io/nest001/2028-homeExcerptStore-xs.jpg',
+    'imageStateOutline': '//cdn.sitetheory.io/nest001/2026-westVirginia-xs.png',
+    'imageQuoteBackground': '//cdn.sitetheory.io/nest001/2030-quoteBackgroundPaula-xs.jpg',
+    'urlDonate': 'https://secure.actblue.com/contribute/page/paulajean2018',
+    'urlStore': 'https://shop.brandnewcongress.org/collections/paula-jean-for-u-s-senate'
+    }
+    %}
+{% endif %}
+
+
+
+{# CODE BLOCKS #}
+{% block candidateAgendaList %}
+    <li>Invest billions in West Virginian industry, energy, and manufacturing.</li>
+    <li>Crush the opioid epidemic.</li>
+    <li>Build the energy economy of the future in West Virginia.</li>
+    <li>Ensure our place in the burgeoning hemp industry.</li>
+    <li>Expand and update our infrastructure.</li>
+{% endblock candidateAgendaList %}
+
+{% block candidateHowToVoteList %}
+    <li class="clearfix"><a class="module_list_padding" href="https://ovr.sos.wv.gov/Register/Landing" target="_blank"> Register to Vote </a></li>
+    <li class="clearfix"><a class="module_list_padding" href="https://services.sos.wv.gov/Elections/Voter/FindMyPollingPlace" target="_blank"> Find Your Polling Place </a></li>
+    <li class="clearfix"><a class="module_list_padding" href="http://www.sos.wv.gov/elections/Pages/Voting-Systems.aspx" target="_blank"> Voting Methods in WV </a></li>
+    <li class="clearfix"><a class="module_list_padding" href="http://www.sos.wv.gov/elections/forms/Documents/Forms%20-%20General/Request%20for%20Voter%20Registration%20Forms.PDF" target="_blank"> Host a voter registration drive </a></li>
+{% endblock candidateHowToVoteList %}
+
 
 
 
