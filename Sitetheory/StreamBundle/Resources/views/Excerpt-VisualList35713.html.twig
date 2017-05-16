@@ -20,7 +20,16 @@ SETTINGS
 #}
 
 
-{% set listAttributes = 'md-cols-xs="1" md-cols-gt-xs="2" md-row-height-xs="4:9" md-row-height-sm="3:6"  md-row-height-md="7:6" md-row-height-gt-md="5:4"' %}
+{# Set Batch Limit for List #}
+{% if listBatch is not defined %}
+    {% set listBatch = 1 %}
+{% endif %}
+
+{% set listType = 'custom' %}
+
+{#
+{% set listAttributes = 'md-cols-xs="1" md-cols-gt-xs="2" md-row-height-xs="4:6" md-row-height-sm="4:7"  md-row-height-md="7:6" md-row-height-gt-md="5:5"' %}
+#}
 
 
 {# Hide sidebar on desktop #}
@@ -60,7 +69,7 @@ SETTINGS
 {% endblock contentType %}
 
 {% block listItem %}
-    <md-grid-tile ng-repeat="model in collection.models | filter:{data:{version:{title:'!null'}}}">
+    <div class="gridColumn" ng-repeat="model in collection.models">
         <div class="profileContainer">
             <div class="profileItem" layout="column">
                 <div class="clearfix">
@@ -91,11 +100,11 @@ SETTINGS
                     </div>
                 </div>
                 <p class="profileBody">
-                    <span ng-bind-html="model.data.version.text | truncate:{limit: 260}"></span>
+                    <span class="profileBodyText" ng-bind-html="model.data.version.text | truncate:{limit: 210}"></span>
                     <a class="readMore fontBody"
                        ng-href="{% verbatim %}{{ model.data.routingPrimary.url }}{% endverbatim %}">Read More</a>
                 </p>
             </div>
         </div>
-    </md-grid-tile>
+    </div>
 {% endblock listItem %}

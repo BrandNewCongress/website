@@ -1,4 +1,9 @@
 
+/* TODO: remove and display the pager in the future */
+stratus-pagination {
+    display: none;
+}
+
 
 
 /* PROFILES LIST PAGE */
@@ -19,9 +24,7 @@ stratus-search {
 #candidateListPage .borderDashedBold {
     padding-top: 60px;
 }
-#profileList {
-    padding-top: 60px;
-}
+#profileList {  }
 .profileList h1 {
     margin: 0 0 26px;
     text-align: center;
@@ -48,12 +51,20 @@ stratus-search {
 }
 
 /* Profile List */
+.gridColumn {
+    margin: 0 1%;
+    width: 48%;
+    position: relative;
+    float: left;
+    padding-bottom: 60px;
+    vertical-align: top;
+    text-align: center;
+}
 
 .profileContainer {
     position: relative;
 }
 .profileItem {
-    margin: 60px 4% 100px;
 }
 .profileList .profileImage {
     background: #111;
@@ -88,6 +99,12 @@ stratus-search {
 .profileList .profileBody {
     padding-right: 3%;
 }
+.profileList .profileBody .profileBodyText {
+    /* Hard coded height so that the cards don't get snagged on each other when they tile. */
+    height: 80px;
+    overflow: hidden;
+    text-align: left;
+}
 .profileList .profileBody p {
     font-size: 15px;
     font-weight: normal;
@@ -111,24 +128,19 @@ stratus-search {
 
 
 
+
 @media (max-width: 1200px) {
-    .profileList .profileImage {
-        max-width: 40%;
-    }
-    .profileBody {
+
+    .profileItem .profileBodyText,
+    .profileItem .profileBodyText p {
         font-size: 14px;
     }
     .profileItem .readMore {
         display: inline;
     }
+
 }
 @media (min-width: 960px) and (max-width: 1000px) {
-    .profileItem {
-        padding-bottom: 112px;
-    }
-    .profileList .profileImage {
-        max-width: 40%;
-    }
     #profileList h4 {
         margin: 16px 0;
     }
@@ -137,17 +149,15 @@ stratus-search {
     }
 }
 @media (max-width: 959px) {
+
     #profileList {
         margin: 0 -5%;
     }
-    .profileItem {
-        margin: 0 10%;
-        text-align: center;
+    .profileItem .profileBodyText {
+        display: block;
     }
-    .profileList .profileImage {
-        float: none;
-        margin: 0 0 30px 0;
-        max-width: 100%;
+    .profileItem h2 {
+        font-size: 25px;
     }
     #profileList h4 {
         margin: 13px 0;
@@ -156,18 +166,51 @@ stratus-search {
         margin-bottom: 16px;
     }
 }
+@media (max-width: 800px) {
+    .profileList .profileBody .profileBodyText {
+        /* Hard coded height so that the cards don't get snagged on each other when they tile. */
+        height: 100px;
+    }
+}
+@media (min-width: 601px) and (max-width: 699px) {
+    .profileItem h2 {
+        font-size: 20px;
+    }
+}
+@media (max-width: 650px) {
+    .profileList .profileBody .profileBodyText {
+        /* Hard coded height so that the cards don't get snagged on each other when they tile. */
+        height: 120px;
+    }
+}
 @media (min-width: 601px) and (max-width: 959px) {
+    .gridColumn {
+        margin: 0 1%;
+        width: 48%;
+        position: relative;
+        float: left;
+        padding-bottom: 60px;
+        vertical-align: top;
+        text-align: center;
+    }
     .profileList .profileBody p {
         font-size: 13px;
     }
 }
 @media (max-width: 600px) {
+    .gridColumn {
+        margin: 0 1%;
+        width: 100%;
+    }
     #profileList {
         margin: 0;
     }
     .profileItem {
         margin: 0;
-        padding-bottom: 45px;
+    }
+    .profileList .profileBody .profileBodyText {
+        /* Hard coded height so that the cards don't get snagged on each other when they tile. */
+        height: 80px;
     }
     .profileItem .readMore {
         display: block;
