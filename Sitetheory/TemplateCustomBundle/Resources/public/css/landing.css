@@ -560,12 +560,11 @@
     font-size: 16px;
 }
 #homeCandidates p.intro a {
-    color: #333;
+    color: #7932AC;
     text-decoration: underline;
 }
 #homeCandidates p.intro a:hover {
-    color: #7932AC;
-    text-decoration: none;
+    color: #333;
 }
 #homeCandidates .bodyLarge {
     margin: 0 0 50px 0;

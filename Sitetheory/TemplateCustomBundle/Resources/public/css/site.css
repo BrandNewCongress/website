@@ -57,6 +57,16 @@ a:hover {
     color: #FFF;
     border: none;
 }
+.btn.btnSimple {
+    font-weight: bold;
+    color: #7932AC;
+    text-decoration: underline;
+}
+.btnSmall {
+    padding: 10px 30px;
+    font-size: 14px;
+    margin: 5px;
+}
 .btnBig {
     padding: 12px 30px;
     font-size: 16px;
