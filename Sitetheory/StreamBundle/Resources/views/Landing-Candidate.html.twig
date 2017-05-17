@@ -40,7 +40,7 @@
 {# DYNAMIC #}
 {% if custom is not defined %}
 {% set custom = {
-    'candidateSlug': (content.version.title | replace({" ": ""}) | lower),
+    'candidateSlug': (content.version.title | replace({' ': ""}) | lower),
     'joinSubscriptions': '',
     'classJoin': 'joinFormAlignRight',
     'twitterName': '',
@@ -166,7 +166,7 @@
                 <p>{{ custom.joinHeader|raw }}</p>
                 <!-- Don't use IDs here since this is used in 3 places and multiple IDs will break some JS -->
                 <form class="positionAnchor joinForm" name="Signup" ng-class="status" ng-cloak="" ng-cloak-reveal="" ng-controller="Api" ng-sanitize="true" ng-submit="send('Signup') && tracking.send('SignupButton', 'click')" options='{"url":"https://api.brandnewcongress.org", "controller": "/people", "redirect":{"url":"{{ custom.urlDonate }}", "popup":false}}'
-                    ng-init="model.data.subscriptions = '{{ custom.joinSubscriptions }}'; model.data.candidate = '{{ content.version.title | replace({" ": ""}) | lower }}'; "
+                    ng-init="model.data.subscriptions = '{{ custom.joinSubscriptions }}'; model.data.candidate = '{{ custom.candidateSlug }}'; "
                     >
                     {# Hidden fields just need to be initialized with ng-init. And utmSource, utmMedium, utmCampaign are set in Api controller. #}
                     <p class="message" ng-show="response.length" ng-bind-html="response"></p>
@@ -231,7 +231,7 @@
                     <div class="excerptContainer">
                         <h3>About {{ content.version.title }}</h3>
                         <p>{{ custom.bioShort|raw }}&hellip;</p>
-                        <a class="btn fontTertiary" href="/Candidates/{{ content.version.title | replace({" ": "-"}) }}">More</a></div>
+                        <a class="btn fontTertiary" href="/Candidates/{{ content.version.title | replace({' ' : "-", '.': ""}) }}">More</a></div>
                 </md-grid-tile>
                 <md-grid-tile class="column2" md-colspan="1" md-rowspan="1"> <img stratus-src="" src="{{ custom.imageActionShot }}"> </md-grid-tile>
                 <md-grid-tile class="column3" md-colspan="1" md-colspan-sm="2" md-rowspan="1">
@@ -274,7 +274,7 @@
 
 
     {% block candidateLandingEvents %}
-    <div ng-cloak="" ng-controller="Api" options='{"url":"https://api.brandnewcongress.org","controller":"/events?candidate={{ content.version.title | replace({" ": ""})| lower }}", "onLoad": "fetch"}'>
+    <div ng-cloak="" ng-controller="Api" options='{"url":"https://api.brandnewcongress.org","controller":"/events?candidate={{ custom.candidateSlug }}", "onLoad": "fetch"}'>
         <div id="candidateLandingEvents">
             <md-list id="eventList" layout-padding="" ng-if="status == 'success' && results.length">
                 <h3>Coming Up</h3>
