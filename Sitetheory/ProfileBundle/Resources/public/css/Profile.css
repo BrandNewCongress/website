@@ -168,7 +168,7 @@ stratus-search {
         height: 100px;
     }
 }
-@media (min-width: 601px) and (max-width: 699px) {
+@media (min-width: 601px) and (max-width: 900px) {
     .profileItem h2 {
         font-size: 20px;
     }

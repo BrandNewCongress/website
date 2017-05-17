@@ -47,7 +47,9 @@
     'facebookName': '',
     'linkedinName': '',
     'state': '',
+    'stateLong': '',
     'district': '',
+    'districtLong': '',
     'office': 'Representative',
     'officeFull': "For United States Congress 2018",
     'joinHeader': "Join me to elect a corruption-free congress.",
@@ -129,7 +131,7 @@
                     {{ content.version.title }}
                 </h1>
                 <h4 class="pageSubTitle">
-                    {{ content.version.stateLong }}
+                    {{ custom.stateLong}}
                 </h4>
             </div>
         </div>
@@ -138,7 +140,7 @@
 
     <div class="clearfix">
         <div id="candidateHeaderLeft">
-            <p class="smallLabel purpleText">{{ custom.districtLongl|raw }}</p>
+            <p class="smallLabel purpleText">{{ custom.districtLong|raw }}</p>
             <div class="stateOutline positionAnchor">
                 <div class="stateOutline positionAnchor"><img id="stateOutline" stratus-src src="{{ custom.imageStateOutline }}"></div>
             </div>
