@@ -23,11 +23,12 @@ class TemplateController extends TemplateControllerBase
     {
 
         $candidateCookieName = 'candidate';
-        $controller->getContent()->data[$candidateCookieName] = [
+        $candidateData = [
             'url' => null,
             'name' => null,
             'slug' => null
         ];
+        $candidateDataLast = $candidateData;
 
         /*
          * Universal Candidate Cookie
@@ -38,15 +39,22 @@ class TemplateController extends TemplateControllerBase
          * Check if there is a cookie indicating the user's preferred candidate
          * Add the values to the template for easy access
          */
+
         // If a candidate referrer is set, check that it's valid and save it
         if(!empty($request->query->get($candidateCookieName))) {
 
+            $slug = $this->makeCandidateSlug($request->query->get($candidateCookieName));
+
             // Candidate can be a full name or a slug, we'll clean it.
             $candidateData = [
-                'url' => '/' . trim($request->getRequestUri(), '/'),
-                'slug' => $this->makeCandidateSlug($request->query->get($candidateCookieName)),
+                // We set the URL on the Candidate's page, but if on another page they ask for a specific candidate
+                // We'll use that slug for the return URL
+                'url' => '/'.$slug,
+                'slug' => $slug,
                 'name' => $this->expandCandidateSlug($request->query->get($candidateCookieName))
             ];
+            // Also mark the candidate as the Last Candidate
+            $candidateDataLast = $candidateData;
             // Set a cookie for the "last" candidate page visited.
             $controller->getEnv()->addCookie(
                 new Cookie($candidateCookieName, json_encode($candidateData), time() + 36000, '/', null, false, false)
@@ -60,8 +68,9 @@ class TemplateController extends TemplateControllerBase
             $candidateDataLast = json_decode($request->cookies->get($candidateCookieName.'Last'), TRUE);
         }
 
-        if(!empty($candidateData)) $controller->getContent()->data[$candidateCookieName] = $candidateData;
-        if(!empty($candidateDataLast)) $controller->getContent()->data[$candidateCookieName.'Last'] = $candidateDataLast;
+        // No matter what, we always set a value
+        $controller->getContent()->data[$candidateCookieName] = $candidateData;
+        $controller->getContent()->data[$candidateCookieName.'Last'] = $candidateDataLast;
 
 
     }

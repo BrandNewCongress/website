@@ -149,7 +149,7 @@ SIGNUP FORM
           ng-sanitize="true"
           options='{"url":"https://api.{{ environment.site.domainprimary }}", "controller": "/people", "redirect":{"url":"https://secure.actblue.com/contribute/page/bncsignup", "popup":false}}'
           ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal
-          ng-init="model.data.subscriptions = '{{ joinSubscriptions | default('') }}'; model.data.candidate = '{{ candidate ? candidate : candidateLast | replace({" ": ""}) | lower }}'; ">
+          ng-init="model.data.subscriptions = '{{ joinSubscriptions | default('') }}'; model.data.candidate = '{{ content.data.candidate.slug ? content.data.candidate.slug : content.data.candidateLast.slug | replace({" ": ""}) | lower }}'; ">
         {# Hidden fields just need to be initialized with ng-init. And utmSource, utmMedium, utmCampaign are set in Api controller. #}
         <md-progress-circular md-mode="indeterminate" ng-show="status === 'sending'"></md-progress-circular>
         <p class="message" ng-show="response.length" ng-bind-html="response"></p>

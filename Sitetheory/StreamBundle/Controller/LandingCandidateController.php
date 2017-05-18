@@ -7,6 +7,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Sitetheory\CoreBundle\Controller\InitController;
 use Symfony\Component\HttpFoundation\Cookie;
 
+echo "...";
+
 /**
  * Class LandingController
  * @package Sitetheory\StreamBundle\Controller
@@ -46,6 +48,7 @@ class LandingCandidateController extends LandingController
             new Cookie('candidateLast', json_encode($candidateData), time() + 36000, '/', null, false, false)
         );
 
+        if(function_exists('dump')) dump('set candidate data', $candidateData);
         if(empty($controller->getEnv()->getReferrer())
             || !$controller->getEnvHelper()->isInternalReferrer($request, $controller->getEnv()->getReferrer())
         ) {
@@ -55,19 +58,13 @@ class LandingCandidateController extends LandingController
             );
         }
 
-        if(!empty($candidateData)) {
-            $controller->getContent()->data['candidate'] = $candidateData;
-            $controller->getContent()->data['candidateLast'] = $candidateData;
-        }
-
-
         parent::indexAction($request, $controller);
     }
 
     public function makeCandidateSlug($name) {
         $slug = strtolower($name);
         $slug = str_replace(' ', '-', $slug);
-        $slug = preg_replace('~[^a-z-]*~', '', $slug);
+        $slug = preg_replace('~[^a-z-]+~', '', $slug);
         return $slug;
     }
 
