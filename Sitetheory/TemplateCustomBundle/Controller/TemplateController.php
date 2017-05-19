@@ -30,6 +30,8 @@ class TemplateController extends TemplateControllerBase
         ];
         $candidateDataLast = $candidateData;
 
+
+
         /*
          * Universal Candidate Cookie
          *
