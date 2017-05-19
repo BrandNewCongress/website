@@ -1,0 +1,11 @@
+{% extends '@SitetheoryProfile/Profile.html.twig' %}
+
+
+{% if custom is not defined %}
+    {% set custom = {
+    'candidateSlug': (content.version.title | replace({' ': '-', '.': ''}) | lower),
+    'urlDonate': 'https://www.crowdpac.com/campaigns/244359/robb-ryerse-for-congress',
+    'urlStore': 'https://shop.brandnewcongress.org/products/robb-ryerse-2018-campaign-shirt'
+    }
+    %}
+{% endif %}

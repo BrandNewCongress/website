@@ -14,8 +14,15 @@
 {% set sectionMenuHardCoded = '1' %}
 {% set sectionMenuActive = 'candidatesActive' %}
 
+{% if custom is not defined %}
+    {% set custom = {
+    'candidateSlug': (content.version.title | replace({' ': '-', '.': ''}) | lower),
+    'urlDonate': 'https://secure.actblue.com/contribute/page/brandnewcongress?refcode=brandnewcongress.org',
+    'urlStore': 'https://shop.brandnewcongress.org'
+    }
+    %}
+{% endif %}
 
-{% set candidate = (content.version.title | replace({' ': '-'}) | lower) %}
 
 {% block pageTitle %}
     <div class="siteMaxWidth siteSidePadding">
@@ -124,8 +131,8 @@
                     <p>It will take millions of dollars and thousands of volunteers to elect a Brand New Congress. Your dollars and your minutes matter!
                     </p>
                     <div class="candidateActionBtns">
-                        <a class="btn btnSalmon" href="/volunteer?candidate={{ candidate }}">Volunteer</a>
-                        <a class="btn" href="https://secure.actblue.com/contribute/page/brandnewcongress" target="_blank">Donate</a>
+                        <a class="btn btnSalmon" href="/volunteer?candidate={{ custom.candidateSlug}}">Volunteer</a>
+                        <a class="btn" href="{{ custom.urlDonate }}" target="_blank">Donate</a>
                     </div>
                 </div>
             </div>
