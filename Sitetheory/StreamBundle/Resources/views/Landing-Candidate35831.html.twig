@@ -37,7 +37,7 @@ NOTE: this should be converted to the Candidate Landing Stream
 {# Customizations for the Landing-Candidate.html.twig #}
 {% if custom is not defined %}
     {% set custom = {
-    'candidateSlug': (content.version.title | replace({" ": ""}) | lower),
+    'candidateSlug': (content.version.title | replace({' ': '-', '.': ''}) | lower),
     'joinSubscriptions': 'justicedemocrats',
     'classJoin': 'joinFormAlignRight',
     'twitterName': 'voteCoriBush',

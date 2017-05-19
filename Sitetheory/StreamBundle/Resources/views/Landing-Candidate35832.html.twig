@@ -35,10 +35,10 @@ NOTE: this should be converted to the Candidate Landing Stream
 #}
 
 {# Customizations for the Landing-Candidate.html.twig #}
-{# TODO: put the slug back to 'candidateSlug': (content.version.title | replace({" ": ""}) | lower), #}
+{# TODO: put the slug back to 'candidateSlug': (content.version.title | replace({' ': '-', '.': ''}) | lower), #}
 {% if custom is not defined %}
     {% set custom = {
-    'candidateSlug': 'alexandriaocasio',
+    'candidateSlug': 'alexandria-ocasio',
     'joinSubscriptions': 'justicedemocrats',
     'classJoin': 'joinFormAlignLeft',
     'twitterName': 'Ocasio2018',

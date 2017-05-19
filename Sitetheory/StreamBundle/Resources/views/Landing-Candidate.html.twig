@@ -40,7 +40,7 @@
 {# DYNAMIC #}
 {% if custom is not defined %}
 {% set custom = {
-    'candidateSlug': (content.version.title | replace({' ': ""}) | lower),
+    'candidateSlug': (content.version.title | replace({' ': '-', '.': ''}) | lower),
     'joinSubscriptions': '',
     'classJoin': 'joinFormAlignRight',
     'twitterName': '',
@@ -231,7 +231,7 @@
                     <div class="excerptContainer">
                         <h3>About {{ content.version.title }}</h3>
                         <p>{{ custom.bioShort|raw }}&hellip;</p>
-                        <a class="btn fontTertiary" href="/Candidates/{{ content.version.title | replace({' ' : "-", '.': ""}) }}">More</a></div>
+                        <a class="btn fontTertiary" href="/Candidates/{{ custom.candidateSlug }}">More</a></div>
                 </md-grid-tile>
                 <md-grid-tile class="column2" md-colspan="1" md-rowspan="1"> <img stratus-src="" src="{{ custom.imageActionShot }}"> </md-grid-tile>
                 <md-grid-tile class="column3" md-colspan="1" md-colspan-sm="2" md-rowspan="1">

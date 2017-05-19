@@ -59,6 +59,7 @@ class TemplateController extends TemplateControllerBase
             // Also mark the candidate as the Last Candidate
             $candidateDataLast = $candidateData;
             // Set a cookie for the "last" candidate page visited.
+
             $controller->getEnv()->addCookie(
                 new Cookie($candidateCookieName, json_encode($candidateData), time() + 36000, '/', null, false, false)
             );
@@ -70,6 +71,9 @@ class TemplateController extends TemplateControllerBase
         if($request->cookies->has($candidateCookieName.'Last')) {
             $candidateDataLast = json_decode($request->cookies->get($candidateCookieName.'Last'), TRUE);
         }
+
+        $env = $controller->getEnv();
+        if ($env->isDev() && $env->isDebug() && function_exists('dump')) dump($candidateData, $candidateDataLast);
 
         // No matter what, we always set a value
         $controller->getContent()->data[$candidateCookieName] = $candidateData;
