@@ -5,6 +5,7 @@ namespace Sitetheory\TemplateCustomBundle\Controller;
 use Sitetheory\CoreBundle\Controller\InitController;
 use Sitetheory\TemplateBundle\Controller\TemplateControllerBase;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Cookie;
 
 /**
  * Unique Controllers necessary for this template.

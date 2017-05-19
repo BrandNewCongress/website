@@ -46,7 +46,7 @@ class LandingCandidateController extends LandingController
             new Cookie('candidateLast', json_encode($candidateData), time() + 36000, '/', null, false, false)
         );
 
-        //if(function_exists('dump')) dump('set candidate data', $candidateData);
+        if(function_exists('dump')) dump('set candidate data', $candidateData);
 
         if(empty($controller->getEnv()->getReferrer())
             || !$controller->getEnvHelper()->isInternalReferrer($request, $controller->getEnv()->getReferrer())
