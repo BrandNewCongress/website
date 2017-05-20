@@ -578,7 +578,7 @@
 }
 .candidateColumn {
     float: left;
-    width: 33%;
+    width: 25%;
     transition: all 400ms ease-out 50ms;
 }
 .candidateColumn .candidateImage {
@@ -648,7 +648,8 @@
 .candidateBio {
     display: none;
     transition: all .4s ease-out .2s;
-    margin-top: 20px;
+    margin-top: 12px;
+    font-size: 14px;
     opacity: 0;
     color: #CCC;
 }

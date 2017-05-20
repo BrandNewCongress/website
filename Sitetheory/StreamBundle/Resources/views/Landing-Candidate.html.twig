@@ -123,37 +123,37 @@
 
     <div id="candidateLanding" class="positionAnchor">
 
-        <div id="candidateLandingHeader" class="positionAll">
+        <div id="candidateLandingHeader">
 
-            <div class="siteMaxWidth siteSidePadding clearfix">
-                <h1 class="fontTertiary" {{ block('editableContent') }} data-type="text" data-property="version.title"
-                    data-render="click">
-                    {{ content.version.title }}
-                </h1>
-                <h4 class="pageSubTitle">
-                    {{ custom.stateLong}}
-                </h4>
+            <div class="clearfix">
+                <div id="candidateHeaderLeft" class="stGrid column20">
+                    <p class="smallLabel purpleText">{{ custom.districtLong|raw }}</p>
+                    <div class="stateOutline positionAnchor">
+                        <div class="stateOutline positionAnchor"><img id="stateOutline" stratus-src src="{{ custom.imageStateOutline }}"></div>
+                    </div>
+                </div>
+                <div class="stGrid column60">
+                    <h1 class="fontTertiary" {{ block('editableContent') }} data-type="text" data-property="version.title"
+                        data-render="click">
+                        {{ content.version.title }}
+                    </h1>
+                    <h4 class="pageSubTitle">
+                        {{ custom.stateLong }}
+                    </h4>
+                </div>
+                <div id="candidateHeaderRight" class="stGrid column20">
+                    <div class="socialMedia basicStyle clearfix">
+                        <ul class="listInline">
+                            {{ block("candidateSocialMediaList") }}
+                        </ul>
+                    </div>
+                    <div class="candidateHeaderContribute clearfix"><a class="btn btnContribute" href="{{ custom.urlDonate }}" target="_blank">Support {{ content.version.title }}</a></div>
+                </div>
             </div>
         </div>
 
     </div>
 
-    <div class="clearfix">
-        <div id="candidateHeaderLeft">
-            <p class="smallLabel purpleText">{{ custom.districtLong|raw }}</p>
-            <div class="stateOutline positionAnchor">
-                <div class="stateOutline positionAnchor"><img id="stateOutline" stratus-src src="{{ custom.imageStateOutline }}"></div>
-            </div>
-        </div>
-        <div id="candidateHeaderRight">
-            <div class="socialMedia basicStyle clearfix">
-                <ul class="listInline">
-                    {{ block("candidateSocialMediaList") }}
-                </ul>
-            </div>
-            <div class="candidateHeaderContribute"><a class="btn btnContribute" href="{{ custom.urlDonate }}" target="_blank">Support {{ content.version.title }}</a></div>
-        </div>
-    </div>
     <div id="candidateHeaderBorder">
         <div class="borderThick">&nbsp;</div>
         <div class="borderDotted">&nbsp;</div>
@@ -261,9 +261,9 @@
             </div>
             <div class="stGrid column33 column3 positionAnchor">
                 <div class="excerptContainer imageButton backgroundDark">
-                    <a href="https://shop.brandnewcongress.org/collections/CANDIDATE" target="_blank">
+                    <a href="{{ custom.urlStore }}" target="_blank">
                         <h3 class="verticalCenter">Get Your Own!</h3>
-                        <div class="imageContainer"><a href="{{ custom.urlStore }}"><img stratus-src="" src="{{ custom.imageModuleStore }}"></a></div>
+                        <div class="imageContainer"><img stratus-src="" src="{{ custom.imageModuleStore }}"></div>
                     </a>
                 </div>
             </div>
@@ -347,7 +347,7 @@
                     <img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogoMarkOnly.png') }}" alt="">
                 </a>
             </div>
-            <h2>About Brand New Congress</h2>
+            <h2 class="fontTertiary">About Brand New Congress</h2>
             <div class="intro">
                 <p>I am joining a team with hundreds of other candidates in a single campaign to rebuild our country.</p>
             </div>
@@ -364,6 +364,28 @@
     </div>
     {% endblock candidateLandingEndorsements %}
 
+    {# No variables have been added to candidate twigs yet
+
+    <div class="sectionBorder"></div>
+
+    {% block candidateContact %}
+        {% if custom.phone is not empty || custom.email is not empty %}
+
+            <div id="candidateContact" class="fontSecondary">
+                <h3>Contact</h3>
+                {% if custom.phone is not empty %}
+                    Phone: {{ content.phone }}  |
+                {% endif %}
+                {% if custom.email is not empty %}
+                    Email: <a href="mailto:{{ content.email }}">{{ content.email }}</a>  |
+                {% endif %}
+                Press contact: <a href="mailto:press@brandnewcongress.org">press@brandnewcongress.org</a>
+            </div>
+
+        {% endif %}
+    {% endblock candidateContact %}
+
+    #}
 
 {% endblock contentType %}
 
