@@ -249,7 +249,7 @@ LAYOUT
                         {% if content.data.candidate.url is defined and content.data.candidate.url is not empty %}
                             <a href="{{ content.data.candidate.url }}" class="btn btnCandidateLanding pullRight">{{ content.data.candidate.name }}</a>
                         {% else %}
-                            <a href="https://secure.actblue.com/contribute/page/brandnewcongress" target="_blank" class="btn btnContribute pullRight">Donate</a>
+                            <a href="/donate" target="_blank" class="btn btnContribute pullRight">Donate</a>
                         {% endif %}
                     </div>
                     <a id="starLinkRight" class="fontTertiary align-right" href="/Nominate">Nominate a Candidate</a>
@@ -390,7 +390,7 @@ LAYOUT
             {% if content.data.candidate.url is defined and content.data.candidate.url is not empty %}
                 <a href="{{ content.data.candidate.url }}" class="btn btnCandidateLanding">{{ content.data.candidate.name }}</a>
             {% else %}
-                <a href="https://secure.actblue.com/contribute/page/brandnewcongress" target="_blank" class="btn btnContribute">Donate</a>
+                <a href="/donate" target="_blank" class="btn btnContribute">Donate</a>
             {% endif %}
         </div>
         <div>
@@ -486,7 +486,7 @@ LAYOUT
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="https://secure.actblue.com/contribute/page/brandnewcongress" target="_blank"
+            <a href="/donate" target="_blank"
                class="navLevel2 {% if sectionMenuActive == 'contributeActive' %}active{% endif %}">
                 Donate
             </a>
@@ -711,7 +711,7 @@ LAYOUT
                                 <a href="/call">Join a Call</a>
                             </li>
                             <li>
-                                <a href="https://secure.actblue.com/contribute/page/brandnewcongress"
+                                <a href="/donate"
                                    target="_blank">Donate</a>
                             </li>
                             <li>
