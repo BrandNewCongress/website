@@ -72,9 +72,6 @@ class TemplateController extends TemplateControllerBase
             $candidateDataLast = json_decode($request->cookies->get($candidateCookieName.'Last'), TRUE);
         }
 
-        $env = $controller->getEnv();
-        if ($env->isDev() && $env->isDebug() && function_exists('dump')) dump($candidateData, $candidateDataLast);
-
         // No matter what, we always set a value
         $controller->getContent()->data[$candidateCookieName] = $candidateData;
         $controller->getContent()->data[$candidateCookieName.'Last'] = $candidateDataLast;
