@@ -147,7 +147,7 @@ SIGNUP FORM
 
     <form name="Signup" ng-submit="send('Signup') && tracking.send('SignupButton', 'click')" ng-controller="Api"
           ng-sanitize="true"
-          options='{"url":"https://api.{{ environment.site.domainprimary }}", "controller": "/people", "redirect":{"url":"/donate", "popup":false}}'
+          options='{"url":"https://api.{{ environment.site.domainprimary }}", "controller": "/people", "redirect":{"url":"{{ joinRedirectUrl | default('/donate') }}", "popup":false}}'
           ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal
           ng-init="model.data.subscriptions = '{{ joinSubscriptions | default('') }}';{% if content.data.candidate is defined %} model.data.candidate = '{{ (content.data.candidate.slug ? content.data.candidate.slug : content.data.candidateLast.slug ) | replace({" ": ""}) | lower }}';{% endif %}">
         {# Hidden fields just need to be initialized with ng-init. And utmSource, utmMedium, utmCampaign are set in Api controller. #}

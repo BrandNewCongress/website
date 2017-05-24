@@ -122,6 +122,8 @@
                     <h3 class="fontSecondary salmonText">Sign Up!</h3>
                     <p>To support {{ content.version.title }} for Congress.
                     </p>
+                    {# TODO: once the fields are dynmic we can do this for all candidates #}
+                    {% set joinRedirectUrl = custom.urlDonate %}
                     {{ block('registrationForm') }}
                 </div>
             </div>
