@@ -246,7 +246,7 @@ LAYOUT
                 <div id="headerExtraLinks" class="positionRightBottom">
                     <div class="clearfix">
                         {# IF THE VISIT IS FROM A CANDIDATE SITE DISPLAY SPECIAL LINK BACK TO LANDING PAGE #}
-                        {# DISABLE: this fancy is too confusing ATM #}
+                        {# DISABLE: this fancy is too confusing ATM - this is duplicated in the headerMini #}
                         {#
                         {% if content.data.candidate.url is defined and content.data.candidate.url is not empty %}
                             <a href="{{ content.data.candidate.url }}" class="btn btnCandidateLanding pullRight">{{ content.data.candidate.name }}</a>
@@ -391,11 +391,15 @@ LAYOUT
         </div>
         <div id="retractingContribute" class="verticalCenter hide-xs hide-sm">
             {# IF THE VISIT IS FROM A CANDIDATE SITE DISPLAY SPECIAL LINK BACK TO LANDING PAGE #}
+            {# DISABLE: this fancy is too confusing ATM - this is duplicated in the headerMini #}
+            {#
             {% if content.data.candidate.url is defined and content.data.candidate.url is not empty %}
                 <a href="{{ content.data.candidate.url }}" class="btn btnCandidateLanding">{{ content.data.candidate.name }}</a>
             {% else %}
                 <a href="/donate" target="_blank" class="btn btnContribute">Donate</a>
             {% endif %}
+            #}
+            <a href="/donate" target="_blank" class="btn btnContribute">Donate</a>
         </div>
         <div>
             {{ block('navMain') }}
