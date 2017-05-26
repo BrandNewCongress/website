@@ -1,0 +1,91 @@
+{% extends '@SitetheoryStreamBundle/Landing-Candidate.html.twig' %}
+
+{# Load Site CSS #}
+{% block link %}
+
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/candidateLanding.css') }}">
+
+
+{% endblock link %}
+
+
+{% set sectionMenuActive = '' %}
+{% set sectionMenuHardCoded = '' %}
+
+{# Header image exists #}
+{% set streamClass = 'landingStream' %}
+
+{# Hide sidebar on desktop #}
+{% set columnSidebar = 'hide-gt-sm' %}
+{% set columnMain = '' %}
+
+{# Hide gutter in main column #}
+{% block mainColumnGutter %}
+{% endblock mainColumnGutter %}
+
+{# Remove standard header image #}
+{% block headerImageInsideHeader %}
+{% endblock headerImageInsideHeader %}
+
+
+
+
+
+{#
+NOTE: this should be converted to the Candidate Landing Stream
+#}
+{# Customizations for the Landing-Candidate.html.twig #}
+{% if custom is not defined %}
+{% set custom = {
+    'candidateSlug': (content.version.title | replace({' ': '-', '.': ''}) | lower),
+    'joinSubscriptions': '',
+    'classJoin': 'joinFormAlignRight',
+    'twitterName': 'voteSarahSmith',
+    'facebookName': 'voteSarahSmith',
+    'linkedinName': '',
+    'phone': '(425) 598-0319',
+    'email': (content.version.title | replace({' ': '', '.': ''}) | lower),
+    'state': 'Washington',
+    'stateLong': 'The Great State of Washington',
+    'district': 'WA-09',
+    'districtLong': 'Washington 9th',
+    'office': 'Representative',
+    'officeFull': 'For United States Congress 2018',
+    'joinHeader': 'Join me to bring new industry, affordable housing, and a living wage to WA-09.',
+    'introTitle': "Building a Brand New Congress to represent Real People",
+    'introText': "A congressperson represents their people -- at least, they’re supposed to. Congress today works to protect the bottom line of powerful multinational corporations, not people like us. My circumstances, my sentiments and my values are shared all around me in the 9th District. I believe I am the person who can represent the loud, resistant, beacon of social change that is the 9th. I will fight for social and economic change against a system rigged for normal people like us to fail.",
+    'bioShort': 'Robb Ryerse has been a minister for over 20 years. Today he co-pastors Vintage Fellowship, nestled in Northwest Arkansas, with his wife Vanessa. Vintage Fellowship is a radically different kind of church that welcomes all people and is a member of',
+    'quote': "How can a kid from Arkansas have any chance to become the next Sam Walton with the deck stacked so high against them?",
+    'imageActionShot': '//cdn.sitetheory.io/nest001/2056-Robb%20Ryerse%20Landing%20Action%20Shot%202-xs.jpg',
+    'imageModuleStore': '//cdn.sitetheory.io/nest001/2065/Robb%20Ryerse%20Landing%20Store%20Module-xs.jpg',
+    'imageStateOutline': '//cdn.sitetheory.io/nest001/2066/AR-03%20Landing%20State%20Outline-xs.png',
+    'imageQuoteBackground': '',
+    'urlPlatform': '/platform',
+    'urlDonate': 'https://www.crowdpac.com/campaigns/244359/robb-ryerse-for-congress',
+    'urlStore': 'https://shop.brandnewcongress.org/products/robb-ryerse-2018-campaign-shirt'
+}
+%}
+{% endif %}
+
+
+{# CODE BLOCKS #}
+{% block candidateAgendaList %}
+    <li>Invest in new industries with living wages</li>
+    <li>Make education accessible with tuition free public college and trade school</li>
+    <li>Fight for Medicare for All</li>
+    <li>End the War on Drugs and the School to Prison pipeline</li>
+    <li>Lead the Green Energy revolution</li>
+{% endblock candidateAgendaList %}
+
+{% block candidateHowToVoteList %}
+    <li class="clearfix"><a class="module_list_padding" href="http://www.sos.arkansas.gov/elections/Pages/voterResources.aspx" target="_blank"> Register to Vote </a></li>
+    <li class="clearfix"><a class="module_list_padding" href="https://www.voterview.ar-nova.org/VoterView/PollingPlaceSearch.do" target="_blank"> Find Your Polling Place </a></li>
+    <li class="clearfix"><a class="module_list_padding" href="http://www.sos.arkansas.gov/elections/Pages/votingMachines.aspx" target="_blank"> Voting Methods in Arkansas</a></li>
+    <li class="clearfix"><a class="module_list_padding" href="http://www.sos.arkansas.gov/elections/Documents/voter%20drive.pdf" target="_blank"> Host a Voter Registration Drive </a></li>
+{% endblock candidateHowToVoteList %}
+
+
+
+
