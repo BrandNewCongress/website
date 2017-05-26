@@ -46,6 +46,8 @@
     'twitterName': '',
     'facebookName': '',
     'linkedinName': '',
+    'email': (content.version.title | replace({' ': '', '.': ''}) | lower),
+    'phone': '',
     'state': '',
     'stateLong': '',
     'district': '',
@@ -62,6 +64,7 @@
     'imageStateOutline': '',
     'imageQuoteBackground': '',
     'urlDonate': '/donate',
+    'urlPlatform': '/platform',
     'urlStore': 'https://shop.brandnewcongress.org'
     }
 %}
@@ -240,7 +243,7 @@
                         <ul class="fontBody">
                             {{ block('candidateAgendaList') }}
                         </ul>
-                        <a class="btn fontTertiary" href="/Platform">See Full Platform</a></div>
+                        <a class="btn fontTertiary" href="{{ custom.urlPlatform }}">See Full Platform</a></div>
                 </md-grid-tile>
             </md-grid-list>
         </div>
@@ -364,28 +367,36 @@
     </div>
     {% endblock candidateLandingEndorsements %}
 
-    {# No variables have been added to candidate twigs yet
 
-    <div class="sectionBorder"></div>
+
+
 
     {% block candidateContact %}
-        {% if custom.phone is not empty || custom.email is not empty %}
+        {% if custom.phone is not empty or custom.email is not empty %}
 
-            <div id="candidateContact" class="fontSecondary">
-                <h3>Contact</h3>
+            <div class="sectionBorder backgroundDark"></div>
+
+            <div id="candidateContact" class="clearfix fontSecondary">
+                <h2 class="fontTertiary">Contact</h2>
                 {% if custom.phone is not empty %}
-                    Phone: {{ content.phone }}  |
+                    {{ custom.phone }}
+                {% endif %}
+                <br hide-gt-sm>
+                {% if custom.phone is not empty and custom.email is not empty %}
+                <span hide-xs hide-sm class="delimiter">|</span>
                 {% endif %}
                 {% if custom.email is not empty %}
-                    Email: <a href="mailto:{{ content.email }}">{{ content.email }}</a>  |
+                    General: <a href="mailto:{{ custom.email }}@brandnewcongress.org">{{ custom.email }}@brandnewcongress.org</a><span hide-xs hide-sm class="delimiter">|</span>
+
+                    <br hide-gt-sm>
+
+                    Press: <a href="mailto:press{{ custom.email }}@brandnewcongress.org">press{{ custom.email }}@brandnewcongress.org</a>
                 {% endif %}
-                Press contact: <a href="mailto:press@brandnewcongress.org">press@brandnewcongress.org</a>
             </div>
 
         {% endif %}
     {% endblock candidateContact %}
 
-    #}
 
 {% endblock contentType %}
 

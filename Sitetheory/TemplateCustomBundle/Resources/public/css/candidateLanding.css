@@ -98,6 +98,7 @@
     margin: 0;
     padding: 5px 12px;
     font-size: 11px;
+    text-align: right;
 }
 #candidateHeaderRight .btn.btnContribute:hover {
     background: #7932AC;
@@ -762,5 +763,27 @@ md-input-container.md-input-focused label:not(.md-no-float), md-input-container.
     }
     #bncAreaCTA .btn:last-child {
         margin-bottom: 0;
+    }
+}
+
+
+#candidateContact {
+    padding: 80px 0;
+    text-align: center;
+    line-height: 1.8;
+}
+#candidateContact h2 {
+    margin-bottom: 50px;
+}
+#candidateContact .delimiter {
+    padding: 0 10px;
+}
+#candidateContact a {
+    font-weight: bold;
+}
+
+@media (max-width:959px) {
+    #candidateContact h2 {
+        margin-bottom: 26px;
     }
 }
