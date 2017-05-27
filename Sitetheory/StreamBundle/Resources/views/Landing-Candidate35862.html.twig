@@ -41,9 +41,9 @@ NOTE: this should be converted to the Candidate Landing Stream
 {% set custom = {
     'candidateSlug': (content.version.title | replace({' ': '-', '.': ''}) | lower),
     'joinSubscriptions': '',
-    'classJoin': 'joinFormAlignRight',
-    'twitterName': 'voteSarahSmith',
-    'facebookName': 'voteSarahSmith',
+    'classJoin': 'joinFormAlignLeft',
+    'twitterName': 'sarahsmith2018',
+    'facebookName': 'Sarah-Smith-431368643885239',
     'linkedinName': '',
     'phone': '(425) 598-0319',
     'email': (content.version.title | replace({' ': '', '.': ''}) | lower),
@@ -55,16 +55,16 @@ NOTE: this should be converted to the Candidate Landing Stream
     'officeFull': 'For United States Congress 2018',
     'joinHeader': 'Join me to bring new industry, affordable housing, and a living wage to WA-09.',
     'introTitle': "Building a Brand New Congress to represent Real People",
-    'introText': "A congressperson represents their people -- at least, they’re supposed to. Congress today works to protect the bottom line of powerful multinational corporations, not people like us. My circumstances, my sentiments and my values are shared all around me in the 9th District. I believe I am the person who can represent the loud, resistant, beacon of social change that is the 9th. I will fight for social and economic change against a system rigged for normal people like us to fail.",
-    'bioShort': 'Robb Ryerse has been a minister for over 20 years. Today he co-pastors Vintage Fellowship, nestled in Northwest Arkansas, with his wife Vanessa. Vintage Fellowship is a radically different kind of church that welcomes all people and is a member of',
+    'introText': "A congressperson represents their people&mdash;at least, they’re supposed to. Congress today works to protect the bottom line of powerful multinational corporations, not people like us. My circumstances, my sentiments and my values are shared all around me in the 9th District. I believe I am the person who can represent the loud, resistant, beacon of social change that is the 9th. I will fight for social and economic change against a system rigged for normal people like us to fail.",
+    'bioShort': 'Sarah Smith believes Congress will only represent regular people, if regular people step up and serve. Born into a working class family that was hit hard by the Great Recession, she knows what it’s like to work any job that keeps a roof over your head and to struggle with student loan debt. Always socially active, she became more politically engaged after 2016...',
     'quote': "How can a kid from Arkansas have any chance to become the next Sam Walton with the deck stacked so high against them?",
-    'imageActionShot': '//cdn.sitetheory.io/nest001/2056-Robb%20Ryerse%20Landing%20Action%20Shot%202-xs.jpg',
-    'imageModuleStore': '//cdn.sitetheory.io/nest001/2065/Robb%20Ryerse%20Landing%20Store%20Module-xs.jpg',
-    'imageStateOutline': '//cdn.sitetheory.io/nest001/2066/AR-03%20Landing%20State%20Outline-xs.png',
+    'imageActionShot': '//cdn.sitetheory.io/nest001/2134-imageModuleHolder-xs.jpg',
+    'imageModuleStore': '//cdn.sitetheory.io/nest001/2133-SarahSmith2018Shirt-xs.jpg',
+    'imageStateOutline': '//cdn.sitetheory.io/nest001/2136-washington9th-xs.png',
     'imageQuoteBackground': '',
     'urlPlatform': '/platform',
-    'urlDonate': 'https://www.crowdpac.com/campaigns/244359/robb-ryerse-for-congress',
-    'urlStore': 'https://shop.brandnewcongress.org/products/robb-ryerse-2018-campaign-shirt'
+    'urlDonate': 'https://secure.actblue.com/donate/sarahsmith2018',
+    'urlStore': 'https://shop.brandnewcongress.org/collections/candidate-collections/products/sarah-smith-2018-campaign-shirt'
 }
 %}
 {% endif %}
@@ -80,10 +80,10 @@ NOTE: this should be converted to the Candidate Landing Stream
 {% endblock candidateAgendaList %}
 
 {% block candidateHowToVoteList %}
-    <li class="clearfix"><a class="module_list_padding" href="http://www.sos.arkansas.gov/elections/Pages/voterResources.aspx" target="_blank"> Register to Vote </a></li>
-    <li class="clearfix"><a class="module_list_padding" href="https://www.voterview.ar-nova.org/VoterView/PollingPlaceSearch.do" target="_blank"> Find Your Polling Place </a></li>
-    <li class="clearfix"><a class="module_list_padding" href="http://www.sos.arkansas.gov/elections/Pages/votingMachines.aspx" target="_blank"> Voting Methods in Arkansas</a></li>
-    <li class="clearfix"><a class="module_list_padding" href="http://www.sos.arkansas.gov/elections/Documents/voter%20drive.pdf" target="_blank"> Host a Voter Registration Drive </a></li>
+    <li class="clearfix"><a class="module_list_padding" href="https://weiapplets.sos.wa.gov/MyVoteOLVR/MyVoteOLVR" target="_blank"> Register to Vote </a></li>
+    <li class="clearfix"><a class="module_list_padding" href="https://www.sos.wa.gov/elections/general-election-faqs.aspx" target="_blank">Washington Voter FAQ</a></li>
+    <li class="clearfix"><a class="module_list_padding" href="https://weiapplets.sos.wa.gov/MyVote/#/login" target="_blank">Check Your Voting Status</a></li>
+    <li class="clearfix"><a class="module_list_padding" href="https://www.sos.wa.gov/elections/voters/" target="_blank">Voting Resources</a></li>
 {% endblock candidateHowToVoteList %}
 
 
