@@ -658,11 +658,11 @@ LAYOUT
 
         <div id="siteMapContainer" class="siteMaxWidth siteSidePadding fontSecondary dark">
 
-            <div id="siteMapNew" layout="row" layout-wrap class="hide-xs hide-sm">
+            <div id="siteMapNew" class="clearfix hide-xs hide-sm">
                 {% if environment.user is not empty and environment.user.id == 2 %}
                     {{ block('siteMap') }}
                 {% endif %}
-                <div flex="25">
+                <div class="stGrid column25">
                     <div class="siteMapColumn">
                         <ul class="listUnstyled">
                             <li class="siteMapHeader">
@@ -677,7 +677,7 @@ LAYOUT
                         </ul>
                     </div>
                 </div>
-                <div flex="25">
+                <div class="stGrid column25">
                     <div class="siteMapColumn">
                         <ul class="listUnstyled">
                             <li class="siteMapHeader">
@@ -719,7 +719,7 @@ LAYOUT
                         </ul>
                     </div>
                 </div>
-                <div flex="25">
+                <div class="stGrid column25">
                     <div class="siteMapColumn">
                         <ul class="listUnstyled">
                             <li class="siteMapHeader">
@@ -737,7 +737,7 @@ LAYOUT
                         </ul>
                     </div>
                 </div>
-                <div flex="25">
+                <div class="stGrid column25">
                     <div class="siteMapColumn">
                         <ul class="listUnstyled">
                             <li class="siteMapHeader">

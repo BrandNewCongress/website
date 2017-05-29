@@ -146,7 +146,7 @@
                         {{ content.version.title }}
                     </h1>
                     <h4 class="pageSubTitle">
-                        {{ custom.stateLong }}
+                        {{ custom.officeFull }}
                     </h4>
                 </div>
                 <div id="candidateHeaderRight" class="stGrid column20">
@@ -234,7 +234,7 @@
             <p class="bodyLarge" id="welcomebody">{{ custom.introText|raw }}</p>
         </div>
         <div class="sectionBorder backgroundDark">&nbsp;</div>
-        <div class="candidateExcerpts" id="excerptsRow1">
+        <div ng-cloak class="candidateExcerpts" id="excerptsRow1">
             <md-grid-list md-cols-gt-sm="3" md-cols-sm="2" md-cols-xs="1" md-gutter="8px" md-row-height="1:1">
                 <md-grid-tile class="salmon column1" md-colspan="1" md-rowspan="1">
                     <div class="excerptContainer">
@@ -253,7 +253,7 @@
                 </md-grid-tile>
             </md-grid-list>
         </div>
-        <div class="candidateExcerpts clearfix" id="excerptsRow2">
+        <div ng-cloak class="candidateExcerpts clearfix" id="excerptsRow2">
             <div class="stGrid column33 column1">
                 <div class="excerptContainer linkList">
                     <h3>How to Vote</h3>

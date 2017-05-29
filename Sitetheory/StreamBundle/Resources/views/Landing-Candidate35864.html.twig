@@ -1,0 +1,91 @@
+{% extends '@SitetheoryStreamBundle/Landing-Candidate.html.twig' %}
+
+{# Load Site CSS #}
+{% block link %}
+
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/candidateLanding.css') }}">
+
+
+{% endblock link %}
+
+
+{% set sectionMenuActive = '' %}
+{% set sectionMenuHardCoded = '' %}
+
+{# Header image exists #}
+{% set streamClass = 'landingStream' %}
+
+{# Hide sidebar on desktop #}
+{% set columnSidebar = 'hide-gt-sm' %}
+{% set columnMain = '' %}
+
+{# Hide gutter in main column #}
+{% block mainColumnGutter %}
+{% endblock mainColumnGutter %}
+
+{# Remove standard header image #}
+{% block headerImageInsideHeader %}
+{% endblock headerImageInsideHeader %}
+
+
+
+
+
+{#
+NOTE: this should be converted to the Candidate Landing Stream
+#}
+{# Customizations for the Landing-Candidate.html.twig #}
+{% if custom is not defined %}
+{% set custom = {
+    'candidateSlug': (content.version.title | replace({' ': '-', '.': ''}) | lower),
+    'joinSubscriptions': '',
+    'classJoin': 'joinFormAlignLeft',
+    'twitterName': 'danny_ellyson',
+    'facebookName': 'dannyforcongress',
+    'linkedinName': '',
+    'phone': '(229) 798-4971',
+    'email': (content.version.title | replace({' ': '', '.': ''}) | lower),
+    'state': 'Georgia',
+    'stateLong': 'The Great State of Georgia',
+    'district': 'GA-08',
+    'districtLong': 'Georgia 8th',
+    'office': 'Representative',
+    'officeFull': 'For United States Congress 2018',
+    'joinHeader': 'Join me to bring liberty and opportunity back to Georgia&rsquo;s 8th',
+    'introTitle': "Liberty, Opportunity, and Justice for all",
+    'introText': "Throughout my military and private sector career, I&rsquo;ve gotten to know individuals in many counties across Georgia and see firsthand their opportunities, as well as their lack of them. Here in the 8th district -- and throughout our state&mdash;we see tremendous wealth and growth, but far too little of it finds its way to ordinary, hard-working citizens. Now I’m on a mission to create a Brand New Congress that will change that.",
+    'bioShort': 'I am an Army veteran with a voting record that crosses all party lines. I&rsquo;m running on an Independent Republican ticket -- but I&rsquo;m no RINO. I believe in what the Republican party IS, not what they&rsquo;re doing or who&rsquo;s in office. I believe in the foundation of democracy',
+    'quote': "I believe in the foundation of democracy&mdash;liberty, opportunity, and justice&mdash;without which our republic wouldn't exist.",
+    'imageActionShot': '//cdn.sitetheory.io/nest001/2152-homeImageModuleEllyson-xs.jpg',
+    'imageModuleStore': '//cdn.sitetheory.io/nest001/2147-storeShirtDannyEllyson-xs.jpg',
+    'imageStateOutline': '//cdn.sitetheory.io/nest001/2144/georgia8th-xs.png',
+    'imageQuoteBackground': '//cdn.sitetheory.io/nest001/2153-quoteBackgroundImageEllyson-xs.jpg',
+    'urlPlatform': '/platform',
+    'urlDonate': 'https://www.crowdpac.com/campaigns/250517/daniel-ellyson-for-congress',
+    'urlStore': 'https://shop.brandnewcongress.org/products/danny-ellyson-2018-campaign-shirt'
+}
+%}
+{% endif %}
+
+
+{# CODE BLOCKS #}
+{% block candidateAgendaList %}
+    <li>Make affordable health care available to all </li>
+    <li>Expand job opportunities for rural communities</li>
+    <li>Get money out of politics</li>
+    <li>Make clean energy a reality for cities and counties - creating job opportunities while increasing American energy independence
+    </li>
+{% endblock candidateAgendaList %}
+
+{% block candidateHowToVoteList %}
+    <li class="clearfix"><a class="module_list_padding" href="https://registertovote.sos.ga.gov/GAOLVR/welcome.do" target="_blank"> Register to Vote </a></li>
+    <li class="clearfix"><a class="module_list_padding" href="https://www.vote.org/state/georgia" target="_blank">Extra voting info & deadlines</a></li>
+    <li class="clearfix"><a class="module_list_padding" href="https://www.mvp.sos.ga.gov/MVP/mvp.do" target="_blank">Check your voter registration</a></li>
+    <li class="clearfix"><a class="module_list_padding" href="https://www.vote.org/absentee-ballot/georgia/" target="_blank">Get an absentee ballot</a></li>
+{% endblock candidateHowToVoteList %}
+
+
+
+
