@@ -3,6 +3,7 @@
 
 {% if custom is not defined %}
     {% set custom = {
+    'joinSubscriptions': '',
     'candidateSlug': (content.version.title | replace({' ': '-', '.': ''}) | lower),
     'urlDonate': 'https://robb2018.com/donate',
     'urlStore': 'https://shop.brandnewcongress.org/products/robb-ryerse-2018-campaign-shirt'

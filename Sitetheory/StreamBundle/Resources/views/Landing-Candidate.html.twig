@@ -70,6 +70,11 @@
 %}
 {% endif %}
 
+{# set the candidate and subscriptions on the signup form #}
+{% set candidateSlug = custom.candidateSlug %}
+{% set joinSubscriptions = custom.joinSubscriptions %}
+
+
 {# CODE BLOCKS #}
 {% block candidateSocialMediaList %}
 
@@ -168,6 +173,7 @@
                 <h2 class="fontTertiary">Sign Up!</h2>
                 <p>{{ custom.joinHeader|raw }}</p>
                 <!-- Don't use IDs here since this is used in 3 places and multiple IDs will break some JS -->
+                {# TODO: this should use the shell's `registrationForm` block and just set the subscriptions and candidates so that the footer signup also has these #}
                 <form class="positionAnchor joinForm" name="Signup" ng-class="status" ng-cloak="" ng-cloak-reveal="" ng-controller="Api" ng-sanitize="true" ng-submit="send('Signup') && tracking.send('SignupButton', 'click')" options='{"url":"https://api.brandnewcongress.org", "controller": "/people", "redirect":{"url":"{{ custom.urlDonate }}", "popup":false}}'
                     ng-init="model.data.subscriptions = '{{ custom.joinSubscriptions }}'; model.data.candidate = '{{ custom.candidateSlug }}'; "
                     >

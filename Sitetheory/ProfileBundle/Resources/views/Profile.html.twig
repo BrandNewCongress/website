@@ -16,6 +16,7 @@
 
 {% if custom is not defined %}
     {% set custom = {
+    'joinSubscriptions': 'justicedemocrats',
     'candidateSlug': (content.version.title | replace({' ': '-', '.': ''}) | lower),
     'urlDonate': '/donate',
     'urlStore': 'https://shop.brandnewcongress.org'
@@ -23,6 +24,9 @@
     %}
 {% endif %}
 
+{# set the candidate and subscriptions on the signup form #}
+{% set candidateSlug = custom.candidateSlug %}
+{% set joinSubscriptions = custom.joinSubscriptions %}
 
 {% block pageTitle %}
     <div class="siteMaxWidth siteSidePadding">
