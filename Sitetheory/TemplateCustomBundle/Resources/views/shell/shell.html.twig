@@ -145,13 +145,19 @@ SIGNUP FORM
 
 {% block registrationForm %}
 
-    <form name="Signup" ng-submit="send('Signup') && tracking.send('SignupButton', 'click')" ng-controller="Api"
-          ng-sanitize="true"
-          options='{"url":"https://api.{{ environment.site.domainprimary }}", "controller": "/people", "redirect":{"url":"{{ joinRedirectUrl | default('/donate') }}", "popup":false}}'
-          ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal
-          ng-init="model.data.subscriptions = '{{ joinSubscriptions | default('') }}'; model.data.candidate = '{{ candidateSlug | default('') }}';">
-        {# Hidden fields just need to be initialized with ng-init. And utmSource, utmMedium, utmCampaign are set in Api controller. #}
+    <form name="Signup" ng-submit="send('Signup') && tracking.send('SignupButton', 'click')" ng-controller="Api" ng-sanitize="true" ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal
+        {% block registrationFormOptions %}
+            options='{"url":"https://api.{{ environment.site.domainprimary }}", "controller": "/people", "redirect":{"url":"{{ joinRedirectUrl | default('/donate') }}", "popup":false}}'
+        {% endblock registrationFormOptions %}
+
+        {# NOTE: Hidden fields just need to be initialized with ng-init. And utmSource, utmMedium, utmCampaign are set in Api controller. #}
+        {% block registrationFormInit %}
+            ng-init="model.data.subscriptions = '{{ joinSubscriptions | default('') }}'; model.data.candidate = '{{ candidateSlug | default('') }}';"
+        {% endblock registrationFormInit %}
+    >
+
         <md-progress-circular md-mode="indeterminate" ng-show="status === 'sending'"></md-progress-circular>
+
         <p class="message" ng-show="response.length" ng-bind-html="response"></p>
 
         <ul class="listInline divCenter fontSecondary" ng-show="status !== 'success'">
@@ -207,11 +213,11 @@ SIGNUP FORM
             {{ registrationFormAfter|default('')|raw }}
 
         </ul>
-        <div class="legalAgreement fontBody">By signing up, I consent to receiving emails from <span class="blueText"><md-tooltip>Committed to electing a brand new, corruption-free Congress that represents all Americans.</md-tooltip>Brand New Congress</span>.
-
-            {# We are not including this on default signups now. #}
-            {#and <span class="blueText"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats.</span>#}
+        {% block registrationFormDisclaimer %}
+        <div class="legalAgreement fontBody">By signing up, I consent to receiving emails from <span class="blueText"><md-tooltip>Committed to electing a brand new, corruption-free Congress that represents all Americans.</md-tooltip>Brand New Congress</span>{% block registrationFormDisclaimerExtra %}{# We are not including this on default signups now. #}
+                {#and <span class="blueText"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats.</span>#}{% endblock registrationFormDisclaimerExtra %}.
         </div>
+        {% endblock registrationFormDisclaimer %}
     </form>
 {% endblock registrationForm %}
 

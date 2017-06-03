@@ -32,424 +32,128 @@
 
 
 
-{# CUSTOM FIELDS FOR CANDIDATES #}
-{# TODO: these need to eventually all be dynamic fields in the Stream Content Type so that they are edited in the CMS #}
+{# CUSTOMIZE REUSABLE REGISTRATION FORM WITH ANGULAR OPTIONS #}
+{% block registrationFormInit %}
+    ng-init="model.data.subscriptions = ($parent.model.data.version.custom.joinSubscriptions.length ? $parent.model.data.version.custom.joinSubscriptions.join(',') : ''); model.data.candidate = $parent.candidateSlug;"
+{% endblock registrationFormInit %}
 
-
-
-{# DYNAMIC #}
-{% if custom is not defined %}
-{% set custom = {
-    'candidateSlug': (content.version.title | replace({' ': '-', '.': ''}) | lower),
-    'joinSubscriptions': '',
-    'classJoin': 'joinFormAlignRight',
-    'twitterName': '',
-    'facebookName': '',
-    'linkedinName': '',
-    'email': (content.version.title | replace({' ': '', '.': ''}) | lower),
-    'phone': '',
-    'state': '',
-    'stateLong': '',
-    'district': '',
-    'districtLong': '',
-    'office': 'Representative',
-    'officeFull': "For United States Congress 2018",
-    'joinHeader': "Join me to elect a corruption-free congress.",
-    'introTitle': "",
-    'introText': "",
-    'bioShort': "",
-    'quote': "",
-    'imageActionShot': '',
-    'imageModuleStore': '',
-    'imageStateOutline': '',
-    'imageQuoteBackground': '',
-    'urlDonate': '/donate',
-    'urlPlatform': '/platform',
-    'urlStore': 'https://shop.brandnewcongress.org'
-    }
-%}
-{% endif %}
-
-{# set the candidate and subscriptions on the signup form #}
-{% set candidateSlug = custom.candidateSlug %}
-{% set joinSubscriptions = custom.joinSubscriptions %}
-
-
-{# CODE BLOCKS #}
-{% block candidateSocialMediaList %}
-
-    {% if custom.twitterName is not empty %}
-        <li class="candidateTwitter">
-            <a href="https://twitter.com/{{ custom.twitterName }}" target="_blank">&nbsp;</a>
-        </li>
-    {% endif %}
-
-    {% if custom.facebookName is not empty %}
-        <li class="candidateFacebook">
-            <a href="https://www.facebook.com/{{ custom.facebookName }}" target="_blank">&nbsp;</a>
-        </li>
-    {% endif %}
-
-    {% if custom.linkedinName is not empty %}
-        <li class="candidateLinkedin">
-            <a href="https://www.linkedin.com/in/{{ custom.linkedinName }}" target="_blank">&nbsp;</a>
-        </li>
-    {% endif %}
-
-{% endblock candidateSocialMediaList %}
-
-{% block candidateAgendaList %}
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-{% endblock candidateAgendaList %}
-
-{% block candidateHowToVoteList %}
-    <li class="clearfix"><a class="module_list_padding" href="" target="_blank"> Register to Vote </a></li>
-    <li class="clearfix"><a class="module_list_padding" href="" target="_blank"> Find Your Polling Place </a></li>
-    <li class="clearfix"><a class="module_list_padding" href="" target="_blank"> Voting Methods in Our State</a></li>
-    <li class="clearfix"><a class="module_list_padding" href="" target="_blank"> Host a Voter Registration Drive </a></li>
-{% endblock candidateHowToVoteList %}
-
-
-
-
+{% block registrationFormDisclaimerExtra %}
+    <span ng-if="$parent.model.data.version.custom.joinSubscriptions.indexOf('justicedemocrats') >= 0"> and <span class="tip"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats</span></span>
+{% endblock registrationFormDisclaimerExtra %}
 
 
 
 {% block contentType %}
 
-    {% if environment.dev %}
-        <div ng-controller="Generic" data-target="Stream/{{ content.id }}/Asset" {# data-api='{"limit":1}'
-        #}>
 
-            {# NOTE: right now only one record is set to stream to a candidate landing page (i.e. the profile) #}
 
+    {% if environment.dev is empty %}
 
-            <div id="candidateLanding" class="positionAnchor">
 
-                <div id="candidateLandingHeader">
-
-                    <div class="clearfix">
-                        <div id="candidateHeaderLeft" class="stGrid column20">
-                            <p class="smallLabel purpleText">{% verbatim %}{{ collection.models[0].data.version.custom.state }} {{ collection.models[0].data.version.custom.districtOrdinal }}{% endverbatim %}</p>
-                            <div class="stateOutline positionAnchor">
-                                <div class="stateOutline positionAnchor"><img id="stateOutline" stratus-src="{% verbatim %}{{ collection.models[0].data.version.custom.imageStateOutline[0].url }}{% endverbatim %}"></div>
-                            </div>
-                        </div>
-                        <div class="stGrid column60">
-                            <h1 class="fontTertiary" {{ block('editableContent') }} data-type="text" data-property="version.title"
-                                data-render="click">
-                                {{ content.version.title }}
-                            </h1>
-                            <h4 class="pageSubTitle">
-                                {% verbatim %}{{ collection.models[0].data.version.custom.runningLabel }}{% endverbatim %}
-                            </h4>
-                        </div>
-                        <div id="candidateHeaderRight" class="stGrid column20">
-                            <div class="socialMedia basicStyle clearfix">
-                                <ul class="listInline">
-                                    {{ block("candidateSocialMediaList") }}
-                                </ul>
-                            </div>
-                            <div class="candidateHeaderContribute clearfix"><a class="btn btnContribute" href="{{ custom.urlDonate }}" target="_blank">Support {{ content.version.title | split(' ') | first }}</a></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div id="candidateHeaderBorder">
-                <div class="borderThick">&nbsp;</div>
-                <div class="borderDotted">&nbsp;</div>
-            </div>
-            <div class="positionAnchor" id="heroArea">
-                <div class="candidateHero">{% if content.version.images.count > 0 %}<img id="heroImage" stratus-src src="{{ content.version.images[0].url }}">{% else %}<!-- No Image Specified -->{% endif %}</div>
-                <div id="candidateLandingJoin" ng-cloak="" class="{{ custom.classJoin }}">
-                    <div class="join_container clearfix">
-                        <h2 class="fontTertiary">Sign Up!</h2>
-                        <p>{{ custom.joinHeader|raw }}</p>
-                        <!-- Don't use IDs here since this is used in 3 places and multiple IDs will break some JS -->
-                        {# TODO: this should use the shell's `registrationForm` block and just set the subscriptions and candidates so that the footer signup also has these #}
-                        <form class="positionAnchor joinForm" name="Signup" ng-class="status" ng-cloak="" ng-cloak-reveal="" ng-controller="Api" ng-sanitize="true" ng-submit="send('Signup') && tracking.send('SignupButton', 'click')" options='{"url":"https://api.brandnewcongress.org", "controller": "/people", "redirect":{"url":"{{ custom.urlDonate }}", "popup":false}}'
-                              ng-init="model.data.subscriptions = '{{ custom.joinSubscriptions }}'; model.data.candidate = '{{ custom.candidateSlug }}'; "
-                        >
-                            {# Hidden fields just need to be initialized with ng-init. And utmSource, utmMedium, utmCampaign are set in Api controller. #}
-                            <p class="message" ng-show="response.length" ng-bind-html="response"></p>
-                            <ul class="listInline divCenter fontSecondary" ng-show="status !== 'success'">
-                                <li>
-                                    <md-input-container>
-                                        <label>Email</label>
-                                        <input name="email" type="email" ng-pattern="options.pattern.email" ng-model="model.data.email" required="" md-no-asterisk="">
-                                        <div ng-messages="Signup.email.$error" role="alert">
-                                            <div ng-message-exp="['required', 'pattern']">Please enter a valid email.</div>
-                                        </div>
-                                    </md-input-container>
-                                </li>
-                                <li>
-                                    {#
-                                    <div class="fieldInfo">
-                                        <md-tooltip>We will only use this to remind you to vote!</md-tooltip>
-                                        <md-icon class="" md-svg-src="/Api/Resource?path=@SitetheoryCoreBundle:images/icons/actionButtons/info.svg"></md-icon>
-                                    </div>
-                                    #}
-                                    <md-input-container>
-                                        <label>Phone</label>
-                                        <input name="phone" type="text" ng-model="model.data.phone" required="" md-no-asterisk="">
-                                        <div ng-messages="Signup.phone.$error" role="alert">
-                                            <div ng-message-exp="['required', 'pattern']">Please enter a valid phone number.</div>
-                                        </div>
-                                    </md-input-container>
-                                </li>
-                                <li>
-                                    <md-input-container>
-                                        <label>Zip</label>
-                                        <input name="zip" ng-pattern="options.pattern.zip" ng-model="model.data.zip" required="" md-no-asterisk="">
-                                        <div ng-messages="Signup.zip.$error" role="alert">
-                                            <div ng-message-exp="['required', 'pattern']">Please enter a valid zip code.</div>
-                                        </div>
-                                    </md-input-container>
-                                </li>
-                                <li>
-                                    <button class="btn formSubmit" ng-disabled="Signup.$invalid" type="submit">Sign Me Up</button>
-                                </li>
-                            </ul>
-                            <div class="legalAgreement fontBody">By signing up, I consent to receiving emails from <span class="tip"><md-tooltip>Committed to electing a brand new, corruption-free Congress that represents all Americans.</md-tooltip>Brand New Congress</span>{% if custom.joinSubscriptions != 'justicedemocrats' %}.{% else %} and <span class="tip"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats.</span>{% endif %}</div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-            {# TODO: MAIN BODY TEMPORARILY COMING IN FROM THE TEXT AREA OF THE EDITOR. EVENTUALLY IT WILL NEED TO WORK LIKE A REAL STREAM #}
-
-
-            <div id="welcome">
-                <h2 class="fontPrimary" id="welcomeTitle">{{ custom.introTitle|raw }}</h2>
-                <p class="bodyLarge" id="welcomebody">{{ custom.introText|raw }}</p>
-            </div>
-            <div class="sectionBorder backgroundDark">&nbsp;</div>
-            <div ng-cloak class="candidateExcerpts" id="excerptsRow1">
-                <md-grid-list md-cols-gt-sm="3" md-cols-sm="2" md-cols-xs="1" md-gutter="8px" md-row-height="1:1">
-                    <md-grid-tile class="salmon column1" md-colspan="1" md-rowspan="1">
-                        <div class="excerptContainer">
-                            <h3>About {{ content.version.title }}</h3>
-                            <p>{{ custom.bioShort|raw }}&hellip;</p>
-                            <a class="btn fontTertiary" href="/Candidates/{{ custom.candidateSlug }}">More</a></div>
-                    </md-grid-tile>
-                    <md-grid-tile class="column2" md-colspan="1" md-rowspan="1"> <img stratus-src="" src="{{ custom.imageActionShot }}"> </md-grid-tile>
-                    <md-grid-tile class="column3" md-colspan="1" md-colspan-sm="2" md-rowspan="1">
-                        <div class="excerptContainer">
-                            <h3>Fighting to</h3>
-                            <ul class="fontBody">
-                                {{ block('candidateAgendaList') }}
-                            </ul>
-                            <a class="btn fontTertiary" href="{{ custom.urlPlatform }}">See Full Platform</a></div>
-                    </md-grid-tile>
-                </md-grid-list>
-            </div>
-            <div ng-cloak class="candidateExcerpts clearfix" id="excerptsRow2">
-                <div class="stGrid column33 column1">
-                    <div class="excerptContainer linkList">
-                        <h3>How to Vote</h3>
-                        <ul class="listUnstyled fontBody">
-                            {{ block('candidateHowToVoteList') }}
-                        </ul>
-                    </div>
-                </div>
-                <div class="stGrid column33 column2">
-                    <div class="excerptContainer socialFeed">
-                        <h3>Recent</h3>
-                        <a class="twitter-timeline" data-width="390" data-height="330" data-theme="light" data-tweet-limit="1" href="https://twitter.com/{{ custom.twitterName }}" target="_blank">Tweets by {{ custom.twitterName }}</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    </div>
-                </div>
-                <div class="stGrid column33 column3 positionAnchor">
-                    <div class="excerptContainer imageButton backgroundDark">
-                        <a href="{{ custom.urlStore }}" target="_blank">
-                            <h3 class="verticalCenter">Get Your Own!</h3>
-                            <div class="imageContainer"><img stratus-src="" src="{{ custom.imageModuleStore }}"></div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-
-
-        {% block TMPcandidateLandingEvents %}
-            <div ng-cloak="" ng-controller="Api" options='{"url":"https://api.brandnewcongress.org","controller":"/events?candidate={{ custom.candidateSlug }}", "onLoad": "fetch"}'>
-                <div id="candidateLandingEvents">
-                    <md-list id="eventList" layout-padding="" ng-if="status == 'success' && results.length">
-                        <h3>Coming Up</h3>
-                        <div id="eventListHeader">
-                            <div hide-xs hide-sm class="clearfix">
-                                <div class="stGrid column20">&nbsp;</div>
-                                <div class="stGrid column40">
-                                    <h2 class="fontTertiary">Event</h2>
-                                </div>
-                                <div class="stGrid column40">
-                                    <h2 class="fontTertiary">Location</h2>
-                                </div>
-                            </div>
-                            <h2 hide-gt-sm="">Scheduled Events</h2>
-                        </div>
-                        <div class="borderDotted"></div>
-                        <!-- Progress Bar -->
-                        {#
-                        <md-list-item layout="row" layout-align="space-between center" ng-if="status == 'success' && !results.length">
-                            <div class="error" flex="">There are no scheduled events at this time.</div>
-                        </md-list-item>
-                        #}
-                        {% verbatim %}
-                    <!-- List Body with Repeating Rows -->
-                    <md-list-item layout-gt-sm="row" layout-wrap="" layout-align="center start" ng-repeat="model in results">
-                        <div flex-order-xs="3" flex-order-sm="3" class="action stGrid column20 fontTertiary">
-                            <md-button aria-label="join" class="md-fab md-primary" href="{{model.url}}" target="_blank"> RSVP </md-button>
-                        </div>
-                        <div class="info stGrid column40 fontSecondary">
-                            <div class="eventTitle"><em>{{ model.title }}</em></div>
-                            <div class="time">{{ model.startTime | date: 'MMM d @ h:mm a' : model.timeZoneOffset }} - <span class="newDay" ng-if="(model.startTime | date: 'MMM d') != (model.endTime | date: 'MMM d')">{{ model.endTime | date: 'MMM d' : model.timeZoneOffset }}</span> {{ model.endTime | date : 'h:mm a' : model.timeZoneOffset }}</div>
-                        </div>
-                        <div class="location stGrid column40 fontSecondary">
-                            <div class="locationName"><em><a ng-href="https://www.google.com/maps/place/{{ model.venue.address.address1 + ', ' + model.venue.address.city + ', ' + model.venue.address.state + ', ' + model.venue.address.zip }}" target="_blank">{{ model.venue.name }}</a></em></div>
-                            <div class="locationAddress">{{ model.venue.address.address1 }}</div>
-                            <div class="locationAddress locationAddress2" ng-if="model.venue.address.address2">{{ model.venue.address.address2 }}</div>
-                            <div class="locationCity">{{ model.venue.address.city }} {{ model.venue.address.state }} {{ model.venue.address.zip }}</div>
-                        </div>
-                    </md-list-item>
-                    {% endverbatim %}
-
-                    </md-list>
-                </div>
-            </div>
-        {% endblock TMPcandidateLandingEvents %}
-
-
-        <div ng-cloak hide-gt-sm class="mobileDonate"><a class="btn btnSalmon btnDonate" href="{{ custom.urlDonate }}" target="_blank">Support {{ content.version.title }}</a></div>
-
-
-        {% block TMPcandidateLandingQuote %}
-            {% if custom.quote is not empty and custom.imageQuoteBackground is not empty %}
-                <div class="positionAnchor" id="candidateQuote">
-                    <div id="quoteImage"><img stratus-src src="{{ custom.imageQuoteBackground }}"></div>
-                    <div class="verticalCenter" id="quote">
-                        <p class="bodyLarge">
-                            {{ custom.quote|raw }}
-                        </p>
-                    </div>
-                </div>
-            {% endif %}
-        {% endblock TMPcandidateLandingQuote %}
-
-
-        {% block TMPcandidateLandingEndorsements %}
-            <div id="bncArea">
-                <div class="moduleBody">
-                    <div class="BNCmark">
-                        <a href="/">
-                            <img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogoMarkOnly.png') }}" alt="">
-                        </a>
-                    </div>
-                    <h2 class="fontTertiary">About Brand New Congress</h2>
-                    <div class="intro">
-                        <p>I am joining a team with hundreds of other candidates in a single campaign to rebuild our country.</p>
-                    </div>
-                    <div class="planGraphic">
-                        <img src="{{ asset('bundles/sitetheorytemplatecustom/images/planGraphicPurple.png') }}" alt="">
-                    </div>
-                    <p class="body">BNC candidates like {{ content.version.title }} are completely funded by small donations from real Americans. As a {{ custom.office }}, {{ content.version.title | split(' ') | first }} will be free to serve, rather than fundraise and meet with lobbyists. {{ content.version.title | split(' ') | first }} will work for all Americans without pressure from corporations and special interests.</p>
-                    <p class="body"><strong>It will take millions of dollars and thousands of volunteers to elect a corruption-free Congress, so consider supporting {{ content.version.title }} now. Every dollar matters.</strong></p>
-                    {# TODO: create a custom field for the donation link #}
-                    <div class="clearfix" id="bncAreaCTA"><a class="btn btnSalmon btnDonate" href="{{ custom.urlDonate }}" target="_blank">Donate</a>
-                        <a class="btn btnVolunteer" href="/volunteer?candidate={{ custom.candidateSlug }}">Volunteer</a>
-                    </div>
-                </div>
-            </div>
-        {% endblock TMPcandidateLandingEndorsements %}
-
-
-
-
-
-        {% block TMPcandidateContact %}
-            {% if custom.phone is not empty or custom.email is not empty %}
-
-                <div class="sectionBorder backgroundDark"></div>
-
-                <div id="candidateContact" class="clearfix fontSecondary">
-                    <h2 class="fontTertiary">Contact</h2>
-                    {% if custom.phone is not empty %}
-                        {{ custom.phone }}
-                    {% endif %}
-                    <br hide-gt-sm>
-                    {% if custom.phone is not empty and custom.email is not empty %}
-                        <span hide-xs hide-sm class="delimiter">|</span>
-                    {% endif %}
-                    {% if custom.email is not empty %}
-                        General: <a href="mailto:{{ custom.email }}@brandnewcongress.org">{{ custom.email }}@brandnewcongress.org</a><span hide-xs hide-sm class="delimiter">|</span>
-
-                        <br hide-gt-sm>
-
-                        Press: <a href="mailto:press+{{ custom.email }}@brandnewcongress.org">press+{{ custom.email }}@brandnewcongress.org</a>
-                    {% endif %}
-                </div>
-
-            {% endif %}
-        {% endblock TMPcandidateContact %}
-
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    {% else %}
-
-        {# TODO: this should be converted to the Candidate Landing Stream, but it's all hard coded for the time being so we can customize for each candidate. Even the text isn't editable. #}
         {#
-        {% autoescape false %}
-            {{ content.version.text }}
-        {% endautoescape %}
+
+        ###################################################################################################################
+        ###################################################################################################################
+        ###################################################################################################################
+        ###################################################################################################################
+        ###################################################################################################################
+
+        ORIGINAL LIVE CODE BELOW:
+
+        TODO: DEPRECATED
+        THIS CODE BELOW IS DEPRECATED AND TO BE DELETED AFTER WE GET CUSTOM VARIABLES WORKING. AND ALL THE CUSTOM
+        CANDIDATE PAGES SHOULD BE DELETED AS WELL (ONCE THEY HAVE TRANSFERRED THE DATA TO THE CUSTOM FEILDS IN THE ADMIN).
+
+        ###################################################################################################################
+        ###################################################################################################################
+        ###################################################################################################################
+        ###################################################################################################################
+        ###################################################################################################################
         #}
+
+
+        {# CUSTOM FIELDS FOR CANDIDATES #}
+        {# TODO: these need to eventually all be dynamic fields in the Stream Content Type so that they are edited in the CMS #}
+
+
+
+        {# DYNAMIC #}
+        {% if custom is not defined %}
+            {% set custom = {
+            'candidateSlug': (content.version.title | replace({' ': '-', '.': ''}) | lower),
+            'joinSubscriptions': '',
+            'classJoin': 'joinFormAlignRight',
+            'twitterName': '',
+            'facebookName': '',
+            'linkedinName': '',
+            'email': (content.version.title | replace({' ': '', '.': ''}) | lower),
+            'phone': '',
+            'state': '',
+            'stateLong': '',
+            'district': '',
+            'districtLong': '',
+            'office': 'Representative',
+            'officeFull': "For United States Congress 2018",
+            'joinHeader': "Join me to elect a corruption-free congress.",
+            'introTitle': "",
+            'introText': "",
+            'bioShort': "",
+            'quote': "",
+            'imageActionShot': '',
+            'imageModuleStore': '',
+            'imageStateOutline': '',
+            'imageQuoteBackground': '',
+            'urlDonate': '/donate',
+            'urlPlatform': '/platform',
+            'urlStore': 'https://shop.brandnewcongress.org'
+            }
+            %}
+        {% endif %}
+
+        {# set the candidate and subscriptions on the signup form #}
+        {% set candidateSlug = custom.candidateSlug %}
+        {% set joinSubscriptions = custom.joinSubscriptions %}
+
+
+        {# CODE BLOCKS #}
+        {% block candidateSocialMediaList %}
+
+            {% if custom.twitterName is not empty %}
+                <li class="candidateTwitter">
+                    <a href="https://twitter.com/{{ custom.twitterName }}" target="_blank">&nbsp;</a>
+                </li>
+            {% endif %}
+
+            {% if custom.facebookName is not empty %}
+                <li class="candidateFacebook">
+                    <a href="https://www.facebook.com/{{ custom.facebookName }}" target="_blank">&nbsp;</a>
+                </li>
+            {% endif %}
+
+            {% if custom.linkedinName is not empty %}
+                <li class="candidateLinkedin">
+                    <a href="https://www.linkedin.com/in/{{ custom.linkedinName }}" target="_blank">&nbsp;</a>
+                </li>
+            {% endif %}
+
+        {% endblock candidateSocialMediaList %}
+
+        {% block candidateAgendaList %}
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        {% endblock candidateAgendaList %}
+
+        {% block candidateHowToVoteList %}
+            <li class="clearfix"><a class="module_list_padding" href="" target="_blank"> Register to Vote </a></li>
+            <li class="clearfix"><a class="module_list_padding" href="" target="_blank"> Find Your Polling Place </a></li>
+            <li class="clearfix"><a class="module_list_padding" href="" target="_blank"> Voting Methods in Our State</a></li>
+            <li class="clearfix"><a class="module_list_padding" href="" target="_blank"> Host a Voter Registration Drive </a></li>
+        {% endblock candidateHowToVoteList %}
+
+
 
         <div id="candidateLanding" class="positionAnchor">
 
@@ -497,8 +201,8 @@
                     <!-- Don't use IDs here since this is used in 3 places and multiple IDs will break some JS -->
                     {# TODO: this should use the shell's `registrationForm` block and just set the subscriptions and candidates so that the footer signup also has these #}
                     <form class="positionAnchor joinForm" name="Signup" ng-class="status" ng-cloak="" ng-cloak-reveal="" ng-controller="Api" ng-sanitize="true" ng-submit="send('Signup') && tracking.send('SignupButton', 'click')" options='{"url":"https://api.brandnewcongress.org", "controller": "/people", "redirect":{"url":"{{ custom.urlDonate }}", "popup":false}}'
-                        ng-init="model.data.subscriptions = '{{ custom.joinSubscriptions }}'; model.data.candidate = '{{ custom.candidateSlug }}'; "
-                        >
+                          ng-init="model.data.subscriptions = '{{ custom.joinSubscriptions }}'; model.data.candidate = '{{ custom.candidateSlug }}'; "
+                    >
                         {# Hidden fields just need to be initialized with ng-init. And utmSource, utmMedium, utmCampaign are set in Api controller. #}
                         <p class="message" ng-show="response.length" ng-bind-html="response"></p>
                         <ul class="listInline divCenter fontSecondary" ng-show="status !== 'success'">
@@ -551,84 +255,84 @@
         {# TODO: MAIN BODY TEMPORARILY COMING IN FROM THE TEXT AREA OF THE EDITOR. EVENTUALLY IT WILL NEED TO WORK LIKE A REAL STREAM #}
 
 
-            <div id="welcome">
-                <h2 class="fontPrimary" id="welcomeTitle">{{ custom.introTitle|raw }}</h2>
-                <p class="bodyLarge" id="welcomebody">{{ custom.introText|raw }}</p>
-            </div>
-            <div class="sectionBorder backgroundDark">&nbsp;</div>
-            <div ng-cloak class="candidateExcerpts" id="excerptsRow1">
-                <md-grid-list md-cols-gt-sm="3" md-cols-sm="2" md-cols-xs="1" md-gutter="8px" md-row-height="1:1">
-                    <md-grid-tile class="salmon column1" md-colspan="1" md-rowspan="1">
-                        <div class="excerptContainer">
-                            <h3>About {{ content.version.title }}</h3>
-                            <p>{{ custom.bioShort|raw }}&hellip;</p>
-                            <a class="btn fontTertiary" href="/Candidates/{{ custom.candidateSlug }}">More</a></div>
-                    </md-grid-tile>
-                    <md-grid-tile class="column2" md-colspan="1" md-rowspan="1"> <img stratus-src="" src="{{ custom.imageActionShot }}"> </md-grid-tile>
-                    <md-grid-tile class="column3" md-colspan="1" md-colspan-sm="2" md-rowspan="1">
-                        <div class="excerptContainer">
-                            <h3>Fighting to</h3>
-                            <ul class="fontBody">
-                                {{ block('candidateAgendaList') }}
-                            </ul>
-                            <a class="btn fontTertiary" href="{{ custom.urlPlatform }}">See Full Platform</a></div>
-                    </md-grid-tile>
-                </md-grid-list>
-            </div>
-            <div ng-cloak class="candidateExcerpts clearfix" id="excerptsRow2">
-                <div class="stGrid column33 column1">
-                    <div class="excerptContainer linkList">
-                        <h3>How to Vote</h3>
-                        <ul class="listUnstyled fontBody">
-                            {{ block('candidateHowToVoteList') }}
+        <div id="welcome">
+            <h2 class="fontPrimary" id="welcomeTitle">{{ custom.introTitle|raw }}</h2>
+            <p class="bodyLarge" id="welcomebody">{{ custom.introText|raw }}</p>
+        </div>
+        <div class="sectionBorder backgroundDark">&nbsp;</div>
+        <div ng-cloak class="candidateExcerpts" id="excerptsRow1">
+            <md-grid-list md-cols-gt-sm="3" md-cols-sm="2" md-cols-xs="1" md-gutter="8px" md-row-height="1:1">
+                <md-grid-tile class="salmon column1" md-colspan="1" md-rowspan="1">
+                    <div class="excerptContainer">
+                        <h3>About {{ content.version.title }}</h3>
+                        <p>{{ custom.bioShort|raw }}&hellip;</p>
+                        <a class="btn fontTertiary" href="/Candidates/{{ custom.candidateSlug }}">More</a></div>
+                </md-grid-tile>
+                <md-grid-tile class="column2" md-colspan="1" md-rowspan="1"> <img stratus-src="" src="{{ custom.imageActionShot }}"> </md-grid-tile>
+                <md-grid-tile class="column3" md-colspan="1" md-colspan-sm="2" md-rowspan="1">
+                    <div class="excerptContainer">
+                        <h3>Fighting to</h3>
+                        <ul class="fontBody">
+                            {{ block('candidateAgendaList') }}
                         </ul>
-                    </div>
-                </div>
-                <div class="stGrid column33 column2">
-                    <div class="excerptContainer socialFeed">
-                        <h3>Recent</h3>
-                        <a class="twitter-timeline" data-width="390" data-height="330" data-theme="light" data-tweet-limit="1" href="https://twitter.com/{{ custom.twitterName }}" target="_blank">Tweets by {{ custom.twitterName }}</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    </div>
-                </div>
-                <div class="stGrid column33 column3 positionAnchor">
-                    <div class="excerptContainer imageButton backgroundDark">
-                        <a href="{{ custom.urlStore }}" target="_blank">
-                            <h3 class="verticalCenter">Get Your Own!</h3>
-                            <div class="imageContainer"><img stratus-src="" src="{{ custom.imageModuleStore }}"></div>
-                        </a>
-                    </div>
+                        <a class="btn fontTertiary" href="{{ custom.urlPlatform }}">See Full Platform</a></div>
+                </md-grid-tile>
+            </md-grid-list>
+        </div>
+        <div ng-cloak class="candidateExcerpts clearfix" id="excerptsRow2">
+            <div class="stGrid column33 column1">
+                <div class="excerptContainer linkList">
+                    <h3>How to Vote</h3>
+                    <ul class="listUnstyled fontBody">
+                        {{ block('candidateHowToVoteList') }}
+                    </ul>
                 </div>
             </div>
+            <div class="stGrid column33 column2">
+                <div class="excerptContainer socialFeed">
+                    <h3>Recent</h3>
+                    <a class="twitter-timeline" data-width="390" data-height="330" data-theme="light" data-tweet-limit="1" href="https://twitter.com/{{ custom.twitterName }}" target="_blank">Tweets by {{ custom.twitterName }}</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+            </div>
+            <div class="stGrid column33 column3 positionAnchor">
+                <div class="excerptContainer imageButton backgroundDark">
+                    <a href="{{ custom.urlStore }}" target="_blank">
+                        <h3 class="verticalCenter">Get Your Own!</h3>
+                        <div class="imageContainer"><img stratus-src="" src="{{ custom.imageModuleStore }}"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
 
         </div>
 
 
 
         {% block candidateLandingEvents %}
-        <div ng-cloak="" ng-controller="Api" options='{"url":"https://api.brandnewcongress.org","controller":"/events?candidate={{ custom.candidateSlug }}", "onLoad": "fetch"}'>
-            <div id="candidateLandingEvents">
-                <md-list id="eventList" layout-padding="" ng-if="status == 'success' && results.length">
-                    <h3>Coming Up</h3>
-                    <div id="eventListHeader">
-                        <div hide-xs hide-sm class="clearfix">
-                            <div class="stGrid column20">&nbsp;</div>
-                            <div class="stGrid column40">
-                                <h2 class="fontTertiary">Event</h2>
+            <div ng-cloak="" ng-controller="Api" options='{"url":"https://api.brandnewcongress.org","controller":"/events?candidate={{ custom.candidateSlug }}", "onLoad": "fetch"}'>
+                <div id="candidateLandingEvents">
+                    <md-list id="eventList" layout-padding="" ng-if="status == 'success' && results.length">
+                        <h3>Coming Up</h3>
+                        <div id="eventListHeader">
+                            <div hide-xs hide-sm class="clearfix">
+                                <div class="stGrid column20">&nbsp;</div>
+                                <div class="stGrid column40">
+                                    <h2 class="fontTertiary">Event</h2>
+                                </div>
+                                <div class="stGrid column40">
+                                    <h2 class="fontTertiary">Location</h2>
+                                </div>
                             </div>
-                            <div class="stGrid column40">
-                                <h2 class="fontTertiary">Location</h2>
-                            </div>
+                            <h2 hide-gt-sm="">Scheduled Events</h2>
                         </div>
-                        <h2 hide-gt-sm="">Scheduled Events</h2>
-                    </div>
-                    <div class="borderDotted"></div>
-                    <!-- Progress Bar -->
-                    {#
-                    <md-list-item layout="row" layout-align="space-between center" ng-if="status == 'success' && !results.length">
-                        <div class="error" flex="">There are no scheduled events at this time.</div>
-                    </md-list-item>
-                    #}
-                    {% verbatim %}
+                        <div class="borderDotted"></div>
+                        <!-- Progress Bar -->
+                        {#
+                        <md-list-item layout="row" layout-align="space-between center" ng-if="status == 'success' && !results.length">
+                            <div class="error" flex="">There are no scheduled events at this time.</div>
+                        </md-list-item>
+                        #}
+                        {% verbatim %}
                     <!-- List Body with Repeating Rows -->
                     <md-list-item layout-gt-sm="row" layout-wrap="" layout-align="center start" ng-repeat="model in results">
                         <div flex-order-xs="3" flex-order-sm="3" class="action stGrid column20 fontTertiary">
@@ -647,9 +351,9 @@
                     </md-list-item>
                     {% endverbatim %}
 
-                </md-list>
+                    </md-list>
+                </div>
             </div>
-        </div>
         {% endblock candidateLandingEvents %}
 
 
@@ -671,28 +375,28 @@
 
 
         {% block candidateLandingEndorsements %}
-        <div id="bncArea">
-            <div class="moduleBody">
-                <div class="BNCmark">
-                    <a href="/">
-                        <img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogoMarkOnly.png') }}" alt="">
-                    </a>
-                </div>
-                <h2 class="fontTertiary">About Brand New Congress</h2>
-                <div class="intro">
-                    <p>I am joining a team with hundreds of other candidates in a single campaign to rebuild our country.</p>
-                </div>
-                <div class="planGraphic">
-                    <img src="{{ asset('bundles/sitetheorytemplatecustom/images/planGraphicPurple.png') }}" alt="">
-                </div>
-                <p class="body">BNC candidates like {{ content.version.title }} are completely funded by small donations from real Americans. As a {{ custom.office }}, {{ content.version.title | split(' ') | first }} will be free to serve, rather than fundraise and meet with lobbyists. {{ content.version.title | split(' ') | first }} will work for all Americans without pressure from corporations and special interests.</p>
-                <p class="body"><strong>It will take millions of dollars and thousands of volunteers to elect a corruption-free Congress, so consider supporting {{ content.version.title }} now. Every dollar matters.</strong></p>
-                {# TODO: create a custom field for the donation link #}
-                <div class="clearfix" id="bncAreaCTA"><a class="btn btnSalmon btnDonate" href="{{ custom.urlDonate }}" target="_blank">Donate</a>
-                    <a class="btn btnVolunteer" href="/volunteer?candidate={{ custom.candidateSlug }}">Volunteer</a>
+            <div id="bncArea">
+                <div class="moduleBody">
+                    <div class="BNCmark">
+                        <a href="/">
+                            <img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogoMarkOnly.png') }}" alt="">
+                        </a>
+                    </div>
+                    <h2 class="fontTertiary">About Brand New Congress</h2>
+                    <div class="intro">
+                        <p>I am joining a team with hundreds of other candidates in a single campaign to rebuild our country.</p>
+                    </div>
+                    <div class="planGraphic">
+                        <img src="{{ asset('bundles/sitetheorytemplatecustom/images/planGraphicPurple.png') }}" alt="">
+                    </div>
+                    <p class="body">BNC candidates like {{ content.version.title }} are completely funded by small donations from real Americans. As a {{ custom.office }}, {{ content.version.title | split(' ') | first }} will be free to serve, rather than fundraise and meet with lobbyists. {{ content.version.title | split(' ') | first }} will work for all Americans without pressure from corporations and special interests.</p>
+                    <p class="body"><strong>It will take millions of dollars and thousands of volunteers to elect a corruption-free Congress, so consider supporting {{ content.version.title }} now. Every dollar matters.</strong></p>
+                    {# TODO: create a custom field for the donation link #}
+                    <div class="clearfix" id="bncAreaCTA"><a class="btn btnSalmon btnDonate" href="{{ custom.urlDonate }}" target="_blank">Donate</a>
+                        <a class="btn btnVolunteer" href="/volunteer?candidate={{ custom.candidateSlug }}">Volunteer</a>
+                    </div>
                 </div>
             </div>
-        </div>
         {% endblock candidateLandingEndorsements %}
 
 
@@ -711,7 +415,7 @@
                     {% endif %}
                     <br hide-gt-sm>
                     {% if custom.phone is not empty and custom.email is not empty %}
-                    <span hide-xs hide-sm class="delimiter">|</span>
+                        <span hide-xs hide-sm class="delimiter">|</span>
                     {% endif %}
                     {% if custom.email is not empty %}
                         General: <a href="mailto:{{ custom.email }}@brandnewcongress.org">{{ custom.email }}@brandnewcongress.org</a><span hide-xs hide-sm class="delimiter">|</span>
@@ -725,7 +429,284 @@
             {% endif %}
         {% endblock candidateContact %}
 
+
+
+    {% else %}
+
+
+
+    {#
+
+    ###################################################################################################################
+    ###################################################################################################################
+    ###################################################################################################################
+    ###################################################################################################################
+    ###################################################################################################################
+
+    DEVELOPMENT CODE:
+    This block below in the environment.dev section is the new dyanmic content that is being developed.
+    The old code that references the {{ custom.foo }} data, is after the {% else %} statement half way down the page.
+
+    ###################################################################################################################
+    ###################################################################################################################
+    ###################################################################################################################
+    ###################################################################################################################
+    ###################################################################################################################
+    #}
+
+
+    {# TODO: uncomment the data-api limit #}
+    <div ng-controller="Generic" ng-sanitize="true" data-target="Stream/{{ content.id }}/Asset" {#data-api='{"limit":1}'#}>
+
+        {# NOTE: right now only one record should be set to stream to a candidate landing page (i.e. the profile) #}
+        <div ng-repeat="model in collection.models" ng-init="candidateSlug = model.data.version.title.replace(' ', '-').replace('.', ''); candidateFirstName = model.data.version.title.split(' ')[0]; urlDonate = (model.data.version.urls.length ? model.data.version.urls[0].value : '')+'/donate'">
+
+            <div id="candidateLanding" class="positionAnchor">
+    
+                <div id="candidateLandingHeader">
+    
+                    <div class="clearfix">
+                        <div id="candidateHeaderLeft" class="stGrid column20">
+                            <p class="smallLabel purpleText" ng-bind-html="model.data.version.custom.state + ' ' + model.data.version.custom.districtOrdinal"></p>
+                            <div class="stateOutline positionAnchor">
+                                <div class="stateOutline positionAnchor"><img id="stateOutline" ng-if="model.data.version.custom.imageStateOutline.length" stratus-src="model.data.version.custom.imageStateOutline[0].url"></div>
+                            </div>
+                        </div>
+                        <div class="stGrid column60">
+                            <h1 class="fontTertiary" ng-bind-html="model.data.version.title"></h1>
+                            <h4 class="pageSubTitle" ng-bind-html="model.data.version.custom.runningLabel"></h4>
+                        </div>
+                        <div id="candidateHeaderRight" class="stGrid column20">
+                            <div class="socialMedia basicStyle clearfix">
+                                <ul class="listInline">
+                                    {% verbatim %}
+                                    <li ng-if="model.data.version.custom.twitterName" class="candidateTwitter">
+                                        <a ng-href="https://twitter.com/{{ model.data.version.custom.twitterName }}" target="_blank">&nbsp;</a>
+                                    </li>
+                                    <li ng-if="model.data.version.custom.facebookName" class="candidateFacebook">
+                                        <a ng-href="https://www.facebook.com/{{ model.data.version.custom.facebookName }}" target="_blank">&nbsp;</a>
+                                    </li>
+                                    <li ng-if="model.data.version.custom.linkedinName" class="candidateLinkedin">
+                                        <a ng-href="https://www.linkedin.com/in/{{ model.data.version.custom.linkedinName }}" target="_blank">&nbsp;</a>
+                                    </li>
+                                    {% endverbatim %}
+                                </ul>
+                            </div>
+                            {# This uses the first URL in the list for the main domain: #}
+                            {% verbatim %}
+                            <div class="candidateHeaderContribute clearfix"><a class="btn btnContribute" ng-href="{{ urlDonate }}" target="_blank">Support <span ng-cloak>{{ candidateFirstName }}</span></a></div>
+                            {% endverbatim %}
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+    
+    
+            <div id="candidateHeaderBorder">
+                <div class="borderThick">&nbsp;</div>
+                <div class="borderDotted">&nbsp;</div>
+            </div>
+    
+    
+            <div class="positionAnchor" id="heroArea">
+                <div class="candidateHero"><img id="heroImage" ng-if="model.data.version.custom.imageHero.length" stratus-src="model.data.version.custom.imageHero[0].url"></div>
+                <div id="candidateLandingJoin" ng-cloak="" ng-class="'joinFormAlign'+_.ucfirst(model.data.version.custom.classJoinFormAlign || 'Right' )">
+                    <div class="join_container clearfix">
+                        <h2 class="fontTertiary">Sign Up!</h2>
+                        <p ng-bind-html="model.data.version.custom.joinHeader"></p>
+
+                        {# Customized with Angular Options above #}
+                        {{ block('registrationForm') }}
+
+                    </div>
+                </div>
+            </div>
+    
+    
+            <div id="welcome">
+                <h2 class="fontPrimary" id="welcomeTitle" ng-bind-html="model.data.version.custom.introTitle"></h2>
+                <p class="bodyLarge" id="welcomeText" ng-bind-html="model.data.version.custom.introText"></p>
+            </div>
+    
+    
+            <div class="sectionBorder backgroundDark">&nbsp;</div>
+    
+    
+            <div ng-cloak class="candidateExcerpts" id="excerptsRow1">
+                {% verbatim %}
+                <md-grid-list md-cols-gt-sm="3" md-cols-sm="2" md-cols-xs="1" md-gutter="8px" md-row-height="1:1">
+                    <md-grid-tile class="salmon column1" md-colspan="1" md-rowspan="1">
+                        <div class="excerptContainer">
+                            <h3>About <span ng-cloak>{{ model.data.version.title }}</span></h3>
+                            <p ng-bind-html="model.data.version.custom.bioTeaser+'&hellip;'"></p>
+                            <a class="btn fontTertiary" ng-href="/Candidates/{{ candidateSlug }}">More</a></div>
+                    </md-grid-tile>
+                    <md-grid-tile class="column2" md-colspan="1" md-rowspan="1"> <img id="imageAction" ng-if="model.data.version.custom.imageAction.length" stratus-src="model.data.version.custom.imageAction[0].url" alt="{{ model.data.version.custom.imageAction[0].name }}"> </md-grid-tile>
+                    <md-grid-tile class="column3" md-colspan="1" md-colspan-sm="2" md-rowspan="1">
+                        <div class="excerptContainer">
+                            <h3>Fighting to</h3>
+                            <div class="fontBody" ng-bind-html="model.data.version.custom.agendaList"></div>
+                            <a class="btn fontTertiary" ng-href="{{ model.data.version.custom.urlPlatform || '/platform' }}">See Full Platform</a></div>
+                    </md-grid-tile>
+                </md-grid-list>
+                {% endverbatim %}
+            </div>
+    
+    
+            <div ng-cloak class="candidateExcerpts clearfix" id="excerptsRow2">
+                {% verbatim %}
+                <div class="stGrid column33 column1">
+                    <div class="excerptContainer linkList">
+                        <h3>How to Vote</h3>
+                        <div class="listUnstyled fontBody" ng-bind-html="model.data.version.custom.involvedList"></div>
+                    </div>
+                </div>
+                <div class="stGrid column33 column2">
+                    <div class="excerptContainer socialFeed">
+                        <h3>Recent</h3>
+                        <a class="twitter-timeline" data-width="390" data-height="330" data-theme="light" data-tweet-limit="1" ng-href="https://twitter.com/{{ model.data.version.custom.twitterName || 'brandnew535' }}" target="_blank">Tweets by {{ model.data.version.custom.twitterName }}</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                </div>
+                <div class="stGrid column33 column3 positionAnchor">
+                    <div class="excerptContainer imageButton backgroundDark">
+                        <a ng-href="{{ model.data.version.custom.urls.length ? model.data.version.custom.urls[0].value : ''}}/store" target="_blank">
+                            <h3 class="verticalCenter">Get Your Own!</h3>
+                            <div class="imageContainer"><img ng-if="model.data.version.custom.imageStore.length" stratus-src="model.data.version.custom.imageStore[0].url" alt="{{ model.data.version.custom.imageStore[0].name }}"></div>
+                        </a>
+                    </div>
+                </div>
+                {% endverbatim %}
+            </div>
+    
+    
+            {% block TMPcandidateLandingEvents %}
+                <div ng-controller="Api" options='{"url":"https://api.brandnewcongress.org","controller":"/events?candidate={% verbatim %}{{ candidateSlug }}{% endverbatim %}", "onLoad": "fetch"}'>
+                    <div id="candidateLandingEvents">
+                        {# Progress Bar: outside of ng-if because ATM we hide everything if there are no results so we would never see the progress #}
+                        {# TODO: test this progress bar, I'm not sure it ever shows ATM #}
+                        <md-progress-bar md-mode="indeterminate" ng-show="status == 'sending'"></md-progress-bar>
+                        <md-list id="eventList" layout-padding="" ng-if="status == 'success' && results.length" ng-cloak>
+                            <h3>Coming Up</h3>
+                            <div id="eventListHeader">
+                                <div hide-xs hide-sm class="clearfix">
+                                    <div class="stGrid column20">&nbsp;</div>
+                                    <div class="stGrid column40">
+                                        <h2 class="fontTertiary">Event</h2>
+                                    </div>
+                                    <div class="stGrid column40">
+                                        <h2 class="fontTertiary">Location</h2>
+                                    </div>
+                                </div>
+                                <h2 hide-gt-sm="">Scheduled Events</h2>
+                            </div>
+                            <div class="borderDotted"></div>
+                            {#
+                            <md-list-item layout="row" layout-align="space-between center" ng-if="status == 'success' && !results.length">
+                                <div class="error" flex="">There are no scheduled events at this time.</div>
+                            </md-list-item>
+                            #}
+                            {% verbatim %}
+                            <md-list-item layout-gt-sm="row" layout-wrap="" layout-align="center start" ng-repeat="model in results">
+                                <div flex-order-xs="3" flex-order-sm="3" class="action stGrid column20 fontTertiary">
+                                    <md-button aria-label="join" class="md-fab md-primary" ng-href="{{ model.url }}" target="_blank"> RSVP </md-button>
+                                </div>
+                                <div class="info stGrid column40 fontSecondary">
+                                    <div class="eventTitle"><em>{{ model.title }}</em></div>
+                                    <div class="time">{{ model.startTime | date: 'MMM d @ h:mm a' : model.timeZoneOffset }} - <span class="newDay" ng-if="(model.startTime | date: 'MMM d') != (model.endTime | date: 'MMM d')">{{ model.endTime | date: 'MMM d' : model.timeZoneOffset }}</span> {{ model.endTime | date : 'h:mm a' : model.timeZoneOffset }}</div>
+                                </div>
+                                <div class="location stGrid column40 fontSecondary">
+                                    <div class="locationName"><em><a ng-href="https://www.google.com/maps/place/{{ model.venue.address.address1 + ', ' + model.venue.address.city + ', ' + model.venue.address.state + ', ' + model.venue.address.zip }}" target="_blank">{{ model.venue.name }}</a></em></div>
+                                    <div class="locationAddress">{{ model.venue.address.address1 }}</div>
+                                    <div class="locationAddress locationAddress2" ng-if="model.venue.address.address2">{{ model.venue.address.address2 }}</div>
+                                    <div class="locationCity">{{ model.venue.address.city }} {{ model.venue.address.state }} {{ model.venue.address.zip }}</div>
+                                </div>
+                            </md-list-item>
+                            {% endverbatim %}
+    
+                        </md-list>
+                    </div>
+                </div>
+            {% endblock TMPcandidateLandingEvents %}
+
+
+            {% verbatim %}
+            <div ng-cloak hide-gt-sm class="mobileDonate"><a class="btn btnSalmon btnDonate" ng-href="{{ urlDonate }}" target="_blank">Support {{ model.data.version.title }}</a></div>
+            {% endverbatim %}
+    
+    
+            {% block TMPcandidateLandingQuote %}
+                <div ng-if="model.data.version.custom.quote.length" class="positionAnchor" id="candidateQuote">
+                    <div id="quoteImage"><img ng-if="model.data.version.custom.imageQuoteBackground.length" stratus-src="model.data.version.custom.imageQuoteBackground[0].url"></div>
+                    <div class="verticalCenter" id="quote">
+                        <div class="bodyLarge" ng-bind-html="model.data.version.custom.quote"></div>
+                    </div>
+                </div>
+            {% endblock TMPcandidateLandingQuote %}
+    
+    
+            {% block TMPcandidateLandingEndorsements %}
+
+                <div id="bncArea">
+                    <div class="moduleBody">
+                        <div class="BNCmark">
+                            <a href="/">
+                                <img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogoMarkOnly.png') }}" alt="Brand New Congress Logo">
+                            </a>
+                        </div>
+                        <h2 class="fontTertiary">About Brand New Congress</h2>
+                        <div class="intro">
+                            <p>I am joining a team with hundreds of other candidates in a single campaign to rebuild our country.</p>
+                        </div>
+                        <div class="planGraphic">
+                            <img src="{{ asset('bundles/sitetheorytemplatecustom/images/planGraphicPurple.png') }}" alt="Brand New Congress Plan">
+                        </div>
+                        {% verbatim %}
+                        <p class="body">BNC candidates like {{ model.data.version.title }} are completely funded by small donations from real Americans. As a {{ model.data.version.custom.officeLabel }}, {{ candidateFirstName }} will be free to serve, rather than fundraise and meet with lobbyists. {{ candidateFirstName }} will work for all Americans without pressure from corporations and special interests.</p>
+                        <p class="body"><strong>It will take millions of dollars and thousands of volunteers to elect a corruption-free Congress, so consider supporting {{ model.data.version.title }} now. Every dollar matters.</strong></p>
+                        <div class="clearfix" id="bncAreaCTA"><a class="btn btnSalmon btnDonate" ng-href="{{ urlDonate }}" target="_blank">Donate</a>
+                            <a class="btn btnVolunteer" ng-href="/volunteer?candidate={{ candidateSlug }}">Volunteer</a>
+                        </div>
+                        {% endverbatim %}
+                    </div>
+                </div>
+            {% endblock TMPcandidateLandingEndorsements %}
+    
+    
+    
+            {% block TMPcandidateContact %}
+                <div id="contactBlock" ng-if="model.data.version.phones.length || model.data.version.emails">
+                    <div class="sectionBorder backgroundDark"></div>
+
+                    <div id="candidateContact" class="clearfix fontSecondary">
+                        {% verbatim %}
+                        <h2 class="fontTertiary">Contact</h2>
+                        <span class="candidatePhone" ng-if="model.data.version.phones.length">
+                            <span ng-repeat="phone in model.data.version.phones"><span ng-if="model.data.version.phones.length > 1">{{ phone.name }}: </span>{{ phone.value }}</span>
+                        </span>
+
+                        <br hide-gt-sm>
+
+                        <span ng-if="model.data.version.phones.length && model.data.version.emails.length" hide-xs hide-sm class="delimiter">|</span>
+
+                        <span ng-if="model.data.version.emails.length">
+                            General: <a ng-href="mailto:{{ model.data.version.emails[0].value}}">{{ model.data.version.emails[0].value }}</a><span hide-xs hide-sm class="delimiter">|</span>
+                            <br hide-gt-sm>
+                            Press: <a href="mailto:press{{ model.data.version.emails[0].value }}">press+{{ model.data.version.emails[0].value }}</a>
+                        </span>
+                        {% endverbatim %}
+                    </div>
+                </div>
+            {% endblock TMPcandidateContact %}
+            
+        </div>
+    </div>
+
+
+
     {% endif %}
+
+
 
 {% endblock contentType %}
 
