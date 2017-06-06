@@ -70,7 +70,7 @@ SETTINGS
 {% endblock contentType %}
 
 {% block listItem %}
-    <div style="display: inline;" ng-repeat="model in collection.models">
+    <div ng-class="{clearfix: $odd}" ng-repeat="model in collection.models">
         <div class="gridColumn">
             <div class="profileContainer">
                 <div class="profileItem" >
@@ -109,7 +109,5 @@ SETTINGS
                 </div>
             </div>
         </div>
-        <br ng-if="$odd">
     </div>
-
 {% endblock listItem %}
