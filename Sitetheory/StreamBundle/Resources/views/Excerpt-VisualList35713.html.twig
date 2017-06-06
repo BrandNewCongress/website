@@ -46,7 +46,7 @@ SETTINGS
 {# Temporary Hard Coded Side Menu #}
 {% set sectionNameHardCoded = 'Candidates' %}
 {% set sectionMenuHardCoded = '1' %}
-{% set sectionMenuActive = 'drafteesActive' %}
+{% set sectionMenuActive = 'candidatesActive' %}
 
 
 
@@ -70,42 +70,46 @@ SETTINGS
 {% endblock contentType %}
 
 {% block listItem %}
-    <div class="gridColumn" ng-repeat="model in collection.models">
-        <div class="profileContainer">
-            <div class="profileItem" layout="column">
-                <div class="clearfix">
-                    <h2 class="fontTertiary">{% verbatim %}<a
-                           ng-href="{{ model.data.routingPrimary.url }}">{{ model.data.version.title }}</a>{% endverbatim %}</h2>
-                    <div class="profileImage">
-                        <a ng-href="{% verbatim %}{{ model.data.routingPrimary.url }}{% endverbatim %}">
-                            <img stratus-src="{% verbatim %}{{ image.url }}{% endverbatim %}"
-                                 ng-repeat="image in model.data.version.images | limitTo:1">
-                            <img ng-show="!model.data.version.images.length" src="{{ asset('bundles/sitetheoryprofile/images/profilePlaceholder.png') }}">
-                        </a>
+    <div style="display: inline;" ng-repeat="model in collection.models">
+        <div class="gridColumn">
+            <div class="profileContainer">
+                <div class="profileItem" >
+                    <div class="clearfix">
+                        <h2 class="fontTertiary">{% verbatim %}<a
+                               ng-href="{{ model.data.routingPrimary.url }}">{{ model.data.version.title }}</a>{% endverbatim %}</h2>
+                        <div class="profileImage">
+                            <a ng-href="{% verbatim %}{{ model.data.routingPrimary.url }}{% endverbatim %}">
+                                <img stratus-src="{% verbatim %}{{ image.url }}{% endverbatim %}"
+                                     ng-repeat="image in model.data.version.images | limitTo:1">
+                                <img ng-show="!model.data.version.images.length" src="{{ asset('bundles/sitetheoryprofile/images/profilePlaceholder.png') }}">
+                            </a>
+                        </div>
+                        <h4>{% verbatim %}{{ model.data.version.meta.position }}{% endverbatim %}</h4>
                     </div>
-                    <h4>{% verbatim %}{{ model.data.version.meta.position }}{% endverbatim %}</h4>
-                </div>
-                <div class="profileExtra backgroundDark">
-                    <div class="starLeft starWhite">
-                        <div class="starRight starWhite">
-                            <div class="starText fontPrimary textCenter">
-                                {% verbatim %}{{ model.data.version.subtitle }}{% endverbatim %}
+                    <div class="profileExtra backgroundDark">
+                        <div class="starLeft starWhite">
+                            <div class="starRight starWhite">
+                                <div class="starText fontPrimary textCenter">
+                                    {% verbatim %}{{ model.data.version.subtitle }}{% endverbatim %}
+                                </div>
+                                {# FIXME: The locations below are not completely bug free, so we're using subtitles above
+                                <div ng-repeat="location in model.data.version.meta.locations"
+                                     class="starText fontPrimary textCenter">
+                                    {% verbatim %}{{ location }}{% endverbatim %}
+                                </div>
+                                #}
                             </div>
-                            {# FIXME: The locations below are not completely bug free, so we're using subtitles above
-                            <div ng-repeat="location in model.data.version.meta.locations"
-                                 class="starText fontPrimary textCenter">
-                                {% verbatim %}{{ location }}{% endverbatim %}
-                            </div>
-                            #}
                         </div>
                     </div>
+                    <p class="profileBody">
+                        <span class="profileBodyText" ng-bind-html="model.data.version.text | truncate:{limit: 210}"></span>
+                        <a class="readMore fontBody"
+                           ng-href="{% verbatim %}{{ model.data.routingPrimary.url }}{% endverbatim %}">Read More</a>
+                    </p>
                 </div>
-                <p class="profileBody">
-                    <span class="profileBodyText" ng-bind-html="model.data.version.text | truncate:{limit: 210}"></span>
-                    <a class="readMore fontBody"
-                       ng-href="{% verbatim %}{{ model.data.routingPrimary.url }}{% endverbatim %}">Read More</a>
-                </p>
             </div>
         </div>
+        <br ng-if="$odd">
     </div>
+
 {% endblock listItem %}
