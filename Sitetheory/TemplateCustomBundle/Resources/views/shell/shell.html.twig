@@ -635,7 +635,7 @@ LAYOUT
 {% block siteMap %}
     {% set siteMap = menu(content) %}
     {% for key, link in siteMap if link is not empty and link.route != '/' %}
-        <div flex="25"> {# TODO: Remove flex here in favor of stGrid #}
+        <div class="stGrid column25">
             <div class="siteMapColumn">
                 <ul class="listUnstyled">
                     <li class="siteMapHeader">
@@ -664,10 +664,13 @@ LAYOUT
 
         <div id="siteMapContainer" class="siteMaxWidth siteSidePadding fontSecondary dark">
 
-            <div id="siteMapNew" class="clearfix hide-xs hide-sm">
-                {% if environment.user is not empty and environment.user.id == 2 %}
+            {% if environment.user is not empty and environment.user.id == 2 %}
+                <div id="siteMapNew" class="clearfix hide-xs hide-sm">
                     {{ block('siteMap') }}
-                {% endif %}
+                </div>
+            {% endif %}
+
+            <div id="siteMapNew" class="clearfix hide-xs hide-sm">
                 <div class="stGrid column25">
                     <div class="siteMapColumn">
                         <ul class="listUnstyled">
