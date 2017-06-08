@@ -648,28 +648,28 @@ md-input-container.md-input-focused label:not(.md-no-float), md-input-container.
     padding: 0 10%;
     text-align: center;
 }
-#quote p {
+#quote > :first-child {
     margin: 0;
     color: #FFF;
     font-size: 38px;
 }
 @media (max-width:1150px) {
-    #quote p {
+    #quote > :first-child {
         font-size: 30px;
     }
 }
 @media (max-width:1050px) {
-    #quote p {
+    #quote > :first-child {
         font-size: 26px;
     }
 }
 @media (max-width:959px) {
-    #quote p {
+    #quote > :first-child {
         font-size: 20px;
     }
 }
 @media (max-width:600px) {
-    #quote p {
+    #quote > :first-child {
         font-size: 16px;
     }
 }

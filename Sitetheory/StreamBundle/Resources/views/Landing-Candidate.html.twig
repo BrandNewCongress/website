@@ -30,7 +30,54 @@
 {% endblock headerImageInsideHeader %}
 
 
-{# DYNAMIC #}
+
+
+{# CUSTOMIZE REUSABLE REGISTRATION FORM WITH ANGULAR OPTIONS #}
+{% block registrationFormInit %}
+    ng-init="model.data.subscriptions = ($parent.model.data.version.custom.joinSubscriptions.length ? $parent.model.data.version.custom.joinSubscriptions.join(',') : ''); model.data.candidate = $parent.candidateSlug;"
+{% endblock registrationFormInit %}
+
+{% block registrationFormDisclaimerExtra %}
+    <span ng-if="$parent.model.data.version.custom.joinSubscriptions.indexOf('justicedemocrats') >= 0"> and <span class="bluetext"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats</span></span>
+{% endblock registrationFormDisclaimerExtra %}
+
+
+
+{% block contentType %}
+
+
+
+    {% if environment.dev is empty %}
+
+
+        {#
+
+        ###################################################################################################################
+        ###################################################################################################################
+        ###################################################################################################################
+        ###################################################################################################################
+        ###################################################################################################################
+
+        ORIGINAL LIVE CODE BELOW:
+
+        TODO: DEPRECATED
+        THIS CODE BELOW IS DEPRECATED AND TO BE DELETED AFTER WE GET CUSTOM VARIABLES WORKING. AND ALL THE CUSTOM
+        CANDIDATE PAGES SHOULD BE DELETED AS WELL (ONCE THEY HAVE TRANSFERRED THE DATA TO THE CUSTOM FEILDS IN THE ADMIN).
+
+        ###################################################################################################################
+        ###################################################################################################################
+        ###################################################################################################################
+        ###################################################################################################################
+        ###################################################################################################################
+        #}
+
+
+        {# CUSTOM FIELDS FOR CANDIDATES #}
+        {# TODO: these need to eventually all be dynamic fields in the Stream Content Type so that they are edited in the CMS #}
+
+
+
+        {# DYNAMIC #}
         {% if custom is not defined %}
             {% set custom = {
             'candidateSlug': (content.version.title | replace({' ': '-', '.': ''}) | lower),
@@ -105,56 +152,6 @@
             <li class="clearfix"><a class="module_list_padding" href="" target="_blank"> Voting Methods in Our State</a></li>
             <li class="clearfix"><a class="module_list_padding" href="" target="_blank"> Host a Voter Registration Drive </a></li>
         {% endblock candidateHowToVoteList %}
-
-
-
-
-{# CUSTOMIZE REUSABLE REGISTRATION FORM WITH ANGULAR OPTIONS #}
-{% block registrationFormInit %}
-    ng-init="model.data.subscriptions = ($parent.model.data.version.custom.joinSubscriptions.length ? $parent.model.data.version.custom.joinSubscriptions.join(',') : ''); model.data.candidate = $parent.candidateSlug;"
-{% endblock registrationFormInit %}
-
-{% block registrationFormDisclaimerExtra %}
-    <span ng-if="$parent.model.data.version.custom.joinSubscriptions.indexOf('justicedemocrats') >= 0"> and <span class="tip"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats</span></span>
-{% endblock registrationFormDisclaimerExtra %}
-
-
-
-
-{% block contentType %}
-
-
-
-    {% if environment.dev is empty %}
-
-
-        {#
-
-        ###################################################################################################################
-        ###################################################################################################################
-        ###################################################################################################################
-        ###################################################################################################################
-        ###################################################################################################################
-
-        ORIGINAL LIVE CODE BELOW:
-
-        TODO: DEPRECATED
-        THIS CODE BELOW IS DEPRECATED AND TO BE DELETED AFTER WE GET CUSTOM VARIABLES WORKING. AND ALL THE CUSTOM
-        CANDIDATE PAGES SHOULD BE DELETED AS WELL (ONCE THEY HAVE TRANSFERRED THE DATA TO THE CUSTOM FEILDS IN THE ADMIN).
-
-        ###################################################################################################################
-        ###################################################################################################################
-        ###################################################################################################################
-        ###################################################################################################################
-        ###################################################################################################################
-        #}
-
-
-        {# CUSTOM FIELDS FOR CANDIDATES #}
-        {# TODO: these need to eventually all be dynamic fields in the Stream Content Type so that they are edited in the CMS #}
-
-
-
 
 
 
@@ -472,7 +469,7 @@
                         <div id="candidateHeaderLeft" class="stGrid column20">
                             <p class="smallLabel purpleText" ng-bind-html="model.data.version.custom.state + ' ' + model.data.version.custom.districtOrdinal"></p>
                             <div class="stateOutline positionAnchor">
-                                <div class="stateOutline positionAnchor"><img id="stateOutline" ng-if="model.data.version.custom.imageStateOutline.length" stratus-src="model.data.version.custom.imageStateOutline[0].url"></div>
+                                <div class="stateOutline positionAnchor"><img id="stateOutline" ng-if="model.data.version.custom.imageStateOutline.length" stratus-src="{% verbatim %}{{ model.data.version.custom.imageStateOutline[0].url }}{% endverbatim %}"></div>
                             </div>
                         </div>
                         <div class="stGrid column60">
@@ -513,7 +510,7 @@
     
     
             <div class="positionAnchor" id="heroArea">
-                <div class="candidateHero"><img id="heroImage" ng-if="model.data.version.custom.imageHero.length" stratus-src="model.data.version.custom.imageHero[0].url"></div>
+                <div class="candidateHero"><img id="heroImage" ng-if="model.data.version.custom.imageHero.length" stratus-src="{% verbatim %}{{ model.data.version.custom.imageHero[0].url }}{% endverbatim %}"></div>
                 <div id="candidateLandingJoin" ng-cloak="" ng-class="'joinFormAlign'+_.ucfirst(model.data.version.custom.classJoinFormAlign || 'Right' )">
                     <div class="join_container clearfix">
                         <h2 class="fontTertiary">Sign Up!</h2>
@@ -545,7 +542,7 @@
                             <p ng-bind-html="model.data.version.custom.bioTeaser+'&hellip;'"></p>
                             <a class="btn fontTertiary" ng-href="/Candidates/{{ candidateSlug }}">More</a></div>
                     </md-grid-tile>
-                    <md-grid-tile class="column2" md-colspan="1" md-rowspan="1"> <img id="imageAction" ng-if="model.data.version.custom.imageAction.length" stratus-src="model.data.version.custom.imageAction[0].url" alt="{{ model.data.version.custom.imageAction[0].name }}"> </md-grid-tile>
+                    <md-grid-tile class="column2" md-colspan="1" md-rowspan="1"> <img id="imageAction" ng-if="model.data.version.custom.imageAction.length" stratus-src="{{ model.data.version.custom.imageAction[0].url }}" alt="{{ model.data.version.custom.imageAction[0].name }}"> </md-grid-tile>
                     <md-grid-tile class="column3" md-colspan="1" md-colspan-sm="2" md-rowspan="1">
                         <div class="excerptContainer">
                             <h3>Fighting to</h3>
@@ -555,8 +552,8 @@
                 </md-grid-list>
                 {% endverbatim %}
             </div>
-    
-    
+
+
             <div ng-cloak class="candidateExcerpts clearfix" id="excerptsRow2">
                 {% verbatim %}
                 <div class="stGrid column33 column1">
@@ -568,14 +565,14 @@
                 <div class="stGrid column33 column2">
                     <div class="excerptContainer socialFeed">
                         <h3>Recent</h3>
-                        <a class="twitter-timeline" data-width="390" data-height="330" data-theme="light" data-tweet-limit="1" ng-href="https://twitter.com/{{ model.data.version.custom.twitterName || 'brandnew535' }}" target="_blank">Tweets by {{ model.data.version.custom.twitterName }}</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        <a class="twitter-timeline" data-width="390" data-height="330" data-theme="light" data-tweet-limit="1" ng-href="https://twitter.com/{{ model.data.version.custom.twitterName || 'brandnew535' }}" target="_blank">Tweets by {{ model.data.version.custom.twitterName }}</a> <script async ng-src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                     </div>
                 </div>
                 <div class="stGrid column33 column3 positionAnchor">
                     <div class="excerptContainer imageButton backgroundDark">
                         <a ng-href="{{ model.data.version.custom.urls.length ? model.data.version.custom.urls[0].value : ''}}/store" target="_blank">
                             <h3 class="verticalCenter">Get Your Own!</h3>
-                            <div class="imageContainer"><img ng-if="model.data.version.custom.imageStore.length" stratus-src="model.data.version.custom.imageStore[0].url" alt="{{ model.data.version.custom.imageStore[0].name }}"></div>
+                            <div class="imageContainer"><img ng-if="model.data.version.custom.imageStore.length" stratus-src="{{ model.data.version.custom.imageStore[0].url }}" alt="{{ model.data.version.custom.imageStore[0].name }}"></div>
                         </a>
                     </div>
                 </div>
@@ -637,10 +634,10 @@
             <div ng-cloak hide-gt-sm class="mobileDonate"><a class="btn btnSalmon btnDonate" ng-href="{{ urlDonate }}" target="_blank">Support {{ model.data.version.title }}</a></div>
             {% endverbatim %}
     
-    
+
             {% block TMPcandidateLandingQuote %}
                 <div ng-if="model.data.version.custom.quote.length" class="positionAnchor" id="candidateQuote">
-                    <div id="quoteImage"><img ng-if="model.data.version.custom.imageQuoteBackground.length" stratus-src="model.data.version.custom.imageQuoteBackground[0].url"></div>
+                    <div id="quoteImage" ng-if="model.data.version.custom.imageQuoteBackground.length"><img stratus-src="{% verbatim %}{{ model.data.version.custom.imageQuoteBackground[0].url }}{% endverbatim %}"></div>
                     <div class="verticalCenter" id="quote">
                         <div class="bodyLarge" ng-bind-html="model.data.version.custom.quote"></div>
                     </div>
