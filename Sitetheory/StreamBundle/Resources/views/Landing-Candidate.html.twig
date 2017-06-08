@@ -32,86 +32,83 @@
 
 
 {# CUSTOM FIELDS FOR CANDIDATES #}
-        {# TODO: these need to eventually all be dynamic fields in the Stream Content Type so that they are edited in the CMS #}
+{# TODO: remove these custom fields as soon as we go live with the candidate content from profile #}
+{# DYNAMIC #}
+{% if custom is not defined %}
+    {% set custom = {
+    'candidateSlug': (content.version.title | replace({' ': '-', '.': ''}) | lower),
+    'joinSubscriptions': '',
+    'classJoin': 'joinFormAlignRight',
+    'twitterName': '',
+    'facebookName': '',
+    'linkedinName': '',
+    'email': (content.version.title | replace({' ': '', '.': ''}) | lower),
+    'phone': '',
+    'state': '',
+    'stateLong': '',
+    'district': '',
+    'districtLong': '',
+    'office': 'Representative',
+    'officeFull': "For United States Congress 2018",
+    'joinHeader': "Join me to elect a corruption-free congress.",
+    'introTitle': "",
+    'introText': "",
+    'bioShort': "",
+    'quote': "",
+    'imageActionShot': '',
+    'imageModuleStore': '',
+    'imageStateOutline': '',
+    'imageQuoteBackground': '',
+    'urlDonate': '/donate',
+    'urlPlatform': '/platform',
+    'urlStore': 'https://shop.brandnewcongress.org'
+    }
+    %}
+{% endif %}
+
+{# set the candidate and subscriptions on the signup form #}
+{% set candidateSlug = custom.candidateSlug %}
+{% set joinSubscriptions = custom.joinSubscriptions %}
 
 
+{# CODE BLOCKS #}
+{% block candidateSocialMediaList %}
 
-        {# DYNAMIC #}
-        {% if custom is not defined %}
-            {% set custom = {
-            'candidateSlug': (content.version.title | replace({' ': '-', '.': ''}) | lower),
-            'joinSubscriptions': '',
-            'classJoin': 'joinFormAlignRight',
-            'twitterName': '',
-            'facebookName': '',
-            'linkedinName': '',
-            'email': (content.version.title | replace({' ': '', '.': ''}) | lower),
-            'phone': '',
-            'state': '',
-            'stateLong': '',
-            'district': '',
-            'districtLong': '',
-            'office': 'Representative',
-            'officeFull': "For United States Congress 2018",
-            'joinHeader': "Join me to elect a corruption-free congress.",
-            'introTitle': "",
-            'introText': "",
-            'bioShort': "",
-            'quote': "",
-            'imageActionShot': '',
-            'imageModuleStore': '',
-            'imageStateOutline': '',
-            'imageQuoteBackground': '',
-            'urlDonate': '/donate',
-            'urlPlatform': '/platform',
-            'urlStore': 'https://shop.brandnewcongress.org'
-            }
-            %}
-        {% endif %}
+    {% if custom.twitterName is not empty %}
+        <li class="candidateTwitter">
+            <a href="https://twitter.com/{{ custom.twitterName }}" target="_blank">&nbsp;</a>
+        </li>
+    {% endif %}
 
-        {# set the candidate and subscriptions on the signup form #}
-        {% set candidateSlug = custom.candidateSlug %}
-        {% set joinSubscriptions = custom.joinSubscriptions %}
+    {% if custom.facebookName is not empty %}
+        <li class="candidateFacebook">
+            <a href="https://www.facebook.com/{{ custom.facebookName }}" target="_blank">&nbsp;</a>
+        </li>
+    {% endif %}
 
+    {% if custom.linkedinName is not empty %}
+        <li class="candidateLinkedin">
+            <a href="https://www.linkedin.com/in/{{ custom.linkedinName }}" target="_blank">&nbsp;</a>
+        </li>
+    {% endif %}
 
-        {# CODE BLOCKS #}
-        {% block candidateSocialMediaList %}
+{% endblock candidateSocialMediaList %}
 
-            {% if custom.twitterName is not empty %}
-                <li class="candidateTwitter">
-                    <a href="https://twitter.com/{{ custom.twitterName }}" target="_blank">&nbsp;</a>
-                </li>
-            {% endif %}
+{% block candidateAgendaList %}
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+{% endblock candidateAgendaList %}
 
-            {% if custom.facebookName is not empty %}
-                <li class="candidateFacebook">
-                    <a href="https://www.facebook.com/{{ custom.facebookName }}" target="_blank">&nbsp;</a>
-                </li>
-            {% endif %}
-
-            {% if custom.linkedinName is not empty %}
-                <li class="candidateLinkedin">
-                    <a href="https://www.linkedin.com/in/{{ custom.linkedinName }}" target="_blank">&nbsp;</a>
-                </li>
-            {% endif %}
-
-        {% endblock candidateSocialMediaList %}
-
-        {% block candidateAgendaList %}
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        {% endblock candidateAgendaList %}
-
-        {% block candidateHowToVoteList %}
-            <li class="clearfix"><a class="module_list_padding" href="" target="_blank"> Register to Vote </a></li>
-            <li class="clearfix"><a class="module_list_padding" href="" target="_blank"> Find Your Polling Place </a></li>
-            <li class="clearfix"><a class="module_list_padding" href="" target="_blank"> Voting Methods in Our State</a></li>
-            <li class="clearfix"><a class="module_list_padding" href="" target="_blank"> Host a Voter Registration Drive </a></li>
-        {% endblock candidateHowToVoteList %}
-
+{% block candidateHowToVoteList %}
+    <li class="clearfix"><a class="module_list_padding" href="" target="_blank"> Register to Vote </a></li>
+    <li class="clearfix"><a class="module_list_padding" href="" target="_blank"> Find Your Polling Place </a></li>
+    <li class="clearfix"><a class="module_list_padding" href="" target="_blank"> Voting Methods in Our State</a></li>
+    <li class="clearfix"><a class="module_list_padding" href="" target="_blank"> Host a Voter Registration Drive </a></li>
+{% endblock candidateHowToVoteList %}
+{# TODO: remove --- see note at top #}
 
 
 
@@ -153,9 +150,6 @@
         ###################################################################################################################
         ###################################################################################################################
         #}
-
-
-
 
 
 
