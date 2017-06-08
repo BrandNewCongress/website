@@ -579,7 +579,7 @@
                 {% endverbatim %}
             </div>
     
-    
+
             {% block TMPcandidateLandingEvents %}
                 <div ng-controller="Api" options='{"url":"https://api.brandnewcongress.org","controller":"/events?candidate={% verbatim %}{{ candidateSlug }}{% endverbatim %}", "onLoad": "fetch"}'>
                     <div id="candidateLandingEvents">
@@ -607,21 +607,23 @@
                             </md-list-item>
                             #}
                             {% verbatim %}
-                            <md-list-item layout-gt-sm="row" layout-wrap="" layout-align="center start" ng-repeat="model in results">
-                                <div flex-order-xs="3" flex-order-sm="3" class="action stGrid column20 fontTertiary">
-                                    <md-button aria-label="join" class="md-fab md-primary" ng-href="{{ model.url }}" target="_blank"> RSVP </md-button>
-                                </div>
-                                <div class="info stGrid column40 fontSecondary">
-                                    <div class="eventTitle"><em>{{ model.title }}</em></div>
-                                    <div class="time">{{ model.startTime | date: 'MMM d @ h:mm a' : model.timeZoneOffset }} - <span class="newDay" ng-if="(model.startTime | date: 'MMM d') != (model.endTime | date: 'MMM d')">{{ model.endTime | date: 'MMM d' : model.timeZoneOffset }}</span> {{ model.endTime | date : 'h:mm a' : model.timeZoneOffset }}</div>
-                                </div>
-                                <div class="location stGrid column40 fontSecondary">
-                                    <div class="locationName"><em><a ng-href="https://www.google.com/maps/place/{{ model.venue.address.address1 + ', ' + model.venue.address.city + ', ' + model.venue.address.state + ', ' + model.venue.address.zip }}" target="_blank">{{ model.venue.name }}</a></em></div>
-                                    <div class="locationAddress">{{ model.venue.address.address1 }}</div>
-                                    <div class="locationAddress locationAddress2" ng-if="model.venue.address.address2">{{ model.venue.address.address2 }}</div>
-                                    <div class="locationCity">{{ model.venue.address.city }} {{ model.venue.address.state }} {{ model.venue.address.zip }}</div>
-                                </div>
-                            </md-list-item>
+                            <md-content style="max-height: 400px;">
+                                <md-list-item layout-gt-sm="row" layout-wrap="" layout-align="center start" ng-repeat="model in results">
+                                    <div flex-order-xs="3" flex-order-sm="3" class="action stGrid column20 fontTertiary">
+                                        <md-button aria-label="join" class="md-fab md-primary" ng-href="{{ model.url }}" target="_blank"> RSVP </md-button>
+                                    </div>
+                                    <div class="info stGrid column40 fontSecondary">
+                                        <div class="eventTitle"><em>{{ model.title }}</em></div>
+                                        <div class="time">{{ model.startTime | date: 'MMM d @ h:mm a' : model.timeZoneOffset }} - <span class="newDay" ng-if="(model.startTime | date: 'MMM d') != (model.endTime | date: 'MMM d')">{{ model.endTime | date: 'MMM d' : model.timeZoneOffset }}</span> {{ model.endTime | date : 'h:mm a' : model.timeZoneOffset }}</div>
+                                    </div>
+                                    <div class="location stGrid column40 fontSecondary">
+                                        <div class="locationName"><em><a ng-href="https://www.google.com/maps/place/{{ model.venue.address.address1 + ', ' + model.venue.address.city + ', ' + model.venue.address.state + ', ' + model.venue.address.zip }}" target="_blank">{{ model.venue.name }}</a></em></div>
+                                        <div class="locationAddress">{{ model.venue.address.address1 }}</div>
+                                        <div class="locationAddress locationAddress2" ng-if="model.venue.address.address2">{{ model.venue.address.address2 }}</div>
+                                        <div class="locationCity">{{ model.venue.address.city }} {{ model.venue.address.state }} {{ model.venue.address.zip }}</div>
+                                    </div>
+                                </md-list-item>
+                            </md-content>
                             {% endverbatim %}
     
                         </md-list>
