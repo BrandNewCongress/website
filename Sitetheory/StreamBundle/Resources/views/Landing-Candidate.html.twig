@@ -31,48 +31,7 @@
 
 
 
-
-{# CUSTOMIZE REUSABLE REGISTRATION FORM WITH ANGULAR OPTIONS #}
-{% block registrationFormInit %}
-    ng-init="model.data.subscriptions = ($parent.model.data.version.custom.joinSubscriptions.length ? $parent.model.data.version.custom.joinSubscriptions.join(',') : ''); model.data.candidate = $parent.candidateSlug;"
-{% endblock registrationFormInit %}
-
-{% block registrationFormDisclaimerExtra %}
-    <span ng-if="$parent.model.data.version.custom.joinSubscriptions.indexOf('justicedemocrats') >= 0"> and <span class="bluetext"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats</span></span>
-{% endblock registrationFormDisclaimerExtra %}
-
-
-
-{% block contentType %}
-
-
-
-    {% if environment.dev is empty %}
-
-
-        {#
-
-        ###################################################################################################################
-        ###################################################################################################################
-        ###################################################################################################################
-        ###################################################################################################################
-        ###################################################################################################################
-
-        ORIGINAL LIVE CODE BELOW:
-
-        TODO: DEPRECATED
-        THIS CODE BELOW IS DEPRECATED AND TO BE DELETED AFTER WE GET CUSTOM VARIABLES WORKING. AND ALL THE CUSTOM
-        CANDIDATE PAGES SHOULD BE DELETED AS WELL (ONCE THEY HAVE TRANSFERRED THE DATA TO THE CUSTOM FEILDS IN THE ADMIN).
-
-        ###################################################################################################################
-        ###################################################################################################################
-        ###################################################################################################################
-        ###################################################################################################################
-        ###################################################################################################################
-        #}
-
-
-        {# CUSTOM FIELDS FOR CANDIDATES #}
+{# CUSTOM FIELDS FOR CANDIDATES #}
         {# TODO: these need to eventually all be dynamic fields in the Stream Content Type so that they are edited in the CMS #}
 
 
@@ -152,6 +111,51 @@
             <li class="clearfix"><a class="module_list_padding" href="" target="_blank"> Voting Methods in Our State</a></li>
             <li class="clearfix"><a class="module_list_padding" href="" target="_blank"> Host a Voter Registration Drive </a></li>
         {% endblock candidateHowToVoteList %}
+
+
+
+
+{# CUSTOMIZE REUSABLE REGISTRATION FORM WITH ANGULAR OPTIONS #}
+{% block registrationFormInit %}
+    ng-init="model.data.subscriptions = ($parent.model.data.version.custom.joinSubscriptions.length ? $parent.model.data.version.custom.joinSubscriptions.join(',') : ''); model.data.candidate = $parent.candidateSlug;"
+{% endblock registrationFormInit %}
+
+{% block registrationFormDisclaimerExtra %}
+    <span ng-if="$parent.model.data.version.custom.joinSubscriptions.indexOf('justicedemocrats') >= 0"> and <span class="bluetext"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats</span></span>
+{% endblock registrationFormDisclaimerExtra %}
+
+
+
+{% block contentType %}
+
+
+
+    {% if environment.dev is empty %}
+
+
+        {#
+
+        ###################################################################################################################
+        ###################################################################################################################
+        ###################################################################################################################
+        ###################################################################################################################
+        ###################################################################################################################
+
+        ORIGINAL LIVE CODE BELOW:
+
+        TODO: DEPRECATED
+        THIS CODE BELOW IS DEPRECATED AND TO BE DELETED AFTER WE GET CUSTOM VARIABLES WORKING. AND ALL THE CUSTOM
+        CANDIDATE PAGES SHOULD BE DELETED AS WELL (ONCE THEY HAVE TRANSFERRED THE DATA TO THE CUSTOM FEILDS IN THE ADMIN).
+
+        ###################################################################################################################
+        ###################################################################################################################
+        ###################################################################################################################
+        ###################################################################################################################
+        ###################################################################################################################
+        #}
+
+
+
 
 
 
