@@ -41,7 +41,8 @@
 {% endblock registrationFormInit %}
 
 {% block registrationFormDisclaimerExtra %}
-    <span ng-if="$parent.model.data.version.custom.joinSubscriptions.indexOf('justicedemocrats') >= 0"> and <span class="bluetext"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats</span></span>
+    <span ng-if="$parent.model.data.version.custom.joinSubscriptions.indexOf('justicedemocrats') >= 0"> and <span
+                class="bluetext"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats</span></span>
 {% endblock registrationFormDisclaimerExtra %}
 
 
@@ -53,7 +54,8 @@
     <div ng-controller="Generic" ng-sanitize="true" data-target="Landing/{{ content.id }}/Asset" data-api='{"limit":1}'>
 
         {# NOTE: right now only one record should be set to stream to a candidate landing page (i.e. the profile) #}
-        <div ng-repeat="model in collection.models | limitTo:1" ng-init="candidateSlug = model.data.version.title.replace(' ', '-').replace('.', ''); candidateFirstName = model.data.version.title.split(' ')[0]; urlDonate = (model.data.version.meta.urls.length ? model.data.version.meta.urls[0].value : '')+'/donate'; urlStore = (model.data.version.meta.urls.length ? model.data.version.meta.urls[0].value : '')+'/store'">
+        <div ng-repeat="model in collection.models | limitTo:1"
+             ng-init="candidateSlug = model.data.version.title.replace(' ', '-').replace('.', ''); candidateFirstName = model.data.version.title.split(' ')[0]; urlDonate = (model.data.version.meta.urls.length ? model.data.version.meta.urls[0].value : '')+'/donate'; urlStore = (model.data.version.meta.urls.length ? model.data.version.meta.urls[0].value : '')+'/store'">
 
             <div id="candidateLanding" class="positionAnchor">
 
@@ -61,9 +63,13 @@
 
                     <div class="clearfix">
                         <div id="candidateHeaderLeft" class="stGrid column20">
-                            <p class="smallLabel purpleText" ng-bind-html="model.data.version.custom.state + ' ' + model.data.version.custom.districtOrdinal"></p>
+                            <p class="smallLabel purpleText"
+                               ng-bind-html="model.data.version.custom.state + ' ' + model.data.version.custom.districtOrdinal"></p>
                             <div class="stateOutline positionAnchor">
-                                <div class="stateOutline positionAnchor"><img id="stateOutline" ng-if="model.data.version.custom.imageStateOutline.length" stratus-src="{% verbatim %}{{ model.data.version.custom.imageStateOutline[0].url }}{% endverbatim %}"></div>
+                                <div class="stateOutline positionAnchor"><img id="stateOutline"
+                                                                              ng-if="model.data.version.custom.imageStateOutline.length"
+                                                                              stratus-src="{% verbatim %}{{ model.data.version.custom.imageStateOutline[0].url }}{% endverbatim %}">
+                                </div>
                             </div>
                         </div>
                         <div class="stGrid column60">
@@ -104,8 +110,11 @@
 
 
             <div class="positionAnchor" id="heroArea">
-                <div class="candidateHero"><img id="heroImage" ng-if="model.data.version.custom.imageHero.length" stratus-src="{% verbatim %}{{ model.data.version.custom.imageHero[0].url }}{% endverbatim %}"></div>
-                <div id="candidateLandingJoin" ng-cloak="" ng-class="'joinFormAlign'+_.ucfirst(model.data.version.custom.classJoinFormAlign || 'Right' )">
+                <div class="candidateHero"><img id="heroImage" ng-if="model.data.version.custom.imageHero.length"
+                                                stratus-src="{% verbatim %}{{ model.data.version.custom.imageHero[0].url }}{% endverbatim %}">
+                </div>
+                <div id="candidateLandingJoin" ng-cloak=""
+                     ng-class="'joinFormAlign'+_.ucfirst(model.data.version.custom.classJoinFormAlign || 'Right' )">
                     <div class="join_container clearfix">
                         <a name="joinForm"></a>
                         <h2 class="fontTertiary">Sign Up!</h2>
@@ -176,12 +185,14 @@
 
 
             {% block TMPcandidateLandingEvents %}
-                <div ng-controller="Api" options='{"url":"https://api.brandnewcongress.org","controller":"/events?candidate={% verbatim %}{{ candidateSlug }}{% endverbatim %}", "onLoad": "fetch"}'>
+                <div ng-controller="Api"
+                     options='{"url":"https://api.brandnewcongress.org","controller":"/events?candidate={% verbatim %}{{ candidateSlug }}{% endverbatim %}", "onLoad": "fetch"}'>
                     <div id="candidateLandingEvents">
                         {# Progress Bar: outside of ng-if because ATM we hide everything if there are no results so we would never see the progress #}
                         {# TODO: test this progress bar, I'm not sure it ever shows ATM #}
                         <md-progress-bar md-mode="indeterminate" ng-show="status == 'sending'"></md-progress-bar>
-                        <md-list id="eventList" layout-padding="" ng-if="status == 'success' && results.length" ng-cloak>
+                        <md-list id="eventList" layout-padding="" ng-if="status == 'success' && results.length"
+                                 ng-cloak>
                             <h3>Coming Up</h3>
                             <div id="eventListHeader">
                                 <div hide-xs hide-sm class="clearfix">
@@ -234,7 +245,9 @@
 
             {% block TMPcandidateLandingQuote %}
                 <div ng-if="model.data.version.custom.quote.length" class="positionAnchor" id="candidateQuote">
-                    <div id="quoteImage" ng-if="model.data.version.custom.imageQuoteBackground.length"><img stratus-src="{% verbatim %}{{ model.data.version.custom.imageQuoteBackground[0].url }}{% endverbatim %}"></div>
+                    <div id="quoteImage" ng-if="model.data.version.custom.imageQuoteBackground.length"><img
+                                stratus-src="{% verbatim %}{{ model.data.version.custom.imageQuoteBackground[0].url }}{% endverbatim %}">
+                    </div>
                     <div class="verticalCenter" id="quote">
                         <div class="bodyLarge" ng-bind-html="model.data.version.custom.quote"></div>
                     </div>
@@ -248,15 +261,18 @@
                     <div class="moduleBody">
                         <div class="BNCmark">
                             <a href="/">
-                                <img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogoMarkOnly.png') }}" alt="Brand New Congress Logo">
+                                <img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogoMarkOnly.png') }}"
+                                     alt="Brand New Congress Logo">
                             </a>
                         </div>
                         <h2 class="fontTertiary">About Brand New Congress</h2>
                         <div class="intro">
-                            <p>I am joining a team with hundreds of other candidates in a single campaign to rebuild our country.</p>
+                            <p>I am joining a team with hundreds of other candidates in a single campaign to rebuild our
+                                country.</p>
                         </div>
                         <div class="planGraphic">
-                            <img src="{{ asset('bundles/sitetheorytemplatecustom/images/planGraphicPurple.png') }}" alt="Brand New Congress Plan">
+                            <img src="{{ asset('bundles/sitetheorytemplatecustom/images/planGraphicPurple.png') }}"
+                                 alt="Brand New Congress Plan">
                         </div>
                         {% verbatim %}
                         <p class="body">BNC candidates like {{ model.data.version.title }} are completely funded by small donations from real Americans. As a {{ model.data.version.custom.officeLabel }}, {{ candidateFirstName }} will be free to serve, rather than fundraise and meet with lobbyists. {{ candidateFirstName }} will work for all Americans without pressure from corporations and special interests.</p>
@@ -273,7 +289,8 @@
 
 
             {% block TMPcandidateContact %}
-                <div id="contactBlock" ng-if="model.data.version.meta.phones.length || model.data.version.meta.emails.length">
+                <div id="contactBlock"
+                     ng-if="model.data.version.meta.phones.length || model.data.version.meta.emails.length">
                     <div class="sectionBorder backgroundDark"></div>
 
                     <div id="candidateContact" class="clearfix fontSecondary">
