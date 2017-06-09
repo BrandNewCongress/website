@@ -29,6 +29,9 @@
 {% block headerImageInsideHeader %}
 {% endblock headerImageInsideHeader %}
 
+{# disable the search bar for now #}
+{% block listFilter %}{% endblock listFilter %}
+
 
 
 {# CUSTOM FIELDS FOR CANDIDATES #}
@@ -454,7 +457,7 @@
 
     {# TODO: make the donate load the profile.urls[0] (needs to save in the admin) #}
 
-    <div ng-controller="Generic" ng-sanitize="true" data-target="Stream/{{ content.id }}/Asset" data-api='{"limit":1}'>
+    <div ng-controller="Generic" ng-sanitize="true" data-target="Stream/{{ content.id }}/Asset" {#data-api='{"limit":1}'#}>
 
         {# NOTE: right now only one record should be set to stream to a candidate landing page (i.e. the profile) #}
         <div ng-repeat="model in collection.models" ng-init="candidateSlug = model.data.version.title.replace(' ', '-').replace('.', ''); candidateFirstName = model.data.version.title.split(' ')[0]; urlDonate = (model.data.version.urls.length ? model.data.version.urls[0].value : '')+'/donate'">
