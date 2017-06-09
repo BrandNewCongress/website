@@ -10,6 +10,11 @@
 
 }
 
+/* Temporarily hide sesarch bar */
+#profileList .searchContainer {
+    display: none;
+}
+
 #candidateLanding {
     margin-top: 60px;
 }
