@@ -465,9 +465,9 @@
         <div ng-repeat="model in collection.models" ng-init="candidateSlug = model.data.version.title.replace(' ', '-').replace('.', ''); candidateFirstName = model.data.version.title.split(' ')[0]; urlDonate = (model.data.version.urls.length ? model.data.version.urls[0].value : '')+'/donate'">
 
             <div id="candidateLanding" class="positionAnchor">
-    
+
                 <div id="candidateLandingHeader">
-    
+
                     <div class="clearfix">
                         <div id="candidateHeaderLeft" class="stGrid column20">
                             <p class="smallLabel purpleText" ng-bind-html="model.data.version.custom.state + ' ' + model.data.version.custom.districtOrdinal"></p>
@@ -502,16 +502,16 @@
                         </div>
                     </div>
                 </div>
-    
+
             </div>
-    
-    
+
+
             <div id="candidateHeaderBorder">
                 <div class="borderThick">&nbsp;</div>
                 <div class="borderDotted">&nbsp;</div>
             </div>
-    
-    
+
+
             <div class="positionAnchor" id="heroArea">
                 <div class="candidateHero"><img id="heroImage" ng-if="model.data.version.custom.imageHero.length" stratus-src="{% verbatim %}{{ model.data.version.custom.imageHero[0].url }}{% endverbatim %}"></div>
                 <div id="candidateLandingJoin" ng-cloak="" ng-class="'joinFormAlign'+_.ucfirst(model.data.version.custom.classJoinFormAlign || 'Right' )">
@@ -525,17 +525,17 @@
                     </div>
                 </div>
             </div>
-    
-    
+
+
             <div id="welcome">
                 <h2 class="fontPrimary" id="welcomeTitle" ng-bind-html="model.data.version.custom.introTitle"></h2>
                 <p class="bodyLarge" id="welcomeText" ng-bind-html="model.data.version.custom.introText"></p>
             </div>
-    
-    
+
+
             <div class="sectionBorder backgroundDark">&nbsp;</div>
-    
-    
+
+
             <div ng-cloak class="candidateExcerpts" id="excerptsRow1">
                 {% verbatim %}
                 <md-grid-list md-cols-gt-sm="3" md-cols-sm="2" md-cols-xs="1" md-gutter="8px" md-row-height="1:1">
@@ -581,7 +581,7 @@
                 </div>
                 {% endverbatim %}
             </div>
-    
+
 
             {% block TMPcandidateLandingEvents %}
                 <div ng-controller="Api" options='{"url":"https://api.brandnewcongress.org","controller":"/events?candidate={% verbatim %}{{ candidateSlug }}{% endverbatim %}", "onLoad": "fetch"}'>
@@ -628,7 +628,7 @@
                                 </md-list-item>
                             </md-content>
                             {% endverbatim %}
-    
+
                         </md-list>
                     </div>
                 </div>
@@ -638,7 +638,7 @@
             {% verbatim %}
             <div ng-cloak hide-gt-sm class="mobileDonate"><a class="btn btnSalmon btnDonate" ng-href="{{ urlDonate }}" target="_blank">Support {{ model.data.version.title }}</a></div>
             {% endverbatim %}
-    
+
 
             {% block TMPcandidateLandingQuote %}
                 <div ng-if="model.data.version.custom.quote.length" class="positionAnchor" id="candidateQuote">
@@ -648,8 +648,8 @@
                     </div>
                 </div>
             {% endblock TMPcandidateLandingQuote %}
-    
-    
+
+
             {% block TMPcandidateLandingEndorsements %}
 
                 <div id="bncArea">
@@ -676,9 +676,9 @@
                     </div>
                 </div>
             {% endblock TMPcandidateLandingEndorsements %}
-    
-    
-    
+
+
+
             {% block TMPcandidateContact %}
                 <div id="contactBlock" ng-if="model.data.version.phones.length || model.data.version.emails">
                     <div class="sectionBorder backgroundDark"></div>
@@ -703,7 +703,7 @@
                     </div>
                 </div>
             {% endblock TMPcandidateContact %}
-            
+
         </div>
     </div>
 
