@@ -14,19 +14,18 @@
 {% set sectionMenuHardCoded = '1' %}
 {% set sectionMenuActive = 'candidatesActive' %}
 
-{% if custom is not defined %}
-    {% set custom = {
-    'joinSubscriptions': 'justicedemocrats',
-    'candidateSlug': (content.version.title | replace({' ': '-', '.': ''}) | lower),
-    'urlDonate': '/donate',
-    'urlStore': 'https://shop.brandnewcongress.org'
-    }
-    %}
-{% endif %}
 
+{# CREATE DEFAULT VALUES FOR THE CUSTOM FIELDS #}
+{% set candidateUrl = content.version.meta.urls|length ? content.version.meta.urls[0].value : ''  %}
+{% set donateUrl = candidateUrl ~ '/donate' %}
+{% set storeUrl = candidateUrl|length ? candidateUrl ~ '/store' : 'https://shop.brandnewcongress.org' %}
+{% set candidateSlug = content.version.custom.candidateSlug ?? content.version.title | replace({' ': '-', '.': ''})  %}
 {# set the candidate and subscriptions on the signup form #}
-{% set candidateSlug = custom.candidateSlug %}
-{% set joinSubscriptions = custom.joinSubscriptions %}
+{% set joinSubscriptions = content.version.custom.joinSubscriptions|length ? content.version.custom.joinSubscriptions | join(',') : '' %}
+
+
+
+
 
 {% block pageTitle %}
     <div class="siteMaxWidth siteSidePadding">
@@ -58,6 +57,7 @@
 
 {% block contentType %}
 
+
     <div id="contentProfile-{{ content.id }}" class="contentProfile profileDetails">
 
         <div class="clearfix">
@@ -79,7 +79,7 @@
                         <span class="starLeft starWhite">
                             <span class="starRight starWhite">
                                 {% block profileLocation %}
-                                    {{ content.version.subtitle }}
+                                    {{ content.version.custom.state }} {{ content.version.custom.districtOrdinal }}
                                 {% endblock profileLocation %}
                             </span>
                         </span>
@@ -94,11 +94,13 @@
                 <h1 class="fontTertiary">{{ content.version.title }}</h1>
             {% endif %}
 
+            {% if content.version.meta.position %}
             <h4 class="profilePosition">
                 {% block profilePosition %}
                     {{ content.version.meta.position }}
                 {% endblock profilePosition %}
             </h4>
+            {% endif %}
 
 
             {#
@@ -127,7 +129,7 @@
                     <p>To support {{ content.version.title }} for Congress.
                     </p>
                     {# TODO: once the fields are dynmic we can do this for all candidates #}
-                    {% set joinRedirectUrl = custom.urlDonate %}
+                    {% set joinRedirectUrl = donateUrl %}
                     {{ block('registrationForm') }}
                 </div>
             </div>
@@ -137,8 +139,8 @@
                     <p>It will take millions of dollars and thousands of volunteers to elect a Brand New Congress. Your dollars and your minutes matter!
                     </p>
                     <div class="candidateActionBtns">
-                        <a class="btn btnSalmon" href="/volunteer?candidate={{ custom.candidateSlug}}">Volunteer</a>
-                        <a class="btn" href="{{ custom.urlDonate }}" target="_blank">Donate</a>
+                        <a class="btn btnSalmon" href="/volunteer?candidate={{ candidateSlug}}">Volunteer</a>
+                        <a class="btn" href="{{ donateUrl }}" target="_blank">Donate</a>
                     </div>
                 </div>
             </div>
