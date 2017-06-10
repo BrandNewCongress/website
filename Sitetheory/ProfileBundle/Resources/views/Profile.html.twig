@@ -58,12 +58,11 @@
 {% block contentType %}
 
 
-    <div id="contentProfile-{{ content.id }}" class="contentProfile profileDetails">
+    <div id="contentProfile-{{ content.id }}" class="contentProfile profileDetails" {{ block('editableContent') }}>
 
         <div class="clearfix">
 
             <div class="profileImageContainer positionAnchor">
-
 
                 <div class="profileImage primary-image">
                     {% block profileImage %}
@@ -72,14 +71,18 @@
                     {% endblock profileImage %}
                 </div>
 
-
                 <div class="profileLocation positionLeftBottom">
                     <div class="purple colorBox clearfix">
                         <p class="fontPrimary">
                         <span class="starLeft starWhite">
                             <span class="starRight starWhite">
                                 {% block profileLocation %}
-                                    {{ content.version.custom.state }} {{ content.version.custom.districtOrdinal }}
+                                    {% if environment.mode == 'preview' %}
+                                        <span stratus-edit ng-model="model" property="version.custom.state">{{ content.version.custom.state }}</span>
+                                        <span stratus-edit ng-model="model" property="version.custom.districtOrdinal">{{ content.version.custom.districtOrdinal }}</span>
+                                    {% elseif content.version.title is not empty %}
+                                        {{ content.version.custom.state }} {{ content.version.custom.districtOrdinal }}
+                                    {% endif %}
                                 {% endblock profileLocation %}
                             </span>
                         </span>
@@ -87,36 +90,44 @@
                     </div>
                 </div>
 
-
             </div>
 
-            {% if content.version.title is not empty %}
+            {% if environment.mode == 'preview' %}
+                <h1 class="fontTertiary" stratus-edit ng-model="model" property="version.title">{{ content.version.title }}</h1>
+            {% elseif content.version.title is not empty %}
                 <h1 class="fontTertiary">{{ content.version.title }}</h1>
             {% endif %}
 
-            {% if content.version.meta.position %}
-            <h4 class="profilePosition">
-                {% block profilePosition %}
-                    {{ content.version.meta.position }}
-                {% endblock profilePosition %}
-            </h4>
+
+            {% block profilePosition %}
+                {% if environment.mode == 'preview' %}
+                    <h4 class="profilePosition" stratus-edit ng-model="model" property="version.meta.position">{{ content.version.meta.position }}</h4>
+                {% elseif content.version.meta.position is not empty %}
+                    <h4 class="profilePosition">{{ content.version.meta.position }}</h4>
+                {% endif %}
+            {% endblock profilePosition %}
+
+            {% if environment.mode == 'preview' %}
+                <stratus-edit ng-cloak ng-model="model" property="version.text">
+                    <stratus-edit-view>
+                        <div class="content profileDescription" ng-cloak ng-class="{ liveEdit: Stratus.Environment.data.liveEdit }"
+                             ng-bind-html="$parent.value">
+                            {% autoescape false %}
+                                {{ content.version.text }}
+                            {% endautoescape %}
+                        </div>
+                    </stratus-edit-view>
+                    <stratus-edit-input>
+                        <textarea froala ng-cloak ng-model="$parent.value" aria-label="Content Body"></textarea>
+                    </stratus-edit-input>
+                </stratus-edit>
+            {% elseif content.version.text is not empty %}
+                <div class="content profileDescription">
+                    {% autoescape false %}
+                        {{ content.version.text }}
+                    {% endautoescape %}
+                </div>
             {% endif %}
-
-
-            {#
-            {% if content.version.meta.position is not empty %}
-
-                <h4 class="position" data-type="text"
-                    data-property="version.meta.position" {{ block('editableContentAttributes') }}>{{ content.version.meta.position }}</h4>
-
-            {% endif %}
-            #}
-
-            <div class="content profileDescription" data-type="editor" data-property="version.text" {{ block('editableContentAttributes') }}>
-                {% autoescape false %}
-                    {{ content.version.text }}
-                {% endautoescape %}
-            </div>
 
         </div>
 
