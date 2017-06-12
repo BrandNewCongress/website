@@ -905,7 +905,7 @@ md-progress-circular path {
 .joinForm .legalAgreement {
     margin-top: 8px;
     font-size: 10px;
-    text-align: right;
+    text-align: center;
 }
 @media (max-width:959px) {
     .joinForm .listInline li {
