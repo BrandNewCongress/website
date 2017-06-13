@@ -21,9 +21,14 @@
 {% set storeUrl = candidateUrl|length ? candidateUrl ~ '/store' : 'https://shop.brandnewcongress.org' %}
 {% set candidateSlug = content.version.custom.candidateSlug ?? content.version.title | replace({' ': '-', '.': ''})  %}
 {# set the candidate and subscriptions on the signup form #}
-{% set joinSubscriptions = content.version.custom.joinSubscriptions|length ? content.version.custom.joinSubscriptions | join(',') : '' %}
+{% set joinSubscriptions = content.version.custom.joinSubscriptions|length ? (content.version.custom.joinSubscriptions | join(',')) : '' %}
 
 
+{% block registrationFormDisclaimerExtra %}
+    {% if 'justicedemocrats' in joinSubscriptions %}
+    and <span class="bluetext"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats</span>
+    {% endif %}
+{% endblock registrationFormDisclaimerExtra %}
 
 
 
