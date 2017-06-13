@@ -135,7 +135,7 @@
                     <stratus-edit ng-cloak ng-model="model" property="version.text">
                         {# TODO: THE EDITOR MAY NOT YET WORK IN LIVE EDIT + ANGULAR MODEL #}
                         <stratus-edit-view>
-                            <div class="bodyLarge" id="welcomeText" ng-bind-html="model.data.version.custom.introText" ng-cloak ng-class="{ liveEdit: Stratus.Environment.data.liveEdit }"></div>
+                            <div class="bodyLarge fontSecondary" id="welcomeText" ng-bind-html="model.data.version.custom.introText" ng-cloak ng-class="{ liveEdit: Stratus.Environment.data.liveEdit }"></div>
                         </stratus-edit-view>
                         <stratus-edit-input>
                             <textarea froala ng-cloak ng-model="$parent.data.version.custom.introText" aria-label="Intro Text"></textarea>
@@ -262,7 +262,7 @@
                                 stratus-src="{% verbatim %}{{ model.data.version.custom.imageQuoteBackground[0].url }}{% endverbatim %}">
                     </div>
                     <div class="verticalCenter" id="quote">
-                        <div class="bodyLarge" ng-bind-html="model.data.version.custom.quote"></div>
+                        <div class="bodyLarge fontSecondary" ng-bind-html="model.data.version.custom.quote"></div>
                     </div>
                 </div>
             {% endblock TMPcandidateLandingQuote %}
@@ -303,7 +303,7 @@
 
             {% block TMPcandidateContact %}
                 <div id="contactBlock"
-                     ng-if="model.data.version.meta.phones.length || model.data.version.meta.emails.length">
+                     ng-cloak="true" ng-if="model.data.version.meta.phones.length || model.data.version.meta.emails.length">
                     <div class="sectionBorder backgroundDark"></div>
 
                     <div id="candidateContact" class="clearfix fontSecondary">
