@@ -154,7 +154,7 @@ SIGNUP FORM
         {% block registrationFormInit %}
             ng-init="model.data.subscriptions = '{{ joinSubscriptions | default('') }}'; model.data.candidate = '{{ candidateSlug | default('') }}';"
         {% endblock registrationFormInit %}
-    >
+        >
 
         <md-progress-circular md-mode="indeterminate" ng-show="status === 'sending'"></md-progress-circular>
 
@@ -214,8 +214,8 @@ SIGNUP FORM
 
         </ul>
         {% block registrationFormDisclaimer %}
-        <div class="legalAgreement fontBody">By signing up, I consent to receiving emails from <span class="blueText"><md-tooltip>Committed to electing a brand new, corruption-free Congress that represents all Americans.</md-tooltip>Brand New Congress</span>{% block registrationFormDisclaimerExtra %}{# We are not including this on default signups now. #}
-                {#and <span class="blueText"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats.</span>#}{% endblock registrationFormDisclaimerExtra %}.
+        <div class="legalAgreement fontBody">By signing up, I consent to receiving emails from <span class="blueText hasTip"><md-tooltip>Committed to electing a brand new, corruption-free Congress that represents all Americans.</md-tooltip>Brand New Congress</span>{% block registrationFormDisclaimerExtra %}{# We are not including this on default signups now. #}
+                {#and <span class="blueText hasTip"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats.</span>#}{% endblock registrationFormDisclaimerExtra %}.
         </div>
         {% endblock registrationFormDisclaimer %}
     </form>

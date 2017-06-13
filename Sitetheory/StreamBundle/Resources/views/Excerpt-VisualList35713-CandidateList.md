@@ -1,1 +1,0 @@
-The home page is a stream that will eventually pull in content tagged to itself, but at the moment is just hard coded.
