@@ -69,8 +69,12 @@
                     <div class="clearfix">
                         <div id="candidateHeaderLeft" class="stGrid column20">
                             <p class="smallLabel purpleText">
+                                <span ng-bind-html="model.data.version.custom.state"></span>
+                                <span ng-bind-html="model.data.version.custom.districtOrdinal"></span>
+                                {#
                                 <span stratus-edit ng-model="model" property="version.custom.state"></span>
                                 <span stratus-edit ng-model="model" property="version.custom.districtOrdinal"></span>
+                                #}
                             </p>
                             <div class="stateOutline positionAnchor">
                                 <div class="stateOutline positionAnchor"><img id="stateOutline" ng-if="model.data.version.custom.imageStateOutline.length" stratus-src="{% verbatim %}{{ model.data.version.custom.imageStateOutline[0].url }}{% endverbatim %}">
@@ -78,8 +82,12 @@
                             </div>
                         </div>
                         <div class="stGrid column60">
+                            <h1 class="fontTertiary" ng-bind-html="model.data.version.title"></h1>
+                            <h4 class="pageSubTitle" ng-bind-html="model.data.version.custom.runningLabel"></h4>
+                            {#
                             <h1 class="fontTertiary" stratus-edit ng-model="model" property="version.title"></h1>
                             <h4 class="pageSubTitle" stratus-edit ng-model="model" property="version.custom.runningLabel"></h4>
+                            #}
                         </div>
                         <div id="candidateHeaderRight" class="stGrid column20">
                             <div class="socialMedia basicStyle clearfix">
@@ -119,12 +127,13 @@
                 <div class="candidateHero"><img id="heroImage" ng-cloak="true" ng-if="model.data.version.custom.imageHero.length" stratus-src="{{ model.data.version.custom.imageHero[0].url }}" alt="{{ model.data.version.custom.imageHero[0].title }}">
                 </div>
                 {% endverbatim %}
-                <div id="candidateLandingJoin" ng-cloak="true"=""
+                <div id="candidateLandingJoin" ng-cloak="true"
                      ng-class="'joinFormAlign'+_.ucfirst(model.data.version.custom.classJoinFormAlign || 'Right' )">
                     <div class="join_container clearfix">
                         <a name="joinForm"></a>
                         <h2 class="fontTertiary">Sign Up!</h2>
-                        <p stratus-edit ng-model="model" property="version.custom.joinHeader"></p>
+                        <p ng-bind-html="model.data.version.custom.joinHeader"></p>
+                        {# <p stratus-edit ng-model="model" property="version.custom.joinHeader"></p> #}
 
                         {# Customized with Angular Options above #}
                         {{ block('registrationForm') }}
@@ -135,10 +144,15 @@
 
 
             <div id="welcome">
+                <h2 class="fontPrimary" id="welcomeTitle" ng-bind-html="model.data.version.custom.introTitle"></h2>
+                {#
                 <h2 class="fontPrimary" id="welcomeTitle" stratus-edit ng-model="model" property="version.custom.introTitle"></h2>
+                #}
+                <div class="bodyLarge fontSecondary" id="welcomeText" ng-bind-html="model.data.version.custom.introText"></div>
+                {# TODO: THE EDITOR MAY NOT YET WORK IN LIVE EDIT + ANGULAR MODEL #}
+                {#
                 {% if environment.mode == 'preview' %}
                     <stratus-edit ng-cloak="true" ng-model="model" property="version.text">
-                        {# TODO: THE EDITOR MAY NOT YET WORK IN LIVE EDIT + ANGULAR MODEL #}
                         <stratus-edit-view>
                             <div class="bodyLarge fontSecondary" id="welcomeText" ng-bind-html="model.data.version.custom.introText" ng-cloak="true" ng-class="{ liveEdit: Stratus.Environment.data.liveEdit }"></div>
                         </stratus-edit-view>
@@ -149,6 +163,7 @@
                 {% elseif content.version.text is not empty %}
                     <div class="bodyLarge fontSecondary" id="welcomeText" ng-bind-html="model.data.version.custom.introText"></div>
                 {% endif %}
+                #}
             </div>
 
 
