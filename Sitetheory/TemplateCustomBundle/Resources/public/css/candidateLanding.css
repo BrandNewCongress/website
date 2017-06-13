@@ -409,6 +409,10 @@
 
 
 /* Link Lists */
+.candidateExcerpts .linkList ul {
+    margin: 0;
+    padding: 0;
+}
 .candidateExcerpts .linkList li {
     transition: all .2s ease-out;
     -webkit-transition: all .2s ease-out;
