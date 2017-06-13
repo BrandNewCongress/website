@@ -80,13 +80,13 @@
                             <div class="socialMedia basicStyle clearfix">
                                 <ul class="listInline">
                                     {% verbatim %}
-                                    <li ng-if="model.data.version.custom.twitterName" class="candidateTwitter" ng-cloak="true">
+                                    <li ng-if="model.data.version.custom.twitterName" class="candidateTwitter" ng-cloak="true"="true">
                                         <a ng-href="https://twitter.com/{{ model.data.version.custom.twitterName }}" target="_blank">&nbsp;</a>
                                     </li>
-                                    <li ng-if="model.data.version.custom.facebookName" class="candidateFacebook" ng-cloak="true">
+                                    <li ng-if="model.data.version.custom.facebookName" class="candidateFacebook" ng-cloak="true"="true">
                                         <a ng-href="https://www.facebook.com/{{ model.data.version.custom.facebookName }}" target="_blank">&nbsp;</a>
                                     </li>
-                                    <li ng-if="model.data.version.custom.linkedinName" class="candidateLinkedin" ng-cloak="true">
+                                    <li ng-if="model.data.version.custom.linkedinName" class="candidateLinkedin" ng-cloak="true"="true">
                                         <a ng-href="https://www.linkedin.com/in/{{ model.data.version.custom.linkedinName }}" target="_blank">&nbsp;</a>
                                     </li>
                                     {% endverbatim %}
@@ -94,7 +94,7 @@
                             </div>
                             {# This uses the first URL in the list for the main domain: #}
                             {% verbatim %}
-                            <div class="candidateHeaderContribute clearfix"><a class="btn btnContribute" ng-href="{{ urlDonate }}" target="_blank">Support <span ng-cloak>{{ candidateFirstName }}</span></a></div>
+                            <div class="candidateHeaderContribute clearfix"><a class="btn btnContribute" ng-href="{{ urlDonate }}" target="_blank">Support <span ng-cloak="true">{{ candidateFirstName }}</span></a></div>
                             {% endverbatim %}
                         </div>
                     </div>
@@ -111,10 +111,10 @@
 
             <div class="positionAnchor" id="heroArea">
                 {% verbatim %}
-                <div class="candidateHero"><img id="heroImage" ng-cloak ng-if="model.data.version.custom.imageHero.length" stratus-src="{{ model.data.version.custom.imageHero[0].url }}" alt="{{ model.data.version.custom.imageHero[0].title }}">
+                <div class="candidateHero"><img id="heroImage" ng-cloak="true" ng-if="model.data.version.custom.imageHero.length" stratus-src="{{ model.data.version.custom.imageHero[0].url }}" alt="{{ model.data.version.custom.imageHero[0].title }}">
                 </div>
                 {% endverbatim %}
-                <div id="candidateLandingJoin" ng-cloak=""
+                <div id="candidateLandingJoin" ng-cloak="true"=""
                      ng-class="'joinFormAlign'+_.ucfirst(model.data.version.custom.classJoinFormAlign || 'Right' )">
                     <div class="join_container clearfix">
                         <a name="joinForm"></a>
@@ -132,17 +132,17 @@
             <div id="welcome">
                 <h2 class="fontPrimary" id="welcomeTitle" stratus-edit ng-model="model" property="version.custom.introTitle"></h2>
                 {% if environment.mode == 'preview' %}
-                    <stratus-edit ng-cloak ng-model="model" property="version.text">
+                    <stratus-edit ng-cloak="true" ng-model="model" property="version.text">
                         {# TODO: THE EDITOR MAY NOT YET WORK IN LIVE EDIT + ANGULAR MODEL #}
                         <stratus-edit-view>
-                            <div class="bodyLarge fontSecondary" id="welcomeText" ng-bind-html="model.data.version.custom.introText" ng-cloak ng-class="{ liveEdit: Stratus.Environment.data.liveEdit }"></div>
+                            <div class="bodyLarge fontSecondary" id="welcomeText" ng-bind-html="model.data.version.custom.introText" ng-cloak="true" ng-class="{ liveEdit: Stratus.Environment.data.liveEdit }"></div>
                         </stratus-edit-view>
                         <stratus-edit-input>
-                            <textarea froala ng-cloak ng-model="$parent.data.version.custom.introText" aria-label="Intro Text"></textarea>
+                            <textarea froala ng-cloak="true" ng-model="$parent.data.version.custom.introText" aria-label="Intro Text"></textarea>
                         </stratus-edit-input>
                     </stratus-edit>
                 {% elseif content.version.text is not empty %}
-                    <div class="bodyLarge" id="welcomeText" ng-bind-html="model.data.version.custom.introText"></div>
+                    <div class="bodyLarge fontSecondary" id="welcomeText" ng-bind-html="model.data.version.custom.introText"></div>
                 {% endif %}
             </div>
 
@@ -150,12 +150,12 @@
             <div class="sectionBorder backgroundDark">&nbsp;</div>
 
 
-            <div ng-cloak class="candidateExcerpts" id="excerptsRow1">
+            <div ng-cloak="true" class="candidateExcerpts" id="excerptsRow1">
                 {% verbatim %}
                 <md-grid-list md-cols-gt-sm="3" md-cols-sm="2" md-cols-xs="1" md-gutter="8px" md-row-height="1:1">
                     <md-grid-tile class="salmon column1" md-colspan="1" md-rowspan="1">
                         <div class="excerptContainer">
-                            <h3>About <span ng-cloak>{{ model.data.version.title }}</span></h3>
+                            <h3>About <span ng-cloak="true">{{ model.data.version.title }}</span></h3>
                             <p ng-bind-html="model.data.version.custom.bioTeaser+'&hellip;'"></p>
                             <a class="btn fontTertiary" ng-href="/Candidates/{{ candidateSlug }}">More</a></div>
                     </md-grid-tile>
@@ -171,7 +171,7 @@
             </div>
 
 
-            <div ng-cloak class="candidateExcerpts clearfix" id="excerptsRow2">
+            <div ng-cloak="true" class="candidateExcerpts clearfix" id="excerptsRow2">
                 {% verbatim %}
                 <div class="stGrid column33 column1">
                     <div class="excerptContainer linkList">
@@ -205,7 +205,7 @@
                         {# TODO: test this progress bar, I'm not sure it ever shows ATM #}
                         <md-progress-bar md-mode="indeterminate" ng-show="status == 'sending'"></md-progress-bar>
                         <md-list id="eventList" layout-padding="" ng-if="status == 'success' && results.length"
-                                 ng-cloak>
+                                 ng-cloak="true">
                             <h3>Coming Up</h3>
                             <div id="eventListHeader">
                                 <div hide-xs hide-sm class="clearfix">
@@ -252,7 +252,7 @@
 
 
             {% verbatim %}
-            <div ng-cloak hide-gt-sm class="mobileDonate"><a class="btn btnSalmon btnDonate" ng-href="{{ urlDonate }}" target="_blank">Support {{ model.data.version.title }}</a></div>
+            <div ng-cloak="true" hide-gt-sm class="mobileDonate"><a class="btn btnSalmon btnDonate" ng-href="{{ urlDonate }}" target="_blank">Support {{ model.data.version.title }}</a></div>
             {% endverbatim %}
 
 
@@ -270,7 +270,7 @@
 
             {% block TMPcandidateLandingEndorsements %}
 
-                <div id="bncArea">
+                <div ng-cloak="true" id="bncArea">
                     <div class="moduleBody">
                         <div class="BNCmark">
                             <a href="/">
@@ -303,7 +303,7 @@
 
             {% block TMPcandidateContact %}
                 <div id="contactBlock"
-                     ng-cloak="true" ng-if="model.data.version.meta.phones.length || model.data.version.meta.emails.length">
+                     ng-cloak="true"="true" ng-if="model.data.version.meta.phones.length || model.data.version.meta.emails.length">
                     <div class="sectionBorder backgroundDark"></div>
 
                     <div id="candidateContact" class="clearfix fontSecondary">
