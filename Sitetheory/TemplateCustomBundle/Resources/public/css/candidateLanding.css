@@ -247,11 +247,20 @@
 #candidateLandingJoin md-input-container.md-default-theme:not(.md-input-invalid).md-input-resized .md-input,
 #candidateLandingJoin md-input-container:not(.md-input-invalid).md-input-resized .md-input {
     border-color: #FFF;
+    color: #FFF;
 }
-md-input-container.md-input-focused label:not(.md-no-float), md-input-container.md-input-has-placeholder label:not(.md-no-float), md-input-container.md-input-has-value label:not(.md-no-float) {
+#candidateLandingJoin md-input-container.md-input-focused .md-input,
+#candidateLandingJoin md-input-container .md-input.ng-invalid.ng-dirty,
+#candidateLandingJoin md-input-container.md-input-resized .md-input {
+    color: #FFF;
+}
+#candidateLandingJoin md-input-container.md-input-focused label:not(.md-no-float),
+#candidateLandingJoin md-input-container.md-input-has-placeholder label:not(.md-no-float),
+#candidateLandingJoin md-input-container.md-input-has-value label:not(.md-no-float) {
     transform: translate3d(30%, 20px, 0) scale(.4);
 
 }
+
 #candidateLandingJoin  .btn {
     margin-top: -8px;
     padding: 15px 0;
@@ -278,6 +287,13 @@ md-input-container.md-input-focused label:not(.md-no-float), md-input-container.
     font-size: 10px;
     text-align: center;
     color: #EEE;
+}
+#candidateLandingJoin .legalAgreement .blueText {
+    color: #FFF;
+    text-decoration: underline;
+}
+#candidateLandingJoin .legalAgreement .blueText:hover {
+    text-decoration: none;
 }
 #candidateLandingJoin .tip {
     text-decoration: underline;
