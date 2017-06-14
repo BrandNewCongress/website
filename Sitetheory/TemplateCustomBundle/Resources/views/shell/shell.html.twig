@@ -375,9 +375,8 @@ LAYOUT
     {# Place title above the sidebar/mainColumn row #}
 
     {% block pageTitle %}
-        <div class="siteMaxWidth siteSidePadding">
-            <h1 class="pageTitle" {{ block('editableContent') }} data-type="text" data-property="version.title"
-                data-render="click">
+        <div class="siteMaxWidth siteSidePadding" {{ contentEditable({'content': content}) }}>
+            <h1 class="pageTitle" {{ editable() }} property="version.title">
                 <span class="starLeft">
                     <span class="starRight">{{ content.version.title }}</span>
                 </span>

@@ -90,19 +90,26 @@ LAYOUT
 {% block contentType %}
 
     {# Home Landing Layout #}
-    <div class="clearfix">
+    <div class="clearfix" {{ contentEditable(content) }}>
 
 
-        <a href="/Candidates">
-            <div id="announcementBanner" class="positionAnchor clearfix">
-                <div id="newsLabel" class="salmon fontPrimary verticalCenter">News</div>
-                <p id="announcement" class="fontBody textCenter">Our first candidates have launched! Their campaigns are in full swing.<span hide-xs hide-sm class="learnMore smallLabel salmonText">Learn More</span></p>
-                {#
-                <p id="announcement" class="fontBody textCenter">Tune in at 9 PM ET tonight for a livestream event announcing our next 5 candidates.<span hide-xs hide-sm class="learnMore smallLabel salmonText">Learn More</span></p>
-                #}
-                <div hide-xs hide-sm class="doubleArrow fontTertiary verticalCenter"> &gt;&gt; </div>
-            </div>
-        </a>
+        {% if content.version.custom.breakingNews is defined and content.version.custom.breakingNews is not empty %}
+
+            <a {% if environment.mode == 'preview' %}ng-href="{% verbatim %}{{ Stratus.Environment.data.liveEdit == false ? model.data.version.custom.breakingNewsLink : '' }}{% endverbatim %}"{% else %}href="{% if content.version.custom.breakingNewsLink is defined %}{{ content.version.custom.breakingNewsLink ?? '#' }}{% endif %}"{% endif %}>
+                <div id="announcementBanner" class="positionAnchor clearfix">
+                    <div id="newsLabel" class="salmon fontPrimary verticalCenter">News</div>
+                    <p id="announcement" class="fontBody textCenter" {{ editable() }} property="version.custom.breakingNews">{{ content.version.custom.breakingNews }}<span hide-xs hide-sm class="learnMore smallLabel salmonText">Learn More</span></p>
+                    <div hide-xs hide-sm class="doubleArrow fontTertiary verticalCenter"> &gt;&gt; </div>
+                </div>
+            </a>
+            {# NOTE: Can't Edit a Field that has HREF around it so we don't show that in preview mode #}
+            {% if environment.mode == 'preview' %}
+                <div ng-if="Stratus.Environment.data.liveEdit" ng-cloak class="clearfix">
+                    <em style="float: left">Optional News Link:</em>
+                    <p style="float: left" {{ editable() }} property="version.custom.breakingNewsLink"></p>
+                </div>
+            {% endif %}
+        {% endif %}
 
         <a id="slideshowLink" href="/nominate">
             <div id="homeSlides" class="positionAnchor salmon">
@@ -202,7 +209,7 @@ LAYOUT
             <div id="welcome" class="divCenter textCenter shellVerticalPadding">
                 <h4>Congress is</h4>
                 <h1>Broken</h1>
-                <div class="content bodyLarge fontSecondary" ng-model="model.data.version.text" {{ block('editableContentAttributes') }}>
+                <div class="content bodyLarge fontSecondary" {{ editable("Editor") }} property="version.text">
                     {% autoescape false %}
                         {{ content.version.text }}
                     {% endautoescape %}
@@ -294,7 +301,7 @@ LAYOUT
         <div id="homeCandidates" class="shellVerticalPadding textCenter">
             <h1><a href="/Candidates">Candidates</a></h1>
 
-            <p class="intro fontSecondary">Here are just a few of the exceptional leaders you nominated who have launched congressional campaigns! They are public servants, local leaders, and national figures. <a href="/Candidates">Meet all the candidates</a> and join their campaigns! We will be announcing a lot more candidates in the next few weeks. The race for a corruption-free Congress in 2018 has begun.</p>
+            <p class="intro fontSecondary" {{ editable("Editor") }} property="version.custom.candidateIntro">{{ content.version.custom.candidateIntro ?? '' }}**</p>
 
 
             <div class="clearfix candidateGrid">
