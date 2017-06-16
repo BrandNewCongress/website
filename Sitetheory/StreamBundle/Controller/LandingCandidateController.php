@@ -5,7 +5,6 @@ namespace Sitetheory\StreamBundle\Controller;
 use Sitetheory\StreamBundle\Controller\LandingController;
 use Symfony\Component\HttpFoundation\Request;
 use Sitetheory\CoreBundle\Controller\InitController;
-use Symfony\Component\HttpFoundation\Cookie;
 
 /**
  * Class LandingController
@@ -36,32 +35,11 @@ class LandingCandidateController extends LandingController
          * But we need to track both the preferred candidate and the "last" candidate, so that going from one candidate to a volunteer form will work for that candidate
          */
 
-        $candidateData = [
-            'url' => '/' . trim($request->getRequestUri(), '/'),
-            'name' => $controller->getContent()->getVersion()->getTitle(),
-            'slug' => $this->makeCandidateSlug($controller->getContent()->getVersion()->getTitle())
-        ];
-        // Set a cookie for the "last" candidate page visited.
-        $controller->getEnv()->addCookie(
-            new Cookie('candidateLast', json_encode($candidateData), time() + 36000, '/', null, false, false)
-        );
+        $candidateHelper = $controller->container->get('bnc_core.candidate_helper');
+        $candidateHelper->setCandidateTracking($request, $controller);
 
-        // Only set the cookie for "candidate" if this came from an external referrer (not internal browsing)
-        if(empty($controller->getEnv()->getReferrer())
-            || !$controller->getEnvHelper()->isInternalReferrer($request, $controller->getEnv()->getReferrer())
-        ) {
-            // Set a cookie to specify that this candidate is the primary candidate they are interested
-            $controller->getEnv()->addCookie(new Cookie('candidate', json_encode($candidateData), time() + 36000, '/', null, false, false));
-        }
 
         parent::indexAction($request, $controller);
-    }
-
-    public function makeCandidateSlug($name) {
-        $slug = strtolower($name);
-        $slug = str_replace(' ', '-', $slug);
-        $slug = preg_replace('~[^a-z-]+~', '', $slug);
-        return $slug;
     }
 
 }
