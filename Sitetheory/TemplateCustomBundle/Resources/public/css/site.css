@@ -633,6 +633,67 @@ hr {
 }
 
 
+/* ANNOUNCEMENT BANNER */
+
+
+#announcementBanner,
+#announcementBanner * {
+    transition: all .2s ease-out;
+}
+#announcementBanner {
+    margin: 40px 0 0 0;
+    padding: 15px 9px;
+    background: #393939;
+}
+#announcementBanner:hover {
+    background: #111;
+}
+#newsLabel {
+    display: table;
+    margin-right: 8px;
+    padding: 5px 6px;
+    color: #FFF;
+    font-size: 16px;
+    letter-spacing: .03em;
+}
+#announcementBanner:hover #newsLabel {
+    background: #7932AC;
+}
+#announcementBanner .date {
+    color: #979797;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+#announcementBanner p {
+    margin: 0;
+    font-size: 14px;
+    color: #FFF;
+    line-height: 1.2;
+}
+#announcementBanner p .smallLabel {
+    padding-left: 8px;
+}
+#announcementBanner:hover .smallLabel {
+    color: #FFF;
+}
+#announcementBanner .doubleArrow {
+    right: 10px;
+    left: inherit;
+    padding: 0 10px 0 24px;
+    font-size: 10px;
+    font-weight: bold;
+    color: #FFF;
+}
+#announcementBanner:hover .doubleArrow {
+    color: #F94E54;
+}
+@media (max-width:959px) {
+    #announcementBanner p {
+        padding-left: 60px;
+        text-align: left;
+    }
+}
+
 
 /* SHELL SIDEBAR */
 

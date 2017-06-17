@@ -92,7 +92,7 @@ LAYOUT
     {# Home Landing Layout #}
     <div class="clearfix" {{ contentEditable(content) }}>
 
-
+        {# Moved to shell to make site wide temporarily
         {% if content.version.custom.breakingNews is defined and content.version.custom.breakingNews is not empty %}
 
             <a {% if environment.mode == 'preview' %}ng-href="{% verbatim %}{{ Stratus.Environment.data.liveEdit == false ? model.data.version.custom.breakingNewsLink : '' }}{% endverbatim %}"{% else %}href="{% if content.version.custom.breakingNewsLink is defined %}{{ content.version.custom.breakingNewsLink ?? '#' }}{% endif %}"{% endif %}>
@@ -102,7 +102,7 @@ LAYOUT
                     <div hide-xs hide-sm class="doubleArrow fontTertiary verticalCenter"> &gt;&gt; </div>
                 </div>
             </a>
-            {# NOTE: Can't Edit a Field that has HREF around it so we don't show that in preview mode #}
+            {# NOTE: Can't Edit a Field that has HREF around it so we don't show that in preview mode #
             {% if environment.mode == 'preview' %}
                 <div ng-if="Stratus.Environment.data.liveEdit" ng-cloak class="clearfix">
                     <em style="float: left">Optional News Link:</em>
@@ -110,7 +110,7 @@ LAYOUT
                 </div>
             {% endif %}
         {% endif %}
-
+        #}
         <a id="slideshowLink" href="/nominate">
             <div id="homeSlides" class="positionAnchor salmon">
 
