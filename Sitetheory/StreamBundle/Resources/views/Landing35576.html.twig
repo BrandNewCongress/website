@@ -301,11 +301,9 @@ LAYOUT
         <div id="homeCandidates" class="shellVerticalPadding textCenter">
             <h1><a href="/Candidates">Candidates</a></h1>
 
-            <p class="intro fontSecondary" {{ editable("Editor") }} property="version.custom.candidateIntro">{{ content.version.custom.candidateIntro ?? '' }}**</p>
-
+            <p class="intro fontSecondary" {{ editable("Editor") }} property="version.custom.candidateIntro">{% autoescape false %}{{ content.version.custom.candidateIntro ?? '' }}{% endautoescape %}</p>
 
             <div class="clearfix candidateGrid">
-
 
                 {# Paula Jean #}
                 <div class="candidateColumn">
