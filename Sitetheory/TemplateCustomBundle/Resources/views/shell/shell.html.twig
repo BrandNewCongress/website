@@ -145,16 +145,17 @@ SIGNUP FORM
 
 {% block registrationForm %}
 
-    <form name="Signup" ng-submit="send('Signup') && tracking.send('SignupButton', 'click')" ng-controller="Api" ng-sanitize="true" ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal
-        {% block registrationFormOptions %}
-            options='{"url":"https://api.{{ environment.site.domainprimary }}", "controller": "/people", "redirect":{"url":"{{ joinRedirectUrl | default('/donate') }}", "popup":false}}'
-        {% endblock registrationFormOptions %}
+    <form name="Signup" ng-submit="send('Signup') && tracking.send('SignupButton', 'click')" ng-controller="Api"
+          ng-sanitize="true" ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal
+            {% block registrationFormOptions %}
+                options='{"url":"https://api.{{ environment.site.domainprimary }}", "controller": "/people", "redirect":{"url":"{{ joinRedirectUrl | default('/donate') }}", "popup":false}}'
+            {% endblock registrationFormOptions %}
 
-        {# NOTE: Hidden fields just need to be initialized with ng-init. And utmSource, utmMedium, utmCampaign are set in Api controller. #}
-        {% block registrationFormInit %}
-            ng-init="model.data.subscriptions = '{{ joinSubscriptions | default('') }}'; model.data.candidate = '{{ candidateSlug | default('') }}';"
-        {% endblock registrationFormInit %}
-        >
+            {# NOTE: Hidden fields just need to be initialized with ng-init. And utmSource, utmMedium, utmCampaign are set in Api controller. #}
+            {% block registrationFormInit %}
+                ng-init="model.data.subscriptions = '{{ joinSubscriptions | default('') }}'; model.data.candidate = '{{ candidateSlug | default('') }}';"
+            {% endblock registrationFormInit %}
+    >
 
         <md-progress-circular md-mode="indeterminate" ng-show="status === 'sending'"></md-progress-circular>
 
@@ -214,9 +215,11 @@ SIGNUP FORM
 
         </ul>
         {% block registrationFormDisclaimer %}
-        <div class="legalAgreement fontBody">By signing up, I consent to receiving emails from <span class="blueText hasTip"><md-tooltip>Committed to electing a brand new, corruption-free Congress that represents all Americans.</md-tooltip>Brand New Congress</span>{% block registrationFormDisclaimerExtra %}{# We are not including this on default signups now. #}
-                {#and <span class="blueText hasTip"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats.</span>#}{% endblock registrationFormDisclaimerExtra %}.
-        </div>
+            <div class="legalAgreement fontBody">By signing up, I consent to receiving emails from <span
+                        class="blueText hasTip"><md-tooltip>Committed to electing a brand new, corruption-free Congress that represents all Americans.</md-tooltip>Brand New Congress</span>{% block registrationFormDisclaimerExtra %}{# We are not including this on default signups now. #}
+                    {#and <span class="blueText hasTip"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats.</span>#}{% endblock registrationFormDisclaimerExtra %}
+                .
+            </div>
         {% endblock registrationFormDisclaimer %}
     </form>
 {% endblock registrationForm %}
@@ -798,39 +801,43 @@ LAYOUT
 {% endblock footerSiteMap %}
 {# End temporary hard coded footer site map #}
 
-
 {# FOOTER #}
 
-
 {% block footer %}
+    {# TODO: Move this variable to a Context or Template's Custom Field #}
+    {% set paidFor = 'Brand New Congress, brandnewcongress.org, not authorized by any candidate or candidate\'s committee.' %}
     <div id="footerBackground">
         <div id="footer" class="siteMaxWidth siteSidePadding dark">
             <div id="footerLogo" class="textCenter">
                 <img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogoFooter.png') }}" alt="">
             </div>
-            <p class="smallLabel textCenter">Press contact <a href="mailto:press@brandnewcongress.org">press@brandnewcongress.org</a><span
-                        hide-xs hide-sm>&nbsp;&nbsp;|&nbsp;&nbsp;</span><br hide-gt-sm>General contact <a
-                        href="mailto:us@brandnewcongress.org">us@brandnewcongress.org</a>
+            <p class="smallLabel textCenter">
+                Press contact <a href="mailto:press@brandnewcongress.org">
+                    press@brandnewcongress.org
+                </a>
+                <span hide-xs hide-sm>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                <br hide-gt-sm>
+                General contact <a href="mailto:us@brandnewcongress.org">
+                    us@brandnewcongress.org
+                </a>
             </p>
             <div id="footerCredit" class="textCenter">
-                <p class="smallLabel">&copy;{{  "now"|date("Y") }} Brand New Congress. All rights reserved. P. O. Box 621264 Charlotte, NC 28262
-                    <br>Paid for by Brand New Congress, brandnewcongress.org, not authorized by any candidate or
-                    candidate's committee.</p>
-                <a class="smallLabel" href="http://www.sitetheory.io" target="_blank">
+                <p class="smallLabel">
+                    &copy; {{ "now"|date("Y") }} Brand New Congress.
+                    All rights reserved. P. O. Box 621264 Charlotte, NC 28262
+                    <br>Paid for by {{ content.version.custom.paidFor ?? paidFor }}
+                </p>
+                <a class="smallLabel" href="http://sitetheory.io" target="_blank">
                     Website powered by Sitetheory
                 </a>
             </div>
         </div>
     </div>
-
 {% endblock footer %}
-
-
 
 {# Reusable items for secondary pages that are temporaily hard coded #}
 
 {# Candidate Details #}
-
 {% block candidateReturnLink %}
     <strong>
         <a class="returnLink divCenter fontBody" href="/submit-nominee">
