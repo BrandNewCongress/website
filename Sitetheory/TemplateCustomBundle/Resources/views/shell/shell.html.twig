@@ -165,7 +165,6 @@ SIGNUP FORM
 
             {{ registrationFormBefore|default('')|raw }}
 
-            {% verbatim %}
             <li>
                 <md-input-container>
                     <label>Email</label>
@@ -177,7 +176,8 @@ SIGNUP FORM
                     </div>
                 </md-input-container>
             </li>
-            <li> <!-- class="hasInfo" -->
+            <li>
+                <!-- class="hasInfo" -->
                 <!--
                 <div class="fieldInfo">
                     <md-tooltip>We will only use this to remind you to vote!</md-tooltip>
@@ -205,19 +205,26 @@ SIGNUP FORM
                     </div>
                 </md-input-container>
             </li>
-            {% endverbatim %}
+
             <li>
-                <button type="submit" class="btn formSubmit"
-                        ng-disabled="Signup.$invalid">{{ textSubmit|default('Count Me In') }}</button>
+                <button type="submit" class="btn formSubmit" ng-disabled="Signup.$invalid">
+                    {{ textSubmit|default('Count Me In') }}
+                </button>
             </li>
 
             {{ registrationFormAfter|default('')|raw }}
 
         </ul>
         {% block registrationFormDisclaimer %}
-            <div class="legalAgreement fontBody">By signing up, I consent to receiving emails from <span
-                        class="blueText hasTip"><md-tooltip>Committed to electing a brand new, corruption-free Congress that represents all Americans.</md-tooltip>Brand New Congress</span>{% block registrationFormDisclaimerExtra %}{# We are not including this on default signups now. #}
-                    {#and <span class="blueText hasTip"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats.</span>#}{% endblock registrationFormDisclaimerExtra %}
+            <div class="legalAgreement fontBody">
+                By signing up, I consent to receiving emails from
+                <span class="blueText hasTip">
+                    <md-tooltip>Committed to electing a brand new, corruption-free Congress that represents all Americans.</md-tooltip>Brand New Congress
+                </span>
+                {% block registrationFormDisclaimerExtra %}
+                    {# We are not including this on default signups now. #}
+                    {#and <span class="blueText hasTip"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats.</span>#}
+                {% endblock registrationFormDisclaimerExtra %}
                 .
             </div>
         {% endblock registrationFormDisclaimer %}
