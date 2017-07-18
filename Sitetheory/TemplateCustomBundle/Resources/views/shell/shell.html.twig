@@ -660,14 +660,14 @@ LAYOUT
             <div class="siteMapColumn">
                 <ul class="listUnstyled">
                     <li class="siteMapHeader">
-                        <a class="fontTertiary" href="{{ link.route }}"
+                        <a class="fontTertiary" href="{{ link.url ?? link.route }}"
                            {% if link.browserTarget is not empty %}target="{{ link.browserTarget }}"{% endif %}>
                             {{ link.name }}
                         </a>
                     </li>
                     {% for key, child in link.nestChildren if child is not empty and child.route != '/' %}
                         <li class="{% if child.active is defined and child.active == true %}active{% else %}dormant{% endif %}">
-                            <a href="{{ child.route }}"
+                            <a href="{{ child.url ?? child.route }}"
                                {% if child.browserTarget is not empty %}target="{{ child.browserTarget }}"{% endif %}>
                                 {{ child.name }}
                             </a>
