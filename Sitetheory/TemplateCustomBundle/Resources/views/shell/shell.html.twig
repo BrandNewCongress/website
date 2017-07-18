@@ -54,6 +54,7 @@ SETTINGS
 SET FULL OR MINI HEADER
 ###########
 #}
+
 {# If a specific header has not been requested and this is the first page visited on the site, give the full header #}
 {% if headerFull is not defined %}
     {% if environment.history|length == 0 %}
@@ -108,11 +109,14 @@ JAVASCRIPT
 #}
 
 {% block script %}
+
+    {# net neutrality #}
+    <script src="https://widget.battleforthenet.com/widget.js" async></script>
+
     {# load custom config FIRST before stratus config #}
     <script src="{{ asset('bundles/bnccore/js/boot/config' ~ minified ~'.js') }}"></script>
 
     {{ parent() }}
-
 
     {# TODO: Google Analytics ID should be stored as an Integration in the site settings #}
     <!-- Google Analytics -->
@@ -165,11 +169,11 @@ SIGNUP FORM
 
             {{ registrationFormBefore|default('')|raw }}
 
-            {% verbatim %}
             <li>
                 <md-input-container>
                     <label>Email</label>
-                    <input name="email" type="email" ng-pattern="options.pattern.email" ng-model="model.data.email" required md-no-asterisk>
+                    <input name="email" type="email" ng-pattern="options.pattern.email" ng-model="model.data.email"
+                           required md-no-asterisk>
                     <div ng-messages="Signup.email.$error" role="alert">
                         <div ng-message-exp="['required', 'pattern']">
                             Please enter a valid email.
@@ -177,7 +181,8 @@ SIGNUP FORM
                     </div>
                 </md-input-container>
             </li>
-            <li> <!-- class="hasInfo" -->
+            <li>
+                <!-- class="hasInfo" -->
                 <!--
                 <div class="fieldInfo">
                     <md-tooltip>We will only use this to remind you to vote!</md-tooltip>
@@ -197,7 +202,8 @@ SIGNUP FORM
             <li>
                 <md-input-container>
                     <label>Zip</label>
-                    <input name="zip" ng-pattern="options.pattern.zip" ng-model="model.data.zip" required md-no-asterisk>
+                    <input name="zip" ng-pattern="options.pattern.zip" ng-model="model.data.zip" required
+                           md-no-asterisk>
                     <div ng-messages="Signup.zip.$error" role="alert">
                         <div ng-message-exp="['required', 'pattern']">
                             Please enter a valid zip code.
@@ -205,19 +211,26 @@ SIGNUP FORM
                     </div>
                 </md-input-container>
             </li>
-            {% endverbatim %}
+
             <li>
-                <button type="submit" class="btn formSubmit"
-                        ng-disabled="Signup.$invalid">{{ textSubmit|default('Count Me In') }}</button>
+                <button type="submit" class="btn formSubmit" ng-disabled="Signup.$invalid">
+                    {{ textSubmit|default('Count Me In') }}
+                </button>
             </li>
 
             {{ registrationFormAfter|default('')|raw }}
 
         </ul>
         {% block registrationFormDisclaimer %}
-            <div class="legalAgreement fontBody">By signing up, I consent to receiving emails from <span
-                        class="blueText hasTip"><md-tooltip>Committed to electing a brand new, corruption-free Congress that represents all Americans.</md-tooltip>Brand New Congress</span>{% block registrationFormDisclaimerExtra %}{# We are not including this on default signups now. #}
-                    {#and <span class="blueText hasTip"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats.</span>#}{% endblock registrationFormDisclaimerExtra %}
+            <div class="legalAgreement fontBody">
+                By signing up, I consent to receiving emails from
+                <span class="blueText hasTip">
+                    <md-tooltip>Committed to electing a brand new, corruption-free Congress that represents all Americans.</md-tooltip>Brand New Congress
+                </span>
+                {% block registrationFormDisclaimerExtra %}
+                    {# We are not including this on default signups now. #}
+                    {#and <span class="blueText hasTip"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats.</span>#}
+                {% endblock registrationFormDisclaimerExtra %}
                 .
             </div>
         {% endblock registrationFormDisclaimer %}
@@ -508,11 +521,11 @@ LAYOUT
                 Organize Locally
             </a>
         </li>
-        <li class="siteNavLink" data-level="2">
+        {#<li class="siteNavLink" data-level="2">
             <a href="/call" class="navLevel2 {% if sectionMenuActive == 'callActive' %}active{% endif %}">
                 Join a Call
             </a>
-        </li>
+        </li>#}
         <li class="siteNavLink" data-level="2">
             <a href="/donate" target="_blank"
                class="navLevel2 {% if sectionMenuActive == 'contributeActive' %}active{% endif %}">
@@ -740,9 +753,9 @@ LAYOUT
                                 <a href="https://docs.google.com/document/d/1Op0OaZNuykCJckSCn4vABDEr4VEdTrMeTsPCZFNSJo4/edit"
                                    target="_blank">Organize Locally</a>
                             </li>
-                            <li>
+                            {# <li>
                                 <a href="/call">Join a Call</a>
-                            </li>
+                            </li> #}
                             <li>
                                 <a href="/donate"
                                    target="_blank">Donate to BNC</a>
