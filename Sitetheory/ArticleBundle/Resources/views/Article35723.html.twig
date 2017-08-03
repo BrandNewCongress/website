@@ -9,22 +9,22 @@
 
     <ul id="listLevel2" class="listUnstyled {{ navLevel2Font|default('fontSecondary') }}">
         <li class="siteNavLink" data-level="2">
-            <a href="//{{ environment.site.domainPrimary }}/cori-bush" class="navLevel2 {% if sectionMenuActive == 'platformActive' %}active{% endif %}">
+            <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/cori-bush" class="navLevel2 {% if sectionMenuActive == 'platformActive' %}active{% endif %}">
                 Cori Bush 2018
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="//{{ environment.site.domainPrimary }}/Candidates/cori-bush" class="navLevel2 {% if sectionMenuActive == 'platformActive' %}active{% endif %}">
+            <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/Candidates/cori-bush" class="navLevel2 {% if sectionMenuActive == 'platformActive' %}active{% endif %}">
                 Cori's Story
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="//{{ environment.site.domainPrimary }}/Candidates/Cori-Bush/Issues" class="navLevel2 {% if sectionMenuActive == 'planActive' %}active{% endif %}">
+            <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/Candidates/Cori-Bush/Issues" class="navLevel2 {% if sectionMenuActive == 'planActive' %}active{% endif %}">
                 Cori's Issues
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="//{{ environment.site.domainPrimary }}/Candidates/Cori-Bush/8-Questions-for-Cori" class="navLevel2 {% if sectionMenuActive == 'faqActive' %}active{% endif %}">
+            <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/Candidates/Cori-Bush/8-Questions-for-Cori" class="navLevel2 {% if sectionMenuActive == 'faqActive' %}active{% endif %}">
                 8 Questions for Cori
             </a>
         </li>
