@@ -261,7 +261,7 @@ LAYOUT
                     <img src="{{ asset('bundles/sitetheorytemplatecustom/images/planGraphicSmall.png') }}" alt="">
                 </div>
                 <div id="logoHeader" class="textCenter">
-                    <a href="/" aria-label="Go to Home"><img
+                    <a href="//{{ environment.site.domainPrimary }}/" aria-label="Go to Home"><img
                                 src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogo.png') }}"
                                 alt="BNC Logo"></a>
                 </div>
@@ -273,12 +273,12 @@ LAYOUT
                         {% if content.data.candidate.url is defined and content.data.candidate.url is not empty %}
                             <a href="{{ content.data.candidate.url }}" class="btn btnCandidateLanding pullRight">{{ content.data.candidate.name }}</a>
                         {% else %}
-                            <a href="/donate" target="_blank" class="btn btnContribute pullRight">Donate</a>
+                            <a href="//{{ environment.site.domainPrimary }}/donate" target="_blank" class="btn btnContribute pullRight">Donate</a>
                         {% endif %}
                         #}
-                        <a href="/donate" target="_blank" class="btn btnContribute pullRight">Donate</a>
+                        <a href="//{{ environment.site.domainPrimary }}/donate" target="_blank" class="btn btnContribute pullRight">Donate</a>
                     </div>
-                    <a id="starLinkRight" class="fontTertiary align-right" href="/Nominate">Nominate a Candidate</a>
+                    <a id="starLinkRight" class="fontTertiary align-right" href="//{{ environment.site.domainPrimary }}/Nominate">Nominate a Candidate</a>
                 </div>
             </div>
             <div id="header2" class="siteMaxWidth siteSidePadding positionAnchor ">
@@ -309,7 +309,7 @@ LAYOUT
                                         alt="">
                             </li>
                             <li id="navCandidates" class="navMainLink">
-                                <a href="/candidates">
+                                <a href="//{{ environment.site.domainPrimary }}/candidates">
                                     Candidates
                                 </a>
                             </li>
@@ -327,7 +327,7 @@ LAYOUT
                                         alt="">
                             </li>
                             <li id="navLearn" class="navMainLink">
-                                <a href="/platform">
+                                <a href="//{{ environment.site.domainPrimary }}/platform">
                                     Platform
                                 </a>
                             </li>
@@ -418,7 +418,7 @@ LAYOUT
 {% block retractingHeaderContent %}
     <div class="clearfix">
         <div id="logoRetractingHeader" class="verticalCenter">
-            <a href="/">
+            <a href="//{{ environment.site.domainPrimary }}/">
                 <img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogoHorizontal.png') }}" alt="">
             </a>
         </div>
@@ -429,10 +429,10 @@ LAYOUT
             {% if content.data.candidate.url is defined and content.data.candidate.url is not empty %}
                 <a href="{{ content.data.candidate.url }}" class="btn btnCandidateLanding">{{ content.data.candidate.name }}</a>
             {% else %}
-                <a href="/donate" target="_blank" class="btn btnContribute">Donate</a>
+                <a href="//{{ environment.site.domainPrimary }}/donate" target="_blank" class="btn btnContribute">Donate</a>
             {% endif %}
             #}
-            <a href="/donate" target="_blank" class="btn btnContribute">Donate</a>
+            <a href="//{{ environment.site.domainPrimary }}/donate" target="_blank" class="btn btnContribute">Donate</a>
         </div>
         <div>
             {{ block('navMain') }}
@@ -457,12 +457,12 @@ LAYOUT
     <!-- Level 2 Links -->
     <ul id="listLevel2" class="listUnstyled {{ navLevel2Font|default('fontSecondary') }}">
         <li class="siteNavLink" data-level="2">
-            <a href="/candidates" class="navLevel2 {% if sectionMenuActive == 'drafteesActive' %}active{% endif %}">
+            <a href="//{{ environment.site.domainPrimary }}/candidates" class="navLevel2 {% if sectionMenuActive == 'drafteesActive' %}active{% endif %}">
                 Candidates
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="/Nominate" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">
+            <a href="//{{ environment.site.domainPrimary }}/Nominate" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">
                 Nominate
             </a>
         </li>
@@ -475,7 +475,7 @@ LAYOUT
     <!-- Level 2 Links -->
     <ul id="listLevel2" class="listUnstyled {{ navLevel2Font|default('fontSecondary') }}">
         <li class="siteNavLink" data-level="2">
-            <a href="/support" class="navLevel2 {% if sectionMenuActive == 'supportActive' %}active{% endif %}">
+            <a href="//{{ environment.site.domainPrimary }}/support" class="navLevel2 {% if sectionMenuActive == 'supportActive' %}active{% endif %}">
                 Overview
             </a>
         </li>
@@ -485,25 +485,25 @@ LAYOUT
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="/nominate" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">
+            <a href="//{{ environment.site.domainPrimary }}/nominate" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">
                 Nominate
             </a>
         </li>
         {#
         <li class="siteNavLink" data-level="2">
-            <a href="/Open-Positions"
+            <a href="//{{ environment.site.domainPrimary }}/Open-Positions"
                class="navLevel2 {% if sectionMenuActive == 'jobsPositionsActive' %}active{% endif %}">
                 Job Positions
             </a>
         </li>#}
         <li class="siteNavLink" data-level="2">
-            <a href="/Volunteer-Positions"
+            <a href="//{{ environment.site.domainPrimary }}/Volunteer-Positions"
                class="navLevel2 {% if sectionMenuActive == 'volunteerPositionActive' %}active{% endif %}">
                 Volunteer Positions
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="/volunteer"
+            <a href="//{{ environment.site.domainPrimary }}/volunteer"
                class="navLevel2 {% if sectionMenuActive == 'volunteerSkillsActive' %}active{% endif %}">
                 Get Started Volunteering!
             </a>
@@ -522,12 +522,12 @@ LAYOUT
             </a>
         </li>
         {#<li class="siteNavLink" data-level="2">
-            <a href="/call" class="navLevel2 {% if sectionMenuActive == 'callActive' %}active{% endif %}">
+            <a href="//{{ environment.site.domainPrimary }}/call" class="navLevel2 {% if sectionMenuActive == 'callActive' %}active{% endif %}">
                 Join a Call
             </a>
         </li>#}
         <li class="siteNavLink" data-level="2">
-            <a href="/donate" target="_blank"
+            <a href="//{{ environment.site.domainPrimary }}/donate" target="_blank"
                class="navLevel2 {% if sectionMenuActive == 'contributeActive' %}active{% endif %}">
                 Donate to BNC
             </a>
@@ -547,17 +547,17 @@ LAYOUT
     <!-- Level 2 Links -->
     <ul id="listLevel2" class="listUnstyled {{ navLevel2Font|default('fontSecondary') }}">
         <li class="siteNavLink" data-level="2">
-            <a href="/platform" class="navLevel2 {% if sectionMenuActive == 'platformActive' %}active{% endif %}">
+            <a href="//{{ environment.site.domainPrimary }}/platform" class="navLevel2 {% if sectionMenuActive == 'platformActive' %}active{% endif %}">
                 Platform
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="/plan" class="navLevel2 {% if sectionMenuActive == 'planActive' %}active{% endif %}">
+            <a href="//{{ environment.site.domainPrimary }}/plan" class="navLevel2 {% if sectionMenuActive == 'planActive' %}active{% endif %}">
                 Our Plan
             </a>
         </li>
         <li class="siteNavLink" data-level="2">
-            <a href="/faq" class="navLevel2 {% if sectionMenuActive == 'faqActive' %}active{% endif %}">
+            <a href="//{{ environment.site.domainPrimary }}/faq" class="navLevel2 {% if sectionMenuActive == 'faqActive' %}active{% endif %}">
                 FAQ
             </a>
         </li>
@@ -593,7 +593,7 @@ LAYOUT
             </li>
             <li data-level="1">
                 <div class="siteNavLink" data-level="1">
-                    <a href="/submit-nominee" class="navLevel1 fontPrimary">
+                    <a href="//{{ environment.site.domainPrimary }}/submit-nominee" class="navLevel1 fontPrimary">
                         Candidates
                     </a>
                 </div>
@@ -609,7 +609,7 @@ LAYOUT
             </li>
             <li data-level="1">
                 <div class="siteNavLink {{ navLevel1Font|default('fontPrimary') }}" data-level="1">
-                    <a href="/plan" class="navLevel1 fontPrimary">
+                    <a href="//{{ environment.site.domainPrimary }}/plan" class="navLevel1 fontPrimary">
                         Plan
                     </a>
                 </div>
@@ -709,13 +709,13 @@ LAYOUT
                     <div class="siteMapColumn">
                         <ul class="listUnstyled">
                             <li class="siteMapHeader">
-                                <a class="fontTertiary" href="/submit-nominee">Candidates</a>
+                                <a class="fontTertiary" href="//{{ environment.site.domainPrimary }}/submit-nominee">Candidates</a>
                             </li>
                             <li>
-                                <a href="/candidates">Candidates</a>
+                                <a href="//{{ environment.site.domainPrimary }}/candidates">Candidates</a>
                             </li>
                             <li>
-                                <a href="/Nominate">Nominate a Candidate</a>
+                                <a href="//{{ environment.site.domainPrimary }}/Nominate">Nominate a Candidate</a>
                             </li>
                         </ul>
                     </div>
@@ -733,17 +733,17 @@ LAYOUT
                                 <a href="https://events.brandnewcongress.org/" target="_blank">Find an Event</a>
                             </li>
                             <li>
-                                <a href="/nominate">Nominate a Candidate</a>
+                                <a href="//{{ environment.site.domainPrimary }}/nominate">Nominate a Candidate</a>
                             </li>
                             {#
                             <li>
-                                <a href="/Open-Positions">Job Positions</a>
+                                <a href="//{{ environment.site.domainPrimary }}/Open-Positions">Job Positions</a>
                             </li>#}
                             <li>
-                                <a href="/Volunteer-Positions">Volunteer Positions</a>
+                                <a href="//{{ environment.site.domainPrimary }}/Volunteer-Positions">Volunteer Positions</a>
                             </li>
                             <li>
-                                <a href="/volunteer">Get Started Volunteering!</a>
+                                <a href="//{{ environment.site.domainPrimary }}/volunteer">Get Started Volunteering!</a>
                             </li>
                             <li>
                                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8CfK0gUULEVpYFm9Eb4iyGOL-_iDl395qB0z4hny7ek4iNw/viewform"
@@ -754,10 +754,10 @@ LAYOUT
                                    target="_blank">Organize Locally</a>
                             </li>
                             {# <li>
-                                <a href="/call">Join a Call</a>
+                                <a href="//{{ environment.site.domainPrimary }}/call">Join a Call</a>
                             </li> #}
                             <li>
-                                <a href="/donate"
+                                <a href="//{{ environment.site.domainPrimary }}/donate"
                                    target="_blank">Donate to BNC</a>
                             </li>
                             <li>
@@ -770,16 +770,16 @@ LAYOUT
                     <div class="siteMapColumn">
                         <ul class="listUnstyled">
                             <li class="siteMapHeader">
-                                <a class="fontTertiary" href="/plan">Plan</a>
+                                <a class="fontTertiary" href="//{{ environment.site.domainPrimary }}/plan">Plan</a>
                             </li>
                             <li>
-                                <a href="/platform">Platform</a>
+                                <a href="//{{ environment.site.domainPrimary }}/platform">Platform</a>
                             </li>
                             <li>
-                                <a href="/plan">Our Plan</a>
+                                <a href="//{{ environment.site.domainPrimary }}/plan">Our Plan</a>
                             </li>
                             <li>
-                                <a href="/faq">FAQ</a>
+                                <a href="//{{ environment.site.domainPrimary }}/faq">FAQ</a>
                             </li>
                         </ul>
                     </div>
@@ -788,16 +788,16 @@ LAYOUT
                     <div class="siteMapColumn">
                         <ul class="listUnstyled">
                             <li class="siteMapHeader">
-                                <a class="fontTertiary" href="/About">About</a>
+                                <a class="fontTertiary" href="//{{ environment.site.domainPrimary }}/About">About</a>
                             </li>
                             <li>
-                                <a href="/about">About Us</a>
+                                <a href="//{{ environment.site.domainPrimary }}/about">About Us</a>
                             </li>
                             <li>
                                 <a href="mailto:us@brandnewcongress.org">Contact Us</a>
                             </li>
                             <li>
-                                <a href="/privacy">Privacy Policy</a>
+                                <a href="//{{ environment.site.domainPrimary }}/privacy">Privacy Policy</a>
                             </li>
                             <li>
                                 {# Social Media #}
@@ -853,7 +853,7 @@ LAYOUT
 {# Candidate Details #}
 {% block candidateReturnLink %}
     <strong>
-        <a class="returnLink divCenter fontBody" href="/submit-nominee">
+        <a class="returnLink divCenter fontBody" href="//{{ environment.site.domainPrimary }}/submit-nominee">
             <div class="starLeft starPurple">
                 <div class="starRight starPurple">
                     <div class="starText">Return to All Candidates</div>

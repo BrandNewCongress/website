@@ -6,7 +6,7 @@
     <div ng-cloak="true" id="bncArea">
         <div class="moduleBody">
             <div class="BNCmark">
-                <a href="/">
+                <a href="//{{ environment.site.domainPrimary }}/">
                     <img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogoMarkOnly.png') }}"
                          alt="Brand New Congress Logo">
                 </a>
@@ -25,7 +25,7 @@
             <p class="body"><strong>It will take millions of dollars and thousands of volunteers to elect a corruption-free Congress, so consider supporting {{ model.data.version.title }} now. Every dollar matters.</strong></p>
             <div class="clearfix" id="bncAreaCTA">
                 <a class="btn btnSalmon btnDonate" ng-href="{{ urlDonate }}" target="_blank">Donate</a>
-                <a class="btn btnVolunteer" ng-href="/volunteer?candidate={{ candidateSlug }}">Volunteer</a>
+                <a class="btn btnVolunteer" ng-href="//{{ environment.site.domainPrimary }}/volunteer?candidate={{ candidateSlug }}">Volunteer</a>
             </div>
             {% endverbatim %}
         </div>

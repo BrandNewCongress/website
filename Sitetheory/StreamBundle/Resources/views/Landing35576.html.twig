@@ -111,7 +111,7 @@ LAYOUT
             {% endif %}
         {% endif %}
         #}
-        <a id="slideshowLink" href="/nominate">
+        <a id="slideshowLink" href="//{{ environment.site.domainPrimary }}/nominate">
             <div id="homeSlides" class="positionAnchor salmon">
 
                 <div class="slideshowImage">
@@ -139,7 +139,7 @@ LAYOUT
                 <div id="slidesContent">
                     <h4 class="fontTertiary">ANNOUNCING OUR FIRST CANDIDATE</h4>
                     <p class="fontSecondary">Draftees</p>
-                    <div class="btn btnBig btnSalmon" href="/#homeJoin">Convince them to run</div>
+                    <div class="btn btnBig btnSalmon" href="//{{ environment.site.domainPrimary }}/#homeJoin">Convince them to run</div>
                 </div>
                 #}
             </div>
@@ -299,7 +299,7 @@ LAYOUT
 
         <a name="homeCandidates"></a>
         <div id="homeCandidates" class="shellVerticalPadding textCenter">
-            <h1><a href="/Candidates">Candidates</a></h1>
+            <h1><a href="//{{ environment.site.domainPrimary }}/Candidates">Candidates</a></h1>
 
             <p class="intro fontSecondary" {{ editable("Editor") }} property="version.custom.candidateIntro">{% autoescape false %}{{ content.version.custom.candidateIntro ?? '' }}{% endautoescape %}</p>
 
@@ -310,7 +310,7 @@ LAYOUT
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
                             <div class="imageGradientBottom"></div>
-                            <a href="/paula-jean">
+                            <a href="//{{ environment.site.domainPrimary }}/paula-jean">
                                 <div class="candidateInfo">
                                     <p class="name fontTertiary">Paula Jean</p>
                                     <p class="title fontTertiary">For U.S.Senate</p>
@@ -337,7 +337,7 @@ LAYOUT
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
                             <div class="imageGradientBottom"></div>
-                            <a href="/robb-ryerse">
+                            <a href="//{{ environment.site.domainPrimary }}/robb-ryerse">
                                 <div class="candidateInfo">
                                     <p class="name fontTertiary">Robb Ryerse</p>
                                     <p class="title fontTertiary">For U.S. Congress</p>
@@ -364,7 +364,7 @@ LAYOUT
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
                             <div class="imageGradientBottom"></div>
-                            <a href="/michael-a-hepburn">
+                            <a href="//{{ environment.site.domainPrimary }}/michael-a-hepburn">
                                 <div class="candidateInfo">
                                     <p class="name fontTertiary">Michael A. Hepburn</p>
                                     <p class="title fontTertiary">For U.S. Congress</p>
@@ -391,7 +391,7 @@ LAYOUT
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
                             <div class="imageGradientBottom"></div>
-                            <a href="/adrienne-bell">
+                            <a href="//{{ environment.site.domainPrimary }}/adrienne-bell">
                                 <div class="candidateInfo">
                                     <p class="name fontTertiary">Adrienne Bell</p>
                                     <p class="title fontTertiary">For U.S. Congress</p>
@@ -418,7 +418,7 @@ LAYOUT
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
                             <div class="imageGradientBottom"></div>
-                            <a href="/anthony-clark">
+                            <a href="//{{ environment.site.domainPrimary }}/anthony-clark">
                                 <div class="candidateInfo">
                                     <p class="name fontTertiary">Anthony Clark</p>
                                     <p class="title fontTertiary">For U.S. Congress</p>
@@ -445,7 +445,7 @@ LAYOUT
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
                             <div class="imageGradientBottom"></div>
-                            <a href="/alexandria-ocasio">
+                            <a href="//{{ environment.site.domainPrimary }}/alexandria-ocasio">
                                 <div class="candidateInfo">
                                     <p class="name fontTertiary">Alexandria Ocasio</p>
                                     <p class="title fontTertiary">For U.S. Congress</p>
@@ -472,7 +472,7 @@ LAYOUT
                     <div class="candidateContainer">
                         <div class="candidateImage positionAnchor">
                             <div class="imageGradientBottom"></div>
-                            <a href="/cori-bush">
+                            <a href="//{{ environment.site.domainPrimary }}/cori-bush">
                                 <div class="candidateInfo">
                                     <p class="name fontTertiary">Cori Bush</p>
                                     <p class="title fontTertiary">For U.S. Congress</p>
@@ -497,7 +497,7 @@ LAYOUT
 
                 <div hide-xs hide-sm class="candidateColumn">
                     <div class="candidateContainer tempCandidateAsk">
-                        <a href="/nominate">
+                        <a href="//{{ environment.site.domainPrimary }}/nominate">
                             <div class="candidateImage positionAnchor purple">
                                 <div class="candidateInfo">
                                     <p class="adText fontSecondary">Do you know a community leader that would make a great representative?</p>
@@ -536,7 +536,7 @@ LAYOUT
                     </div>
 
                     <div class="stGrid column33">
-                        <a class="backgroundDark" href="/donate" target="_blank">
+                        <a class="backgroundDark" href="//{{ environment.site.domainPrimary }}/donate" target="_blank">
                             <div class="imageWrapper">
                                 <img data-plugin="Lazy" class="easyTransition" src="{{ asset('bundles/sitetheorytemplatecustom/images/homeImageModules/imageLinkDonate-xs.jpg') }}" alt="">
                             </div>
