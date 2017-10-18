@@ -109,10 +109,6 @@ JAVASCRIPT
 #}
 
 {% block script %}
-
-    {# net neutrality #}
-    <script src="https://widget.battleforthenet.com/widget.js" async></script>
-
     {# load custom config FIRST before stratus config #}
     <script src="{{ asset('bundles/bnccore/js/boot/config' ~ minified ~'.js') }}"></script>
 
