@@ -1,0 +1,64 @@
+{% extends 'SitetheoryStreamBundle::Landing.html.twig' %}
+
+{% block link %}
+    {{ parent() }}
+
+    <link rel="{{ styleRel('less') }}" type="text/css"
+          href="{{ asset('/bundles/sitetheorytemplatecustom/css/landing.' ~ styleExt('less')) }}"
+          data-file="landing.css">
+{% endblock link %}
+
+{#
+########
+SETTINGS
+########
+#}
+
+{# TEMPLATE SHELL ADJUSTMENTS - These will be the same for most home page streams #}
+
+{% set headerFull = true %}
+
+{% set sectionMenuActive = '' %}
+{% set sectionMenuHardCoded = '' %}
+
+
+{% set fullWidthCarouselRatio = '9-4' %}
+
+
+{#
+################
+CSS & JAVASCRIPT
+################
+#}
+
+
+{% block script %}
+    {{ parent() }}
+    {# Code for Facebook Page Plugin: #FB-feedComponent #}
+    <script id="facebook-jssdk" async="true" src="//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=162487723815676"></script>
+
+    {# IF we want to switch to Twitter. Hiding the FB widget below breaks the FB videos in the left column so that would need to be looked at when switching
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    #}
+
+{% endblock script %}
+
+
+
+
+
+{#
+######
+LAYOUT
+######
+#}
+
+{% block body %}
+    {#<h1>Fuck a duck</h1>#}
+    {# Code for Facebook Page Plugin: #FB-feedComponent (script manually added to head to try to delay it) #}
+    <div id="fb-root"></div>
+
+    {{ parent() }}
+
+{% endblock body %}
+

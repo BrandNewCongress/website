@@ -149,24 +149,9 @@ LAYOUT
                                 <div id="totalSignUp" class="borderDashed fontSecondary salmonText" count-up="" start-val="0" end-val="results.count" count-instance="countUp" duration="1.5" decimals="0" options="{easingFn: easingFn}" scroll-spy-event="elementFirstScrolledIntoView" scroll-spy=""></div>
                             </div>
                         </div>
-                        <div flex="100" flex-gt-sm="33" flex-order="3">
-                            <div class="joinForm pullRight" id="candidateJoin">
-                                <p class="textCenter divCenter" hide-gt-sm=""><strong>Sign up and help us convince our new draftees to run!</strong></p>
-                                <!-- Reuse Registration Form from shell -->
-                                {{ block('registrationForm') }}
-                            </div>
-                        </div>
                     </div>
                 </div>
 
-                {# Basic Signup Form #}
-                {#
-                <div id="homeJoinForm" class="joinForm">
-                    <p class="fontSecondary textCenter"><strong>Join us if you believe it’s time to reset our democracy.</strong></p>
-                    <div class="loader" ng-hide="true"></div>
-                    {{ block('registrationForm') }}
-                </div>
-                #}
             </div>
         </div>
 
