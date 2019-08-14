@@ -8,6 +8,8 @@
           data-file="landing.css">
 {% endblock link %}
 
+{% import 'SitetheoryStreamBundle::components.html.twig' as streamComponents %}
+
 {#
 ########
 SETTINGS
@@ -34,31 +36,96 @@ CSS & JAVASCRIPT
 
 {% block script %}
     {{ parent() }}
-    {# Code for Facebook Page Plugin: #FB-feedComponent #}
-    <script id="facebook-jssdk" async="true" src="//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=162487723815676"></script>
-
-    {# IF we want to switch to Twitter. Hiding the FB widget below breaks the FB videos in the left column so that would need to be looked at when switching
-    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-    #}
 
 {% endblock script %}
 
 
+{% block customStreamItem %}
 
+    {# Off the Press Module Area #}
+    <div id="off-the-press" ng-if="$index == 7">
 
+        <div class="clearfix">
+            <div class="st-grid column33">
 
-{#
-######
-LAYOUT
-######
-#}
+                <div class="home-news" ng-cloak="true" ng-controller="Generic"
+                     data-target="Tag/650/Content"
+                     data-api='{"limit":1}'>
 
-{% block body %}
-    {#<h1>Fuck a duck</h1>#}
-    {# Code for Facebook Page Plugin: #FB-feedComponent (script manually added to head to try to delay it) #}
-    <div id="fb-root"></div>
+                    <div class="item-vertical-padding">
+                        <h2 class="title"><a href="/">News</a></h2>
 
-    {{ parent() }}
+                        <div class="news-container clearfix position-anchor">
+                            <div ng-repeat="model in collection.models"
+                                 ng-attr-id="{% verbatim %}{{ 'landing-item-' + model.data.id }}{% endverbatim %}"
+                                 class="stream-item"
+                                 ng-class="">
 
-{% endblock body %}
+                                {{ streamComponents.streamImages('', 'landscape') }}
 
+                                <h3 ng-if="model.data.version.title" ng-bind-html="model.data.version.title | truncate:{limit: 200 }"></h3>
+                                <p class="news-body" ng-if="model.data.version.text" ng-bind-html="model.data.version.text | truncate:{limit: 200 }"> </p>
+
+                                {# CTA Btn #}
+                                <a class="news-link"></a>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="st-grid column33">
+                {#<div class="home-podcast" ng-cloak="true" ng-controller="Generic"#}
+                     {#data-target="Tag/636/Content"#}
+                     {#data-api='{"limit":5}'>#}
+
+                    {#<div class="item-vertical-padding">#}
+                        {#<h2 class="title"><a href="/">News</a></h2>#}
+
+                        {#<div class="welcome-container clearfix position-anchor">#}
+                            {#<div ng-repeat="model in collection.models"#}
+                                 {#ng-attr-id="{% verbatim %}{{ 'landing-item-' + model.data.id }}{% endverbatim %}"#}
+                                 {#class="stream-item"#}
+                                 {#ng-class="[model.data.version.meta.backgroundColor, { 'has-background-color' : model.data.version.meta.backgroundColor }, {'has-background-image background-dark' : model.data.version.meta.imagePosition=='static'}]"#}
+                                 {#data-anchor-target="#home-welcome"#}
+                                 {#data-bottom-top="{% verbatim %}{{ _.isEmpty(model.data.version.images) ? 'width: 80%;' : ''}}{% endverbatim %}"#}
+                                 {#data--200-center="{% verbatim %}{{ _.isEmpty(model.data.version.images) ? 'width: 50%;' : ''}}{% endverbatim %}"#}
+                            {#>#}
+
+                                {#<div class="center-content" ng-if="model.data.version.text">#}
+                                    {#<div class="item-body font-body" ng-bind-html="model.data.version.text">#}
+                                    {#</div>#}
+
+                                    {# CTA Btn #}
+                                    {#<a class="btn btn-cta" ng-if="model.data.version.ctaButtonUrl" target="{% verbatim %}{{ model.data.version.ctaBrowserTarget }}{% endverbatim %}" ng-href="{% verbatim %}{{ {% endverbatim %}model.data.version.ctaButtonUrl{% verbatim %} }}{% endverbatim %}" ng-bind-html="model.data.version.ctaButton ? model.data.version.ctaButton : 'More' "></a>#}
+                                {#</div>#}
+
+                                {#<div ng-if="(!_.isEmpty(model.data.version.images) && !model.data.version.meta.imagePosition) || model.data.mime">#}
+
+                                    {# Stream Item Image #}
+                                    {#<div class="position-all" layout="column" layout-align="center center">#}
+
+                                        {#{{ streamComponents.streamImages('', 'landscape') }}#}
+                                    {#</div>#}
+
+                                {#</div>#}
+
+                                {# If image is set to static background #}
+                                {#{{ streamComponents.backgroundImageStatic() }}#}
+
+                            {#</div>#}
+                        {#</div>#}
+
+                    {#</div>#}
+                {#</div>#}
+            </div>
+            <div class="st-grid column33">
+
+            </div>
+        </div>
+
+    </div>
+
+{% endblock customStreamItem %}

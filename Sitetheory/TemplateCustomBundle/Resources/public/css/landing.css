@@ -619,18 +619,49 @@
   font-size: 14px;
 }
 /* Home Page Event Module */
+#landing-item-38734 h4 {
+  display: table;
+  margin: 0 auto;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+#landing-item-38734 h4::before {
+  margin: 0 12px 0 0;
+  display: inline-block;
+  vertical-align: middle;
+  content: '';
+  width: 36px;
+  height: 1px;
+  border-top: 1px solid rgba(0, 0, 0, 0.6);
+}
+#landing-item-38734 h4::after {
+  margin: 0 0 0 12px;
+  display: inline-block;
+  vertical-align: middle;
+  content: '';
+  width: 36px;
+  height: 1px;
+  border-top: 1px solid rgba(0, 0, 0, 0.6);
+}
 #landing-item-38734 h1 {
-  margin: 40px 0;
-  font-size: 100px;
+  margin: 36px 0;
+}
+#landing-item-38734 h1::after {
+  display: table;
+  content: '';
+  margin: 30px auto 0;
+  width: 462px;
+  height: 70px;
+  background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/bunting.png') repeat-x left center;
+  background-size: 33.33%;
 }
 #landing-item-38734 p.description {
-  color: #ABABAB;
+  color: #4D4D4D;
   font-size: 30px;
-  font-weight: 300;
+  font-weight: 400;
 }
 #landing-item-38734 p.details {
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 15px;
 }
 /* Home Page Candidates */
 #landing-item-38735 h1.title {
