@@ -41,6 +41,7 @@
   font-weight: normal;
   font-style: normal;
 }
+/* Load LESS Variables */
 /* VARIABLES */
 /* Fonts */
 /* Colors */
@@ -304,115 +305,125 @@ hr {
 }
 #app .template-background-color1 h1,
 #app .template-background-color2 h1,
-#app .template-background-color3 h1,
 #app .template-background-color5 h1,
 #app .template-background-color1 h2,
 #app .template-background-color2 h2,
-#app .template-background-color3 h2,
 #app .template-background-color5 h2,
 #app .template-background-color1 h3,
 #app .template-background-color2 h3,
-#app .template-background-color3 h3,
 #app .template-background-color5 h3,
 #app .template-background-color1 h4,
 #app .template-background-color2 h4,
-#app .template-background-color3 h4,
 #app .template-background-color5 h4,
 #app .template-background-color1 h1 a,
 #app .template-background-color2 h1 a,
-#app .template-background-color3 h1 a,
 #app .template-background-color5 h1 a,
 #app .template-background-color1 h2 a,
 #app .template-background-color2 h2 a,
-#app .template-background-color3 h2 a,
 #app .template-background-color5 h2 a,
 #app .template-background-color1 h3 a,
 #app .template-background-color2 h3 a,
-#app .template-background-color3 h3 a,
 #app .template-background-color5 h3 a,
 #app .template-background-color1 h4 a,
 #app .template-background-color2 h4 a,
-#app .template-background-color3 h4 a,
-#app .template-background-color5 h4 a,
+#app .template-background-color5 h4 a {
+  color: #FFF;
+}
 #app .template-background-color1 p,
 #app .template-background-color2 p,
-#app .template-background-color3 p,
 #app .template-background-color5 p,
 #app .template-background-color1 div,
 #app .template-background-color2 div,
-#app .template-background-color3 div,
 #app .template-background-color5 div {
-  color: #FFF;
+  color: #DDD;
 }
 #app .template-background-color1 h1 a:hover,
 #app .template-background-color2 h1 a:hover,
-#app .template-background-color3 h1 a:hover,
 #app .template-background-color5 h1 a:hover,
 #app .template-background-color1 h2 a:hover,
 #app .template-background-color2 h2 a:hover,
-#app .template-background-color3 h2 a:hover,
 #app .template-background-color5 h2 a:hover,
 #app .template-background-color1 h3 a:hover,
 #app .template-background-color2 h3 a:hover,
-#app .template-background-color3 h3 a:hover,
 #app .template-background-color5 h3 a:hover,
 #app .template-background-color1 h4 a:hover,
 #app .template-background-color2 h4 a:hover,
-#app .template-background-color3 h4 a:hover,
 #app .template-background-color5 h4 a:hover {
   opacity: 0.9;
 }
 #app .template-background-color1 .border-default,
 #app .template-background-color2 .border-default,
-#app .template-background-color3 .border-default,
 #app .template-background-color5 .border-default {
   border-color: rgba(255, 255, 255, 0.3);
 }
 #app .template-background-color1 .btn,
 #app .template-background-color2 .btn,
-#app .template-background-color3 .btn,
 #app .template-background-color5 .btn,
 #app .template-background-color1 .btn-more,
 #app .template-background-color2 .btn-more,
-#app .template-background-color3 .btn-more,
 #app .template-background-color5 .btn-more,
 #app .template-background-color1 .btn:link,
 #app .template-background-color2 .btn:link,
-#app .template-background-color3 .btn:link,
 #app .template-background-color5 .btn:link,
 #app .template-background-color1 .btn-more:link,
 #app .template-background-color2 .btn-more:link,
-#app .template-background-color3 .btn-more:link,
 #app .template-background-color5 .btn-more:link,
 #app .template-background-color1 .btn:visited,
 #app .template-background-color2 .btn:visited,
-#app .template-background-color3 .btn:visited,
 #app .template-background-color5 .btn:visited,
 #app .template-background-color1 .btn-more:visited,
 #app .template-background-color2 .btn-more:visited,
-#app .template-background-color3 .btn-more:visited,
 #app .template-background-color5 .btn-more:visited,
 #app .template-background-color1 .btn:active,
 #app .template-background-color2 .btn:active,
-#app .template-background-color3 .btn:active,
 #app .template-background-color5 .btn:active,
 #app .template-background-color1 .btn-more:active,
 #app .template-background-color2 .btn-more:active,
-#app .template-background-color3 .btn-more:active,
 #app .template-background-color5 .btn-more:active {
-  color: #222;
-  background: #FFF;
+  background: none;
+  color: #FF7A65;
+  border: 2px solid #FF7A65;
 }
 #app .template-background-color1 .btn:hover,
 #app .template-background-color2 .btn:hover,
-#app .template-background-color3 .btn:hover,
 #app .template-background-color5 .btn:hover,
 #app .template-background-color1 .btn-more:hover,
 #app .template-background-color2 .btn-more:hover,
-#app .template-background-color3 .btn-more:hover,
 #app .template-background-color5 .btn-more:hover {
   color: #FFF;
+  background: #FF7A65;
+}
+#app .template-background-color3 h1,
+#app .template-background-color3 h2,
+#app .template-background-color3 h3,
+#app .template-background-color3 h4,
+#app .template-background-color3 h1 a,
+#app .template-background-color3 h2 a,
+#app .template-background-color3 h3 a,
+#app .template-background-color3 h4 a {
+  color: #FFF;
+}
+#app .template-background-color3 p,
+#app .template-background-color3 div {
+  color: #111;
+}
+#app .template-background-color3 .btn,
+#app .template-background-color3 .btn-more,
+#app .template-background-color3 .btn:link,
+#app .template-background-color3 .btn-more:link,
+#app .template-background-color3 .btn:visited,
+#app .template-background-color3 .btn-more:visited,
+#app .template-background-color3 .btn:active,
+#app .template-background-color3 .btn-more:active {
+  background: none;
+  color: #FFF;
+  border: 2px solid #FFF;
+}
+#app .template-background-color3 .btn:hover,
+#app .template-background-color3 .btn-more:hover {
+  color: #FFF;
   background: #111;
+  border: 2px solid #111;
 }
 /* LOADER */
 @keyframes pulse {
@@ -1570,66 +1581,5 @@ p.interviewQuestion::before {
   font-weight: bold;
   font-family: 'Roboto Slab', sans-serif;
   color: #FF7A65;
-}
-/* Temporary */
-#app .stream-item h1.title {
-  font-size: 80px;
-}
-#app .stream-item h2 {
-  font-family: 'u.s._101regular', serif;
-  font-weight: normal;
-}
-.btn.btn-cta {
-  background: none;
-  color: #FF7A65;
-  border: 2px solid #FF7A65;
-}
-.btn.btn-cta:hover {
-  color: #FFF;
-  background: #FF7A65;
-}
-/* The Problem Module */
-#landing-item-38721 .item-body {
-  padding-bottom: 60px;
-  background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/Triple-Star-Salmon.png') no-repeat center bottom;
-  background-size: 83px;
-}
-/* The Solution Module */
-#landing-item-38723 h1 {
-  display: table;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 130px;
-  background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/flag.png') no-repeat left center;
-  background-size: 88px;
-}
-#landing-item-38723 h4 {
-  margin-top: 60px;
-}
-/* What You Can Do Module */
-#landing-item-38732 .btn.btn-cta {
-  font-size: 14px;
-}
-/* Event Module */
-#landing-item-38734 h1 {
-  margin: 40px 0;
-  font-size: 100px;
-}
-#landing-item-38734 p.description {
-  color: #ABABAB;
-  font-size: 30px;
-  font-weight: 300;
-}
-#landing-item-38734 p.details {
-  font-size: 18px;
-  font-weight: bold;
-}
-/* Quote Image */
-#landing-item-38733 .quote {
-  font-weight: 300;
-  font-size: 50px;
-}
-#landing-item-38733 .citation {
-  font-size: 18px;
 }
 /*# sourceMappingURL=site.css.map */

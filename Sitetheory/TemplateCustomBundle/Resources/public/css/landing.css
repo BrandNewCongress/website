@@ -1,8 +1,635 @@
+/* Load LESS Variables */
+/* VARIABLES */
+/* Fonts */
+/* Colors */
 /* LANDING PAGE */
-.stream-item:first-child .item-vertical-padding {
-  padding-top: 0;
-}
-.stream-item h1.title {
+.landing-stream .stream-item h1.title {
   font-size: 80px;
 }
+.landing-stream .stream-item h2 {
+  font-family: 'u.s._101regular', serif;
+  font-weight: normal;
+}
+.landing-stream .stream-item .item-body p {
+  font-weight: 300;
+}
+.landing-stream .stream-item .quote {
+  font-weight: 300;
+  font-size: 55px;
+}
+.landing-stream .stream-item .citation {
+  font-size: 18px;
+}
+.landing-stream .stream-item .btn.btn-cta {
+  background: none;
+  color: #FF7A65;
+  border: 2px solid #FF7A65;
+}
+.landing-stream .stream-item .btn.btn-cta:hover {
+  color: #FFF;
+  background: #FF7A65;
+}
+.landing-stream .stream-item.parallax-wrapper .item-vertical-padding,
+.landing-stream .stream-item .stream-item.has-background-image .item-vertical-padding {
+  padding-top: 160px;
+  padding-bottom: 160px;
+}
+/* Home Page Slideshow */
+#landing-item-38717 .item-vertical-padding {
+  padding-top: 0;
+}
+#landing-item-38717 .item-vertical-padding h2.title {
+  font-family: 'Roboto Slab', serif;
+  text-transform: none;
+  font-weight: 300;
+  font-size: 30px;
+}
+#landing-item-38717 .item-vertical-padding .text-wrapper .btn,
+#landing-item-38717 .item-vertical-padding .text-wrapper .btn-more,
+#landing-item-38717 .item-vertical-padding .text-wrapper .btn:link,
+#landing-item-38717 .item-vertical-padding .text-wrapper .btn-more:link,
+#landing-item-38717 .item-vertical-padding .text-wrapper .btn:visited,
+#landing-item-38717 .item-vertical-padding .text-wrapper .btn-more:visited,
+#landing-item-38717 .item-vertical-padding .text-wrapper .btn:active,
+#landing-item-38717 .item-vertical-padding .text-wrapper .btn-more:active {
+  background: none;
+  color: #FFF;
+  border: 2px solid #FFF;
+}
+#landing-item-38717 .item-vertical-padding .text-wrapper .btn:hover,
+#landing-item-38717 .item-vertical-padding .text-wrapper .btn-more:hover {
+  color: #111;
+  background: #FFF;
+  border: 2px solid #FFF;
+}
+/* Home Page Intro Module */
+#landing-item-38720 p {
+  max-width: 880px;
+}
+#landing-item-38720 .covered-by {
+  margin-top: 50px;
+  padding-top: 50px;
+  /* Logo 1 animation */
+  /* Logo 2 animation */
+  /* Logo 3 animation */
+  /* Logo 4 animation */
+  /* Logo 5 animation */
+  /* Logo 6 animation */
+  /* Logo 7 animation */
+  /* Logo 8 animation */
+}
+#landing-item-38720 .covered-by h4 {
+  margin: 0 0 30px;
+}
+@keyframes coveredByLogo1 {
+  /* Fade in */
+  0% {
+    opacity: 0;
+    background-position: 0 0;
+  }
+  2% {
+    opacity: 1;
+    background-position: 0 0;
+  }
+  /* Fade out */
+  30% {
+    opacity: 1;
+    background-position: 0 0;
+  }
+  32% {
+    opacity: 0;
+    background-position: 0 0;
+  }
+  /* Move logo while faded out */
+  32.1% {
+    opacity: 0;
+    background-position: 0 center;
+  }
+  /* Fade in */
+  34% {
+    opacity: 1;
+    background-position: 0 center;
+  }
+  /* Fade out */
+  62% {
+    opacity: 1;
+    background-position: 0 center;
+  }
+  64% {
+    opacity: 0;
+    background-position: 0 center;
+  }
+  /* Move logo while faded out */
+  64.1% {
+    opacity: 0;
+    background-position: 0 bottom;
+  }
+  /* Fade in */
+  66% {
+    opacity: 1;
+    background-position: 0 bottom;
+  }
+  /* Fade out */
+  98% {
+    opacity: 1;
+    background-position: 0 bottom;
+  }
+  100% {
+    opacity: 0;
+    background-position: 0 bottom;
+  }
+}
+@keyframes coveredByLogo2 {
+  /* Fade in */
+  0% {
+    opacity: 0;
+    background-position: -160px 2px;
+  }
+  2% {
+    opacity: 1;
+    background-position: -160px 2px;
+  }
+  /* Fade out */
+  30% {
+    opacity: 1;
+    background-position: -160px 2px;
+  }
+  32% {
+    opacity: 0;
+    background-position: -160px 2px;
+  }
+  /* Move logo while faded out */
+  32.1% {
+    opacity: 0;
+    background-position: -160px center;
+  }
+  /* Fade in */
+  34% {
+    opacity: 1;
+    background-position: -160px center;
+  }
+  /* Fade out */
+  62% {
+    opacity: 1;
+    background-position: -160px center;
+  }
+  64% {
+    opacity: 0;
+    background-position: -160px center;
+  }
+  /* Move logo while faded out */
+  64.1% {
+    opacity: 0;
+    background-position: -160px bottom;
+  }
+  /* Fade in */
+  66% {
+    opacity: 1;
+    background-position: -160px bottom;
+  }
+  /* Fade out */
+  98% {
+    opacity: 1;
+    background-position: -160px bottom;
+  }
+  100% {
+    opacity: 0;
+    background-position: -160px bottom;
+  }
+}
+@keyframes coveredByLogo3 {
+  /* Fade in */
+  0% {
+    opacity: 0;
+    background-position: -295px 2px;
+  }
+  2% {
+    opacity: 1;
+    background-position: -295px 2px;
+  }
+  /* Fade out */
+  30% {
+    opacity: 1;
+    background-position: -295px 2px;
+  }
+  32% {
+    opacity: 0;
+    background-position: -295px 2px;
+  }
+  /* Move logo while faded out */
+  32.1% {
+    opacity: 0;
+    background-position: -295px center;
+  }
+  /* Fade in */
+  34% {
+    opacity: 1;
+    background-position: -295px center;
+  }
+  /* Fade out */
+  62% {
+    opacity: 1;
+    background-position: -295px center;
+  }
+  64% {
+    opacity: 0;
+    background-position: -295px center;
+  }
+  /* Move logo while faded out */
+  64.1% {
+    opacity: 0;
+    background-position: -295px bottom;
+  }
+  /* Fade in */
+  66% {
+    opacity: 1;
+    background-position: -295px bottom;
+  }
+  /* Fade out */
+  98% {
+    opacity: 1;
+    background-position: -295px bottom;
+  }
+  100% {
+    opacity: 0;
+    background-position: -295px bottom;
+  }
+}
+@keyframes coveredByLogo4 {
+  /* Fade in */
+  0% {
+    opacity: 0;
+    background-position: -432px 2px;
+  }
+  2% {
+    opacity: 1;
+    background-position: -432px 2px;
+  }
+  /* Fade out */
+  30% {
+    opacity: 1;
+    background-position: -432px 2px;
+  }
+  32% {
+    opacity: 0;
+    background-position: -432px 2px;
+  }
+  /* Move logo while faded out */
+  32.1% {
+    opacity: 0;
+    background-position: -432px center;
+  }
+  /* Fade in */
+  34% {
+    opacity: 1;
+    background-position: -432px center;
+  }
+  /* Fade out */
+  62% {
+    opacity: 1;
+    background-position: -432px center;
+  }
+  64% {
+    opacity: 0;
+    background-position: -432px center;
+  }
+  /* Move logo while faded out */
+  64.1% {
+    opacity: 0;
+    background-position: -432px bottom;
+  }
+  /* Fade in */
+  66% {
+    opacity: 1;
+    background-position: -432px bottom;
+  }
+  /* Fade out */
+  98% {
+    opacity: 1;
+    background-position: -432px bottom;
+  }
+  100% {
+    opacity: 0;
+    background-position: -432px bottom;
+  }
+}
+@keyframes coveredByLogo5 {
+  /* Fade in */
+  0% {
+    opacity: 0;
+    background-position: -524px 2px;
+  }
+  2% {
+    opacity: 1;
+    background-position: -524px 2px;
+  }
+  /* Fade out */
+  30% {
+    opacity: 1;
+    background-position: -524px 2px;
+  }
+  32% {
+    opacity: 0;
+    background-position: -524px 2px;
+  }
+  /* Move logo while faded out */
+  32.1% {
+    opacity: 0;
+    background-position: -524px center;
+  }
+  /* Fade in */
+  34% {
+    opacity: 1;
+    background-position: -524px center;
+  }
+  /* Fade out */
+  62% {
+    opacity: 1;
+    background-position: -524px center;
+  }
+  64% {
+    opacity: 0;
+    background-position: -524px center;
+  }
+  /* Move logo while faded out */
+  64.1% {
+    opacity: 0;
+    background-position: -524px bottom;
+  }
+  /* Fade in */
+  66% {
+    opacity: 1;
+    background-position: -524px bottom;
+  }
+  /* Fade out */
+  98% {
+    opacity: 1;
+    background-position: -524px bottom;
+  }
+  100% {
+    opacity: 0;
+    background-position: -524px bottom;
+  }
+}
+@keyframes coveredByLogo6 {
+  /* Fade in */
+  0% {
+    opacity: 0;
+    background-position: -644px 2px;
+  }
+  2% {
+    opacity: 1;
+    background-position: -644px 2px;
+  }
+  /* Fade out */
+  30% {
+    opacity: 1;
+    background-position: -644px 2px;
+  }
+  32% {
+    opacity: 0;
+    background-position: -644px 2px;
+  }
+  /* Move logo while faded out */
+  32.1% {
+    opacity: 0;
+    background-position: -644px center;
+  }
+  /* Fade in */
+  34% {
+    opacity: 1;
+    background-position: -644px center;
+  }
+  /* Fade out */
+  62% {
+    opacity: 1;
+    background-position: -644px center;
+  }
+  64% {
+    opacity: 0;
+    background-position: -644px center;
+  }
+  /* Move logo while faded out */
+  64.1% {
+    opacity: 0;
+    background-position: -644px bottom;
+  }
+  /* Fade in */
+  66% {
+    opacity: 1;
+    background-position: -644px bottom;
+  }
+  /* Fade out */
+  98% {
+    opacity: 1;
+    background-position: -644px bottom;
+  }
+  100% {
+    opacity: 0;
+    background-position: -644px bottom;
+  }
+}
+@keyframes coveredByLogo7 {
+  /* Fade in */
+  0% {
+    opacity: 0;
+    background-position: -766px 2px;
+  }
+  2% {
+    opacity: 1;
+    background-position: -766px 2px;
+  }
+  /* Fade out */
+  30% {
+    opacity: 1;
+    background-position: -766px 2px;
+  }
+  32% {
+    opacity: 0;
+    background-position: -766px 2px;
+  }
+  /* Move logo while faded out */
+  32.1% {
+    opacity: 0;
+    background-position: -766px center;
+  }
+  /* Fade in */
+  34% {
+    opacity: 1;
+    background-position: -766px center;
+  }
+  /* Fade out */
+  62% {
+    opacity: 1;
+    background-position: -766px center;
+  }
+  64% {
+    opacity: 0;
+    background-position: -766px center;
+  }
+  /* Move logo while faded out */
+  64.1% {
+    opacity: 0;
+    background-position: -766px bottom;
+  }
+  /* Fade in */
+  66% {
+    opacity: 1;
+    background-position: -766px bottom;
+  }
+  /* Fade out */
+  98% {
+    opacity: 1;
+    background-position: -766px bottom;
+  }
+  100% {
+    opacity: 0;
+    background-position: -766px bottom;
+  }
+}
+@keyframes coveredByLogo8 {
+  /* Fade in */
+  0% {
+    opacity: 0;
+    background-position: 100% 2px;
+  }
+  2% {
+    opacity: 1;
+    background-position: 100% 2px;
+  }
+  /* Fade out */
+  30% {
+    opacity: 1;
+    background-position: 100% 2px;
+  }
+  32% {
+    opacity: 0;
+    background-position: 100% 2px;
+  }
+  /* Move logo while faded out */
+  32.1% {
+    opacity: 0;
+    background-position: 100% center;
+  }
+  /* Fade in */
+  34% {
+    opacity: 1;
+    background-position: 100% center;
+  }
+  /* Fade out */
+  62% {
+    opacity: 1;
+    background-position: 100% center;
+  }
+  64% {
+    opacity: 0;
+    background-position: 100% center;
+  }
+  /* Move logo while faded out */
+  64.1% {
+    opacity: 0;
+    background-position: 100% bottom;
+  }
+  /* Fade in */
+  66% {
+    opacity: 1;
+    background-position: 100% bottom;
+  }
+  /* Fade out */
+  98% {
+    opacity: 1;
+    background-position: 100% bottom;
+  }
+  100% {
+    opacity: 0;
+    background-position: 100% bottom;
+  }
+}
+#landing-item-38720 .covered-by .logo-column {
+  float: left;
+  height: 50px;
+  background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/covered-by-logos.png') no-repeat;
+  background-size: 1000px;
+}
+#landing-item-38720 .covered-by .logo1 {
+  animation: coveredByLogo1 11s 0.05s infinite;
+  width: 15.4%;
+  background-position: 0 0;
+}
+#landing-item-38720 .covered-by .logo2 {
+  animation: coveredByLogo2 11s 0.1s infinite;
+  width: 13.8%;
+  background-position: -160px 2px;
+}
+#landing-item-38720 .covered-by .logo3 {
+  animation: coveredByLogo3 11s 0.15s infinite;
+  width: 14%;
+  background-position: -295px 5px;
+}
+#landing-item-38720 .covered-by .logo4 {
+  animation: coveredByLogo4 11s 0.2s infinite;
+  width: 9.4%;
+  background-position: -432px 1px;
+}
+#landing-item-38720 .covered-by .logo5 {
+  animation: coveredByLogo5 11s 0.25s infinite;
+  width: 12%;
+  background-position: -524px 2px;
+}
+#landing-item-38720 .covered-by .logo6 {
+  animation: coveredByLogo6 11s 0.3s infinite;
+  width: 11.5%;
+  background-position: -644px 3px;
+}
+#landing-item-38720 .covered-by .logo7 {
+  animation: coveredByLogo7 11s 0.35s infinite;
+  width: 12.5%;
+  background-position: -766px 2px;
+}
+#landing-item-38720 .covered-by .logo8 {
+  animation: coveredByLogo8 11s 0.4s infinite;
+  width: 11.4%;
+  background-position: 100% 1px;
+}
+/* Home Page Problem Module */
+#landing-item-38721 .item-body {
+  padding-bottom: 60px;
+  background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/Triple-Star-Salmon.png') no-repeat center bottom;
+  background-size: 83px;
+}
+/* Home Page Solution Module */
+#landing-item-38723 .item-vertical-padding {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+#landing-item-38723 h1 {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 130px;
+  background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/flag.png') no-repeat left center;
+  background-size: 88px;
+}
+#landing-item-38723 h4 {
+  margin-top: 60px;
+}
+/* Home Page What You Can Do Module */
+#landing-item-38732 .btn.btn-cta {
+  font-size: 14px;
+}
+/* Home Page Event Module */
+#landing-item-38734 h1 {
+  margin: 40px 0;
+  font-size: 100px;
+}
+#landing-item-38734 p.description {
+  color: #ABABAB;
+  font-size: 30px;
+  font-weight: 300;
+}
+#landing-item-38734 p.details {
+  font-size: 18px;
+  font-weight: bold;
+}
+/* Home Page Quote Image */
 /*# sourceMappingURL=landing.css.map */

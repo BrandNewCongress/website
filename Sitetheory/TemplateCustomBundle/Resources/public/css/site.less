@@ -9,20 +9,8 @@
   font-style: normal;
 }
 
-
-/* VARIABLES */
-
-/* Fonts */
-@font-primary: 'Roboto Slab', serif;
-@font-secondary: 'u.s._101regular', serif;
-@font-tertiary: 'Montserrat', sans-serif;
-
-/* Colors */
-@color-primary: #7932AC;
-@color-medium: #598089;
-@color-light: #EEE;
-@color-dark: #141414;
-@color-pop: #FF7A65;
+/* Load LESS Variables */
+@import "variables.less";
 
 
 /* BODY */
@@ -317,7 +305,6 @@ hr {
   }
   .template-background-color1,
   .template-background-color2,
-  .template-background-color3,
   .template-background-color5 {
     h1,
     h2,
@@ -326,10 +313,12 @@ hr {
     h1 a,
     h2 a,
     h3 a,
-    h4 a,
+    h4 a {
+      color: #FFF;
+    }
     p,
     div {
-      color: #FFF;
+      color: #DDD;
     }
     h1 a,
     h2 a,
@@ -348,12 +337,45 @@ hr {
       &:link,
       &:visited,
       &:active {
-        color: #222;
-        background: #FFF;
+        background: none;
+        color: #FF7A65;
+        border: 2px solid #FF7A65;
+      }
+      &:hover {
+        color: #FFF;
+        background: #FF7A65;
+      }
+    }
+  }
+  .template-background-color3 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h1 a,
+    h2 a,
+    h3 a,
+    h4 a {
+      color: #FFF;
+    }
+    p,
+    div {
+      color: #111;
+    }
+    .btn,
+    .btn-more {
+      &,
+      &:link,
+      &:visited,
+      &:active {
+        background: none;
+        color: #FFF;
+        border: 2px solid #FFF;
       }
       &:hover {
         color: #FFF;
         background: #111;
+        border: 2px solid #111;
       }
     }
   }
@@ -1614,89 +1636,3 @@ p.interviewQuestion::before {
   color: #FF7A65;
 }
 
-
-
-/* Temporary */
-
-#app {
-  .stream-item {
-    h1.title {
-      font-size: 80px;
-    }
-    h2 {
-      font-family: @font-secondary;
-      font-weight: normal;
-    }
-  }
-}
-.btn.btn-cta {
-  background: none;
-  color: #FF7A65;
-  border: 2px solid #FF7A65;
-  &:hover {
-    color: #FFF;
-    background: #FF7A65;
-  }
-}
-
-
-/* The Problem Module */
-#landing-item-38721 {
-  .item-body {
-    padding-bottom: 60px;
-    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/Triple-Star-Salmon.png') no-repeat center bottom;
-    background-size: 83px;
-  }
-}
-
-
-/* The Solution Module */
-#landing-item-38723 {
-  h1 {
-    display: table;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 130px;
-    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/flag.png') no-repeat left center;
-    background-size: 88px;
-  }
-  h4 {
-    margin-top: 60px;
-  }
-}
-
-/* What You Can Do Module */
-#landing-item-38732 {
-  .btn.btn-cta {
-    font-size: 14px;
-  }
-}
-
-/* Event Module */
-
-#landing-item-38734 {
-  h1 {
-    margin: 40px 0;
-    font-size: 100px;
-  }
-  p.description {
-    color: #ABABAB;
-    font-size: 30px;
-    font-weight: 300;
-  }
-  p.details {
-    font-size: 18px;
-    font-weight: bold;
-  }
-}
-
-/* Quote Image */
-#landing-item-38733 {
-  .quote {
-    font-weight: 300;
-    font-size: 50px;
-  }
-  .citation {
-    font-size: 18px;
-  }
-}
