@@ -98,7 +98,26 @@ LAYOUT
                     </div>
                     <div class="header-extra-links" no-flex flex="20">
                         <div class="float-links">
-                            {{ block('socialMedia') }}
+                            {#{{ block('socialMedia') }}#}
+                            <div class="social-media circle">
+                                <ul class="list-inline">
+                                    <li class="facebook">
+                                        <a href="https://www.facebook.com/brandnewcongress" target="_blank">
+                                            {% embed "@SitetheoryCoreBundle/Resources/public/images/icons/social/facebook.svg" %}{% endembed %}
+                                        </a>
+                                    </li>
+                                    <li class="twitter">
+                                        <a href="https://twitter.com/BrandNew535" target="_blank">
+                                            {% embed "@SitetheoryCoreBundle/Resources/public/images/icons/social/twitter.svg" %}{% endembed %}
+                                        </a>
+                                    </li>
+                                    <li class="instagram">
+                                        <a href="https://www.instagram.com/brandnewcongress" target="_blank">
+                                            {% embed "@SitetheoryCoreBundle/Resources/public/images/icons/social/instagram.svg" %}{% endembed %}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                             <a href="https://secure.actblue.com/donate/bnc2020" target="_blank" class="btn btn-contribute">Donate</a>
                         </div>
                     </div>
@@ -438,6 +457,25 @@ LAYOUT
         <img src="{{ asset('bundles/sitetheorytemplatecustom/images/Brand-New-Congress-Logo-Footer.png') }}" alt="Brand New Congress Logo"></a>
     </a>
 {% endblock footerExtras %}
+
+
+{% block vendorCreditLogo %}
+    <div class="credit-logo-image">
+        <a href="//gutensite.com" target="_blank">
+            <div class="vendor-logo-svg">
+                {% embed '@SitetheoryTemplateCustomBundle/Resources/public/images/gutensite-logo-footer-credit.svg' %}{% block id %}sitetheory-logo-footer-logo{% endblock %}{% endembed %}
+            </div>
+        </a>
+    </div>
+{% endblock vendorCreditLogo %}
+
+
+{# TEMPORARY FOOTER SITE INFO #}
+{% block footerSiteInfo %}
+    <div class="footer-site-info site-contact-short font-body"><a href="mailto:us@brandnewcongress">us@brandnewcongress</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="tel:202-769-3944">202-769-3944</a>&nbsp;&nbsp;|&nbsp;&nbsp;PO Box 1024 Springdale, AR 72765<br>Paid for by Brand New Congress, not authorized by any candidate or candidate committee.
+    </div>
+{% endblock footerSiteInfo %}
+
 
  {#FOOTER SITE MAP #}
 {% block footerSiteMap %}

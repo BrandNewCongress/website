@@ -13,6 +13,9 @@
 .landing-stream .stream-item .item-body p {
   font-weight: 300;
 }
+.landing-stream .stream-item .module-stream p {
+  font-weight: 400;
+}
 .landing-stream .stream-item .quote {
   font-weight: 300;
   font-size: 55px;
@@ -33,6 +36,18 @@
 .landing-stream .stream-item .stream-item.has-background-image .item-vertical-padding {
   padding-top: 160px;
   padding-bottom: 160px;
+}
+.landing-stream .stream-item.parallax-wrapper .btn.btn-cta,
+.landing-stream .stream-item .stream-item.has-background-image .btn.btn-cta {
+  color: #FFF;
+  border: none;
+  background: #FF7A65;
+}
+.landing-stream .stream-item.parallax-wrapper .btn.btn-cta:hover,
+.landing-stream .stream-item .stream-item.has-background-image .btn.btn-cta:hover {
+  color: #FF7A65;
+  background: #FFF;
+  border: none;
 }
 /* Home Page Slideshow */
 #landing-item-38717 .item-vertical-padding {
@@ -615,6 +630,12 @@
   margin-top: 60px;
 }
 /* Home Page What You Can Do Module */
+#landing-item-38732 {
+  padding-top: 0;
+}
+#landing-item-38732 .st-card-wrapper {
+  margin-top: 0;
+}
 #landing-item-38732 .btn.btn-cta {
   font-size: 14px;
 }
@@ -723,5 +744,134 @@
   background: none;
   border-color: #FF7A65;
 }
+/* Home Page Off the Press */
+#off-the-press {
+  text-align: left;
+}
+#off-the-press .st-card-wrapper {
+  margin: 0 -14px;
+}
+#off-the-press .st-card-wrapper .st-card {
+  padding: 0 14px;
+}
+#off-the-press h1 {
+  text-align: center;
+}
+#off-the-press h2 {
+  margin: 0 0 22px 0;
+  padding-bottom: 10px;
+  color: #141414;
+  font-size: 30px;
+  border-bottom: 1px solid #141414;
+}
+#off-the-press .press-action {
+  text-align: right;
+}
+#off-the-press .press-action a {
+  display: inline-block;
+  padding-bottom: 4px;
+  color: 'Roboto Slab', serif;
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;
+  font-size: 12px;
+  border-bottom: 1px solid #999;
+}
+#off-the-press .press-action a:hover {
+  color: #141414;
+  border-color: #141414;
+}
+#off-the-press .home-news .date {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  z-index: 3;
+  display: table;
+  margin-left: -4px;
+  padding: 2px 6px;
+  color: #FFF;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+#off-the-press .home-news h3 {
+  margin-bottom: 12px;
+  color: #141414;
+  font-size: 26px;
+  font-family: 'Roboto Slab', serif;
+  text-transform: none;
+  font-weight: normal;
+  letter-spacing: normal;
+}
+#off-the-press .home-news p {
+  font-family: 'Roboto', sans-serif;
+}
+#off-the-press .home-news .image-container {
+  margin-bottom: 0;
+}
+#off-the-press .home-news .image-container.has-caption .image-gradient {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  height: 100px;
+  opacity: 0.6;
+  background: linear-gradient(rgba(0, 0, 0, 0), #000000);
+}
+#off-the-press .home-news .image-container.has-caption .caption {
+  font-family: 'Roboto', sans-serif;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+  color: #FFF;
+  padding: 0 5% 10px;
+}
+#off-the-press .home-podcast .podcast-item {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #D5D5D5;
+}
+#off-the-press .home-podcast .podcast-item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+#off-the-press .home-podcast .podcast-image {
+  margin-right: 20px;
+}
+#off-the-press .home-podcast .podcast-date {
+  margin: 0 0 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+#off-the-press .home-podcast .podcast-title {
+  margin: 0;
+  font-family: 'Roboto Slab', serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+#off-the-press .home-podcast .podcast-title a {
+  color: #141414;
+}
+#off-the-press .home-podcast .podcast-title a:hover {
+  color: #7932AC;
+}
+#off-the-press .home-twitter md-icon {
+  width: 33px;
+  height: unset;
+}
+#off-the-press .home-twitter md-icon svg g {
+  fill: #7932AC;
+}
 /* Home Page Quote Image */
+#landing-item-38733.parallax-wrapper .item-vertical-padding,
+#landing-item-38733 .stream-item.has-background-image .item-vertical-padding {
+  padding-top: 220px;
+  padding-bottom: 220px;
+}
 /*# sourceMappingURL=landing.css.map */
