@@ -1,0 +1,39 @@
+{% extends 'SitetheoryStreamBundle::LandingEdit.html.twig' %}
+
+{% block editFormTabCustom %}
+    <md-tab label="custom">
+
+        <div class="inset">
+
+
+            <h2>Breaking News</h2>
+
+            <div class="inputRow">
+                <stratus-help>Enter a title to make the Breaking News bar appear.</stratus-help>
+                <md-input-container class="block" ng-show="model.completed">
+                    <label>News Title</label>
+                    <input ng-model="model.data.version.custom.breakingNews" type="text" aria-label="Breaking News Title">
+                </md-input-container>
+            </div>
+
+            <div class="inputRow">
+                <stratus-help>Enter a URL to make the Breaking News bar link to a page.</stratus-help>
+                <md-input-container class="block" ng-show="model.completed">
+                    <label>News URL</label>
+                    <input ng-model="model.data.version.custom.breakingNewsLink" type="text" aria-label="Breaking News Link">
+                </md-input-container>
+            </div>
+
+
+            <h2>Candidate Intro</h2>
+
+            <div class="inputRow">
+                <stratus-help>Enter text to appear above the list of candidates.</stratus-help>
+                <textarea froala ng-model="model.data.version.custom.candidateIntro" aria-label="Candidate Intro"></textarea>
+            </div>
+
+        </div>
+
+    </md-tab>
+{% endblock editFormTabCustom %}
+

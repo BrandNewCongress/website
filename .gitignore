@@ -67,3 +67,6 @@ vendor
 
 #Bower
 bower_components
+
+# Deployment
+deployment-config.json
