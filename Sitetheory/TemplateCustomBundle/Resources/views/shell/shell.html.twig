@@ -14,29 +14,15 @@ SETTINGS
 ########
 #}
 
-{# Remove padding on header and sidebarToggle so mini header can go full width #}
+{# Remove padding on header and header image so mini header can go full width #}
 {% set headerStructure = '' %}
+{% set headerImageSettings = '' %}
 
 {# Make mobile drawer slide in from right #}
-{% set mobileDrawerDirection = 'mobileDrawerRight' %}
+{% set mobileDrawerDirection = 'mobile-drawer-right' %}
 
-{# Hide Sidebar Login until it's dynamically hidden for users with no membership feature #}
-{% block sidebarLogin %}
-{% endblock sidebarLogin %}
-
-{# Set sidebar and make main column #}
-{% if columnSidebar is not defined %}
-    {% set columnSidebar = 'stGrid column20' %}
-    {% set bcolumnMain = 'stGrid column80' %}
-{% endif %}
-
-{# Make sure sidebar variables are empty to prevent errors #}
-{% if sectionMenuActive is not defined %}
-    {% set sectionMenuActive = 'empty' %}
-{% endif %}
-{% if sectionMenuHardCoded is not defined %}
-    {% set sectionMenuHardCoded = '' %}
-{% endif %}
+{# Hide Sidebar on Desktop #}
+{% set displaySidebar = false %}
 
 {# Centered version of footer #}
 {% set footerCentered = true %}
@@ -82,7 +68,7 @@ LAYOUT
 
 {% block headerContent %}
 
-    {#<h1>Messin</h1>#}
+    {#<h1>Refresh</h1>#}
     {# The header in this design is extra tall so it's only used on the home page #}
     {% if headerFull == true %}
         <div class="header-content site-max-width site-side-padding">
@@ -94,7 +80,7 @@ LAYOUT
                     <div class="logo-header text-center" flex>
                         <a href="/" aria-label="Go to Home"><img
                                     src="{{ asset('bundles/sitetheorytemplatecustom/images/Brand-New-Congress-Logo.png') }}"
-                                    alt="BNC Logo"></a>
+                                    alt="Brand New Congress Logo"></a>
                     </div>
                     <div class="header-extra-links" no-flex flex="20">
                         <div class="float-links">
@@ -138,30 +124,21 @@ LAYOUT
                                             <div class="nav-extra"></div>
                                         </a>
                                     </li>
-                                    <li class="delimiter"><img
-                                                src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}"
-                                                alt="">
-                                    </li>
+                                    <li class="delimiter">&nbsp;</li>
                                     <li>
                                         <a href="/Candidates" class="site-nav-link" data-level="1">
                                             Candidates
                                             <div class="nav-extra"></div>
                                         </a>
                                     </li>
-                                    <li class="delimiter"><img
-                                                src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}"
-                                                alt="">
-                                    </li>
+                                    <li class="delimiter">&nbsp;</li>
                                     <li>
                                         <a href="/Platform" class="site-nav-link" data-level="1">
                                             Platform
                                             <div class="nav-extra"></div>
                                         </a>
                                     </li>
-                                    <li class="delimiter"><img
-                                                src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}"
-                                                alt="">
-                                    </li>
+                                    <li class="delimiter">&nbsp;</li>
                                     <li>
                                         <a href="/Press" class="site-nav-link" data-level="1">
                                             Press
@@ -181,9 +158,20 @@ LAYOUT
 
         {# Mini header is identical to retracting header but used on secondary pages as the primary header since home page header design is unusually tall #}
         {% block headerMini %}
-
-            <div class="header-mini positionAnchor clearfix light">
-                {{ block('headerRetractingContent') }}
+            <div class="mini-header">
+                <div class="site-side-padding">
+                    <div layout="row" layout-align="space-between center" flex>
+                        <div class="logo-mini-header" no-flex flex="20">
+                            <a href="/">&nbsp;</a>
+                        </div>
+                        <div flex>
+                            {{ block('navMain') }}
+                        </div>
+                        <div class="contribute-mini-header" no-flex flex="20">
+                            <a href="https://secure.actblue.com/donate/bnc2020" target="_blank" class="btn btn-contribute">Donate</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         {% endblock headerMini %}
@@ -199,258 +187,20 @@ LAYOUT
         <div layout="row" layout-align="space-between center" flex>
             <div class="logo-retracting-header" no-flex flex="20">
                 <a href="/">
-                    <img src="{{ asset('bundles/sitetheorytemplatecustom/images/Brand-New-Congress-Logo-Horizontal.png') }}" alt="">
+                    <img src="{{ asset('bundles/sitetheorytemplatecustom/images/Brand-New-Congress-Logo-Horizontal.png') }}" alt="Brand New Congress Logo">
                 </a>
             </div>
             <div flex>
                 {{ block('navMain') }}
             </div>
             <div class="retracting-contribute" no-flex flex="20">
-                <a href="/donate" target="_blank" class="btn btn-contribute">Donate</a>
+                <a href="https://secure.actblue.com/donate/bnc2020" target="_blank" class="btn btn-contribute">Donate</a>
             </div>
         </div>
     </div>
 {% endblock headerRetractingContent %}
 
 
-{# SIDEBAR #}
-
-{# TODO: Make Dynamic #}
-
-{# Temporary hard coded menu #}
-{#{% block sectionName %}#}
-    {#<h2 class="sectionName fontPrimary">{{ sectionNameHardCoded|default('') }}</h2>#}
-    {#<div class="borderDashed sidebarBorder"></div>#}
-{#{% endblock sectionName %}#}
-
-
-{#{% block menuSection1 %}#}
-
-    {#<!-- Level 2 Links -->#}
-    {#<ul id="listLevel2" class="listUnstyled {{ navLevel2Font|default('fontSecondary') }}">#}
-        {#<li class="siteNavLink" data-level="2">#}
-            {#<a href="/candidates" class="navLevel2 {% if sectionMenuActive == 'drafteesActive' %}active{% endif %}">#}
-                {#Candidates#}
-            {#</a>#}
-        {#</li>#}
-        {#<li class="siteNavLink" data-level="2">#}
-            {#<a href="/Nominate" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">#}
-                {#Nominate#}
-            {#</a>#}
-        {#</li>#}
-    {#</ul>#}
-{#{% endblock menuSection1 %}#}
-
-
-{#{% block menuSection2 %}#}
-
-    {#<!-- Level 2 Links -->#}
-    {#<ul id="listLevel2" class="listUnstyled {{ navLevel2Font|default('fontSecondary') }}">#}
-        {#<li class="siteNavLink" data-level="2">#}
-            {#<a href="/support" class="navLevel2 {% if sectionMenuActive == 'supportActive' %}active{% endif %}">#}
-                {#Overview#}
-            {#</a>#}
-        {#</li>#}
-        {#<li class="siteNavLink" data-level="2">#}
-            {#<a href="/nominate" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">#}
-                {#Nominate#}
-            {#</a>#}
-        {#</li>#}
-        {#<li class="siteNavLink" data-level="2">#}
-            {#<a href="/Open-Positions"#}
-               {#class="navLevel2 {% if sectionMenuActive == 'jobsPositionsActive' %}active{% endif %}">#}
-                {#Job Positions#}
-            {#</a>#}
-        {#</li>#}
-        {#<li class="siteNavLink" data-level="2">#}
-            {#<a href="/Volunteer-Positions"#}
-               {#class="navLevel2 {% if sectionMenuActive == 'volunteerPositionActive' %}active{% endif %}">#}
-                {#Volunteer Positions#}
-            {#</a>#}
-        {#</li>#}
-        {#<li class="siteNavLink" data-level="2">#}
-            {#<a href="/volunteer"#}
-               {#class="navLevel2 {% if sectionMenuActive == 'volunteerSkillsActive' %}active{% endif %}">#}
-                {#Get Started Volunteering!#}
-            {#</a>#}
-        {#</li>#}
-        {#<li class="siteNavLink" data-level="2">#}
-            {#<a href="/candidate-research"#}
-               {#class="navLevel2 {% if sectionMenuActive == 'researchActive' %}active{% endif %}">#}
-                {#Candidate Research#}
-            {#</a>#}
-        {#</li>#}
-        {#<li class="siteNavLink" data-level="2">#}
-            {#<a href="https://docs.google.com/forms/d/e/1FAIpQLSe8CfK0gUULEVpYFm9Eb4iyGOL-_iDl395qB0z4hny7ek4iNw/viewform"#}
-               {#target="_blank" class="navLevel2">#}
-                {#District Research#}
-            {#</a>#}
-        {#</li>#}
-
-        {#<li class="siteNavLink" data-level="2">#}
-            {#<a href="https://docs.google.com/document/d/1Op0OaZNuykCJckSCn4vABDEr4VEdTrMeTsPCZFNSJo4/edit"#}
-               {#target="_blank" class="navLevel2 {% if sectionMenuActive == 'organizeLocallyActive' %}active{% endif %}">#}
-                {#Organize Locally#}
-            {#</a>#}
-        {#</li>#}
-        {#<li class="siteNavLink" data-level="2">#}
-            {#<a href="/call" class="navLevel2 {% if sectionMenuActive == 'callActive' %}active{% endif %}">#}
-                {#Join a Call#}
-            {#</a>#}
-        {#</li>#}
-        {#<li class="siteNavLink" data-level="2">#}
-            {#<a href="/donate" target="_blank"#}
-               {#class="navLevel2 {% if sectionMenuActive == 'contributeActive' %}active{% endif %}">#}
-                {#Donate#}
-            {#</a>#}
-        {#</li>#}
-        {#<li class="siteNavLink" data-level="2">#}
-            {#<a href="https://shop.brandnewcongress.org" target="_blank"#}
-               {#class="navLevel2">#}
-                {#BNC Store#}
-            {#</a>#}
-        {#</li>#}
-    {#</ul>#}
-{#{% endblock menuSection2 %}#}
-
-
-{#{% block menuSection3 %}#}
-
-    {#<!-- Level 2 Links -->#}
-    {#<ul id="listLevel2" class="listUnstyled {{ navLevel2Font|default('fontSecondary') }}">#}
-        {#<li class="siteNavLink" data-level="2">#}
-            {#<a href="/platform" class="navLevel2 {% if sectionMenuActive == 'platformActive' %}active{% endif %}">#}
-                {#Platform#}
-            {#</a>#}
-        {#</li>#}
-        {#<li class="siteNavLink" data-level="2">#}
-            {#<a href="/plan" class="navLevel2 {% if sectionMenuActive == 'planActive' %}active{% endif %}">#}
-                {#Our Plan#}
-            {#</a>#}
-        {#</li>#}
-        {#<li class="siteNavLink" data-level="2">#}
-            {#<a href="/faq" class="navLevel2 {% if sectionMenuActive == 'faqActive' %}active{% endif %}">#}
-                {#FAQ#}
-            {#</a>#}
-        {#</li>#}
-    {#</ul>#}
-{#{% endblock menuSection3 %}#}
-
-
-
-{#{% block navSection %}#}
-
-    {#<div class="hide-xs hide-sm">#}
-
-        {#{% if sectionMenuHardCoded == '1' %}#}
-            {#{{ block('menuSection1') }}#}
-        {#{% elseif sectionMenuHardCoded == '2' %}#}
-            {#{{ block('menuSection2') }}#}
-        {#{% elseif sectionMenuHardCoded == '3' %}#}
-            {#{{ block('menuSection3') }}#}
-        {#{% endif %}#}
-
-    {#</div>#}
-
-    {#<!-- Full nested menu displays only for mobile -->#}
-
-    {#<div class="hide-gt-sm">#}
-        {#<ul id="listLevel1" class="listUnstyled">#}
-            {#<li data-level="1">#}
-                {#<div class="siteNavLink " data-level="1">#}
-                    {#<a href="#joinForm" class="navLevel1 fontPrimary">#}
-                        {#Join#}
-                    {#</a>#}
-                {#</div>#}
-            {#</li>#}
-            {#<li data-level="1">#}
-                {#<div class="siteNavLink" data-level="1">#}
-                    {#<a href="/submit-nominee" class="navLevel1 fontPrimary">#}
-                        {#Candidates#}
-                    {#</a>#}
-                {#</div>#}
-                {#{{ block('menuSection1') }}#}
-            {#</li>#}
-            {#<li data-level="1">#}
-                {#<div class="siteNavLink" data-level="1">#}
-                    {#<a href="/support" class="navLevel1 fontPrimary">#}
-                        {#Action#}
-                    {#</a>#}
-                {#</div>#}
-                {#{{ block('menuSection2') }}#}
-            {#</li>#}
-            {#<li data-level="1">#}
-                {#<div class="siteNavLink {{ navLevel1Font|default('fontPrimary') }}" data-level="1">#}
-                    {#<a href="/plan" class="navLevel1 fontPrimary">#}
-                        {#Plan#}
-                    {#</a>#}
-                {#</div>#}
-                {#{{ block('menuSection3') }}#}
-            {#</li>#}
-            {#<li>#}
-                {#<div class="sidebarContact borderDashed">#}
-                    {#<a href="mailto:mailto:us@brandnewcongress.org" class="fontSecondary">#}
-                        {#us@brandnewcongress.org#}
-                    {#</a>#}
-                {#</div>#}
-            {#</li>#}
-        {#</ul>#}
-    {#</div>#}
-
-{#{% endblock navSection %}#}
-
-{# End temporary hard coded menu #}
-
-
-
-{# Add social media & border to bottom of sidebar #}
-{#{% block sidebarContent %}#}
-    {#{{ parent() }}#}
-    {#<div ng-cloak hide-gt-sm>#}
-        {#{{ block('socialMedia') }}#}
-    {#</div>#}
-    {#<div class="borderDashed sidebarBorder"></div>#}
-
-    {#<div id="sidebarPromoArea">#}
-        {#<a href="https://shop.brandnewcongress.org" target="_blank" class="backgroundDark">#}
-            {#<div class="imageContainer">#}
-                {#<img src="{{ asset('bundles/sitetheorytemplatecustom/images/sidebarButtonStore.png') }}" alt="">#}
-            {#</div>#}
-        {#</a>#}
-    {#</div>#}
-{#{% endblock sidebarContent %}#}
-
-
-
-{# ADD FOOTER JOIN FORM AT BOTTOM OF BODY BLOCK #}
-
-
-{# DYNAMIC SITE MAP #}
-{#{% block siteMap %}#}
-    {#{% set siteMap = menu(content) %}#}
-    {#{% for key, link in siteMap if link is not empty and link.route != '/' %}#}
-        {#<div flex="25"> #}{# TODO: Remove flex here in favor of stGrid #}
-            {#<div class="siteMapColumn">#}
-                {#<ul class="listUnstyled">#}
-                    {#<li class="siteMapHeader">#}
-                        {#<a class="fontTertiary" href="{{ link.route }}"#}
-                           {#{% if link.browserTarget is not empty %}target="{{ link.browserTarget }}"{% endif %}>#}
-                            {#{{ link.name }}#}
-                        {#</a>#}
-                    {#</li>#}
-                    {#{% for key, child in link.nestChildren if child is not empty and child.route != '/' %}#}
-                        {#<li class="{% if child.active is defined and child.active == true %}active{% else %}dormant{% endif %}">#}
-                            {#<a href="{{ child.route }}"#}
-                               {#{% if child.browserTarget is not empty %}target="{{ child.browserTarget }}"{% endif %}>#}
-                                {#{{ child.name }}#}
-                            {#</a>#}
-                        {#</li>#}
-                    {#{% endfor %}#}
-                {#</ul>#}
-            {#</div>#}
-        {#</div>#}
-    {#{% endfor %}#}
-{#{% endblock siteMap %}#}
 
 {% block footerExtras %}
     <a class="footer-logo" href="/">
@@ -477,119 +227,159 @@ LAYOUT
 {% endblock footerSiteInfo %}
 
 
- {#FOOTER SITE MAP #}
-{% block footerSiteMap %}
-    <div id="siteMapBackground">
+{% block footer %}
+    <div class="site-map-background clearfix">
 
-        <div id="siteMapContainer" class="siteMaxWidth siteSidePadding fontSecondary dark">
+        {% if siteMapStructure is not defined %}
+            {% set siteMapStructure = 'site-max-width site-side-padding' %}
+        {% endif %}
 
-            <div id="siteMapNew" layout="row" layout-wrap class="hide-xs hide-sm">
+        <div class="site-map-container {{ siteMapStructure }} {{ siteMapBrightness }}">
 
-                <div flex="25">
-                    <div class="siteMapColumn">
-                        <ul class="listUnstyled">
-                            <li class="siteMapHeader">
-                                <a class="fontTertiary" href="/submit-nominee">Candidates</a>
-                            </li>
-                            <li>
-                                <a href="/candidates">Candidates</a>
-                            </li>
-                            <li>
-                                <a href="/Nominate">Nominate a Candidate</a>
-                            </li>
-                        </ul>
-                    </div>
+            {% block siteMapLabel %}
+            {% endblock siteMapLabel %}
+
+            <div class="menu menu-sitemap">
+
+                <div class="clearfix">
+                    <ul class="list-level1 clearfix">
+
+                        {# Level 1 #}
+                        <li style="width: 20%;">
+                            <a href="/Candidates" id=""
+                               class="site-nav-link active" data-level="1">
+                                Candidates
+                                <div class="nav-extra"></div>
+                            </a>
+
+                            {# Level 2 #}
+                            <ul class="list-level2">
+                                <li>
+                                    <a href="/Candidates" class="site-nav-link" data-level="2">
+                                        Candidates 2020
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/About-Brand-New-Congress-Candidate-Nominations" class="site-nav-link" data-level="2">
+                                        Nominate a Candidate
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </li>
+
+                        {# Level 1 #}
+                        <li style="width: 20%;">
+                            <a href="/Volunteer" class="site-nav-link" data-level="1">
+                                Take Action
+                                <div class="nav-extra"></div>
+                            </a>
+
+                            {# Level 2 #}
+                            <ul class="list-level2">
+                                <li>
+                                    <a href="/Volunteer" class="site-nav-link" data-level="2">
+                                        Volunteer
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Join-Brand-New-Congress" class="site-nav-link" data-level="2">
+                                        Join BNC
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://secure.actblue.com/donate/bnc2020" target="_blank" class="site-nav-link" data-level="2">
+                                        Donate
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        {# Level 1 #}
+                        <li style="width: 20%;">
+                            <a href="/Meet-the-Team" class="site-nav-link" data-level="1">
+                                About
+                                <div class="nav-extra"></div>
+                            </a>
+
+                             {#Level 2#}
+                            <ul class="list-level2">
+                                <li>
+                                    <a href="/Meet-the-Team" class="site-nav-link" data-level="2">
+                                        Meet the Team
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Platform" class="site-nav-link" data-level="2">
+                                        Platform
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Contact" class="site-nav-link" data-level="2">
+                                        Contact
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Privacy" class="site-nav-link" data-level="2">
+                                        Privacy
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        {# Level 1 #}
+                        <li style="width: 20%;">
+                            <a href="/News" class="site-nav-link" data-level="1">
+                                Press
+                                <div class="nav-extra"></div>
+                            </a>
+
+                            {#Level 2#}
+                            <ul class="list-level2">
+                                <li>
+                                    <a href="/News" class="site-nav-link" data-level="2">
+                                        BNC News
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/In-the-Press" class="site-nav-link" data-level="2">
+                                        Press Coverage
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Press-Releases" class="site-nav-link" data-level="2">
+                                        Press Releases
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        {# Level 1 #}
+                        <li style="width: 20%;">
+                            <a href="https://shop.brandnewcongress.org/" target="_blank"  class="site-nav-link" data-level="1">
+                                Shop BNC
+                                <div class="nav-extra"></div>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                <div flex="25">
-                    <div class="siteMapColumn">
-                        <ul class="listUnstyled">
-                            <li class="siteMapHeader">
-                                <a class="fontTertiary" href="/support">Action</a>
-                            </li>
-                            <li>
-                                <a href="/support">Action Overview</a>
-                            </li>
-                            <li>
-                                <a href="/nominate">Nominate a Candidate</a>
-                            </li>
-                            <li>
-                                <a href="/Open-Positions">Job Positions</a>
-                            </li>
-                            <li>
-                                <a href="/Volunteer-Positions">Volunteer Positions</a>
-                            </li>
-                            <li>
-                                <a href="/volunteer">Get Started Volunteering!</a>
-                            </li>
-                            <li>
-                                <a href="/candidate-research">Candidate Research</a>
-                            </li>
-                            <li>
-                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8CfK0gUULEVpYFm9Eb4iyGOL-_iDl395qB0z4hny7ek4iNw/viewform"
-                                   target="_blank">District Research</a>
-                            </li>
-                            <li>
-                                <a href="https://docs.google.com/document/d/1Op0OaZNuykCJckSCn4vABDEr4VEdTrMeTsPCZFNSJo4/edit"
-                                   target="_blank">Organize Locally</a>
-                            </li>
-                            <li>
-                                <a href="/call">Join a Call</a>
-                            </li>
-                            <li>
-                                <a href="/donate"
-                                   target="_blank">Donate</a>
-                            </li>
-                            <li>
-                                <a href="https://shop.brandnewcongress.org/" target="_blank">BNC Store</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div flex="25">
-                    <div class="siteMapColumn">
-                        <ul class="listUnstyled">
-                            <li class="siteMapHeader">
-                                <a class="fontTertiary" href="/plan">Plan</a>
-                            </li>
-                            <li>
-                                <a href="/platform">Platform</a>
-                            </li>
-                            <li>
-                                <a href="/plan">Our Plan</a>
-                            </li>
-                            <li>
-                                <a href="/faq">FAQ</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div flex="25">
-                    <div class="siteMapColumn">
-                        <ul class="listUnstyled">
-                            <li class="siteMapHeader">
-                                <a class="fontTertiary" href="/About">About</a>
-                            </li>
-                            <li>
-                                <a href="/about">About Us</a>
-                            </li>
-                            <li>
-                                <a href="mailto:us@brandnewcongress.org">Contact Us</a>
-                            </li>
-                            <li>
-                                <a href="/privacy">Privacy Policy</a>
-                            </li>
-                            <li>
-                                 Social Media
-                                {% block footerSocialMedia %}
-                                    {{ block('socialMedia') }}
-                                {% endblock footerSocialMedia %}
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+
             </div>
+
         </div>
     </div>
-{% endblock footerSiteMap %}
- {#End temporary hard coded footer site map #}
+    {{ parent() }}
+{% endblock footer %}
 

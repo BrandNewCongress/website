@@ -14,16 +14,8 @@
 {% set sectionMenuActive = '' %}
 {% set sectionMenuHardCoded = '' %}
 
-{# Header image exists #}
-{% set streamClass = 'landingStream' %}
-
 {# Hide sidebar on desktop #}
-{% set columnSidebar = 'hide-gt-sm' %}
-{% set columnMain = '' %}
-
-{# Hide gutter in main column #}
-{% block mainColumnGutter %}
-{% endblock mainColumnGutter %}
+{% set displaySidebar = true %}
 
 {# Remove standard header image #}
 {% block headerImageInsideHeader %}

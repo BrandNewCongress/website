@@ -110,7 +110,7 @@ CSS & JAVASCRIPT
                                          ng-style="{'background-image': 'url({% verbatim %}{{ {% endverbatim %}model.data.images[0].src{% verbatim %} }}{% endverbatim %})'}"
                                          style="background-repeat: no-repeat; background-position: center center; background-size: cover;"
                                     >
-                                        <img src="{% verbatim %}{{ {% endverbatim %} 'sitetheorycore/images/shapeholder-square.png' | assetPath {% verbatim %} }}{% endverbatim %}">
+                                        <img src="{{ asset('bundles/sitetheorycore/images/shapeholder-square.png') }}">
                                     </div>
 
                                 </div>

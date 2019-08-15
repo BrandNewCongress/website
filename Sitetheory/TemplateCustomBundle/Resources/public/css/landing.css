@@ -11,6 +11,7 @@
   font-weight: normal;
 }
 .landing-stream .stream-item .item-body p {
+  font-family: 'Roboto Slab', serif;
   font-weight: 300;
 }
 .landing-stream .stream-item .module-stream p {
