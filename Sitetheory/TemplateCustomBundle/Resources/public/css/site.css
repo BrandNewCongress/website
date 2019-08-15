@@ -885,53 +885,6 @@ hr {
   font-size: 34px;
   line-height: 1.2;
 }
-/* CUSTOM PAGES */
-/* PLATFORM */
-/* Candidate platform */
-.candidatePlatform h2 {
-  margin: 50px 0;
-  font-size: 28px;
-}
-.candidatePlatform hr {
-  margin: 40px 0;
-  padding: 0;
-  height: 2px;
-  background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDashed.png') repeat-x;
-  background-size: 6px;
-}
-.candidatePlatform ul li {
-  padding: 0 0 12px 30px;
-  background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starSalmon.png') no-repeat left 2px;
-  background-size: 16px;
-}
-/* Candidate interview */
-.interview img {
-  width: 100%;
-}
-.interview hr {
-  margin: 60px 0;
-  padding: 0;
-  height: 2px;
-}
-p.interviewQuestion {
-  position: relative;
-  margin: -20px 0 30px 0;
-  font-family: 'Roboto Slab', sans-serif;
-  font-size: 23px;
-  line-height: 1.2;
-}
-p.interviewQuestion:first-child {
-  margin-top: 0;
-}
-p.interviewQuestion::before {
-  transform: translateY(12px);
-  -webkit-transform: translateY(12px);
-  content: 'Q.  ';
-  font-size: 50px;
-  font-weight: bold;
-  font-family: 'Roboto Slab', sans-serif;
-  color: #FF7A65;
-}
 .hint {
   color: #666;
   font-size: 13px;
