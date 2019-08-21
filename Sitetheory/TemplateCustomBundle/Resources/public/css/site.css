@@ -135,9 +135,9 @@ a:hover {
 .background-dark .btn-more:link,
 .background-dark .btn-more:visited,
 .background-dark .btn-more:active {
-  color: #FF7A65;
+  color: #CCC;
   background: none;
-  border: 1px solid #FF7A65;
+  border: 1px solid #CCC;
 }
 .background-dark .btn-more:hover,
 .background-dark .btn-more:link:hover,
@@ -235,6 +235,10 @@ p.pullout {
   font-size: 28px;
   font-weight: bold;
 }
+p.quote {
+  font-family: 'Roboto Slab', serif;
+  line-height: 1.1;
+}
 p.intro {
   font-weight: bold;
   font-size: 18px;
@@ -247,12 +251,12 @@ p.citation {
 /* .primaryFont will be used for the site's typographical logo and some site headers. It must also be legible at small sizes.  */
 .font-primary,
 .font-primary p {
-  font-family: 'u.s._101regular', serif;
+  font-family: 'Roboto Slab', serif;
 }
 .font-secondary,
 .font-secondary p,
 .btn {
-  font-family: 'Roboto Slab', serif;
+  font-family: 'u.s._101regular', serif;
 }
 .font-body,
 .font-body p,
@@ -721,7 +725,7 @@ hr {
 .mini-header {
   box-shadow: 0 1px 6px rgba(33, 33, 33, 0.1);
   border-bottom: 1px solid #DDD;
-  padding: 26px 0;
+  padding: 20px 0;
 }
 .mini-header .logo-mini-header a {
   display: block;
@@ -881,9 +885,80 @@ hr {
   font-family: 'Roboto Slab', serif;
   font-weight: normal;
 }
+#app .stream-item:nth-child(7n + 1) .audio-color-cover {
+  background: #361250;
+}
+#app .stream-item:nth-child(7n + 2) .audio-color-cover {
+  background: #4C1D6D;
+}
+#app .stream-item:nth-child(7n + 3) .audio-color-cover {
+  background: #7932AC;
+}
+#app .stream-item:nth-child(7n + 4) .audio-color-cover {
+  background: #7932AC;
+}
+#app .stream-item:nth-child(7n + 5) .audio-color-cover {
+  background: #8F40C8;
+}
+#app .stream-item:nth-child(7n + 6) .audio-color-cover {
+  background: #A343E7;
+}
+#app .stream-item:nth-child(7n + 7) .audio-color-cover {
+  background: #A36FC8;
+}
+#app.news-layout .news-right h2 {
+  font-weight: bold;
+}
+#app .btn-article {
+  display: table;
+  margin: 20px auto;
+}
+/* Candidates Stream */
 .SitetheoryStreamBundle-CollectioncontentId-38774 .stack-layout .stream-list .title {
   font-size: 34px;
   line-height: 1.2;
+}
+/* Join Form */
+.ngp-form input[type="text"],
+.ngp-form input[type="password"],
+.ngp-form input[type="date"],
+.ngp-form input[type="datetime"],
+.ngp-form input[type="datetime-local"],
+.ngp-form input[type="month"],
+.ngp-form input[type="week"],
+.ngp-form input[type="email"],
+.ngp-form input[type="number"],
+.ngp-form input[type="search"],
+.ngp-form input[type="tel"],
+.ngp-form input[type="time"],
+.ngp-form input[type="url"],
+.ngp-form input[type="color"],
+.ngp-form textarea {
+  border-radius: 0 !important;
+}
+.ngp-form .at-title {
+  display: none;
+}
+.ngp-form h1 {
+  font-family: 'Roboto Slab', serif !important;
+  font-weight: 300;
+}
+.ngp-form input[type="checkbox"]:checked + span:before {
+  background-color: #7932AC !important;
+  border-color: #7932AC !important;
+}
+.ngp-form .btn-at-primary {
+  transition: all 0.2s ease-out;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 14px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  font-weight: bold !important;
+  background: #7932AC !important;
+  border-radius: 0 !important;
+}
+.ngp-form .btn-at-primary:hover {
+  background: #111 !important;
 }
 .hint {
   color: #666;

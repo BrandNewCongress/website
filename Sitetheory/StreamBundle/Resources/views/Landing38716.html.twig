@@ -106,12 +106,14 @@ CSS & JAVASCRIPT
                                  ng-attr-id="{% verbatim %}{{ 'landing-item-' + model.data.id }}{% endverbatim %}">
                                 <div class="st-grid column25">
 
-                                    <div ng-if="model.data.images[0]" class="podcast-image" stratus-src
-                                         ng-style="{'background-image': 'url({% verbatim %}{{ {% endverbatim %}model.data.images[0].src{% verbatim %} }}{% endverbatim %})'}"
-                                         style="background-repeat: no-repeat; background-position: center center; background-size: cover;"
-                                    >
-                                        <img src="{{ asset('bundles/sitetheorycore/images/shapeholder-square.png') }}">
-                                    </div>
+                                    <a ng-click="$window.quickviewMediaModel = model.data; $window.getHTML = getHTML; $window.disableScroll = true">
+                                        <div ng-if="model.data.images[0]" class="podcast-image" stratus-src
+                                             ng-style="{'background-image': 'url({% verbatim %}{{ {% endverbatim %}model.data.images[0].src{% verbatim %} }}{% endverbatim %})'}"
+                                             style="background-repeat: no-repeat; background-position: center center; background-size: cover;"
+                                        >
+                                            <img src="{{ asset('bundles/sitetheorycore/images/shapeholder-square.png') }}">
+                                        </div>
+                                    </a>
 
                                 </div>
                                 <div class="st-grid column75">

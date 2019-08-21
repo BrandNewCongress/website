@@ -3,9 +3,11 @@
 {% block link %}
     {{ parent() }}
 
-    <link rel="{{ styleRel('less') }}" type="text/css"
-          href="{{ asset('/bundles/sitetheorytemplatecustom/css/site.' ~ styleExt('less')) }}"
-          data-file="site.css">
+        <link rel="{{ styleRel('less') }}" type="text/css"
+              href="{{ asset('/bundles/sitetheorytemplatecustom/css/site.' ~ styleExt('less')) }}"
+              data-file="site.css">
+        <link rel="shortcut icon" href="{{ asset('/bundles/sitetheorytemplatecustom/images/favicon.png') }}" type="image/x-icon">
+
 {% endblock link %}
 
 {#
@@ -56,9 +58,6 @@ SPECIAL APP CLASS TO CONTROL SIDEBAR TOGGLE
 {% block appClass %}{% if headerFull == false %}headerIsMini {% endif %}{{ parent() }}{% endblock appClass %}
 
 
-
-
-
 {#
 ######
 LAYOUT
@@ -71,7 +70,7 @@ LAYOUT
     {#<h1>Refresh</h1>#}
     {# The header in this design is extra tall so it's only used on the home page #}
     {% if headerFull == true %}
-        <div class="header-content site-max-width site-side-padding">
+        <div class="header-content site-max-width site-side-padding" ng-cloak>
             <div class="header1" layout="row" layout-align="space-between center" flex>
                     <div class="mission" no-flex flex="20">
                         <h4>Our Mission</h4>
@@ -158,7 +157,7 @@ LAYOUT
 
         {# Mini header is identical to retracting header but used on secondary pages as the primary header since home page header design is unusually tall #}
         {% block headerMini %}
-            <div class="mini-header">
+            <div class="mini-header" ng-cloak>
                 <div class="site-side-padding">
                     <div layout="row" layout-align="space-between center" flex>
                         <div class="logo-mini-header" no-flex flex="20">
@@ -183,7 +182,7 @@ LAYOUT
 
  {#Retracting header uses only a few elements from the full header. Must come before mini header which is identical.#}
 {% block headerRetractingContent %}
-    <div class="site-side-padding">
+    <div class="site-side-padding" ng-cloak>
         <div layout="row" layout-align="space-between center" flex>
             <div class="logo-retracting-header" no-flex flex="20">
                 <a href="/">

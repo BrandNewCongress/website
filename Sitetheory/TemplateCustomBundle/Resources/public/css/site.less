@@ -112,9 +112,9 @@ a {
   &:link,
   &:visited,
   &:active {
-    color: @color-pop;
+    color: #CCC;
     background: none;
-    border: 1px solid @color-pop;
+    border: 1px solid #CCC;
     &:hover {
       color: #FFF;
       background: none;
@@ -221,6 +221,10 @@ p.pullout {
   font-size: 28px;
   font-weight: bold;
 }
+p.quote {
+  font-family: @font-primary;
+  line-height: 1.1;
+}
 p.intro {
   font-weight: bold;
   font-size: 18px;
@@ -237,13 +241,13 @@ p.citation {
 
 .font-primary,
 .font-primary p {
-  font-family: @font-secondary;
+  font-family: @font-primary;
 }
 
 .font-secondary,
 .font-secondary p,
 .btn {
-  font-family: @font-primary;
+  font-family: @font-secondary;
 }
 .font-body,
 .font-body p,
@@ -707,7 +711,7 @@ hr {
 .mini-header {
   box-shadow: 0 1px 6px rgba(33,33,33,.1);
   border-bottom: 1px solid #DDD;
-  padding: 26px 0;
+  padding: 20px 0;
   .logo-mini-header {
     a {
       display: block;
@@ -886,7 +890,57 @@ hr {
     font-family: @font-primary;
     font-weight: normal;
   }
+
+  .stream-item {
+    &:nth-child(7n + 1) {
+      .audio-color-cover {
+        background: #361250;
+      }
+    }
+    &:nth-child(7n + 2) {
+      .audio-color-cover {
+        background: #4C1D6D;
+      }
+    }
+    &:nth-child(7n + 3) {
+      .audio-color-cover {
+        background: @color-primary;
+      }
+    }
+    &:nth-child(7n + 4) {
+      .audio-color-cover {
+        background: #7932AC;
+      }
+    }
+    &:nth-child(7n + 5) {
+      .audio-color-cover {
+        background: #8F40C8;
+      }
+    }
+    &:nth-child(7n + 6) {
+      .audio-color-cover {
+        background: #A343E7;
+      }
+    }
+    &:nth-child(7n + 7) {
+      .audio-color-cover {
+        background: #A36FC8;
+      }
+    }
+  }
+  &.news-layout {
+    .news-right h2 {
+      font-weight: bold;
+    }
+  }
+  .btn-article {
+    display: table;
+    margin: 20px auto;
+  }
 }
+
+
+/* Candidates Stream */
 .SitetheoryStreamBundle-CollectioncontentId-38774 {
   .stack-layout .stream-list .title {
     font-size: 34px;
@@ -895,7 +949,36 @@ hr {
 }
 
 
-
+/* Join Form */
+.ngp-form {
+  input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], textarea {
+    border-radius: 0 !important;
+  }
+  .at-title {
+    display: none;
+  }
+  h1 {
+    font-family: @font-primary !important;
+    font-weight: 300;
+  }
+  input[type="checkbox"]:checked+span:before {
+    background-color: @color-primary !important;
+    border-color: @color-primary !important;
+  }
+  .btn-at-primary {
+    transition: all .2s ease-out;
+    font-family: @font-tertiary !important;
+    font-size: 14px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    font-weight: bold !important;
+    background: @color-primary !important;
+    border-radius: 0 !important;
+    &:hover {
+      background: #111 !important;
+    }
+  }
+}
 
 
 
