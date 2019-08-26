@@ -33,23 +33,6 @@
   color: #FFF;
   background: #FF7A65;
 }
-.landing-stream .stream-item.parallax-wrapper .item-vertical-padding,
-.landing-stream .stream-item .stream-item.has-background-image .item-vertical-padding {
-  padding-top: 160px;
-  padding-bottom: 160px;
-}
-.landing-stream .stream-item.parallax-wrapper .btn.btn-cta,
-.landing-stream .stream-item .stream-item.has-background-image .btn.btn-cta {
-  color: #FFF;
-  border: none;
-  background: #FF7A65;
-}
-.landing-stream .stream-item.parallax-wrapper .btn.btn-cta:hover,
-.landing-stream .stream-item .stream-item.has-background-image .btn.btn-cta:hover {
-  color: #FF7A65;
-  background: #FFF;
-  border: none;
-}
 /* Home Page Slideshow */
 #landing-item-38717 .item-vertical-padding {
   padding-top: 0;
