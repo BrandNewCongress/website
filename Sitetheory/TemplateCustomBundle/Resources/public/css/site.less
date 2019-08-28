@@ -223,7 +223,7 @@ p.pullout {
 }
 p.quote {
   font-family: @font-primary;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 p.intro {
   font-weight: bold;
@@ -233,7 +233,10 @@ p.citation {
   font-family: @font-tertiary;
   font-weight: normal;
 }
-
+.alt-title,
+.date.font-secondary {
+  font-family: @font-tertiary;
+}
 
 /* ASSIGN FONTS */
 
@@ -761,7 +764,7 @@ hr {
 .header-image {
   .parallax-wrapper,
   .parallax-image {
-    //height: 400px;
+    height: 460px;
   }
 }
 @media (min-width: 768px) and (max-width: 999px) {
@@ -1089,5 +1092,48 @@ hr {
   h4 {
     margin: 30px 0 20px;
     font-size: 14px;
+  }
+}
+
+/* Media Coverage */
+#SitetheoryStreamBundle-Collection-38823 {
+  .item-image {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .quote {
+    font-size: 22px;
+  }
+  .news-right .quote {
+    font-size: 15px;
+  }
+  .citation {
+    margin-top: 40px;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+}
+
+/* Media */
+
+/* Knock down the house */
+#landing-item-38846 {
+  .title-container {
+    padding-top: 50px;
+    background: url(/assets/1/0/bundles/sitetheorytemplatecustom/images/Netflix-Logo.png) no-repeat center top;
+    background-size: 120px;
+  }
+}
+/* In the Press */
+#landing-item-38852 {
+  .title-container {
+    margin-bottom: 10px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid #999;
+  }
+  .module-stream .quote {
+    font-size: 17px;
   }
 }
