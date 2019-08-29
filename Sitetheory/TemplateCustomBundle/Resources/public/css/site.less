@@ -1,0 +1,989 @@
+/* LOAD FONTS */
+@import 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto+Slab:300,400,700|Roboto:400';
+
+@font-face {
+  font-family: 'u.s._101regular';
+  src: url('fonts/us101-webfont.woff2') format('woff2'),
+  url('fonts/us101-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Load LESS Variables */
+@import "variables.less";
+
+
+/* BODY */
+
+body {
+  position: relative;
+  background: @color-dark;
+}
+body, p {
+  font-size: 15px;
+  color: #3E3E3E;
+}
+
+/* LINKS & BUTTONS */
+
+a {
+  &:link,
+  &:visited,
+  &:active {
+    color: #7932AC;
+  }
+  &:hover {
+    color: #888;
+  }
+}
+
+/* Site background dark links are usually on top of a site background image. Need to be bright */
+.site-background-dark .content-container {
+  a {
+    &,
+    &:link,
+    &:visited,
+    &:active {
+      color: @color-light;
+    }
+    &:hover {
+      color: #FFF;
+    }
+  }
+}
+
+
+/* BUTTONS */
+.btn,
+#app .md-button {
+  &,
+  &:link,
+  &:visited,
+  &:active {
+    transition: all 0.2s ease-out;
+    padding: 9px 14px;
+    font-family: @font-tertiary;
+    font-size: 13px;
+    color: #FFF;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    background-color: @color-primary;
+    box-shadow: none;
+    border: none;
+  }
+  &:hover {
+    background-color: @color-dark;
+  }
+}
+.background-dark {
+  .btn,
+  .md-button {
+    &,
+    &:link,
+    &:visited,
+    &:active {
+      color: #111;
+      background-color: #FFF;
+    }
+    &:hover {
+      color: #FFF;
+      background-color: @color-primary;
+    }
+  }
+}
+.btn-more{
+  &,
+  &:link,
+  &:visited,
+  &:active {
+    padding-bottom: 8px;
+    color: @color-primary;
+    background: none;
+    border: 1px solid @color-primary;
+    &:hover {
+      color: #000;
+      background: none;
+      border: 1px solid #000;
+    }
+  }
+}
+.background-dark .btn-more{
+  &,
+  &:link,
+  &:visited,
+  &:active {
+    color: #CCC;
+    background: none;
+    border: 1px solid #CCC;
+    &:hover {
+      color: #FFF;
+      background: none;
+      border: 1px solid #FFF;
+    }
+  }
+}
+
+
+/* SVGs */
+.content-container,
+.more-box {
+  a svg g {
+    fill: @color-primary;
+  }
+  a:hover svg g {
+    fill: #000;
+  }
+  .background-dark {
+    a:hover svg g {
+      fill: #FFF;
+    }
+  }
+}
+.default-icon-color a {
+  svg g {
+    fill: #333;
+  }
+  &:hover svg g {
+    fill: @color-primary;
+  }
+}
+.color-primary a svg g {
+  fill: @color-primary;
+}
+#app {
+  .border.border-color-active,
+  li:hover .default-icon-color.border {
+    border-color: @color-primary;
+  }
+}
+
+
+/* TITLES & HEADERS */
+h1,
+h1 a {
+  color: @color-dark;
+}
+
+h1 {
+  font-family: @font-secondary;
+  font-size: 52px;
+  font-weight: normal;
+  line-height: 1.2;
+  @media (max-width: 959px) {
+      font-size: 30px;
+  }
+}
+.shell-titles {
+  padding-bottom: 30px;
+  margin-bottom: 70px;
+  background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDashedBold.png') repeat-x left bottom;
+  background-size: 8px;
+}
+.has-header-image,
+.site-background-dark {
+  .shell-titles {
+    background-image: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDashedLight.png');
+  }
+}
+h2,
+h2 a{
+  color: #323232;
+}
+h2 {
+  font-family: @font-primary;
+  font-weight: 300;
+  font-size: 34px;
+  text-transform: none;
+}
+h3,
+h3 a{
+  color: @color-dark;
+}
+h3 {
+  font-family: @font-secondary;
+  font-size: 28px;
+  text-transform: uppercase;
+  font-weight: normal !important;
+}
+h4,
+h4 a {
+  color: @color-dark;
+}
+h4 {
+  font-family: @font-tertiary;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+p.pullout {
+  font-family: @font-primary;
+  font-size: 28px;
+  font-weight: bold;
+}
+p.quote {
+  font-family: @font-primary;
+  line-height: 1.1;
+}
+p.intro {
+  font-weight: bold;
+  font-size: 18px;
+}
+p.citation {
+  font-family: @font-tertiary;
+  font-weight: normal;
+}
+
+
+/* ASSIGN FONTS */
+
+/* .primaryFont will be used for the site's typographical logo and some site headers. It must also be legible at small sizes.  */
+
+.font-primary,
+.font-primary p {
+  font-family: @font-primary;
+}
+
+.font-secondary,
+.font-secondary p,
+.btn {
+  font-family: @font-secondary;
+}
+.font-body,
+.font-body p,
+p,
+.font-body ul li {
+  font-family: @font-body;
+}
+.font-tertiary {
+  font-family: @font-tertiary;
+}
+
+
+/* SOCIAL */
+
+.header,
+.footer {
+  .social-media {
+    margin: 0 0 10px;
+    a {
+      position: relative;
+      margin-right: 2px;
+      width: 41px;
+      height: 41px;
+      border: 1px solid @color-pop;
+      border-radius: 50%;
+      svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+        g {
+          fill: @color-pop;
+        }
+      }
+      &:hover {
+        background: @color-pop;
+        border: 1px solid @color-pop;
+        svg g {
+          fill: #FFF;
+        }
+      }
+    }
+  }
+}
+
+
+/* COLORS */
+
+.color-pop {
+  color: @color-pop;
+}
+.color-default {
+  color: @color-primary;
+}
+
+
+.purple {
+  background: @color-primary;
+}
+.purple-text {
+  color: @color-primary;
+}
+.blue {
+  background: @color-medium;
+}
+.blue-text {
+  color: @color-medium;
+}
+.salmon {
+  background: @color-pop;
+}
+.salmon-text {
+  color: @color-pop;
+}
+
+/* Landing stream colors */
+#app {
+  .template-background-color1 {
+    background-color: @color-primary;
+  }
+  .template-background-color2 {
+    background-color: @color-dark;
+  }
+  .template-background-color3 {
+    background-color: @color-pop;
+  }
+  .template-background-color4 {
+    background-color: #F6F6F6;
+  }
+  .template-background-color5 {
+    background-color: @color-medium;
+  }
+  .template-background-color1,
+  .template-background-color2,
+  .template-background-color5 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h1 a,
+    h2 a,
+    h3 a,
+    h4 a {
+      color: #FFF;
+    }
+    p,
+    div {
+      color: #DDD;
+    }
+    h1 a,
+    h2 a,
+    h3 a,
+    h4 a {
+      &:hover {
+        opacity: .9;
+      }
+    }
+    .border-default {
+      border-color: rgba(255,255,255,.3);
+    }
+    .btn,
+    .btn-more {
+      &,
+      &:link,
+      &:visited,
+      &:active {
+        background: none;
+        color: #FF7A65;
+        border: 2px solid #FF7A65;
+      }
+      &:hover {
+        color: #FFF;
+        background: #FF7A65;
+      }
+    }
+  }
+  .template-background-color3 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h1 a,
+    h2 a,
+    h3 a,
+    h4 a {
+      color: #FFF;
+    }
+    p,
+    div {
+      color: #111;
+    }
+    .btn,
+    .btn-more {
+      &,
+      &:link,
+      &:visited,
+      &:active {
+        background: none;
+        color: #FFF;
+        border: 2px solid #FFF;
+      }
+      &:hover {
+        color: #FFF;
+        background: #111;
+        border: 2px solid #111;
+      }
+    }
+  }
+  .template-background-color5 {
+    .btn,
+    .btn-more {
+      &,
+      &:link,
+      &:visited,
+      &:active {
+        background: none;
+        color: #FFF;
+        border: 2px solid #FFF;
+      }
+      &:hover {
+        color: #FFF;
+        background: @color-pop;
+        border: 2px solid @color-pop;
+      }
+    }
+  }
+}
+
+
+
+
+/* BACKGROUNDS */
+
+.site-background {
+  background: #FFFFFF;
+}
+.background-dark {
+  background: @color-dark;
+}
+/* This color is used for header bars and date boxes and must be dark enough to read reversed text in */
+.background-color-dark {
+  background-color: @color-primary;
+}
+/* Must be able to read dark and light text on. Can be the same as primary if primary is not too dark.  */
+.background-color-medium {
+  background-color: @color-medium;
+}
+/* Must be light enough to read dark text on */
+.background-color-light {
+  background-color: @color-light;
+}
+.background-color-pop {
+  background-color: @color-pop;
+}
+
+
+
+/* BORDERS */
+
+.border-default {
+  border-color: rgba(0,0,0,.6);
+}
+.border-color {
+  border: 1px solid @color-primary;
+}
+.border-color-pop {
+  border: 1px solid @color-pop;
+}
+hr {
+  margin-top: 26px;
+  padding-top: 26px;
+  border: none;
+  background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDashedBold.png') repeat-x;
+  background-size: 8px;
+}
+.border-dashed {
+  margin-top: 20px;
+  padding-top: 20px;
+  background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDashed.png') repeat-x;
+  background-size: 6px;
+}
+.border-dashed-light {
+  margin-top: 20px;
+  padding-top: 20px;
+  background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDashedLight.png') repeat-x;
+  background-size: 6px;
+}
+.border-dashed-bold {
+  background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDashedBold.png') repeat-x;
+  background-size: 8px;
+}
+.section-border {
+  height: 17px;
+}
+
+
+/* LOADER */
+@keyframes pulse {
+  50% {
+    background: rgb(121,50,172);
+  }
+}
+.loader {
+  background: rgba(121,50,172, 0.2);
+}
+.loader:before, .loader:after {
+  background: rgba(121,50,172, 0.2);
+}
+
+
+/* STARS */
+
+.star-left,
+.star-right {
+  background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starBlack.png') no-repeat left 8px;
+  background-size: 9px;
+}
+.star-right {
+  background-position: right 8px;
+}
+.star-text {
+  padding: 0 26px;
+}
+.star-purple {
+  background-image: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starPurple.png');
+}
+.star-white {
+  background-image: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starWhite.png');
+}
+
+
+/* SITE STRUCTURE */
+.landing-stream .site-max-width {
+  max-width: 1400px;
+}
+.site-side-padding {
+  padding-right: 7%;
+  padding-left: 7%;
+}
+.main-column-gutter {
+  padding-left: 10%;
+}
+.no-sidebar.details-page .content-container {
+  max-width: 880px;
+}
+
+
+
+/* HEADER */
+
+.header-content {
+  padding-top: 60px;
+  padding-bottom: 34px;
+  .header1 {
+    padding-bottom: 34px;
+  }
+  .mission p {
+    font-size: 13px;
+  }
+  .header-extra-links {
+    .float-links {
+      float: right;
+      text-align: right;
+    }
+  }
+}
+.header {
+  transition: opacity .2s ease-out;
+  opacity: 0;
+}
+.loaded .header {
+  opacity: 1;
+}
+.logo-header {
+  a {
+    display: inline-block;
+  }
+  img {
+    margin-top: 8px;
+    max-width: 210px;
+  }
+}
+.btn.btn-contribute {
+  display: inline-block;
+  padding: 14px 40px;
+  margin-top: 14px;
+  font-size: 14px;
+  background: @color-primary;
+  &:hover {
+    background: @color-dark;
+  }
+}
+.star-link-right {
+  display: block;
+  margin-top: 42px;
+  padding-right: 15px;
+  text-transform: uppercase;
+  letter-spacing: .11em;
+  font-size: 11px;
+  font-weight: bold;
+  color: #598089;
+  background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starBlue.png') no-repeat right center;
+  background-size: 9px;
+  &:hover {
+    color: #000;
+  }
+}
+.header2 {
+  padding: 17px 0;
+  border-top: 3px solid #222;
+  border-bottom: 1px solid #9B9B9B;
+  .header-contact,
+  .header-shop {
+    transition: color .2s ease-out;
+    font-family: @font-tertiary;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: @color-dark;
+  }
+  .header-contact {
+    padding-left: 24px;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/header-contact.png') no-repeat left top;
+    background-size: 16px;
+    &:hover {
+      color: @color-pop;
+      background-position: left bottom;
+    }
+  }
+  .header-shop {
+    padding-right: 24px;
+    text-align: right;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/header-shop.png') no-repeat right top;
+    background-size: 16px;
+    &:hover {
+      color: @color-primary;
+      background-position: right bottom;
+    }
+  }
+}
+
+.header-menu {
+  display: table;
+  margin: 0 auto;
+  ul li {
+    vertical-align: top;
+    padding: 0;
+  }
+  .delimiter {
+    width: 40px;
+    height: 34px;
+    text-align: center;
+    background: url(/assets/1/0/bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png) no-repeat center 10px;
+    background-size: 17px;
+  }
+  .site-nav-link[data-level="1"] {
+    padding: 0;
+    margin: 0;
+    color: #121212;
+    font-family: @font-secondary;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: .01em;
+    &:hover {
+      color: #7932AC;
+    }
+  }
+}
+&.has-header-image  {
+  .menu-background {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    min-height: 285px;
+    background: -webkit-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0));
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0));
+  }
+}
+&.site-background-dark  {
+  .menu-background {
+    background: -webkit-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0));
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0));
+  }
+}
+
+.header-image {
+  .parallax-wrapper,
+  .parallax-image {
+    height: 400px;
+  }
+}
+
+
+/* MINI HEADER */
+.mini-header {
+  box-shadow: 0 1px 6px rgba(33,33,33,.1);
+  border-bottom: 1px solid #DDD;
+  padding: 20px 0;
+  .logo-mini-header {
+    a {
+      display: block;
+      width: 100%;
+      height: 70px;
+      background: url(/assets/1/0/bundles/sitetheorytemplatecustom/images/Brand-New-Congress-Logo-Horizontal.png) no-repeat left center;
+      background-size: 100%;
+    }
+  }
+  .header-menu {
+    margin-top: 2px;
+  }
+  .site-nav-link[data-level="1"]{
+    font-size: 26px;
+  }
+  .delimiter{
+    width: 28px;
+    height: 30px;
+    background-size: 14px;
+  }
+  .header-menu .delimiter img {
+    margin-top: 5px;
+    width: 11px;
+    font-weight: normal;
+  }
+  .btn.btn-contribute {
+    float: right;
+    margin: 0;
+    padding: 10px 22px;
+    font-size: 13px;
+  }
+  @media (max-width:600px) {
+    .logo-header {
+      margin: 4px 0;
+      max-width: 100px;
+    }
+  }
+}
+&.site-background-dark,
+&.has-header-image {
+  .mini-header {
+    padding: 36px 0;
+    box-shadow: none;
+    border: none;
+    [layout="row"] {
+      border-bottom: 3px solid #222222;
+    }
+    .logo-mini-header {
+      a {
+        background-image: url(/assets/1/0/bundles/sitetheorytemplatecustom/images/Brand-New-Congress-Logo-Horizontal-White.png);
+      }
+    }
+    .site-nav-link[data-level="1"] {
+      color: #FFF;
+      &:hover {
+        color: @color-pop;
+      }
+    }
+    .delimiter {
+      background: url(/assets/1/0/bundles/sitetheorytemplatecustom/images/diagonalDelimiterWhite.png) no-repeat center 8px;
+      background-size: 14px;
+    }
+  }
+}
+
+/* RETRACTING HEADER */
+.header-retracting {
+  padding: 14px 0;
+  box-shadow: 0 1px 6px rgba(33,33,33,.1);
+  border-bottom: 1px solid #DDD;
+  .logo-retracting-header {
+    left: 40px;
+    max-width: 220px;
+  }
+  .header-menu {
+    margin-top: 2px;
+  }
+  .site-nav-link[data-level="1"]{
+    font-size: 22px;
+  }
+  .delimiter{
+    width: 28px;
+    height: 30px;
+    background-position: center 7px;
+    background-size: 12px;
+  }
+  .header-menu .delimiter img {
+    margin-top: 5px;
+    width: 11px;
+  }
+  .btn.btn-contribute {
+    float: right;
+    margin: 0;
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+  @media (max-width:600px) {
+    .logo-header {
+      margin: 4px 0;
+      max-width: 100px;
+    }
+  }
+
+}
+
+
+
+
+
+
+/* SHELL SIDEBAR */
+
+
+/* FOOTER SITEMAP */
+
+.site-map-background {
+  background: #333;
+}
+.menu-sitemap {
+  font-family: @font-primary;
+}
+
+
+/* FOOTER */
+
+
+.footer-background {
+  background: @color-dark;
+  font-weight: normal;
+}
+.footer  {
+  padding-bottom: 20px;
+  .footer-logo {
+    margin-top: 80px;
+    display: inline-block;
+    img {
+      width: 158px;
+    }
+  }
+  .footer-site-name {
+    display: none;
+  }
+  .footer-site-info,
+  .footer-legal{
+    font-family: @font-tertiary;
+    font-weight: 400;
+    font-size: 11px;
+    color: #666;
+    a {
+      color: #666;
+      &:hover {
+        color: #CCC;
+      }
+    }
+  }
+  &,
+  .credit-label .title-column p {
+    font-family: @font-tertiary;
+    color: #888;
+  }
+  .footer-credit .credit-logo .credit-text {
+    font-family: @font-primary;
+    letter-spacing: normal;
+    font-size: 10px;
+  }
+}
+
+
+
+/* CONTENT DESIGN */
+
+#app {
+  .content-article .date,
+  &.news-layout .stream-list .date,
+  &.news-layout .stream-list .time {
+    font-family: @font-primary;
+    font-weight: normal;
+  }
+
+  .stream-item {
+    &:nth-child(7n + 1) {
+      .audio-color-cover {
+        background: #361250;
+      }
+    }
+    &:nth-child(7n + 2) {
+      .audio-color-cover {
+        background: #4C1D6D;
+      }
+    }
+    &:nth-child(7n + 3) {
+      .audio-color-cover {
+        background: @color-primary;
+      }
+    }
+    &:nth-child(7n + 4) {
+      .audio-color-cover {
+        background: #7932AC;
+      }
+    }
+    &:nth-child(7n + 5) {
+      .audio-color-cover {
+        background: #8F40C8;
+      }
+    }
+    &:nth-child(7n + 6) {
+      .audio-color-cover {
+        background: #A343E7;
+      }
+    }
+    &:nth-child(7n + 7) {
+      .audio-color-cover {
+        background: #A36FC8;
+      }
+    }
+  }
+  &.news-layout {
+    .news-right h2 {
+      font-weight: bold;
+    }
+  }
+  .btn-article {
+    display: table;
+    margin: 20px auto;
+  }
+}
+
+
+/* Candidates Stream */
+.SitetheoryStreamBundle-CollectioncontentId-38774 {
+  .stack-layout .stream-list .title {
+    font-size: 34px;
+    line-height: 1.2;
+  }
+}
+
+
+/* Join Form */
+.ngp-form {
+  input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], textarea {
+    border-radius: 0 !important;
+  }
+  .at-title {
+    display: none;
+  }
+  h1 {
+    font-family: @font-primary !important;
+    font-weight: 300;
+  }
+  input[type="checkbox"]:checked+span:before {
+    background-color: @color-primary !important;
+    border-color: @color-primary !important;
+  }
+  .btn-at-primary {
+    transition: all .2s ease-out;
+    font-family: @font-tertiary !important;
+    font-size: 14px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    font-weight: bold !important;
+    background: @color-primary !important;
+    border-radius: 0 !important;
+    &:hover {
+      background: #111 !important;
+    }
+  }
+}
+
+
+
+.hint {
+  color: #666;
+  font-size: 13px;
+}
+

@@ -1,0 +1,997 @@
+/* Load LESS Variables */
+@import "variables.less";
+
+
+
+
+/* LANDING PAGE */
+
+
+.landing-stream {
+  .stream-item {
+    h1.title {
+      font-size: 80px;
+    }
+    h2 {
+      font-family: @font-secondary;
+      font-weight: normal;
+    }
+    .item-body p {
+      font-family: @font-primary;
+      font-weight: 300;
+    }
+    .module-stream p {
+      font-weight: 400;
+    }
+    .quote {
+      font-weight: 300;
+      font-size: 55px;
+    }
+    .citation {
+      font-size: 18px;
+    }
+    .btn.btn-cta {
+      background: none;
+      color:  @color-pop;
+      border: 2px solid @color-pop;
+      &:hover {
+        color: #FFF;
+        background:  @color-pop;
+      }
+    }
+    &.parallax-wrapper,
+    .stream-item.has-background-image {
+      .item-vertical-padding {
+        padding-top: 160px;
+        padding-bottom: 160px;
+      }
+      .btn.btn-cta {
+        color: #FFF;
+        border: none;
+        background: @color-pop;
+        &:hover {
+          color: @color-pop;
+          background: #FFF;
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+
+/* Home Page Slideshow */
+#landing-item-38717 .item-vertical-padding {
+  padding-top: 0;
+  h2.title {
+    font-family: @font-primary;
+    text-transform: none;
+    font-weight: 300;
+    font-size: 30px;
+  }
+  .text-wrapper {
+    .btn,
+    .btn-more {
+      &,
+      &:link,
+      &:visited,
+      &:active {
+        background: none;
+        color: #FFF;
+        border: 2px solid #FFF;
+      }
+      &:hover {
+        color: #111;
+        background: #FFF;
+        border: 2px solid #FFF;
+      }
+    }
+  }
+}
+
+
+/* Home Page Intro Module */
+
+#landing-item-38720 {
+  p {
+    max-width: 880px;
+  }
+  .covered-by {
+    margin-top: 50px;
+    padding-top: 50px;
+    h4 {
+      margin: 0 0 30px;
+    }
+
+
+    /* Logo 1 animation */
+    @keyframes coveredByLogo1 {
+      /* Fade in */
+      0% {
+        opacity: 0;
+        background-position: 0 0;
+      }
+      2% {
+        opacity: 1;
+        background-position: 0 0;
+      }
+
+      /* Fade out */
+      30% {
+        opacity: 1;
+        background-position: 0 0;
+      }
+      32% {
+        opacity: 0;
+        background-position: 0 0;
+      }
+
+      /* Move logo while faded out */
+      32.1% {
+        opacity: 0;
+        background-position: 0 center;
+      }
+
+      /* Fade in */
+      34% {
+        opacity: 1;
+        background-position: 0 center;
+      }
+
+      /* Fade out */
+      62% {
+        opacity: 1;
+        background-position: 0 center;
+      }
+      64% {
+        opacity: 0;
+        background-position: 0 center;
+      }
+
+      /* Move logo while faded out */
+      64.1% {
+        opacity: 0;
+        background-position: 0 bottom;
+      }
+
+      /* Fade in */
+      66% {
+        opacity: 1;
+        background-position: 0 bottom;
+      }
+
+      /* Fade out */
+      98% {
+        opacity: 1;
+        background-position: 0 bottom;
+      }
+      100% {
+        opacity: 0;
+        background-position: 0 bottom;
+      }
+    }
+
+
+    /* Logo 2 animation */
+    @keyframes coveredByLogo2 {
+      /* Fade in */
+      0% {
+        opacity: 0;
+        background-position: -160px 2px;
+      }
+      2% {
+        opacity: 1;
+        background-position: -160px 2px;
+      }
+
+      /* Fade out */
+      30% {
+        opacity: 1;
+        background-position: -160px 2px;
+      }
+      32% {
+        opacity: 0;
+        background-position: -160px 2px;
+      }
+
+      /* Move logo while faded out */
+      32.1% {
+        opacity: 0;
+        background-position: -160px center;
+      }
+
+      /* Fade in */
+      34% {
+        opacity: 1;
+        background-position: -160px center;
+      }
+
+      /* Fade out */
+      62% {
+        opacity: 1;
+        background-position: -160px center;
+      }
+      64% {
+        opacity: 0;
+        background-position: -160px center;
+      }
+
+      /* Move logo while faded out */
+      64.1% {
+        opacity: 0;
+        background-position: -160px bottom;
+      }
+
+      /* Fade in */
+      66% {
+        opacity: 1;
+        background-position: -160px bottom;
+      }
+
+      /* Fade out */
+      98% {
+        opacity: 1;
+        background-position: -160px bottom;
+      }
+      100% {
+        opacity: 0;
+        background-position: -160px bottom;
+      }
+    }
+
+
+    /* Logo 3 animation */
+    @keyframes coveredByLogo3 {
+      /* Fade in */
+      0% {
+        opacity: 0;
+        background-position: -295px 2px;
+      }
+      2% {
+        opacity: 1;
+        background-position: -295px 2px;
+      }
+
+      /* Fade out */
+      30% {
+        opacity: 1;
+        background-position: -295px 2px;
+      }
+      32% {
+        opacity: 0;
+        background-position: -295px 2px;
+      }
+
+      /* Move logo while faded out */
+      32.1% {
+        opacity: 0;
+        background-position: -295px center;
+      }
+
+      /* Fade in */
+      34% {
+        opacity: 1;
+        background-position: -295px center;
+      }
+
+      /* Fade out */
+      62% {
+        opacity: 1;
+        background-position: -295px center;
+      }
+      64% {
+        opacity: 0;
+        background-position: -295px center;
+      }
+
+      /* Move logo while faded out */
+      64.1% {
+        opacity: 0;
+        background-position: -295px bottom;
+      }
+
+      /* Fade in */
+      66% {
+        opacity: 1;
+        background-position: -295px bottom;
+      }
+
+      /* Fade out */
+      98% {
+        opacity: 1;
+        background-position: -295px bottom;
+      }
+      100% {
+        opacity: 0;
+        background-position: -295px bottom;
+      }
+    }
+
+
+    /* Logo 4 animation */
+    @keyframes coveredByLogo4 {
+      /* Fade in */
+      0% {
+        opacity: 0;
+        background-position: -432px 2px;
+      }
+      2% {
+        opacity: 1;
+        background-position: -432px 2px;
+      }
+
+      /* Fade out */
+      30% {
+        opacity: 1;
+        background-position: -432px 2px;
+      }
+      32% {
+        opacity: 0;
+        background-position: -432px 2px;
+      }
+
+      /* Move logo while faded out */
+      32.1% {
+        opacity: 0;
+        background-position: -432px center;
+      }
+
+      /* Fade in */
+      34% {
+        opacity: 1;
+        background-position: -432px center;
+      }
+
+      /* Fade out */
+      62% {
+        opacity: 1;
+        background-position: -432px center;
+      }
+      64% {
+        opacity: 0;
+        background-position: -432px center;
+      }
+
+      /* Move logo while faded out */
+      64.1% {
+        opacity: 0;
+        background-position: -432px bottom;
+      }
+
+      /* Fade in */
+      66% {
+        opacity: 1;
+        background-position: -432px bottom;
+      }
+
+      /* Fade out */
+      98% {
+        opacity: 1;
+        background-position: -432px bottom;
+      }
+      100% {
+        opacity: 0;
+        background-position: -432px bottom;
+      }
+    }
+
+
+    /* Logo 5 animation */
+    @keyframes coveredByLogo5 {
+      /* Fade in */
+      0% {
+        opacity: 0;
+        background-position: -524px 2px;
+      }
+      2% {
+        opacity: 1;
+        background-position: -524px 2px;
+      }
+
+      /* Fade out */
+      30% {
+        opacity: 1;
+        background-position: -524px 2px;
+      }
+      32% {
+        opacity: 0;
+        background-position: -524px 2px;
+      }
+
+      /* Move logo while faded out */
+      32.1% {
+        opacity: 0;
+        background-position: -524px center;
+      }
+
+      /* Fade in */
+      34% {
+        opacity: 1;
+        background-position: -524px center;
+      }
+
+      /* Fade out */
+      62% {
+        opacity: 1;
+        background-position: -524px center;
+      }
+      64% {
+        opacity: 0;
+        background-position: -524px center;
+      }
+
+      /* Move logo while faded out */
+      64.1% {
+        opacity: 0;
+        background-position: -524px bottom;
+      }
+
+      /* Fade in */
+      66% {
+        opacity: 1;
+        background-position: -524px bottom;
+      }
+
+      /* Fade out */
+      98% {
+        opacity: 1;
+        background-position: -524px bottom;
+      }
+      100% {
+        opacity: 0;
+        background-position: -524px bottom;
+      }
+    }
+
+
+    /* Logo 6 animation */
+    @keyframes coveredByLogo6 {
+      /* Fade in */
+      0% {
+        opacity: 0;
+        background-position: -644px 2px;
+      }
+      2% {
+        opacity: 1;
+        background-position: -644px 2px;
+      }
+
+      /* Fade out */
+      30% {
+        opacity: 1;
+        background-position: -644px 2px;
+      }
+      32% {
+        opacity: 0;
+        background-position: -644px 2px;
+      }
+
+      /* Move logo while faded out */
+      32.1% {
+        opacity: 0;
+        background-position: -644px center;
+      }
+
+      /* Fade in */
+      34% {
+        opacity: 1;
+        background-position: -644px center;
+      }
+
+      /* Fade out */
+      62% {
+        opacity: 1;
+        background-position: -644px center;
+      }
+      64% {
+        opacity: 0;
+        background-position: -644px center;
+      }
+
+      /* Move logo while faded out */
+      64.1% {
+        opacity: 0;
+        background-position: -644px bottom;
+      }
+
+      /* Fade in */
+      66% {
+        opacity: 1;
+        background-position: -644px bottom;
+      }
+
+      /* Fade out */
+      98% {
+        opacity: 1;
+        background-position: -644px bottom;
+      }
+      100% {
+        opacity: 0;
+        background-position: -644px bottom;
+      }
+    }
+
+
+    /* Logo 7 animation */
+    @keyframes coveredByLogo7 {
+      /* Fade in */
+      0% {
+        opacity: 0;
+        background-position: -766px 2px;
+      }
+      2% {
+        opacity: 1;
+        background-position: -766px 2px;
+      }
+
+      /* Fade out */
+      30% {
+        opacity: 1;
+        background-position: -766px 2px;
+      }
+      32% {
+        opacity: 0;
+        background-position: -766px 2px;
+      }
+
+      /* Move logo while faded out */
+      32.1% {
+        opacity: 0;
+        background-position: -766px center;
+      }
+
+      /* Fade in */
+      34% {
+        opacity: 1;
+        background-position: -766px center;
+      }
+
+      /* Fade out */
+      62% {
+        opacity: 1;
+        background-position: -766px center;
+      }
+      64% {
+        opacity: 0;
+        background-position: -766px center;
+      }
+
+      /* Move logo while faded out */
+      64.1% {
+        opacity: 0;
+        background-position: -766px bottom;
+      }
+
+      /* Fade in */
+      66% {
+        opacity: 1;
+        background-position: -766px bottom;
+      }
+
+      /* Fade out */
+      98% {
+        opacity: 1;
+        background-position: -766px bottom;
+      }
+      100% {
+        opacity: 0;
+        background-position: -766px bottom;
+      }
+    }
+
+
+    /* Logo 8 animation */
+    @keyframes coveredByLogo8 {
+      /* Fade in */
+      0% {
+        opacity: 0;
+        background-position: 100% 2px;
+      }
+      2% {
+        opacity: 1;
+        background-position: 100% 2px;
+      }
+
+      /* Fade out */
+      30% {
+        opacity: 1;
+        background-position: 100% 2px;
+      }
+      32% {
+        opacity: 0;
+        background-position: 100% 2px;
+      }
+
+      /* Move logo while faded out */
+      32.1% {
+        opacity: 0;
+        background-position: 100% center;
+      }
+
+      /* Fade in */
+      34% {
+        opacity: 1;
+        background-position: 100% center;
+      }
+
+      /* Fade out */
+      62% {
+        opacity: 1;
+        background-position: 100% center;
+      }
+      64% {
+        opacity: 0;
+        background-position: 100% center;
+      }
+
+      /* Move logo while faded out */
+      64.1% {
+        opacity: 0;
+        background-position: 100% bottom;
+      }
+
+      /* Fade in */
+      66% {
+        opacity: 1;
+        background-position: 100% bottom;
+      }
+
+      /* Fade out */
+      98% {
+        opacity: 1;
+        background-position: 100% bottom;
+      }
+      100% {
+        opacity: 0;
+        background-position: 100% bottom;
+      }
+    }
+
+
+    .logo-column {
+      float: left;
+      height: 50px;
+      opacity: 0;
+      background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/covered-by-logos.png') no-repeat;
+      background-size: 1000px;
+    }
+    .logo1 {
+      animation: coveredByLogo1 11s .05s infinite;
+      width: 15.4%;
+      background-position: 0 0;
+    }
+    .logo2 {
+      animation: coveredByLogo2 11s .1s infinite;
+      width: 13.8%;
+      background-position: -160px 2px;
+    }
+    .logo3 {
+      animation: coveredByLogo3 11s .15s infinite;
+      width: 14%;
+      background-position: -295px 5px;
+    }
+    .logo4 {
+      animation: coveredByLogo4 11s .2s infinite;
+      width: 9.4%;
+      background-position: -432px 1px;
+    }
+    .logo5 {
+      animation: coveredByLogo5 11s .25s infinite;
+      width: 12%;
+      background-position: -524px 2px;
+    }
+    .logo6 {
+      animation: coveredByLogo6 11s .3s infinite;
+      width: 11.5%;
+      background-position: -644px 3px;
+    }
+    .logo7 {
+      animation: coveredByLogo7 11s .35s infinite;
+      width: 12.5%;
+      background-position: -766px 2px;
+    }
+    .logo8 {
+      animation: coveredByLogo8 11s .4s infinite;
+      width: 11.4%;
+      background-position: 100% 1px;
+    }
+  }
+}
+
+/* Home Page Problem Module */
+#landing-item-38721 {
+  .item-body {
+    padding-bottom: 60px;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/Triple-Star-Salmon.png') no-repeat center bottom;
+    background-size: 83px;
+  }
+}
+
+
+/* Home Page Solution Module */
+#landing-item-38723 {
+  .item-vertical-padding {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+  h1 {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 130px;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/flag.png') no-repeat left center;
+    background-size: 88px;
+  }
+  h4 {
+    margin-top: 60px;
+  }
+}
+
+/* Home Page What You Can Do Module */
+#landing-item-38732 {
+  padding-top: 0;
+  .st-card-wrapper {
+    margin-top: 0;
+  }
+  .btn.btn-cta {
+    font-size: 14px;
+  }
+}
+
+/* Home Page Event Module */
+#landing-item-38734 {
+  h4 {
+    display: table;
+    margin: 0 auto;
+    font-size: 14px;
+    letter-spacing: 2px;
+    &::before {
+      margin: 0 12px 0 0;
+      display: inline-block;
+      vertical-align: middle;
+      content: '';
+      width: 36px;
+      height: 1px;
+      border-top: 1px solid rgba(0,0,0,.6);
+    }
+    &::after {
+      margin: 0 0 0 12px;
+      display: inline-block;
+      vertical-align: middle;
+      content: '';
+      width: 36px;
+      height: 1px;
+      border-top: 1px solid rgba(0,0,0,.6);
+    }
+  }
+  h1 {
+    margin: 36px 0;
+    &::after {
+      display: table;
+      content: '';
+      margin: 30px auto 0;
+      width: 462px;
+      height: 70px;
+      background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/bunting.png') repeat-x left center;
+      background-size: 33.33%;
+    }
+  }
+  p.description {
+    color: #4D4D4D;
+    font-size: 30px;
+    font-weight: 400;
+  }
+  p.details {
+    font-size: 15px;
+  }
+}
+
+/* Home Page Candidates */
+
+#landing-item-38735 {
+  h1.title {
+    margin-bottom: 20px;
+  }
+  h3.subtitle {
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0;
+  }
+  .projector {
+    &.multiples.HTML-carousel.image-ratio-square .projector-mask {
+      padding-bottom: 90px;
+      &::after {
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 40px;
+        content: '';
+        width: 100%;
+        height: 2px;
+        border-top: 2px solid #E5E5E5;
+      }
+    }
+    .image-wrapper {
+      margin-top: 40px;
+    }
+    .item-wrapper {
+      .item-body {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        p {
+          font-size: 13px;
+          text-transform: uppercase;
+          font-weight: bold;
+          letter-spacing: 1px;
+        }
+        .district {
+          color: @color-pop;
+        }
+      }
+      .subtitle {
+        display: block;
+        font-weight: 400;
+        font-size: 11px;
+        color: #737373;
+        letter-spacing: 1px;
+      }
+    }
+  }
+  .btn.btn-cta {
+    padding: 12px 40px;
+    font-size: 18px;
+    color: #111;
+    border-color: #111;
+    &:hover {
+      color: @color-pop;
+      background: none;
+      border-color: @color-pop;
+    }
+  }
+}
+
+/* Home Page Off the Press */
+
+#off-the-press {
+  text-align: left;
+  .st-card-wrapper {
+    margin: 0 -14px;
+    .st-card {
+      padding: 0 14px;
+    }
+  }
+  h1 {
+    text-align: center;
+  }
+  h2 {
+    margin: 0 0 22px 0;
+    padding-bottom: 10px;
+    color: @color-dark;
+    font-size: 30px;
+    border-bottom: 1px solid @color-dark;
+  }
+  .press-action {
+    text-align: right;
+    a {
+      display: inline-block;
+      padding-bottom: 4px;
+      color: @font-primary;
+      font-family: @font-primary;
+      font-weight: bold;
+      font-size: 12px;
+      border-bottom: 1px solid #999;
+      &:hover {
+        color: @color-dark;
+        border-color: @color-dark;
+      }
+    }
+  }
+  .home-news {
+    .date {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      z-index: 3;
+      display: table;
+      margin-left: -4px;
+      padding: 2px 6px;
+      color: #FFF;
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 1px;
+      font-weight: bold;
+    }
+    h3 {
+      margin-bottom: 12px;
+      color: @color-dark;
+      font-size: 26px;
+      font-family: @font-primary;
+      text-transform: none;
+      font-weight: normal;
+      letter-spacing: normal;
+    }
+    p {
+      font-family: @font-body;
+    }
+    .image-container {
+      margin-bottom: 0;
+      &.has-caption {
+        .image-gradient {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 2;
+          height: 100px;
+          opacity: .6;
+          background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1));
+        }
+        .caption {
+          font-family: @font-body;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          z-index: 10;
+          color: #FFF;
+          padding: 0 5% 10px;
+        }
+      }
+    }
+  }
+  .home-podcast {
+    .podcast-item {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #D5D5D5;
+      &:last-child {
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+    }
+    .podcast-image {
+      margin-right: 20px;
+    }
+    .podcast-date {
+      margin: 0 0 4px;
+      font-family: @font-tertiary;
+      font-size: 11px;
+      font-weight: normal;
+      text-transform: uppercase;
+    }
+    .podcast-title {
+      margin: 0;
+      font-family: @font-primary;
+      font-size: 14px;
+      font-weight: bold;
+      a {
+        color: @color-dark;
+        &:hover {
+          color: @color-primary;
+        }
+      }
+    }
+  }
+  .home-twitter {
+    md-icon {
+      width: 33px;
+      height: unset;
+      svg g {
+        fill: @color-primary;
+      }
+    }
+  }
+}
+
+/* Home Page Quote Image */
+#landing-item-38733 {
+  &.parallax-wrapper .item-vertical-padding, .stream-item.has-background-image .item-vertical-padding {
+    padding-top: 220px;
+    padding-bottom: 220px;
+  }
+}

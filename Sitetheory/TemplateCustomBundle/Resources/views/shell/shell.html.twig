@@ -1,47 +1,33 @@
 {% extends 'SitetheoryTemplateBundle::shell.html.twig' %}
 
+{% block link %}
+    {{ parent() }}
+
+        <link rel="{{ styleRel('less') }}" type="text/css"
+              href="{{ asset('/bundles/sitetheorytemplatecustom/css/site.' ~ styleExt('less')) }}"
+              data-file="site.css">
+        <link rel="shortcut icon" href="{{ asset('/bundles/sitetheorytemplatecustom/images/favicon.png') }}" type="image/x-icon">
+
+{% endblock link %}
+
 {#
 ########
 SETTINGS
 ########
 #}
 
-{# Remove padding on header and sidebarToggle so mini header can go full width #}
+{# Remove padding on header and header image so mini header can go full width #}
 {% set headerStructure = '' %}
+{% set headerImageSettings = '' %}
 
 {# Make mobile drawer slide in from right #}
-{% set mobileDrawerDirection = 'mobileDrawerRight' %}
+{% set mobileDrawerDirection = 'mobile-drawer-right' %}
 
-{# Hide Sidebar Login until it's dynamically hidden for users with no membership feature #}
-{% block sidebarLogin %}
-{% endblock sidebarLogin %}
+{# Hide Sidebar on Desktop #}
+{% set displaySidebar = false %}
 
-{# Set sidebar and make main column #}
-{% if columnSidebar is not defined %}
-    {% set columnSidebar = 'stGrid column20' %}
-    {% set bcolumnMain = 'stGrid column80' %}
-{% endif %}
-
-{# Make sure sidebar variables are empty to prevent errors #}
-{% if sectionMenuActive is not defined %}
-    {% set sectionMenuActive = 'empty' %}
-{% endif %}
-{% if sectionMenuHardCoded is not defined %}
-    {% set sectionMenuHardCoded = '' %}
-{% endif %}
-
-{# Sidebar fonts #}
-{% set navLevel1Font = 'fontPrimary' %}
-{% set navLevel2Font = 'fontSecondary' %}
-
-{# Hide page title in main column so it can be placed up by header #}
-{% block pageTitleMainColumn %}
-{% endblock pageTitleMainColumn %}
-
-{# Remove default header image #}
-{% block headerImageInsideHeader %}
-{% endblock headerImageInsideHeader %}
-
+{# Centered version of footer #}
+{% set footerCentered = true %}
 
 {# Set Footer Brightness #}
 {% set footerBrightness = 'dark' %}
@@ -54,7 +40,6 @@ SETTINGS
 SET FULL OR MINI HEADER
 ###########
 #}
-
 {# If a specific header has not been requested and this is the first page visited on the site, give the full header #}
 {% if headerFull is not defined %}
     {% if environment.history|length == 0 %}
@@ -73,187 +58,6 @@ SPECIAL APP CLASS TO CONTROL SIDEBAR TOGGLE
 {% block appClass %}{% if headerFull == false %}headerIsMini {% endif %}{{ parent() }}{% endblock appClass %}
 
 
-
-{#
-###########
-CSS STYLING
-###########
-#}
-
-{# Load Site CSS #}
-{% block link %}
-
-    {{ parent() }}
-
-    {# Angular Material #}
-    <link rel="stylesheet" satisfies="angular-material.css"
-          href="{{ asset('bundles/sitetheorystratus/stratus/bower_components/angular-material/angular-material' ~ minified ~ '.css') }}">
-
-
-    {# TODO: once asset loads custom vhost files, load this way #}
-    {# #
-    {% stylesheets '@SitetheoryTemplateCustomBundle/Resources/public/css/site.css' filter='?uglifycss' filter='cssrewrite' %}
-    <link rel="stylesheet" href="{{ asset_url }}" data-file="site.css">
-    {% endstylesheets %}
-    {# #}
-    <link rel="stylesheet" href="{{ asset('bundles/sitetheorytemplatecustom/css/site.css') }}">
-
-
-{% endblock link %}
-
-
-{#
-##########
-JAVASCRIPT
-##########
-#}
-
-{% block script %}
-    {# load custom config FIRST before stratus config #}
-    <script src="{{ asset('bundles/bnccore/js/boot/config' ~ minified ~'.js') }}"></script>
-
-    {{ parent() }}
-
-    {# TODO: Google Analytics ID should be stored as an Integration in the site settings #}
-    <!-- Google Analytics -->
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-        ga('create', 'UA-75845088-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-    <!-- End Google Analytics  -->
-
-    <!-- Facebook Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '123579151609465', {
-    em: 'insert_email_variable'
-    });
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=123579151609465&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- DO NOT MODIFY -->
-    <!-- End Facebook Pixel Code -->
-
-{% endblock script %}
-
-
-
-{#
-###########
-SIGNUP FORM
-###########
-#}
-
-{% block registrationForm %}
-
-    <form name="Signup" ng-submit="send('Signup') && tracking.send('SignupButton', 'click')" ng-controller="Api"
-          ng-sanitize="true" ng-class="status" class="positionAnchor" ng-cloak ng-cloak-reveal
-            {% block registrationFormOptions %}
-                options='{"url":"https://api.{{ environment.site.domainprimary }}", "controller": "/people", "redirect":{"url":"{{ joinRedirectUrl | default('/donate') }}", "popup":false}}'
-            {% endblock registrationFormOptions %}
-
-            {# NOTE: Hidden fields just need to be initialized with ng-init. And utmSource, utmMedium, utmCampaign are set in Api controller. #}
-            {% block registrationFormInit %}
-                ng-init="model.data.subscriptions = '{{ joinSubscriptions | default('') }}'; model.data.candidate = '{{ candidateSlug | default('') }}';"
-            {% endblock registrationFormInit %}
-    >
-
-        <md-progress-circular md-mode="indeterminate" ng-show="status === 'sending'"></md-progress-circular>
-
-        <p class="message" ng-show="response.length" ng-bind-html="response"></p>
-
-        <ul class="listInline divCenter fontSecondary" ng-show="status !== 'success'">
-
-            {{ registrationFormBefore|default('')|raw }}
-
-            <li>
-                <md-input-container>
-                    <label>Email</label>
-                    <input name="email" type="email" ng-pattern="options.pattern.email" ng-model="model.data.email"
-                           required md-no-asterisk>
-                    <div ng-messages="Signup.email.$error" role="alert">
-                        <div ng-message-exp="['required', 'pattern']">
-                            Please enter a valid email.
-                        </div>
-                    </div>
-                </md-input-container>
-            </li>
-            <li>
-                <!-- class="hasInfo" -->
-                <!--
-                <div class="fieldInfo">
-                    <md-tooltip>We will only use this to remind you to vote!</md-tooltip>
-                    <md-icon class="" md-svg-src="/Api/Resource?path=@SitetheoryCoreBundle:images/icons/actionButtons/info.svg"></md-icon>
-                </div>
-                -->
-                <md-input-container>
-                    <label>Phone</label>
-                    <input name="phone" type="text" ng-model="model.data.phone" required md-no-asterisk>
-                    <div ng-messages="Signup.phone.$error" role="alert">
-                        <div ng-message-exp="['required', 'pattern']">
-                            Please enter a valid phone number.
-                        </div>
-                    </div>
-                </md-input-container>
-            </li>
-            <li>
-                <md-input-container>
-                    <label>Zip</label>
-                    <input name="zip" ng-pattern="options.pattern.zip" ng-model="model.data.zip" required
-                           md-no-asterisk>
-                    <div ng-messages="Signup.zip.$error" role="alert">
-                        <div ng-message-exp="['required', 'pattern']">
-                            Please enter a valid zip code.
-                        </div>
-                    </div>
-                </md-input-container>
-            </li>
-
-            <li>
-                <button type="submit" class="btn formSubmit" ng-disabled="Signup.$invalid">
-                    {{ textSubmit|default('Count Me In') }}
-                </button>
-            </li>
-
-            {{ registrationFormAfter|default('')|raw }}
-
-        </ul>
-        {% block registrationFormDisclaimer %}
-            <div class="legalAgreement fontBody">
-                By signing up, I consent to receiving emails from
-                <span class="blueText hasTip">
-                    <md-tooltip>Committed to electing a brand new, corruption-free Congress that represents all Americans.</md-tooltip>Brand New Congress
-                </span>
-                {% block registrationFormDisclaimerExtra %}
-                    {# We are not including this on default signups now. #}
-                    {#and <span class="blueText hasTip"><md-tooltip>Democrats that represent people, not corporations.</md-tooltip>Justice Democrats.</span>#}
-                {% endblock registrationFormDisclaimerExtra %}
-                .
-            </div>
-        {% endblock registrationFormDisclaimer %}
-    </form>
-{% endblock registrationForm %}
-
-
-
-
 {#
 ######
 LAYOUT
@@ -263,138 +67,110 @@ LAYOUT
 
 {% block headerContent %}
 
-
+    {#<h1>Refresh</h1>#}
     {# The header in this design is extra tall so it's only used on the home page #}
     {% if headerFull == true %}
-
-        <div class="siteMaxWidth siteSidePadding clearfix">
-            <div id="headerContent" class="positionAnchor">
-                <div id="planGraphic" class="positionLeftCenter">
-                    <h4 class="blueText">ONE NATIONAL CAMPAIGN TO ELECT HUNDREDS OF CANDIDATES TO A BRAND NEW
-                        CONGRESS</h4>
-                    <img src="{{ asset('bundles/sitetheorytemplatecustom/images/planGraphicSmall.png') }}" alt="">
-                </div>
-                <div id="logoHeader" class="textCenter">
-                    <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/" aria-label="Go to Home"><img
-                                src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogo.png') }}"
-                                alt="BNC Logo"></a>
-                </div>
-                <div id="headerExtraLinks" class="positionRightBottom">
-                    <div class="clearfix">
-                        {# IF THE VISIT IS FROM A CANDIDATE SITE DISPLAY SPECIAL LINK BACK TO LANDING PAGE #}
-                        {# DISABLE: this fancy is too confusing ATM - this is duplicated in the headerMini #}
-                        {#
-                        {% if content.data.candidate.url is defined and content.data.candidate.url is not empty %}
-                            <a href="{{ content.data.candidate.url }}" class="btn btnCandidateLanding pullRight">{{ content.data.candidate.name }}</a>
-                        {% else %}
-                            <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/donate" target="_blank" class="btn btnContribute pullRight">Donate</a>
-                        {% endif %}
-                        #}
-                        <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/donate" target="_blank" class="btn btnContribute pullRight">Donate</a>
+        <div class="header-content site-max-width site-side-padding" ng-cloak>
+            <div class="header1" layout="row" layout-align="space-between center" flex>
+                    <div class="mission" no-flex flex="20">
+                        <h4>Our Mission</h4>
+                        <p>To elect regular working people to Congress who put people before party to make government more accountable and responsive to the needs of all Americans.</p>
                     </div>
-                    <a id="starLinkRight" class="fontTertiary align-right" href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/Nominate">Nominate a Candidate</a>
+                    <div class="logo-header text-center" flex>
+                        <a href="/" aria-label="Go to Home"><img
+                                    src="{{ asset('bundles/sitetheorytemplatecustom/images/Brand-New-Congress-Logo.png') }}"
+                                    alt="Brand New Congress Logo"></a>
+                    </div>
+                    <div class="header-extra-links" no-flex flex="20">
+                        <div class="float-links">
+                            {#{{ block('socialMedia') }}#}
+                            <div class="social-media circle">
+                                <ul class="list-inline">
+                                    <li class="facebook">
+                                        <a href="https://www.facebook.com/brandnewcongress" target="_blank">
+                                            {% embed "@SitetheoryCoreBundle/Resources/public/images/icons/social/facebook.svg" %}{% endembed %}
+                                        </a>
+                                    </li>
+                                    <li class="twitter">
+                                        <a href="https://twitter.com/BrandNew535" target="_blank">
+                                            {% embed "@SitetheoryCoreBundle/Resources/public/images/icons/social/twitter.svg" %}{% endembed %}
+                                        </a>
+                                    </li>
+                                    <li class="instagram">
+                                        <a href="https://www.instagram.com/brandnewcongress" target="_blank">
+                                            {% embed "@SitetheoryCoreBundle/Resources/public/images/icons/social/instagram.svg" %}{% endembed %}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="https://secure.actblue.com/donate/bnc2020" target="_blank" class="btn btn-contribute">Donate</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div id="header2" class="siteMaxWidth siteSidePadding positionAnchor ">
-                <div id="headerContact" class="fontSecondary verticalCenter centerLeft clearfix">
-                    <a href="mailto:us@brandnewcongress.org" target="_blank">
-                        <div class="headerOrnament positionAnchor pullLeft">
-                            <div class="square square1 easyTransition">
-                            </div>
-                            <div class="square square2">
-                            </div>
-                            <div class="square square3 easyTransition">
+                <div class="header2" layout="row" layout-align="space-between center" flex>
+
+                    <a class="header-contact" href="/Contact" no-flex>Contact</a>
+                    <div class="header-menu-container" flex>
+                        {% block navMain %}
+                        <div class="menu menu-nested header-menu"
+                             role="navigation">
+                            <div class="clearfix">
+                                <ul class="list-level1 clearfix">
+                                    <li>
+                                        <a href="Our-Story" id=""
+                                           class="site-nav-link active" data-level="1">
+                                            Take Action
+                                            <div class="nav-extra"></div>
+                                        </a>
+                                    </li>
+                                    <li class="delimiter">&nbsp;</li>
+                                    <li>
+                                        <a href="/Candidates" class="site-nav-link" data-level="1">
+                                            Candidates
+                                            <div class="nav-extra"></div>
+                                        </a>
+                                    </li>
+                                    <li class="delimiter">&nbsp;</li>
+                                    <li>
+                                        <a href="/Platform" class="site-nav-link" data-level="1">
+                                            Platform
+                                            <div class="nav-extra"></div>
+                                        </a>
+                                    </li>
+                                    <li class="delimiter">&nbsp;</li>
+                                    <li>
+                                        <a href="/Press" class="site-nav-link" data-level="1">
+                                            Press
+                                            <div class="nav-extra"></div>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="btnText">Contact Us</div>
-                    </a>
-                </div>
-
-                {% block navMain %}
-                    <div id="navHeader" class="navMainContainer divCenter">
-                        <ul class="listInline fontPrimary">
-                            <li id="navJoin" class="navMainLink">
-                                <a href="#joinForm">
-                                    Join
-                                </a>
-                            </li>
-                            <li class="delimiter"><img
-                                        src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}"
-                                        alt="">
-                            </li>
-                            <li id="navCandidates" class="navMainLink">
-                                <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/candidates">
-                                    Candidates
-                                </a>
-                            </li>
-                            <li class="delimiter"><img
-                                        src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}"
-                                        alt="">
-                            </li>
-                            <li id="navHelp" class="navMainLink">
-                                <a href="https://now.brandnewcongress.org/act">
-                                    Action
-                                </a>
-                            </li>
-                            <li class="delimiter"><img
-                                        src="{{ asset('bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png') }}"
-                                        alt="">
-                            </li>
-                            <li id="navLearn" class="navMainLink">
-                                <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/platform">
-                                    Platform
-                                </a>
-                            </li>
-                        </ul>
+                        {% endblock navMain %}
                     </div>
-                {% endblock navMain %}
+                    <a class="header-shop" href="https://shop.brandnewcongress.org/" target="_blank" no-flex>Shop</a>
 
-                <div id="headerSocial" class="verticalCenter">
-                    <!-- Social Media -->
-                    {% block socialMedia %}
-                        <div class="socialMedia {{ socialStyle|default('basicStyle') }}">
-                            <ul class="listInline">
-                                <li class="twitter">
-                                    <a class="positionAnchor" href="https://twitter.com/BrandNew535"
-                                       title="Share on Twitter" aria-label="Share on Twitter" target="_blank"
-                                       data-reactid="123" target="_blank">
-                                        {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/twitter.svg' %}{% block id %}footerTwitterIcon{% endblock %}{% endembed %}
-                                    </a>
-                                </li>
-                                <li class="facebook">
-                                    <a class="positionAnchor" href="https://www.facebook.com/brandnewcongress"
-                                       title="Facebook" aria-label="Share on Facebook" data-reactid="125"
-                                       target="_blank">
-                                        {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/facebook.svg' %}{% block id %}footerFacebookIcon{% endblock %}{% endembed %}
-                                    </a>
-                                </li>
-                                <li class="reddit">
-                                    <a class="positionAnchor" href="https://www.reddit.com/r/BrandNewCongress/"
-                                       title="Reddit" aria-label="Share on Reddit" target="_blank">
-                                        {% embed '@SitetheoryCoreBundle/Resources/public/images/icons/social/reddit.svg' %}{% block id %}footerRedditIcon{% endblock %}{% endembed %}
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    {% endblock socialMedia %}
-                    <!-- End Social Media -->
                 </div>
-                <div class="headerOrnament verticalCenter centerLeft"><img
-                            src="{{ asset('bundles/sitetheorytemplatecustom/images/tripleSquarePurple.png') }}"
-                            alt=""></div>
-                <div class="headerOrnament verticalCenter centerRight"><img
-                            src="{{ asset('bundles/sitetheorytemplatecustom/images/tripleSquarePurple.png') }}"
-                            alt=""></div>
-            </div>
         </div>
-
     {% else %}
 
         {# Mini header is identical to retracting header but used on secondary pages as the primary header since home page header design is unusually tall #}
         {% block headerMini %}
-
-            <div id="headerMini" class="positionAnchor clearfix light">
-                {{ block('retractingHeaderContent') }}
+            <div class="mini-header" ng-cloak>
+                <div class="site-side-padding">
+                    <div layout="row" layout-align="space-between center" flex>
+                        <div class="logo-mini-header" no-flex flex="20">
+                            <a href="/">&nbsp;</a>
+                        </div>
+                        <div flex>
+                            {{ block('navMain') }}
+                        </div>
+                        <div class="contribute-mini-header" no-flex flex="20">
+                            <a href="https://secure.actblue.com/donate/bnc2020" target="_blank" class="btn btn-contribute">Donate</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         {% endblock headerMini %}
@@ -402,477 +178,207 @@ LAYOUT
     {% endif %}
 
 
-    {# Place title above the sidebar/mainColumn row #}
-
-    {% block pageTitle %}
-        <div class="siteMaxWidth siteSidePadding" {{ contentEditable({'content': content}) }}>
-            <h1 class="pageTitle" {{ editable() }} property="version.title">
-                <span class="starLeft">
-                    <span class="starRight">{{ content.version.title }}</span>
-                </span>
-            </h1>
-        </div>
-    {% endblock pageTitle %}
-
-    {# TODO: Make this dynamic News Post module #
-    <div class="siteMaxWidth siteSidePadding">
-        <a href="https://events.brandnewcongress.org" target="_blank">
-            <div id="announcementBanner" class="positionAnchor clearfix">
-                <div id="newsLabel" class="salmon fontPrimary verticalCenter">News</div>
-                <p id="announcement" class="fontBody textCenter">Hit the ground running! Join a June 24 weekend canvassing kickoff event!<span hide-xs hide-sm class="learnMore smallLabel salmonText">Learn More</span></p>
-                <div hide-xs hide-sm class="doubleArrow fontTertiary verticalCenter"> &gt;&gt; </div>
-            </div>
-        </a>
-    </div>
-    {# #}
-
 {% endblock headerContent %}
 
-{# Retracting header uses only a few elements from the full header. Must come before mini header which is identical. #}
-{% block retractingHeaderContent %}
-    <div class="clearfix">
-        <div id="logoRetractingHeader" class="verticalCenter">
-            <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/">
-                <img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogoHorizontal.png') }}" alt="">
-            </a>
-        </div>
-        <div id="retractingContribute" class="verticalCenter hide-xs hide-sm">
-            {# IF THE VISIT IS FROM A CANDIDATE SITE DISPLAY SPECIAL LINK BACK TO LANDING PAGE #}
-            {# DISABLE: this fancy is too confusing ATM - this is duplicated in the headerMini #}
-            {#
-            {% if content.data.candidate.url is defined and content.data.candidate.url is not empty %}
-                <a href="{{ content.data.candidate.url }}" class="btn btnCandidateLanding">{{ content.data.candidate.name }}</a>
-            {% else %}
-                <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/donate" target="_blank" class="btn btnContribute">Donate</a>
-            {% endif %}
-            #}
-            <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/donate" target="_blank" class="btn btnContribute">Donate</a>
-        </div>
-        <div>
-            {{ block('navMain') }}
+ {#Retracting header uses only a few elements from the full header. Must come before mini header which is identical.#}
+{% block headerRetractingContent %}
+    <div class="site-side-padding" ng-cloak>
+        <div layout="row" layout-align="space-between center" flex>
+            <div class="logo-retracting-header" no-flex flex="20">
+                <a href="/">
+                    <img src="{{ asset('bundles/sitetheorytemplatecustom/images/Brand-New-Congress-Logo-Horizontal.png') }}" alt="Brand New Congress Logo">
+                </a>
+            </div>
+            <div flex>
+                {{ block('navMain') }}
+            </div>
+            <div class="retracting-contribute" no-flex flex="20">
+                <a href="https://secure.actblue.com/donate/bnc2020" target="_blank" class="btn btn-contribute">Donate</a>
+            </div>
         </div>
     </div>
-{% endblock retractingHeaderContent %}
-
-
-{# SIDEBAR #}
-
-{# TODO: Make Dynamic #}
-
-{# Temporary hard coded menu #}
-{% block sectionName %}
-    <h2 class="sectionName fontPrimary">{{ sectionNameHardCoded|default('') }}</h2>
-    <div class="borderDashed sidebarBorder"></div>
-{% endblock sectionName %}
-
-
-{% block menuSection1 %}
-
-    <!-- Level 2 Links -->
-    <ul id="listLevel2" class="listUnstyled {{ navLevel2Font|default('fontSecondary') }}">
-        <li class="siteNavLink" data-level="2">
-            <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/candidates" class="navLevel2 {% if sectionMenuActive == 'drafteesActive' %}active{% endif %}">
-                Candidates
-            </a>
-        </li>
-        <li class="siteNavLink" data-level="2">
-            <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/Nominate" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">
-                Nominate
-            </a>
-        </li>
-    </ul>
-{% endblock menuSection1 %}
-
-
-{% block menuSection2 %}
-
-    <!-- Level 2 Links -->
-    <ul id="listLevel2" class="listUnstyled {{ navLevel2Font|default('fontSecondary') }}">
-        <li class="siteNavLink" data-level="2">
-            <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/support" class="navLevel2 {% if sectionMenuActive == 'supportActive' %}active{% endif %}">
-                Overview
-            </a>
-        </li>
-        <li class="siteNavLink" data-level="2">
-            <a href="https://events.brandnewcongress.org/" target="_blank" class="navLevel2">
-                Find an Event Near You
-            </a>
-        </li>
-        <li class="siteNavLink" data-level="2">
-            <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/nominate" class="navLevel2 {% if sectionMenuActive == 'nominateActive' %}active{% endif %}">
-                Nominate
-            </a>
-        </li>
-        {#
-        <li class="siteNavLink" data-level="2">
-            <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/Open-Positions"
-               class="navLevel2 {% if sectionMenuActive == 'jobsPositionsActive' %}active{% endif %}">
-                Job Positions
-            </a>
-        </li>#}
-        <li class="siteNavLink" data-level="2">
-            <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/Volunteer-Positions"
-               class="navLevel2 {% if sectionMenuActive == 'volunteerPositionActive' %}active{% endif %}">
-                Volunteer Positions
-            </a>
-        </li>
-        <li class="siteNavLink" data-level="2">
-            <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/volunteer"
-               class="navLevel2 {% if sectionMenuActive == 'volunteerSkillsActive' %}active{% endif %}">
-                Get Started Volunteering!
-            </a>
-        </li>
-        <li class="siteNavLink" data-level="2">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8CfK0gUULEVpYFm9Eb4iyGOL-_iDl395qB0z4hny7ek4iNw/viewform"
-               target="_blank" class="navLevel2">
-                District Research
-            </a>
-        </li>
-
-        <li class="siteNavLink" data-level="2">
-            <a href="https://docs.google.com/document/d/1Op0OaZNuykCJckSCn4vABDEr4VEdTrMeTsPCZFNSJo4/edit"
-               target="_blank" class="navLevel2 {% if sectionMenuActive == 'organizeLocallyActive' %}active{% endif %}">
-                Organize Locally
-            </a>
-        </li>
-        {#<li class="siteNavLink" data-level="2">
-            <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/call" class="navLevel2 {% if sectionMenuActive == 'callActive' %}active{% endif %}">
-                Join a Call
-            </a>
-        </li>#}
-        <li class="siteNavLink" data-level="2">
-            <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/donate" target="_blank"
-               class="navLevel2 {% if sectionMenuActive == 'contributeActive' %}active{% endif %}">
-                Donate to BNC
-            </a>
-        </li>
-        <li class="siteNavLink" data-level="2">
-            <a href="https://shop.brandnewcongress.org" target="_blank"
-               class="navLevel2">
-                BNC Store
-            </a>
-        </li>
-    </ul>
-{% endblock menuSection2 %}
-
-
-{% block menuSection3 %}
-
-    <!-- Level 2 Links -->
-    <ul id="listLevel2" class="listUnstyled {{ navLevel2Font|default('fontSecondary') }}">
-        <li class="siteNavLink" data-level="2">
-            <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/platform" class="navLevel2 {% if sectionMenuActive == 'platformActive' %}active{% endif %}">
-                Platform
-            </a>
-        </li>
-        <li class="siteNavLink" data-level="2">
-            <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/plan" class="navLevel2 {% if sectionMenuActive == 'planActive' %}active{% endif %}">
-                Our Plan
-            </a>
-        </li>
-        <li class="siteNavLink" data-level="2">
-            <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/faq" class="navLevel2 {% if sectionMenuActive == 'faqActive' %}active{% endif %}">
-                FAQ
-            </a>
-        </li>
-    </ul>
-{% endblock menuSection3 %}
+{% endblock headerRetractingContent %}
 
 
 
-{% block navSection %}
-
-    <div class="hide-xs hide-sm">
-
-        {% if sectionMenuHardCoded == '1' %}
-            {{ block('menuSection1') }}
-        {% elseif sectionMenuHardCoded == '2' %}
-            {{ block('menuSection2') }}
-        {% elseif sectionMenuHardCoded == '3' %}
-            {{ block('menuSection3') }}
-        {% endif %}
-
-    </div>
-
-    <!-- Full nested menu displays only for mobile -->
-
-    <div class="hide-gt-sm">
-        <ul id="listLevel1" class="listUnstyled">
-            <li data-level="1">
-                <div class="siteNavLink " data-level="1">
-                    <a href="#joinForm" class="navLevel1 fontPrimary">
-                        Join
-                    </a>
-                </div>
-            </li>
-            <li data-level="1">
-                <div class="siteNavLink" data-level="1">
-                    <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/submit-nominee" class="navLevel1 fontPrimary">
-                        Candidates
-                    </a>
-                </div>
-                {{ block('menuSection1') }}
-            </li>
-            <li data-level="1">
-                <div class="siteNavLink" data-level="1">
-                    <a href="https://now.brandnewcongress.org/act" class="navLevel1 fontPrimary">
-                        Action
-                    </a>
-                </div>
-                {{ block('menuSection2') }}
-            </li>
-            <li data-level="1">
-                <div class="siteNavLink {{ navLevel1Font|default('fontPrimary') }}" data-level="1">
-                    <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/plan" class="navLevel1 fontPrimary">
-                        Plan
-                    </a>
-                </div>
-                {{ block('menuSection3') }}
-            </li>
-            <li>
-                <div class="sidebarContact borderDashed">
-                    <a href="mailto:mailto:us@brandnewcongress.org" class="fontSecondary">
-                        us@brandnewcongress.org
-                    </a>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-{% endblock navSection %}
-
-{# End temporary hard coded menu #}
+{% block footerExtras %}
+    <a class="footer-logo" href="/">
+        <img src="{{ asset('bundles/sitetheorytemplatecustom/images/Brand-New-Congress-Logo-Footer.png') }}" alt="Brand New Congress Logo"></a>
+    </a>
+{% endblock footerExtras %}
 
 
-
-{# Add social media & border to bottom of sidebar #}
-{% block sidebarContent %}
-    {{ parent() }}
-    <div ng-cloak hide-gt-sm>
-        {{ block('socialMedia') }}
-    </div>
-    <div class="borderDashed sidebarBorder"></div>
-
-    <div id="sidebarPromoArea">
-        <a href="https://shop.brandnewcongress.org" target="_blank" class="backgroundDark">
-            <div class="imageContainer">
-                <img src="{{ asset('bundles/sitetheorytemplatecustom/images/sidebarButtonStore.png') }}" alt="">
+{% block vendorCreditLogo %}
+    <div class="credit-logo-image">
+        <a href="//gutensite.com" target="_blank">
+            <div class="vendor-logo-svg">
+                {% embed '@SitetheoryTemplateCustomBundle/Resources/public/images/gutensite-logo-footer-credit.svg' %}{% block id %}sitetheory-logo-footer-logo{% endblock %}{% endembed %}
             </div>
         </a>
     </div>
-{% endblock sidebarContent %}
+{% endblock vendorCreditLogo %}
 
 
-
-{# ADD FOOTER JOIN FORM AT BOTTOM OF BODY BLOCK #}
-{% block main %}
-
-    {{ parent() }}
-    {% block footerJoin %}
-        <a id="joinForm" name="joinForm"></a>
-        <div id="footerJoinForm" class="joinForm purple" ng-cloak ng-cloak-reveal>
-            {% set registrationFormBefore = '<li><div class="starLeft"></div></li><li><h1>Add Your Name</h1></li>' %}
-            {% set registrationFormAfter = '<li><div class="starRight"></div></li>' %}
-            {% block footerJoinCustom %}{% endblock footerJoinCustom %}
-            {{ block('registrationForm') }}
-        </div>
-    {% endblock footerJoin %}
-{% endblock main %}
-
-{# DYNAMIC SITE MAP #}
-{% block siteMap %}
-    {% set siteMap = menu(content) %}
-    {% for key, link in siteMap if link is not empty and link.route != '/' %}
-        <div class="stGrid column25">
-            <div class="siteMapColumn">
-                <ul class="listUnstyled">
-                    <li class="siteMapHeader">
-                        <a class="fontTertiary" href="{{ link.url ?? link.route }}"
-                           {% if link.browserTarget is not empty %}target="{{ link.browserTarget }}"{% endif %}>
-                            {{ link.name }}
-                        </a>
-                    </li>
-                    {% for key, child in link.nestChildren if child is not empty and child.route != '/' %}
-                        <li class="{% if child.active is defined and child.active == true %}active{% else %}dormant{% endif %}">
-                            <a href="{{ child.url ?? child.route }}"
-                               {% if child.browserTarget is not empty %}target="{{ child.browserTarget }}"{% endif %}>
-                                {{ child.name }}
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-    {% endfor %}
-{% endblock siteMap %}
-
-{# FOOTER SITE MAP #}
-{% block footerSiteMap %}
-    <div id="siteMapBackground">
-
-        <div id="siteMapContainer" class="siteMaxWidth siteSidePadding fontSecondary dark">
-
-            {% if environment.user is not empty and environment.user.id == 2 %}
-                <div id="siteMapNew" class="clearfix hide-xs hide-sm">
-                    {{ block('siteMap') }}
-                </div>
-            {% endif %}
-
-            <div id="siteMapNew" class="clearfix hide-xs hide-sm">
-                <div class="stGrid column25">
-                    <div class="siteMapColumn">
-                        <ul class="listUnstyled">
-                            <li class="siteMapHeader">
-                                <a class="fontTertiary" href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/submit-nominee">Candidates</a>
-                            </li>
-                            <li>
-                                <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/candidates">Candidates</a>
-                            </li>
-                            <li>
-                                <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/Nominate">Nominate a Candidate</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="stGrid column25">
-                    <div class="siteMapColumn">
-                        <ul class="listUnstyled">
-                            <li class="siteMapHeader">
-                                <a class="fontTertiary" href="https://now.brandnewcongress.org/act">Action</a>
-                            </li>
-                            <li>
-                                <a href="https://now.brandnewcongress.org/act">Action Overview</a>
-                            </li>
-                            <li>
-                                <a href="https://events.brandnewcongress.org/" target="_blank">Find an Event</a>
-                            </li>
-                            <li>
-                                <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/nominate">Nominate a Candidate</a>
-                            </li>
-                            {#
-                            <li>
-                                <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/Open-Positions">Job Positions</a>
-                            </li>#}
-                            <li>
-                                <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/Volunteer-Positions">Volunteer Positions</a>
-                            </li>
-                            <li>
-                                <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/volunteer">Get Started Volunteering!</a>
-                            </li>
-                            <li>
-                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8CfK0gUULEVpYFm9Eb4iyGOL-_iDl395qB0z4hny7ek4iNw/viewform"
-                                   target="_blank">District Research</a>
-                            </li>
-                            <li>
-                                <a href="https://docs.google.com/document/d/1Op0OaZNuykCJckSCn4vABDEr4VEdTrMeTsPCZFNSJo4/edit"
-                                   target="_blank">Organize Locally</a>
-                            </li>
-                            {# <li>
-                                <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/call">Join a Call</a>
-                            </li> #}
-                            <li>
-                                <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/donate"
-                                   target="_blank">Donate to BNC</a>
-                            </li>
-                            <li>
-                                <a href="https://shop.brandnewcongress.org/" target="_blank">BNC Store</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="stGrid column25">
-                    <div class="siteMapColumn">
-                        <ul class="listUnstyled">
-                            <li class="siteMapHeader">
-                                <a class="fontTertiary" href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/plan">Plan</a>
-                            </li>
-                            <li>
-                                <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/platform">Platform</a>
-                            </li>
-                            <li>
-                                <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/plan">Our Plan</a>
-                            </li>
-                            <li>
-                                <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/faq">FAQ</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="stGrid column25">
-                    <div class="siteMapColumn">
-                        <ul class="listUnstyled">
-                            <li class="siteMapHeader">
-                                <a class="fontTertiary" href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/About">About</a>
-                            </li>
-                            <li>
-                                <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/about">About Us</a>
-                            </li>
-                            <li>
-                                <a href="mailto:us@brandnewcongress.org">Contact Us</a>
-                            </li>
-                            <li>
-                                <a href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/privacy">Privacy Policy</a>
-                            </li>
-                            <li>
-                                {# Social Media #}
-                                {% block footerSocialMedia %}
-                                    {{ block('socialMedia') }}
-                                {% endblock footerSocialMedia %}
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+{# TEMPORARY FOOTER SITE INFO #}
+{% block footerSiteInfo %}
+    <div class="footer-site-info site-contact-short font-body"><a href="mailto:us@brandnewcongress">us@brandnewcongress</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="tel:202-769-3944">202-769-3944</a>&nbsp;&nbsp;|&nbsp;&nbsp;PO Box 1024 Springdale, AR 72765<br>Paid for by Brand New Congress, not authorized by any candidate or candidate committee.
     </div>
-{% endblock footerSiteMap %}
-{# End temporary hard coded footer site map #}
+{% endblock footerSiteInfo %}
 
-{# FOOTER #}
 
 {% block footer %}
-    {# TODO: Move this variable to a Context or Template's Custom Field #}
-    {% set paidFor = 'Brand New Congress, brandnewcongress.org, not authorized by any candidate or candidate\'s committee.' %}
-    <div id="footerBackground">
-        <div id="footer" class="siteMaxWidth siteSidePadding dark">
-            <div id="footerLogo" class="textCenter">
-                <img src="{{ asset('bundles/sitetheorytemplatecustom/images/BNClogoFooter.png') }}" alt="">
+    <div class="site-map-background clearfix">
+
+        {% if siteMapStructure is not defined %}
+            {% set siteMapStructure = 'site-max-width site-side-padding' %}
+        {% endif %}
+
+        <div class="site-map-container {{ siteMapStructure }} {{ siteMapBrightness }}">
+
+            {% block siteMapLabel %}
+            {% endblock siteMapLabel %}
+
+            <div class="menu menu-sitemap">
+
+                <div class="clearfix">
+                    <ul class="list-level1 clearfix">
+
+                        {# Level 1 #}
+                        <li style="width: 20%;">
+                            <a href="/Candidates" id=""
+                               class="site-nav-link active" data-level="1">
+                                Candidates
+                                <div class="nav-extra"></div>
+                            </a>
+
+                            {# Level 2 #}
+                            <ul class="list-level2">
+                                <li>
+                                    <a href="/Candidates" class="site-nav-link" data-level="2">
+                                        Candidates 2020
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/About-Brand-New-Congress-Candidate-Nominations" class="site-nav-link" data-level="2">
+                                        Nominate a Candidate
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </li>
+
+                        {# Level 1 #}
+                        <li style="width: 20%;">
+                            <a href="/Volunteer" class="site-nav-link" data-level="1">
+                                Take Action
+                                <div class="nav-extra"></div>
+                            </a>
+
+                            {# Level 2 #}
+                            <ul class="list-level2">
+                                <li>
+                                    <a href="/Volunteer" class="site-nav-link" data-level="2">
+                                        Volunteer
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Join-Brand-New-Congress" class="site-nav-link" data-level="2">
+                                        Join BNC
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://secure.actblue.com/donate/bnc2020" target="_blank" class="site-nav-link" data-level="2">
+                                        Donate
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        {# Level 1 #}
+                        <li style="width: 20%;">
+                            <a href="/Meet-the-Team" class="site-nav-link" data-level="1">
+                                About
+                                <div class="nav-extra"></div>
+                            </a>
+
+                             {#Level 2#}
+                            <ul class="list-level2">
+                                <li>
+                                    <a href="/Meet-the-Team" class="site-nav-link" data-level="2">
+                                        Meet the Team
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Platform" class="site-nav-link" data-level="2">
+                                        Platform
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Contact" class="site-nav-link" data-level="2">
+                                        Contact
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Privacy" class="site-nav-link" data-level="2">
+                                        Privacy
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        {# Level 1 #}
+                        <li style="width: 20%;">
+                            <a href="/News" class="site-nav-link" data-level="1">
+                                Press
+                                <div class="nav-extra"></div>
+                            </a>
+
+                            {#Level 2#}
+                            <ul class="list-level2">
+                                <li>
+                                    <a href="/News" class="site-nav-link" data-level="2">
+                                        BNC News
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/In-the-Press" class="site-nav-link" data-level="2">
+                                        Press Coverage
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Press-Releases" class="site-nav-link" data-level="2">
+                                        Press Releases
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        {# Level 1 #}
+                        <li style="width: 20%;">
+                            <a href="https://shop.brandnewcongress.org/" target="_blank"  class="site-nav-link" data-level="1">
+                                Shop BNC
+                                <div class="nav-extra"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
-            <p class="smallLabel textCenter">
-                Press contact <a href="mailto:press@brandnewcongress.org">
-                    press@brandnewcongress.org
-                </a>
-                <span hide-xs hide-sm>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                <br hide-gt-sm>
-                General contact <a href="mailto:us@brandnewcongress.org">
-                    us@brandnewcongress.org
-                </a>
-            </p>
-            <div id="footerCredit" class="textCenter">
-                <p class="smallLabel">
-                    &copy; {{ "now"|date("Y") }} Brand New Congress.
-                    All rights reserved. P. O. Box 621264 Charlotte, NC 28262
-                    <br>Paid for by {{ content.version.custom.paidFor ?? paidFor }}
-                </p>
-                <a class="smallLabel" href="http://sitetheory.io" target="_blank">
-                    Website powered by Sitetheory
-                </a>
-            </div>
+
         </div>
     </div>
+    {{ parent() }}
 {% endblock footer %}
 
-{# Reusable items for secondary pages that are temporaily hard coded #}
-
-{# Candidate Details #}
-{% block candidateReturnLink %}
-    <strong>
-        <a class="returnLink divCenter fontBody" href="{{ environment.site.domainPrimary ? '//' ~ environment.site.domainPrimary : '' }}/submit-nominee">
-            <div class="starLeft starPurple">
-                <div class="starRight starPurple">
-                    <div class="starText">Return to All Candidates</div>
-                </div>
-            </div>
-        </a>
-    </strong>
-{% endblock candidateReturnLink %}

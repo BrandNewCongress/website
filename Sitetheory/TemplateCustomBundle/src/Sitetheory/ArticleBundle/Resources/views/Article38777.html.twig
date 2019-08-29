@@ -1,0 +1,22 @@
+{% extends 'SitetheoryArticleBundle::Article.html.twig' %}
+
+
+{% block script %}
+    {{ parent() }}
+    <script type='text/javascript' src='https://d3rse9xjbp8270.cloudfront.net/at.js' crossorigin='anonymous'></script>
+{% endblock script %}
+
+
+
+{% block contentType %}
+    {{ parent() }}
+    <div class="ngp-form"
+         data-form-url="https://actions.everyaction.com/v1/Forms/fw8D517PAEuJAZFD6mJpRQ2"
+         data-fastaction-endpoint="https://fastaction.ngpvan.com"
+         data-inline-errors="true"
+         data-fastaction-nologin="true"
+         data-databag-endpoint="https://profile.ngpvan.com"
+         data-databag="everybody"
+         data-mobile-autofocus="false" >
+    </div>
+{% endblock contentType %}

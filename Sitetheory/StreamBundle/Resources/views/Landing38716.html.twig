@@ -1,0 +1,151 @@
+{% extends 'SitetheoryStreamBundle::Landing.html.twig' %}
+
+{% block link %}
+    {{ parent() }}
+
+    <link rel="{{ styleRel('less') }}" type="text/css"
+          href="{{ asset('/bundles/sitetheorytemplatecustom/css/landing.' ~ styleExt('less')) }}"
+          data-file="landing.css">
+{% endblock link %}
+
+{% import 'SitetheoryStreamBundle::components.html.twig' as streamComponents %}
+
+{#
+########
+SETTINGS
+########
+#}
+
+{# TEMPLATE SHELL ADJUSTMENTS - These will be the same for most home page streams #}
+
+{% set headerFull = true %}
+
+{% set sectionMenuActive = '' %}
+{% set sectionMenuHardCoded = '' %}
+
+
+{% set fullWidthCarouselRatio = '9-4' %}
+
+
+{#
+################
+CSS & JAVASCRIPT
+################
+#}
+
+
+{% block script %}
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    {{ parent() }}
+{% endblock script %}
+
+
+{# Create more box for viewing media items #}
+{% block popup %}
+
+    {% set quickviewMediaOptions = {"ratio": "square", "specsClass": "font-primary"} %}
+    {% if content.version.imageRatio is defined and content.version.imageRatio is not empty %}
+        {% set quickviewMediaOptions = quickviewMediaOptions|merge({"ratio": content.version.imageRatio}) %}
+    {% endif %}
+
+    {{ streamComponents.quickviewMedia(quickviewMediaOptions) }}
+
+    {{ parent() }}
+
+{% endblock popup %}
+
+{% block customStreamItem %}
+
+    {# <h2>Refresh!</h2> #}
+    {# Off the Press Module Area #}
+    <div id="off-the-press" class=" site-max-width site-side-padding" ng-if="$index == 7">
+
+        <div class="item-vertical-padding">
+            <h1 class="title">Off the Press</h1>
+            <div class="st-card-wrapper cards-x3">
+                <div class="st-card">
+                    <div class="home-news" ng-cloak="true" ng-controller="Generic"
+                         data-target="Tag/650/Content"
+                         data-api='{"limit":1}'>
+
+                        <h2 class="title"><a href="/News">News</a></h2>
+
+                        <div class="news-container clearfix position-anchor">
+                            <div ng-repeat="model in collection.models"
+                                 ng-attr-id="{% verbatim %}{{ 'landing-item-' + model.data.id }}{% endverbatim %}">
+
+                                <div class="position-anchor">
+                                    <p class="date salmon" ng-show="model.data.version.timeCustom" ng-bind="model.data.version.timeCustom|moment:{format:'MMMM Do YYYY'}"></p>
+                                    {{ streamComponents.streamImages('', 'landscape') }}
+                                </div>
+                                <h3>
+                                    <a ng-href="{% verbatim %}/{{ {% endverbatim %}model.data.routing[0].url{% verbatim %} }}{% endverbatim %}">
+                                        <span ng-if="model.data.version.title" ng-bind-html="model.data.version.title | truncate:{limit: 200 }"></span>
+                                    </a>
+                                </h3>
+                                <p class="news-body" ng-if="model.data.version.text" ng-bind-html="model.data.version.text | truncate:{limit: 200 }"> </p>
+
+                                {# Link to all news #}
+                                <div class="press-action">
+                                    <a class="news-link" ng-href="{% verbatim %}/{{ {% endverbatim %}model.data.routing[0].url{% verbatim %} }}{% endverbatim %}">Keep Reading</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="st-card">
+                    <div class="home-podcast" ng-cloak="true" ng-controller="Generic"
+                         data-target="Tag/661/Media"
+                         data-api='{"limit":5}'>
+                        <h2 class="title"><a href="/Brand-New-Podcast">Brand New Podcast</a></h2>
+
+                        <div class="podcast-container">
+
+                            <div class="podcast-item clearfix" ng-repeat="model in collection.models"
+                                 ng-attr-id="{% verbatim %}{{ 'landing-item-' + model.data.id }}{% endverbatim %}">
+                                <div class="st-grid column25">
+
+                                    <a ng-click="$window.quickviewMediaModel = model.data; $window.getHTML = getHTML; $window.disableScroll = true">
+                                        <div ng-if="model.data.images[0]" class="podcast-image" stratus-src
+                                             ng-style="{'background-image': 'url({% verbatim %}{{ {% endverbatim %}model.data.images[0].src{% verbatim %} }}{% endverbatim %})'}"
+                                             style="background-repeat: no-repeat; background-position: center center; background-size: cover;"
+                                        >
+                                            <img src="{{ asset('bundles/sitetheorycore/images/shapeholder-square.png') }}">
+                                        </div>
+                                    </a>
+
+                                </div>
+                                <div class="st-grid column75">
+                                    <p class="podcast-date" ng-show="model.data.timeCustom" ng-bind="model.data.timeCustom|moment:{format:'MMMM Do YYYY'}"></p>
+                                    <p class="podcast-title">
+                                        <a ng-click="$window.quickviewMediaModel = model.data; $window.getHTML = getHTML; $window.disableScroll = true">
+                                            <span ng-if="model.data.name" ng-bind-html="model.data.name | truncate:{limit: 300 }"></span>
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+
+                            {# Link to all podcast #}
+                            <div class="press-action">
+                                <a class="podcast-link" href="/Brand-New-Podcast">See All</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="st-card">
+                    <div class="home-twitter">
+                    <h2 class="title">
+                        <md-icon
+                                md-svg-src="/Api/Resource?path=@SitetheoryCoreBundle:images/icons/social/twitter.svg"></md-icon>
+                    </h2>
+                    {#<a class="twitter-timeline" href="https://twitter.com/BrandNew535?ref_src=twsrc%5Etfw">Tweets by BrandNew535</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>#}
+                </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock customStreamItem %}
