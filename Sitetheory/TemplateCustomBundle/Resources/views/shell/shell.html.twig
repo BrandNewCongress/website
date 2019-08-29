@@ -71,17 +71,17 @@ LAYOUT
     {# The header in this design is extra tall so it's only used on the home page #}
     {% if headerFull == true %}
         <div class="header-content site-max-width site-side-padding" ng-cloak>
-            <div class="header1" layout="row" layout-align="space-between center" flex>
-                    <div class="mission" no-flex flex="20">
+            <div class="header1" layout="column" layout-gt-xs="row" layout-align-gt-xs="space-between center" flex>
+                    <div class="mission" no-flex flex-gt-xs="25" flex-order="2" flex-order-gt-xs="1">
                         <h4>Our Mission</h4>
                         <p>To elect regular working people to Congress who put people before party to make government more accountable and responsive to the needs of all Americans.</p>
                     </div>
-                    <div class="logo-header text-center" flex>
+                    <div class="logo-header text-center" flex flex-order="1" flex-order-gt-xs="2">
                         <a href="/" aria-label="Go to Home"><img
                                     src="{{ asset('bundles/sitetheorytemplatecustom/images/Brand-New-Congress-Logo.png') }}"
                                     alt="Brand New Congress Logo"></a>
                     </div>
-                    <div class="header-extra-links" no-flex flex="20">
+                    <div class="header-extra-links" no-flex flex-gt-xs="25" flex-order="3">
                         <div class="float-links">
                             {#{{ block('socialMedia') }}#}
                             <div class="social-media circle">
@@ -107,50 +107,50 @@ LAYOUT
                         </div>
                     </div>
                 </div>
-                <div class="header2" layout="row" layout-align="space-between center" flex>
-
-                    <a class="header-contact" href="/Contact" no-flex>Contact</a>
-                    <div class="header-menu-container" flex>
-                        {% block navMain %}
-                        <div class="menu menu-nested header-menu"
-                             role="navigation">
-                            <div class="clearfix">
-                                <ul class="list-level1 clearfix">
-                                    <li>
-                                        <a href="Our-Story" id=""
-                                           class="site-nav-link active" data-level="1">
-                                            Take Action
-                                            <div class="nav-extra"></div>
-                                        </a>
-                                    </li>
-                                    <li class="delimiter">&nbsp;</li>
-                                    <li>
-                                        <a href="/Candidates" class="site-nav-link" data-level="1">
-                                            Candidates
-                                            <div class="nav-extra"></div>
-                                        </a>
-                                    </li>
-                                    <li class="delimiter">&nbsp;</li>
-                                    <li>
-                                        <a href="/Platform" class="site-nav-link" data-level="1">
-                                            Platform
-                                            <div class="nav-extra"></div>
-                                        </a>
-                                    </li>
-                                    <li class="delimiter">&nbsp;</li>
-                                    <li>
-                                        <a href="/Press" class="site-nav-link" data-level="1">
-                                            Press
-                                            <div class="nav-extra"></div>
-                                        </a>
-                                    </li>
-                                </ul>
+                <div class="header2">
+                    <div layout="row" layout-align="space-between center" flex>
+                        <a class="header-contact" href="/Contact" no-flex>Contact</a>
+                        <div class="header-menu-container" flex>
+                            {% block navMain %}
+                            <div class="menu menu-nested header-menu"
+                                 role="navigation">
+                                <div class="clearfix">
+                                    <ul class="list-level1 clearfix">
+                                        <li>
+                                            <a href="Our-Story" id=""
+                                               class="site-nav-link active" data-level="1">
+                                                Take Action
+                                                <div class="nav-extra"></div>
+                                            </a>
+                                        </li>
+                                        <li class="delimiter">&nbsp;</li>
+                                        <li>
+                                            <a href="/Candidates" class="site-nav-link" data-level="1">
+                                                Candidates
+                                                <div class="nav-extra"></div>
+                                            </a>
+                                        </li>
+                                        <li class="delimiter">&nbsp;</li>
+                                        <li>
+                                            <a href="/Platform" class="site-nav-link" data-level="1">
+                                                Platform
+                                                <div class="nav-extra"></div>
+                                            </a>
+                                        </li>
+                                        <li class="delimiter">&nbsp;</li>
+                                        <li>
+                                            <a href="/Press" class="site-nav-link" data-level="1">
+                                                Press
+                                                <div class="nav-extra"></div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
+                            {% endblock navMain %}
                         </div>
-                        {% endblock navMain %}
+                        <a class="header-shop" href="https://shop.brandnewcongress.org/" target="_blank" no-flex>Shop</a>
                     </div>
-                    <a class="header-shop" href="https://shop.brandnewcongress.org/" target="_blank" no-flex>Shop</a>
-
                 </div>
         </div>
     {% else %}

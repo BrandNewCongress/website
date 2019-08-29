@@ -223,7 +223,7 @@ p.pullout {
 }
 p.quote {
   font-family: @font-primary;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 p.intro {
   font-weight: bold;
@@ -233,7 +233,10 @@ p.citation {
   font-family: @font-tertiary;
   font-weight: normal;
 }
-
+.alt-title,
+.date.font-secondary {
+  font-family: @font-tertiary;
+}
 
 /* ASSIGN FONTS */
 
@@ -560,28 +563,75 @@ hr {
 
 /* HEADER */
 
-.header-content {
-  padding-top: 60px;
-  padding-bottom: 34px;
-  .header1 {
-    padding-bottom: 34px;
-  }
-  .mission p {
-    font-size: 13px;
-  }
-  .header-extra-links {
-    .float-links {
-      float: right;
-      text-align: right;
-    }
-  }
-}
 .header {
   transition: opacity .2s ease-out;
   opacity: 0;
 }
 .loaded .header {
   opacity: 1;
+}
+.header-content {
+  padding-top: 60px;
+  padding-bottom: 34px;
+  @media (max-width: 11099px) {
+    padding-top: 50px;
+    padding-bottom: 24px;
+  }
+  .header1 {
+    padding-bottom: 34px;
+    @media (max-width: 11099px) {
+      padding-bottom: 24px;
+    }
+  }
+  .mission {
+    @media (max-width: 600px) {
+      display: table;
+      max-width: 400px;
+      margin: 30px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid #CCC;
+    }
+    h4,
+    p {
+      font-size: 13px;
+      @media (min-width: 768px) and (max-width: 999px) {
+        font-size: 12px;
+      }
+      @media (max-width: 767px) {
+        text-align: center;
+      }
+      @media (max-width: 767px) {
+        font-size: 14px;
+      }
+    }
+  }
+  .header-extra-links {
+    @media (max-width: 600px) {
+      display: none;
+    }
+    .float-links {
+      float: right;
+      text-align: right;
+    }
+    .btn.btn-contribute {
+      display: inline-block;
+      padding: 14px 40px;
+      margin-top: 14px;
+      font-size: 14px;
+      background: @color-primary;
+      @media (max-width: 11099px) {
+        padding: 12px 30px;
+        font-size: 13px;
+      }
+      @media (min-width: 768px) and (max-width: 999px) {
+        padding: 10px 22px;
+        font-size: 12px;
+      }
+      &:hover {
+        background: @color-dark;
+      }
+    }
+  }
 }
 .logo-header {
   a {
@@ -592,35 +642,13 @@ hr {
     max-width: 210px;
   }
 }
-.btn.btn-contribute {
-  display: inline-block;
-  padding: 14px 40px;
-  margin-top: 14px;
-  font-size: 14px;
-  background: @color-primary;
-  &:hover {
-    background: @color-dark;
-  }
-}
-.star-link-right {
-  display: block;
-  margin-top: 42px;
-  padding-right: 15px;
-  text-transform: uppercase;
-  letter-spacing: .11em;
-  font-size: 11px;
-  font-weight: bold;
-  color: #598089;
-  background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starBlue.png') no-repeat right center;
-  background-size: 9px;
-  &:hover {
-    color: #000;
-  }
-}
 .header2 {
   padding: 17px 0;
   border-top: 3px solid #222;
   border-bottom: 1px solid #9B9B9B;
+  @media (max-width: 767px) {
+    display: none;
+  }
   .header-contact,
   .header-shop {
     transition: color .2s ease-out;
@@ -630,11 +658,22 @@ hr {
     font-weight: bold;
     letter-spacing: 1px;
     color: @color-dark;
+    @media (max-width: 11099px) {
+      font-size: 12px;
+    }
+    @media (max-width: 767px) {
+      display: none;
+    }
   }
   .header-contact {
     padding-left: 24px;
     background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/header-contact.png') no-repeat left top;
     background-size: 16px;
+    @media (min-width: 768px) and (max-width: 999px) {
+      padding-left: 0;
+      font-size: 11px;
+      background: none;
+    }
     &:hover {
       color: @color-pop;
       background-position: left bottom;
@@ -645,6 +684,11 @@ hr {
     text-align: right;
     background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/header-shop.png') no-repeat right top;
     background-size: 16px;
+    @media (min-width: 768px) and (max-width: 999px) {
+      padding-right: 0;
+      font-size: 11px;
+      background: none;
+    }
     &:hover {
       color: @color-primary;
       background-position: right bottom;
@@ -665,6 +709,18 @@ hr {
     text-align: center;
     background: url(/assets/1/0/bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png) no-repeat center 10px;
     background-size: 17px;
+    @media (max-width: 1199px) {
+      width: 36px;
+      height: 30px;
+      background-position: 7px;
+      background-size: 15px;
+    }
+    @media (max-width: 999px) {
+      width: 26px;
+      height: 30px;
+      background-position: 5px;
+      background-size: 13px;
+    }
   }
   .site-nav-link[data-level="1"] {
     padding: 0;
@@ -674,6 +730,12 @@ hr {
     font-size: 30px;
     text-transform: uppercase;
     letter-spacing: .01em;
+    @media (max-width: 1199px) {
+      font-size: 26px;
+    }
+    @media (max-width: 999px) {
+      font-size: 22px;
+    }
     &:hover {
       color: #7932AC;
     }
@@ -702,7 +764,12 @@ hr {
 .header-image {
   .parallax-wrapper,
   .parallax-image {
-    height: 400px;
+    height: 460px;
+  }
+}
+@media (min-width: 768px) and (max-width: 999px) {
+  .sidebar-toggle {
+    display: none;
   }
 }
 
@@ -987,3 +1054,86 @@ hr {
   font-size: 13px;
 }
 
+
+/* Bill of Rights */
+
+#bill-of-rights {
+  hr {
+    margin-top: 60px;
+  }
+  .hr-light {
+    background: none;
+    border-top: 1px solid #DDD;
+  }
+  .preamble,
+  .postamble {
+    p {
+      font-family: @font-primary;
+      font-size: 20px;
+      font-weight: 300;
+    }
+  }
+  h2 {
+    margin: 60px 0 0;
+    font-weight: bold;
+    font-size: 38px;
+    &:first-child {
+      margin-top: 0;
+    }
+    .alt-title {
+      display: block;
+      font-size: 13px;
+      font-style: italic;
+    }
+  }
+  hr + h2 {
+    margin-top: 0;
+  }
+  h4 {
+    margin: 30px 0 20px;
+    font-size: 14px;
+  }
+}
+
+/* Media Coverage */
+#SitetheoryStreamBundle-Collection-38823 {
+  .item-image {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .quote {
+    font-size: 22px;
+  }
+  .news-right .quote {
+    font-size: 15px;
+  }
+  .citation {
+    margin-top: 40px;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+}
+
+/* Media */
+
+/* Knock down the house */
+#landing-item-38846 {
+  .title-container {
+    padding-top: 50px;
+    background: url(/assets/1/0/bundles/sitetheorytemplatecustom/images/Netflix-Logo.png) no-repeat center top;
+    background-size: 120px;
+  }
+}
+/* In the Press */
+#landing-item-38852 {
+  .title-container {
+    margin-bottom: 10px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid #999;
+  }
+  .module-stream .quote {
+    font-size: 17px;
+  }
+}

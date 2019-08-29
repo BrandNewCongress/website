@@ -237,7 +237,7 @@ p.pullout {
 }
 p.quote {
   font-family: 'Roboto Slab', serif;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 p.intro {
   font-weight: bold;
@@ -246,6 +246,10 @@ p.intro {
 p.citation {
   font-family: 'Montserrat', sans-serif;
   font-weight: normal;
+}
+.alt-title,
+.date.font-secondary {
+  font-family: 'Montserrat', sans-serif;
 }
 /* ASSIGN FONTS */
 /* .primaryFont will be used for the site's typographical logo and some site headers. It must also be legible at small sizes.  */
@@ -588,26 +592,92 @@ hr {
   max-width: 880px;
 }
 /* HEADER */
-.header-content {
-  padding-top: 60px;
-  padding-bottom: 34px;
-}
-.header-content .header1 {
-  padding-bottom: 34px;
-}
-.header-content .mission p {
-  font-size: 13px;
-}
-.header-content .header-extra-links .float-links {
-  float: right;
-  text-align: right;
-}
 .header {
   transition: opacity 0.2s ease-out;
   opacity: 0;
 }
 .loaded .header {
   opacity: 1;
+}
+.header-content {
+  padding-top: 60px;
+  padding-bottom: 34px;
+}
+@media (max-width: 11099px) {
+  .header-content {
+    padding-top: 50px;
+    padding-bottom: 24px;
+  }
+}
+.header-content .header1 {
+  padding-bottom: 34px;
+}
+@media (max-width: 11099px) {
+  .header-content .header1 {
+    padding-bottom: 24px;
+  }
+}
+@media (max-width: 600px) {
+  .header-content .mission {
+    display: table;
+    max-width: 400px;
+    margin: 30px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid #CCC;
+  }
+}
+.header-content .mission h4,
+.header-content .mission p {
+  font-size: 13px;
+}
+@media (min-width: 768px) and (max-width: 999px) {
+  .header-content .mission h4,
+  .header-content .mission p {
+    font-size: 12px;
+  }
+}
+@media (max-width: 767px) {
+  .header-content .mission h4,
+  .header-content .mission p {
+    text-align: center;
+  }
+}
+@media (max-width: 767px) {
+  .header-content .mission h4,
+  .header-content .mission p {
+    font-size: 14px;
+  }
+}
+@media (max-width: 600px) {
+  .header-content .header-extra-links {
+    display: none;
+  }
+}
+.header-content .header-extra-links .float-links {
+  float: right;
+  text-align: right;
+}
+.header-content .header-extra-links .btn.btn-contribute {
+  display: inline-block;
+  padding: 14px 40px;
+  margin-top: 14px;
+  font-size: 14px;
+  background: #7932AC;
+}
+@media (max-width: 11099px) {
+  .header-content .header-extra-links .btn.btn-contribute {
+    padding: 12px 30px;
+    font-size: 13px;
+  }
+}
+@media (min-width: 768px) and (max-width: 999px) {
+  .header-content .header-extra-links .btn.btn-contribute {
+    padding: 10px 22px;
+    font-size: 12px;
+  }
+}
+.header-content .header-extra-links .btn.btn-contribute:hover {
+  background: #141414;
 }
 .logo-header a {
   display: inline-block;
@@ -616,35 +686,15 @@ hr {
   margin-top: 8px;
   max-width: 210px;
 }
-.btn.btn-contribute {
-  display: inline-block;
-  padding: 14px 40px;
-  margin-top: 14px;
-  font-size: 14px;
-  background: #7932AC;
-}
-.btn.btn-contribute:hover {
-  background: #141414;
-}
-.star-link-right {
-  display: block;
-  margin-top: 42px;
-  padding-right: 15px;
-  text-transform: uppercase;
-  letter-spacing: 0.11em;
-  font-size: 11px;
-  font-weight: bold;
-  color: #598089;
-  background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starBlue.png') no-repeat right center;
-  background-size: 9px;
-}
-.star-link-right:hover {
-  color: #000;
-}
 .header2 {
   padding: 17px 0;
   border-top: 3px solid #222;
   border-bottom: 1px solid #9B9B9B;
+}
+@media (max-width: 767px) {
+  .header2 {
+    display: none;
+  }
 }
 .header2 .header-contact,
 .header2 .header-shop {
@@ -656,10 +706,29 @@ hr {
   letter-spacing: 1px;
   color: #141414;
 }
+@media (max-width: 11099px) {
+  .header2 .header-contact,
+  .header2 .header-shop {
+    font-size: 12px;
+  }
+}
+@media (max-width: 767px) {
+  .header2 .header-contact,
+  .header2 .header-shop {
+    display: none;
+  }
+}
 .header2 .header-contact {
   padding-left: 24px;
   background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/header-contact.png') no-repeat left top;
   background-size: 16px;
+}
+@media (min-width: 768px) and (max-width: 999px) {
+  .header2 .header-contact {
+    padding-left: 0;
+    font-size: 11px;
+    background: none;
+  }
 }
 .header2 .header-contact:hover {
   color: #FF7A65;
@@ -670,6 +739,13 @@ hr {
   text-align: right;
   background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/header-shop.png') no-repeat right top;
   background-size: 16px;
+}
+@media (min-width: 768px) and (max-width: 999px) {
+  .header2 .header-shop {
+    padding-right: 0;
+    font-size: 11px;
+    background: none;
+  }
 }
 .header2 .header-shop:hover {
   color: #7932AC;
@@ -690,6 +766,22 @@ hr {
   background: url(/assets/1/0/bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png) no-repeat center 10px;
   background-size: 17px;
 }
+@media (max-width: 1199px) {
+  .header-menu .delimiter {
+    width: 36px;
+    height: 30px;
+    background-position: 7px;
+    background-size: 15px;
+  }
+}
+@media (max-width: 999px) {
+  .header-menu .delimiter {
+    width: 26px;
+    height: 30px;
+    background-position: 5px;
+    background-size: 13px;
+  }
+}
 .header-menu .site-nav-link[data-level="1"] {
   padding: 0;
   margin: 0;
@@ -698,6 +790,16 @@ hr {
   font-size: 30px;
   text-transform: uppercase;
   letter-spacing: 0.01em;
+}
+@media (max-width: 1199px) {
+  .header-menu .site-nav-link[data-level="1"] {
+    font-size: 26px;
+  }
+}
+@media (max-width: 999px) {
+  .header-menu .site-nav-link[data-level="1"] {
+    font-size: 22px;
+  }
 }
 .header-menu .site-nav-link[data-level="1"]:hover {
   color: #7932AC;
@@ -719,7 +821,12 @@ hr {
 }
 .header-image .parallax-wrapper,
 .header-image .parallax-image {
-  height: 400px;
+  height: 460px;
+}
+@media (min-width: 768px) and (max-width: 999px) {
+  .sidebar-toggle {
+    display: none;
+  }
 }
 /* MINI HEADER */
 .mini-header {
@@ -963,5 +1070,73 @@ hr {
 .hint {
   color: #666;
   font-size: 13px;
+}
+/* Bill of Rights */
+#bill-of-rights hr {
+  margin-top: 60px;
+}
+#bill-of-rights .hr-light {
+  background: none;
+  border-top: 1px solid #DDD;
+}
+#bill-of-rights .preamble p,
+#bill-of-rights .postamble p {
+  font-family: 'Roboto Slab', serif;
+  font-size: 20px;
+  font-weight: 300;
+}
+#bill-of-rights h2 {
+  margin: 60px 0 0;
+  font-weight: bold;
+  font-size: 38px;
+}
+#bill-of-rights h2:first-child {
+  margin-top: 0;
+}
+#bill-of-rights h2 .alt-title {
+  display: block;
+  font-size: 13px;
+  font-style: italic;
+}
+#bill-of-rights hr + h2 {
+  margin-top: 0;
+}
+#bill-of-rights h4 {
+  margin: 30px 0 20px;
+  font-size: 14px;
+}
+/* Media Coverage */
+#SitetheoryStreamBundle-Collection-38823 .item-image {
+  max-width: 400px;
+  margin: 0 auto;
+}
+#SitetheoryStreamBundle-Collection-38823 .quote {
+  font-size: 22px;
+}
+#SitetheoryStreamBundle-Collection-38823 .news-right .quote {
+  font-size: 15px;
+}
+#SitetheoryStreamBundle-Collection-38823 .citation {
+  margin-top: 40px;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+/* Media */
+/* Knock down the house */
+#landing-item-38846 .title-container {
+  padding-top: 50px;
+  background: url(/assets/1/0/bundles/sitetheorytemplatecustom/images/Netflix-Logo.png) no-repeat center top;
+  background-size: 120px;
+}
+/* In the Press */
+#landing-item-38852 .title-container {
+  margin-bottom: 10px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid #999;
+}
+#landing-item-38852 .module-stream .quote {
+  font-size: 17px;
 }
 /*# sourceMappingURL=site.css.map */
