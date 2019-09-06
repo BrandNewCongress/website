@@ -62,8 +62,8 @@ CSS & JAVASCRIPT
 
         <div class="item-vertical-padding">
             <h1 class="title">Off the Press</h1>
-            <div class="st-card-wrapper cards-x3">
-                <div class="st-card">
+            <div class="clearfix home-press-container">
+                <div class="press-column">
                     <div class="home-news" ng-cloak="true" ng-controller="Generic"
                          data-target="Tag/650/Content"
                          data-api='{"limit":1}'>
@@ -94,7 +94,7 @@ CSS & JAVASCRIPT
                         </div>
                     </div>
                 </div>
-                <div class="st-card">
+                <div class="press-column">
                     <div class="home-podcast" ng-cloak="true" ng-controller="Generic"
                          data-target="Tag/661/Media"
                          data-api='{"limit":5}'>
@@ -104,7 +104,7 @@ CSS & JAVASCRIPT
 
                             <div class="podcast-item clearfix" ng-repeat="model in collection.models"
                                  ng-attr-id="{% verbatim %}{{ 'landing-item-' + model.data.id }}{% endverbatim %}">
-                                <div class="st-grid column25">
+                                <div class="st-grid st-grid-mobile column25">
 
                                     <a ng-click="$window.quickviewMediaModel = model.data; $window.getHTML = getHTML; $window.disableScroll = true">
                                         <div ng-if="model.data.images[0]" class="podcast-image" stratus-src
@@ -116,7 +116,7 @@ CSS & JAVASCRIPT
                                     </a>
 
                                 </div>
-                                <div class="st-grid column75">
+                                <div class="st-grid st-grid-mobile column75">
                                     <p class="podcast-date" ng-show="model.data.timeCustom" ng-bind="model.data.timeCustom|moment:{format:'MMMM Do YYYY'}"></p>
                                     <p class="podcast-title">
                                         <a ng-click="$window.quickviewMediaModel = model.data; $window.getHTML = getHTML; $window.disableScroll = true">
@@ -134,7 +134,7 @@ CSS & JAVASCRIPT
                         </div>
                     </div>
                 </div>
-                <div class="st-card">
+                <div class="press-column">
                     <div class="home-twitter">
                     <h2 class="title">
                         <md-icon
