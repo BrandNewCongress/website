@@ -281,8 +281,8 @@ p,
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 20px;
-        height: 20px;
+        width: 22px;
+        height: 22px;
         g {
           fill: @color-pop;
         }
@@ -696,40 +696,33 @@ hr {
   }
 }
 
-.header-menu {
+#app .header-menu {
   display: table;
   margin: 0 auto;
+  /* With drop down menus */
+  md-menu-bar > * {
+    margin: 0 3px;
+  }
+  .md-button {
+    background: none;
+  }
+  /* Without drop down menus */
   ul li {
     vertical-align: top;
     padding: 0;
   }
-  .delimiter {
-    width: 40px;
-    height: 34px;
-    text-align: center;
-    background: url(/assets/1/0/bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png) no-repeat center 10px;
-    background-size: 17px;
-    @media (max-width: 1199px) {
-      width: 36px;
-      height: 30px;
-      background-position: 7px;
-      background-size: 15px;
-    }
-    @media (max-width: 999px) {
-      width: 26px;
-      height: 30px;
-      background-position: 5px;
-      background-size: 13px;
-    }
-  }
+
+  /* All header menus */
   .site-nav-link[data-level="1"] {
-    padding: 0;
+    padding: 0 30px 0 0;
     margin: 0;
     color: #121212;
     font-family: @font-secondary;
     font-size: 30px;
     text-transform: uppercase;
     letter-spacing: .01em;
+    background: url(/assets/1/0/bundles/sitetheorytemplatecustom/images/diagonalDelimiter.png) no-repeat right center;
+    background-size: 15px;
     @media (max-width: 1199px) {
       font-size: 26px;
     }
@@ -738,6 +731,24 @@ hr {
     }
     &:hover {
       color: #7932AC;
+    }
+  }
+  md-menu:last-child .site-nav-link[data-level="1"] {
+    background: none;
+    padding: 0;
+  }
+}
+#app .header-menu,
+.md-menu-bar-menu {
+  .site-nav-link[data-level="2"] {
+    font-size: 12px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    font-family: @font-tertiary;
+    font-weight: bold;
+    color: #222;
+    &:hover {
+      color: @color-primary;
     }
   }
 }
@@ -767,9 +778,22 @@ hr {
     height: 460px;
   }
 }
-@media (min-width: 768px) and (max-width: 999px) {
+#app {
+  .sidebar-toggle-container {
+    padding-right: 30px;
+  }
+  @media (max-width: 767px) {
+    .sidebar-toggle-container {
+      padding-right: 22px;
+    }
+  }
   .sidebar-toggle {
-    display: none;
+    @media (min-width: 768px) and (max-width: 999px) {
+      display: none;
+    }
+    @media (max-width: 767px) {
+      top: 20px;
+    }
   }
 }
 
@@ -794,12 +818,12 @@ hr {
   .site-nav-link[data-level="1"]{
     font-size: 26px;
   }
-  .delimiter{
+  .link-extra {
     width: 28px;
     height: 30px;
     background-size: 14px;
   }
-  .header-menu .delimiter img {
+  .header-menu .link-extra img {
     margin-top: 5px;
     width: 11px;
     font-weight: normal;
@@ -837,7 +861,7 @@ hr {
         color: @color-pop;
       }
     }
-    .delimiter {
+    .link-extra {
       background: url(/assets/1/0/bundles/sitetheorytemplatecustom/images/diagonalDelimiterWhite.png) no-repeat center 8px;
       background-size: 14px;
     }
@@ -846,26 +870,44 @@ hr {
 
 /* RETRACTING HEADER */
 .header-retracting {
-  padding: 14px 0;
+  padding: 14px 50px;
   box-shadow: 0 1px 6px rgba(33,33,33,.1);
   border-bottom: 1px solid #DDD;
+  @media (max-width: 959px) {
+    padding: 10px 30px;
+  }
+  @media (max-width: 600px) {
+    padding: 10px 22px;
+  }
   .logo-retracting-header {
     left: 40px;
     max-width: 220px;
   }
   .header-menu {
     margin-top: 2px;
+    @media (max-width: 767px) {
+      display: none;
+    }
   }
   .site-nav-link[data-level="1"]{
     font-size: 22px;
+    @media (max-width: 959px) {
+      font-size: 18px;
+    }
   }
-  .delimiter{
+  .link-extra {
     width: 28px;
     height: 30px;
     background-position: center 7px;
     background-size: 12px;
+    @media (max-width: 959px) {
+      width: 22px;
+      height: 26px;
+      background-position: center 6px;
+      background-size: 10px;
+    }
   }
-  .header-menu .delimiter img {
+  .header-menu .link-extra img {
     margin-top: 5px;
     width: 11px;
   }
@@ -874,6 +916,12 @@ hr {
     margin: 0;
     padding: 8px 16px;
     font-size: 12px;
+    @media (max-width: 959px) {
+      font-size: 10px;
+    }
+    @media (max-width: 767px) {
+      display: none;
+    }
   }
   @media (max-width:600px) {
     .logo-header {
@@ -890,11 +938,40 @@ hr {
 
 
 /* SHELL SIDEBAR */
-
+.sidebar-menu {
+  padding-top: 30px;
+  margin-top: 30px;
+  border-top: 1px solid #555;
+  ul.list-level2 {
+    padding: 8px 0 26px;
+  }
+  li .site-nav-link[data-level="1"] {
+    padding-left: 22px;
+    color: #FFF;
+    font-size: 24px;
+    font-family: @font-secondary;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starPurple.png') no-repeat left center;
+    background-size: 12px;
+    &:hover {
+      color: @color-pop;
+    }
+  }
+  li .site-nav-link[data-level="2"] {
+    padding-left: 22px;
+    color: #999;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-family: @font-tertiary;
+    font-weight: bold;
+    &:hover {
+      color: #FFF;
+    }
+  }
+}
 
 /* FOOTER SITEMAP */
 
-.site-map-background {
+.sitemap-background {
   background: #333;
 }
 .menu-sitemap {
@@ -1003,6 +1080,9 @@ hr {
   .btn-article {
     display: table;
     margin: 20px auto;
+  }
+  .projector.multiples.HTML-carousel .text-wrapper h2 {
+    font-size: 22px;
   }
 }
 
@@ -1125,6 +1205,20 @@ hr {
     background: url(/assets/1/0/bundles/sitetheorytemplatecustom/images/Netflix-Logo.png) no-repeat center top;
     background-size: 120px;
   }
+  &.parallax-wrapper {
+    .item-vertical-padding {
+      padding-top: 220px;
+      padding-bottom: 220px;
+      @media (max-width: 959px) {
+        padding-top: 180px;
+        padding-bottom: 180px;
+      }
+      @media (max-width: 768px) {
+        padding-top: 150px;
+        padding-bottom: 150px;
+      }
+    }
+  }
 }
 /* In the Press */
 #landing-item-38852 {
@@ -1135,5 +1229,11 @@ hr {
   }
   .module-stream .quote {
     font-size: 17px;
+  }
+}
+/* Inquiries */
+#landing-item-38897 {
+  .item-body p {
+    font-size: 18px;
   }
 }

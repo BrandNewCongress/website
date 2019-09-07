@@ -16,9 +16,14 @@ SETTINGS
 ########
 #}
 
+{% set socialStyle = 'circle' %}
+
+
 {# Remove padding on header and header image so mini header can go full width #}
+{% set headerRetractingStructure = '' %}
 {% set headerStructure = '' %}
 {% set headerImageSettings = '' %}
+
 
 {# Make mobile drawer slide in from right #}
 {% set mobileDrawerDirection = 'mobile-drawer-right' %}
@@ -64,6 +69,167 @@ LAYOUT
 ######
 #}
 
+{% block contributeBtn %}
+    <a href="https://secure.actblue.com/donate/bnc2020" target="_blank" class="btn btn-contribute">Donate</a>
+{% endblock contributeBtn %}
+
+{% block contributeLink %}
+    https://secure.actblue.com/donate/bnc2020
+{% endblock contributeLink %}
+
+
+{% block headerMenuCustom %}
+    <md-menu-bar>
+
+        {# Take Action #}
+        <md-menu>
+            {# Level 1 Link #}
+            <md-button id="" class="site-nav-link" data-level="1" ng-click="$mdOpenMenu()">
+                Take Action
+                <div class="link-extra"></div>
+            </md-button>
+
+
+            <md-menu-content class="" width="3" md-menu-class="header-submenu">
+                {# Level 2 Link #}
+                <md-menu-item>
+                    <md-button id="" class="link2 site-nav-link" data-level="2" href="/Volunteer">
+                        Volunteer
+                    </md-button>
+
+                </md-menu-item>
+                {# Level 2 Link #}
+                <md-menu-item>
+                    <md-button id="" class="link2 site-nav-link" data-level="2" href="/Join-Brand-New-Congress">
+                        Join BNC
+                    </md-button>
+
+                </md-menu-item>
+                {# Level 2 Link #}
+                <md-menu-item>
+                    <md-button id="" class="link2 site-nav-link" data-level="2" href="{{ block('contributeLink') }}">
+                        Donate
+                    </md-button>
+
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+
+
+        {# Candidates #}
+        <md-menu>
+            {# Level 1 Link #}
+            <md-button id="" class="site-nav-link" data-level="1" ng-click="$mdOpenMenu()">
+               Candidates
+                <div class="link-extra"></div>
+            </md-button>
+
+
+            <md-menu-content class="" width="3" md-menu-class="header-submenu">
+                {# Level 2 Link #}
+                <md-menu-item>
+                    <md-button id="" class="site-nav-link" data-level="2" href="/Candidates">
+                        Candidates 2020
+                    </md-button>
+                </md-menu-item>
+                {# Level 2 Link #}
+                <md-menu-item>
+                    <md-button id="" class="link2 site-nav-link" data-level="2" href="/About-Brand-New-Congress-Candidate-Nominations">
+                        Nominate a Candidate
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+
+        </md-menu>
+
+
+        {# About #}
+        <md-menu>
+            {# Level 1 Link #}
+            <md-button id="" class="site-nav-link" data-level="1" ng-click="$mdOpenMenu()">
+                About
+                <div class="link-extra"></div>
+            </md-button>
+
+            <md-menu-content class="" width="3" md-menu-class="header-submenu">
+                {# Level 2 Link #}
+                <md-menu-item>
+                    <md-button id="" class="link2 site-nav-link" data-level="2" href="/Platform">
+                        Platform
+                    </md-button>
+
+                </md-menu-item>
+                {# Level 2 Link #}
+                <md-menu-item>
+                    <md-button id="" class="link2 site-nav-link" data-level="2" href="/Meet-the-Team">
+                        Meet the Team
+                    </md-button>
+
+                </md-menu-item>
+                {# Level 2 Link #}
+                <md-menu-item>
+                    <md-button id="" class="link2 site-nav-link" data-level="2" href="/About-Brand-New-Congress">
+                        About Brand New Congress
+                    </md-button>
+
+                </md-menu-item>
+                {# Level 2 Link #}
+                <md-menu-item>
+                    <md-button id="" class="link2 site-nav-link" data-level="2" href="/Contact">
+                        Contact
+                    </md-button>
+
+                </md-menu-item>
+                {# Level 2 Link #}
+                <md-menu-item>
+                    <md-button id="" class="link2 site-nav-link" data-level="2" href="/Privacy">
+                        Privacy
+                    </md-button>
+
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+
+
+        {# Press #}
+        <md-menu>
+            {# Level 1 Link #}
+            <md-button id="" class="site-nav-link" data-level="1" href="/Media">
+                Press
+                <div class="link-extra"></div>
+            </md-button>
+
+
+            {#<md-menu-content class="" width="3" md-menu-class="header-submenu">#}
+                {# Level 2 Link #}
+                {#<md-menu-item>#}
+                    {#<md-button id="" class="link2 site-nav-link" data-level="2" href="/Media">#}
+                        {#See All#}
+                    {#</md-button>#}
+                {#</md-menu-item>#}
+                {# Level 2 Link #}
+                {#<md-menu-item>#}
+                    {#<md-button id="" class="link2 site-nav-link" data-level="2" href="/News">#}
+                        {#BNC News#}
+                    {#</md-button>#}
+                {#</md-menu-item>#}
+                {# Level 2 Link #}
+                {#<md-menu-item>#}
+                    {#<md-button id="" class="link2 site-nav-link" data-level="2" href="/In-the-Press">#}
+                        {#Press Coverage#}
+                    {#</md-button>#}
+                {#</md-menu-item>#}
+                {# Level 2 Link #}
+                {#<md-menu-item>#}
+                    {#<md-button id="" class="link2 site-nav-link" data-level="2" href="/Media-Releases">#}
+                        {#Press Releases#}
+                    {#</md-button>#}
+                {#</md-menu-item>#}
+            {#</md-menu-content>#}
+        </md-menu>
+
+    </md-menu-bar>
+{% endblock headerMenuCustom %}
 
 {% block headerContent %}
 
@@ -83,27 +249,8 @@ LAYOUT
                     </div>
                     <div class="header-extra-links" no-flex flex-gt-xs="25" flex-order="3">
                         <div class="float-links">
-                            {#{{ block('socialMedia') }}#}
-                            <div class="social-media circle">
-                                <ul class="list-inline">
-                                    <li class="facebook">
-                                        <a href="https://www.facebook.com/brandnewcongress" target="_blank">
-                                            {% embed "@SitetheoryCoreBundle/Resources/public/images/icons/social/facebook.svg" %}{% endembed %}
-                                        </a>
-                                    </li>
-                                    <li class="twitter">
-                                        <a href="https://twitter.com/BrandNew535" target="_blank">
-                                            {% embed "@SitetheoryCoreBundle/Resources/public/images/icons/social/twitter.svg" %}{% endembed %}
-                                        </a>
-                                    </li>
-                                    <li class="instagram">
-                                        <a href="https://www.instagram.com/brandnewcongress" target="_blank">
-                                            {% embed "@SitetheoryCoreBundle/Resources/public/images/icons/social/instagram.svg" %}{% endembed %}
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <a href="https://secure.actblue.com/donate/bnc2020" target="_blank" class="btn btn-contribute">Donate</a>
+                            {{ block('socialMedia') }}
+                            {{ block('contributeBtn') }}
                         </div>
                     </div>
                 </div>
@@ -114,38 +261,7 @@ LAYOUT
                             {% block navMain %}
                             <div class="menu menu-nested header-menu"
                                  role="navigation">
-                                <div class="clearfix">
-                                    <ul class="list-level1 clearfix">
-                                        <li>
-                                            <a href="Our-Story" id=""
-                                               class="site-nav-link active" data-level="1">
-                                                Take Action
-                                                <div class="nav-extra"></div>
-                                            </a>
-                                        </li>
-                                        <li class="delimiter">&nbsp;</li>
-                                        <li>
-                                            <a href="/Candidates" class="site-nav-link" data-level="1">
-                                                Candidates
-                                                <div class="nav-extra"></div>
-                                            </a>
-                                        </li>
-                                        <li class="delimiter">&nbsp;</li>
-                                        <li>
-                                            <a href="/Platform" class="site-nav-link" data-level="1">
-                                                Platform
-                                                <div class="nav-extra"></div>
-                                            </a>
-                                        </li>
-                                        <li class="delimiter">&nbsp;</li>
-                                        <li>
-                                            <a href="/Press" class="site-nav-link" data-level="1">
-                                                Press
-                                                <div class="nav-extra"></div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
+                               {{ block('headerMenuCustom') }}
                             </div>
                             {% endblock navMain %}
                         </div>
@@ -167,7 +283,7 @@ LAYOUT
                             {{ block('navMain') }}
                         </div>
                         <div class="contribute-mini-header" no-flex flex="20">
-                            <a href="https://secure.actblue.com/donate/bnc2020" target="_blank" class="btn btn-contribute">Donate</a>
+                            {{ block('contributeBtn') }}
                         </div>
                     </div>
                 </div>
@@ -182,9 +298,10 @@ LAYOUT
 
  {#Retracting header uses only a few elements from the full header. Must come before mini header which is identical.#}
 {% block headerRetractingContent %}
-    <div class="site-side-padding" ng-cloak>
+    {#<h1>This</h1>#}
+    <div ng-cloak>
         <div layout="row" layout-align="space-between center" flex>
-            <div class="logo-retracting-header" no-flex flex="20">
+            <div class="logo-retracting-header" no-flex flex-xs="50" flex-gt-xs="20">
                 <a href="/">
                     <img src="{{ asset('bundles/sitetheorytemplatecustom/images/Brand-New-Congress-Logo-Horizontal.png') }}" alt="Brand New Congress Logo">
                 </a>
@@ -193,11 +310,174 @@ LAYOUT
                 {{ block('navMain') }}
             </div>
             <div class="retracting-contribute" no-flex flex="20">
-                <a href="https://secure.actblue.com/donate/bnc2020" target="_blank" class="btn btn-contribute">Donate</a>
+                {{ block('contributeBtn') }}
             </div>
         </div>
     </div>
 {% endblock headerRetractingContent %}
+
+
+{% block sidebarContent %}
+    {{ block('contributeBtn') }}
+    {{ parent() }}
+{% endblock sidebarContent %}
+
+
+{# Temporary Sidebar Navigation #}
+{% block navSection %}
+
+    <div class="menu menu-nested sidebar-menu"
+         role="navigation">
+        <div class="clearfix">
+            <ul class="list-level1 clearfix">
+
+                {# Level 1 #}
+                <li>
+                    <a href="/Candidates" id=""
+                       class="site-nav-link active" data-level="1">
+                        Candidates
+                        <div class="nav-extra"></div>
+                    </a>
+
+                    {# Level 2 #}
+                    <ul class="list-level2">
+                        <li>
+                            <a href="/Candidates" class="site-nav-link" data-level="2">
+                                Candidates 2020
+                                <div class="nav-extra"></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/About-Brand-New-Congress-Candidate-Nominations" class="site-nav-link" data-level="2">
+                                Nominate a Candidate
+                                <div class="nav-extra"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                {# Level 1 #}
+                <li>
+                    <a href="/Volunteer" class="site-nav-link" data-level="1">
+                        Take Action
+                        <div class="nav-extra"></div>
+                    </a>
+
+                    {# Level 2 #}
+                    <ul class="list-level2">
+                        <li>
+                            <a href="/Volunteer" class="site-nav-link" data-level="2">
+                                Volunteer
+                                <div class="nav-extra"></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Join-Brand-New-Congress" class="site-nav-link" data-level="2">
+                                Join BNC
+                                <div class="nav-extra"></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://secure.actblue.com/donate/bnc2020" target="_blank" class="site-nav-link" data-level="2">
+                                Donate
+                                <div class="nav-extra"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                {# Level 1 #}
+                <li>
+                    <a href="/Meet-the-Team" class="site-nav-link" data-level="1">
+                        About
+                        <div class="nav-extra"></div>
+                    </a>
+
+                    {#Level 2#}
+                    <ul class="list-level2">
+                        <li>
+                            <a href="/Meet-the-Team" class="site-nav-link" data-level="2">
+                                Meet the Team
+                                <div class="nav-extra"></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/About-Brand-New-Congress" class="site-nav-link" data-level="2">
+                                About Brand New Congress
+                                <div class="nav-extra"></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Platform" class="site-nav-link" data-level="2">
+                                Platform
+                                <div class="nav-extra"></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Contact" class="site-nav-link" data-level="2">
+                                Contact
+                                <div class="nav-extra"></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Privacy" class="site-nav-link" data-level="2">
+                                Privacy
+                                <div class="nav-extra"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                {# Level 1 #}
+                <li>
+                    <a href="/News" class="site-nav-link" data-level="1">
+                        Press
+                        <div class="nav-extra"></div>
+                    </a>
+
+                    {#Level 2#}
+                    <ul class="list-level2">
+                        <li>
+                            <a href="/News" class="site-nav-link" data-level="2">
+                                BNC News
+                                <div class="nav-extra"></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/In-the-Press" class="site-nav-link" data-level="2">
+                                Press Coverage
+                                <div class="nav-extra"></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Media-Releases" class="site-nav-link" data-level="2">
+                                Press Releases
+                                <div class="nav-extra"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                {# Level 1 #}
+                <li>
+                    <a href="https://shop.brandnewcongress.org/" target="_blank"  class="site-nav-link" data-level="1">
+                        Shop BNC
+                        <div class="nav-extra"></div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+
+
+
+
+
+
+{% endblock navSection %}
+
 
 
 
@@ -227,7 +507,7 @@ LAYOUT
 
 
 {% block footer %}
-    <div class="site-map-background clearfix">
+    <div class="sitemap-background clearfix">
 
         {% if siteMapStructure is not defined %}
             {% set siteMapStructure = 'site-max-width site-side-padding' %}
@@ -315,6 +595,12 @@ LAYOUT
                                     </a>
                                 </li>
                                 <li>
+                                    <a href="/About-Brand-New-Congress" class="site-nav-link" data-level="2">
+                                        About Brand New Congress
+                                        <div class="nav-extra"></div>
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="/Platform" class="site-nav-link" data-level="2">
                                         Platform
                                         <div class="nav-extra"></div>
@@ -357,7 +643,7 @@ LAYOUT
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/Press-Releases" class="site-nav-link" data-level="2">
+                                    <a href="/Media-Releases" class="site-nav-link" data-level="2">
                                         Press Releases
                                         <div class="nav-extra"></div>
                                     </a>

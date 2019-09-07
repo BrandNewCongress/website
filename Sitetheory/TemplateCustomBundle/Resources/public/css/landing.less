@@ -11,6 +11,10 @@
   .stream-item {
     h1.title {
       font-size: 80px;
+      line-height: 1;
+      @media (max-width: 600px) {
+        font-size: 60px;
+      }
     }
     h2 {
       font-family: @font-secondary;
@@ -26,9 +30,21 @@
     .quote {
       font-weight: 300;
       font-size: 55px;
+      @media (max-width: 999px) {
+        font-size: 45px;
+      }
+      @media (max-width: 768px) {
+        font-size: 40px;
+      }
     }
     .citation {
       font-size: 18px;
+      @media (max-width: 999px) {
+        font-size: 15px;
+      }
+      @media (max-width: 768px) {
+        font-size: 14px;
+      }
     }
     .btn.btn-cta {
       background: none;
@@ -105,595 +121,160 @@
 
 
     /* Logo 1 animation */
-    @keyframes coveredByLogo1 {
-      /* Fade in */
+    @keyframes coveredByWhites {
+      /* Fade out */
       0% {
-        opacity: 0;
-        background-position: 0 0;
-      }
-      2% {
         opacity: 1;
-        background-position: 0 0;
       }
-
-      /* Fade out */
-      30% {
-        opacity: 1;
-        background-position: 0 0;
-      }
-      32% {
+      6% {
         opacity: 0;
-        background-position: 0 0;
-      }
-
-      /* Move logo while faded out */
-      32.1% {
-        opacity: 0;
-        background-position: 0 center;
       }
 
       /* Fade in */
-      34% {
-        opacity: 1;
-        background-position: 0 center;
+      46% {
+        opacity: 0;
       }
+      48% {
+        opacity: 1;
+      }
+
 
       /* Fade out */
-      62% {
+      52% {
         opacity: 1;
-        background-position: 0 center;
       }
-      64% {
+      54% {
         opacity: 0;
-        background-position: 0 center;
       }
 
-      /* Move logo while faded out */
-      64.1% {
-        opacity: 0;
-        background-position: 0 bottom;
-      }
-
-      /* Fade in */
-      66% {
-        opacity: 1;
-        background-position: 0 bottom;
-      }
 
       /* Fade out */
-      98% {
+      93% {
+        opacity: 0;
+      }
+      97% {
         opacity: 1;
-        background-position: 0 bottom;
       }
       100% {
-        opacity: 0;
-        background-position: 0 bottom;
+        opacity: 1;
+      }
+    }
+    @keyframes coveredByLogos {
+      /* Fade in */
+      0% {
+        background-position: left top;
+      }
+      /* Move logo while faded out */
+      50% {
+        background-position: left top;
+      }
+      50.01% {
+        background-position: left top;
+      }
+      50.02% {
+        background-position: left bottom;
+      }
+      100% {
+        background-position: left bottom;
       }
     }
 
-
-    /* Logo 2 animation */
-    @keyframes coveredByLogo2 {
-      /* Fade in */
-      0% {
-        opacity: 0;
-        background-position: -160px 2px;
-      }
-      2% {
-        opacity: 1;
-        background-position: -160px 2px;
-      }
-
-      /* Fade out */
-      30% {
-        opacity: 1;
-        background-position: -160px 2px;
-      }
-      32% {
-        opacity: 0;
-        background-position: -160px 2px;
-      }
-
-      /* Move logo while faded out */
-      32.1% {
-        opacity: 0;
-        background-position: -160px center;
-      }
-
-      /* Fade in */
-      34% {
-        opacity: 1;
-        background-position: -160px center;
-      }
-
-      /* Fade out */
-      62% {
-        opacity: 1;
-        background-position: -160px center;
-      }
-      64% {
-        opacity: 0;
-        background-position: -160px center;
-      }
-
-      /* Move logo while faded out */
-      64.1% {
-        opacity: 0;
-        background-position: -160px bottom;
-      }
-
-      /* Fade in */
-      66% {
-        opacity: 1;
-        background-position: -160px bottom;
-      }
-
-      /* Fade out */
-      98% {
-        opacity: 1;
-        background-position: -160px bottom;
-      }
-      100% {
-        opacity: 0;
-        background-position: -160px bottom;
-      }
+    .press-logo-background {
+      animation: coveredByLogos 14s infinite;
+      background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/covered-by-logos.png') no-repeat;
+      background-size: 100%;
     }
-
-
-    /* Logo 3 animation */
-    @keyframes coveredByLogo3 {
-      /* Fade in */
-      0% {
-        opacity: 0;
-        background-position: -295px 2px;
-      }
-      2% {
-        opacity: 1;
-        background-position: -295px 2px;
-      }
-
-      /* Fade out */
-      30% {
-        opacity: 1;
-        background-position: -295px 2px;
-      }
-      32% {
-        opacity: 0;
-        background-position: -295px 2px;
-      }
-
-      /* Move logo while faded out */
-      32.1% {
-        opacity: 0;
-        background-position: -295px center;
-      }
-
-      /* Fade in */
-      34% {
-        opacity: 1;
-        background-position: -295px center;
-      }
-
-      /* Fade out */
-      62% {
-        opacity: 1;
-        background-position: -295px center;
-      }
-      64% {
-        opacity: 0;
-        background-position: -295px center;
-      }
-
-      /* Move logo while faded out */
-      64.1% {
-        opacity: 0;
-        background-position: -295px bottom;
-      }
-
-      /* Fade in */
-      66% {
-        opacity: 1;
-        background-position: -295px bottom;
-      }
-
-      /* Fade out */
-      98% {
-        opacity: 1;
-        background-position: -295px bottom;
-      }
-      100% {
-        opacity: 0;
-        background-position: -295px bottom;
-      }
-    }
-
-
-    /* Logo 4 animation */
-    @keyframes coveredByLogo4 {
-      /* Fade in */
-      0% {
-        opacity: 0;
-        background-position: -432px 2px;
-      }
-      2% {
-        opacity: 1;
-        background-position: -432px 2px;
-      }
-
-      /* Fade out */
-      30% {
-        opacity: 1;
-        background-position: -432px 2px;
-      }
-      32% {
-        opacity: 0;
-        background-position: -432px 2px;
-      }
-
-      /* Move logo while faded out */
-      32.1% {
-        opacity: 0;
-        background-position: -432px center;
-      }
-
-      /* Fade in */
-      34% {
-        opacity: 1;
-        background-position: -432px center;
-      }
-
-      /* Fade out */
-      62% {
-        opacity: 1;
-        background-position: -432px center;
-      }
-      64% {
-        opacity: 0;
-        background-position: -432px center;
-      }
-
-      /* Move logo while faded out */
-      64.1% {
-        opacity: 0;
-        background-position: -432px bottom;
-      }
-
-      /* Fade in */
-      66% {
-        opacity: 1;
-        background-position: -432px bottom;
-      }
-
-      /* Fade out */
-      98% {
-        opacity: 1;
-        background-position: -432px bottom;
-      }
-      100% {
-        opacity: 0;
-        background-position: -432px bottom;
-      }
-    }
-
-
-    /* Logo 5 animation */
-    @keyframes coveredByLogo5 {
-      /* Fade in */
-      0% {
-        opacity: 0;
-        background-position: -524px 2px;
-      }
-      2% {
-        opacity: 1;
-        background-position: -524px 2px;
-      }
-
-      /* Fade out */
-      30% {
-        opacity: 1;
-        background-position: -524px 2px;
-      }
-      32% {
-        opacity: 0;
-        background-position: -524px 2px;
-      }
-
-      /* Move logo while faded out */
-      32.1% {
-        opacity: 0;
-        background-position: -524px center;
-      }
-
-      /* Fade in */
-      34% {
-        opacity: 1;
-        background-position: -524px center;
-      }
-
-      /* Fade out */
-      62% {
-        opacity: 1;
-        background-position: -524px center;
-      }
-      64% {
-        opacity: 0;
-        background-position: -524px center;
-      }
-
-      /* Move logo while faded out */
-      64.1% {
-        opacity: 0;
-        background-position: -524px bottom;
-      }
-
-      /* Fade in */
-      66% {
-        opacity: 1;
-        background-position: -524px bottom;
-      }
-
-      /* Fade out */
-      98% {
-        opacity: 1;
-        background-position: -524px bottom;
-      }
-      100% {
-        opacity: 0;
-        background-position: -524px bottom;
-      }
-    }
-
-
-    /* Logo 6 animation */
-    @keyframes coveredByLogo6 {
-      /* Fade in */
-      0% {
-        opacity: 0;
-        background-position: -644px 2px;
-      }
-      2% {
-        opacity: 1;
-        background-position: -644px 2px;
-      }
-
-      /* Fade out */
-      30% {
-        opacity: 1;
-        background-position: -644px 2px;
-      }
-      32% {
-        opacity: 0;
-        background-position: -644px 2px;
-      }
-
-      /* Move logo while faded out */
-      32.1% {
-        opacity: 0;
-        background-position: -644px center;
-      }
-
-      /* Fade in */
-      34% {
-        opacity: 1;
-        background-position: -644px center;
-      }
-
-      /* Fade out */
-      62% {
-        opacity: 1;
-        background-position: -644px center;
-      }
-      64% {
-        opacity: 0;
-        background-position: -644px center;
-      }
-
-      /* Move logo while faded out */
-      64.1% {
-        opacity: 0;
-        background-position: -644px bottom;
-      }
-
-      /* Fade in */
-      66% {
-        opacity: 1;
-        background-position: -644px bottom;
-      }
-
-      /* Fade out */
-      98% {
-        opacity: 1;
-        background-position: -644px bottom;
-      }
-      100% {
-        opacity: 0;
-        background-position: -644px bottom;
-      }
-    }
-
-
-    /* Logo 7 animation */
-    @keyframes coveredByLogo7 {
-      /* Fade in */
-      0% {
-        opacity: 0;
-        background-position: -766px 2px;
-      }
-      2% {
-        opacity: 1;
-        background-position: -766px 2px;
-      }
-
-      /* Fade out */
-      30% {
-        opacity: 1;
-        background-position: -766px 2px;
-      }
-      32% {
-        opacity: 0;
-        background-position: -766px 2px;
-      }
-
-      /* Move logo while faded out */
-      32.1% {
-        opacity: 0;
-        background-position: -766px center;
-      }
-
-      /* Fade in */
-      34% {
-        opacity: 1;
-        background-position: -766px center;
-      }
-
-      /* Fade out */
-      62% {
-        opacity: 1;
-        background-position: -766px center;
-      }
-      64% {
-        opacity: 0;
-        background-position: -766px center;
-      }
-
-      /* Move logo while faded out */
-      64.1% {
-        opacity: 0;
-        background-position: -766px bottom;
-      }
-
-      /* Fade in */
-      66% {
-        opacity: 1;
-        background-position: -766px bottom;
-      }
-
-      /* Fade out */
-      98% {
-        opacity: 1;
-        background-position: -766px bottom;
-      }
-      100% {
-        opacity: 0;
-        background-position: -766px bottom;
-      }
-    }
-
-
-    /* Logo 8 animation */
-    @keyframes coveredByLogo8 {
-      /* Fade in */
-      0% {
-        opacity: 0;
-        background-position: 100% 2px;
-      }
-      2% {
-        opacity: 1;
-        background-position: 100% 2px;
-      }
-
-      /* Fade out */
-      30% {
-        opacity: 1;
-        background-position: 100% 2px;
-      }
-      32% {
-        opacity: 0;
-        background-position: 100% 2px;
-      }
-
-      /* Move logo while faded out */
-      32.1% {
-        opacity: 0;
-        background-position: 100% center;
-      }
-
-      /* Fade in */
-      34% {
-        opacity: 1;
-        background-position: 100% center;
-      }
-
-      /* Fade out */
-      62% {
-        opacity: 1;
-        background-position: 100% center;
-      }
-      64% {
-        opacity: 0;
-        background-position: 100% center;
-      }
-
-      /* Move logo while faded out */
-      64.1% {
-        opacity: 0;
-        background-position: 100% bottom;
-      }
-
-      /* Fade in */
-      66% {
-        opacity: 1;
-        background-position: 100% bottom;
-      }
-
-      /* Fade out */
-      98% {
-        opacity: 1;
-        background-position: 100% bottom;
-      }
-      100% {
-        opacity: 0;
-        background-position: 100% bottom;
-      }
-    }
-
-
     .logo-column {
+      animation: coveredByWhites 14s infinite;
       float: left;
       height: 50px;
       opacity: 0;
-      background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/covered-by-logos.png') no-repeat;
-      background-size: 1000px;
+      background: #FFF;
+      @media (max-width: 1050px) {
+        height: 40px;
+      }
+      @media (max-width: 850px) {
+        height: 30px;
+      }
+      @media (max-width: 767px) {
+        height: 60px;
+      }
+      @media (max-width: 600px) {
+        height: 40px;
+      }
+      @media (max-width: 380px) {
+        height: 30px;
+      }
+      @media (max-width: 320px) {
+        height: 26px;
+      }
     }
     .logo1 {
-      animation: coveredByLogo1 11s .05s infinite;
+      animation-delay: .05s;
       width: 15.4%;
-      background-position: 0 0;
     }
     .logo2 {
-      animation: coveredByLogo2 11s .1s infinite;
+      animation-delay: .1s;
       width: 13.8%;
-      background-position: -160px 2px;
     }
     .logo3 {
-      animation: coveredByLogo3 11s .15s infinite;
+      animation-delay: .15s;
       width: 14%;
-      background-position: -295px 5px;
     }
     .logo4 {
-      animation: coveredByLogo4 11s .2s infinite;
+      animation-delay: .2s;
       width: 9.4%;
-      background-position: -432px 1px;
     }
     .logo5 {
-      animation: coveredByLogo5 11s .25s infinite;
+      animation-delay: .25s;
       width: 12%;
-      background-position: -524px 2px;
     }
     .logo6 {
-      animation: coveredByLogo6 11s .3s infinite;
+      animation-delay: .3s;
       width: 11.5%;
-      background-position: -644px 3px;
     }
     .logo7 {
-      animation: coveredByLogo7 11s .35s infinite;
+      animation-delay: .35s;
       width: 12.5%;
-      background-position: -766px 2px;
     }
     .logo8 {
-      animation: coveredByLogo8 11s .4s infinite;
+      animation-delay: .35s;
       width: 11.4%;
-      background-position: 100% 1px;
+    }
+    @media (max-width: 767px) {
+      .press-logo-background {
+        animation: coveredByLogos 14s infinite;
+        background-size: 200%;
+      }
+      .logo1 {
+        width: 29.3%;
+      }
+      .logo2 {
+        width: 26.4%;
+      }
+      .logo3 {
+        width: 26.5%;
+      }
+      .logo4 {
+        width: 17.8%;
+      }
+
+      .logo5 {
+        width: 25%;
+        background-position: -50% top;
+      }
+      .logo6 {
+        width: 24.5%;
+        background-position: -50% top;
+      }
+      .logo7 {
+        width: 26%;
+        background-position: -50% top;
+      }
+      .logo8 {
+        width: 24.3%;
+        background-position: -50% top;
+      }
     }
   }
 }
@@ -713,6 +294,10 @@
   .item-vertical-padding {
     padding-top: 120px;
     padding-bottom: 120px;
+    @media (max-width: 959px) {
+      padding-top: 90px;
+      padding-bottom: 90px;
+    }
   }
   h1 {
     display: table;
@@ -721,6 +306,11 @@
     padding-left: 130px;
     background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/flag.png') no-repeat left center;
     background-size: 88px;
+    @media (max-width: 600px) {
+      padding: 0 0 70px;
+      background-position: center bottom;
+      background-size: 88px;
+    }
   }
   h4 {
     margin-top: 60px;
@@ -734,7 +324,10 @@
     margin-top: 0;
   }
   .btn.btn-cta {
-    font-size: 14px;
+    font-size: 13px;
+    @media (max-width: 959px) {
+      font-size: 11px;
+    }
   }
 }
 
@@ -770,7 +363,7 @@
       display: table;
       content: '';
       margin: 30px auto 0;
-      width: 462px;
+      width: 60%;
       height: 70px;
       background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/bunting.png') repeat-x left center;
       background-size: 33.33%;
@@ -780,6 +373,9 @@
     color: #4D4D4D;
     font-size: 30px;
     font-weight: 400;
+    @media (max-width: 999px) {
+      font-size: 22px;
+    }
   }
   p.details {
     font-size: 15px;
@@ -809,6 +405,9 @@
         width: 100%;
         height: 2px;
         border-top: 2px solid #E5E5E5;
+        @media (max-width: 999px) {
+          border: none;
+        }
       }
     }
     .image-wrapper {
@@ -838,6 +437,9 @@
         font-size: 11px;
         color: #737373;
         letter-spacing: 1px;
+        @media (max-width: 999px) {
+          font-size: 10px;
+        }
       }
     }
   }
@@ -846,6 +448,10 @@
     font-size: 18px;
     color: #111;
     border-color: #111;
+    @media (max-width: 959px) {
+      padding: 10px 30px;
+      font-size: 15px;
+    }
     &:hover {
       color: @color-pop;
       background: none;
@@ -858,10 +464,20 @@
 
 #off-the-press {
   text-align: left;
-  .st-card-wrapper {
+  .home-press-container {
     margin: 0 -14px;
-    .st-card {
-      padding: 0 14px;
+    @media (max-width: 767px) {
+      margin: 0;
+    }
+  }
+  .press-column {
+    float: left;
+    width: 33.333%;
+    padding: 0 14px;
+    @media (max-width: 767px) {
+      width: 100%;
+      padding: 0;
+      margin-bottom: 40px;
     }
   }
   h1 {
@@ -873,6 +489,9 @@
     color: @color-dark;
     font-size: 30px;
     border-bottom: 1px solid @color-dark;
+    @media (min-width: 601px) and (max-width: 959px) {
+      font-size: 22px;
+    }
   }
   .press-action {
     text-align: right;
@@ -914,6 +533,9 @@
       text-transform: none;
       font-weight: normal;
       letter-spacing: normal;
+      @media (min-width: 601px) and (max-width: 959px) {
+        font-size: 18px;
+      }
     }
     p {
       font-family: @font-body;
@@ -990,8 +612,26 @@
 
 /* Home Page Quote Image */
 #landing-item-38733 {
-  &.parallax-wrapper .item-vertical-padding, .stream-item.has-background-image .item-vertical-padding {
+  &.parallax-wrapper .item-vertical-padding,
+  .stream-item.has-background-image .item-vertical-padding {
     padding-top: 220px;
     padding-bottom: 220px;
+    @media (max-width: 999px) {
+      padding-top: 190px;
+      padding-bottom: 190px;
+    }
+    @media (max-width: 768px) {
+      padding-top: 160px;
+      padding-bottom: 160px;
+    }
+  }
+  &.stream-item .btn.btn-cta {
+    color: #FFF;
+    border: 2px solid #FFF;
+    &:hover {
+      background: #FF7A65;
+      color: #FFF;
+      border: 2px solid #FF7A65;
+    }
   }
 }
