@@ -841,8 +841,8 @@ hr {
     }
   }
 }
-&.site-background-dark,
-&.has-header-image {
+#app.site-background-dark,
+#app.has-header-image {
   .mini-header {
     padding: 36px 0;
     box-shadow: none;
@@ -869,7 +869,7 @@ hr {
 }
 
 /* RETRACTING HEADER */
-.header-retracting {
+#app .header-retracting {
   padding: 14px 50px;
   box-shadow: 0 1px 6px rgba(33,33,33,.1);
   border-bottom: 1px solid #DDD;
@@ -887,6 +887,10 @@ hr {
     margin-top: 2px;
     @media (max-width: 767px) {
       display: none;
+    }
+    .link-extra img {
+      margin-top: 5px;
+      width: 11px;
     }
   }
   .site-nav-link[data-level="1"]{
@@ -906,10 +910,6 @@ hr {
       background-position: center 6px;
       background-size: 10px;
     }
-  }
-  .header-menu .link-extra img {
-    margin-top: 5px;
-    width: 11px;
   }
   .btn.btn-contribute {
     float: right;
@@ -1220,6 +1220,7 @@ hr {
     }
   }
 }
+
 /* In the Press */
 #landing-item-38852 {
   .title-container {
@@ -1231,9 +1232,29 @@ hr {
     font-size: 17px;
   }
 }
+
 /* Inquiries */
 #landing-item-38897 {
   .item-body p {
     font-size: 18px;
+  }
+}
+
+/* Nominations */
+#nominations {
+  h4 {
+    font-size: 15px;
+  }
+  .list-unstyled.custom-list {
+    li {
+      padding: 0 0 16px 30px;
+      font-family: @font-primary;
+      font-size: 16px;
+      background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starBlack.png') no-repeat left 6px;
+      background-size: 12px;
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
   }
 }
