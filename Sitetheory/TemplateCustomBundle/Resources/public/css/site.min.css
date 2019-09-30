@@ -887,105 +887,105 @@ hr {
         max-width: 100px;
     }
 }
-.site-background-dark .mini-header,
-.has-header-image .mini-header {
+#app.site-background-dark .mini-header,
+#app.has-header-image .mini-header {
     padding: 36px 0;
     box-shadow: none;
     border: none;
 }
-.site-background-dark .mini-header [layout="row"],
-.has-header-image .mini-header [layout="row"] {
+#app.site-background-dark .mini-header [layout="row"],
+#app.has-header-image .mini-header [layout="row"] {
     border-bottom: 3px solid #222222;
 }
-.site-background-dark .mini-header .logo-mini-header a,
-.has-header-image .mini-header .logo-mini-header a {
+#app.site-background-dark .mini-header .logo-mini-header a,
+#app.has-header-image .mini-header .logo-mini-header a {
     background-image: url(/assets/1/0/bundles/sitetheorytemplatecustom/images/Brand-New-Congress-Logo-Horizontal-White.png);
 }
-.site-background-dark .mini-header .site-nav-link[data-level="1"],
-.has-header-image .mini-header .site-nav-link[data-level="1"] {
+#app.site-background-dark .mini-header .site-nav-link[data-level="1"],
+#app.has-header-image .mini-header .site-nav-link[data-level="1"] {
     color: #FFF;
 }
-.site-background-dark .mini-header .site-nav-link[data-level="1"]:hover,
-.has-header-image .mini-header .site-nav-link[data-level="1"]:hover {
+#app.site-background-dark .mini-header .site-nav-link[data-level="1"]:hover,
+#app.has-header-image .mini-header .site-nav-link[data-level="1"]:hover {
     color: #FF7A65;
 }
-.site-background-dark .mini-header .link-extra,
-.has-header-image .mini-header .link-extra {
+#app.site-background-dark .mini-header .link-extra,
+#app.has-header-image .mini-header .link-extra {
     background: url(/assets/1/0/bundles/sitetheorytemplatecustom/images/diagonalDelimiterWhite.png) no-repeat center 8px;
     background-size: 14px;
 }
 /* RETRACTING HEADER */
-.header-retracting {
+#app .header-retracting {
     padding: 14px 50px;
     box-shadow: 0 1px 6px rgba(33, 33, 33, 0.1);
     border-bottom: 1px solid #DDD;
 }
 @media (max-width: 959px) {
-    .header-retracting {
+    #app .header-retracting {
         padding: 10px 30px;
     }
 }
 @media (max-width: 600px) {
-    .header-retracting {
+    #app .header-retracting {
         padding: 10px 22px;
     }
 }
-.header-retracting .logo-retracting-header {
+#app .header-retracting .logo-retracting-header {
     left: 40px;
     max-width: 220px;
 }
-.header-retracting .header-menu {
+#app .header-retracting .header-menu {
     margin-top: 2px;
 }
 @media (max-width: 767px) {
-    .header-retracting .header-menu {
+    #app .header-retracting .header-menu {
         display: none;
     }
 }
-.header-retracting .site-nav-link[data-level="1"] {
+#app .header-retracting .header-menu .link-extra img {
+    margin-top: 5px;
+    width: 11px;
+}
+#app .header-retracting .site-nav-link[data-level="1"] {
     font-size: 22px;
 }
 @media (max-width: 959px) {
-    .header-retracting .site-nav-link[data-level="1"] {
+    #app .header-retracting .site-nav-link[data-level="1"] {
         font-size: 18px;
     }
 }
-.header-retracting .link-extra {
+#app .header-retracting .link-extra {
     width: 28px;
     height: 30px;
     background-position: center 7px;
     background-size: 12px;
 }
 @media (max-width: 959px) {
-    .header-retracting .link-extra {
+    #app .header-retracting .link-extra {
         width: 22px;
         height: 26px;
         background-position: center 6px;
         background-size: 10px;
     }
 }
-.header-retracting .header-menu .link-extra img {
-    margin-top: 5px;
-    width: 11px;
-}
-.header-retracting .btn.btn-contribute {
+#app .header-retracting .btn.btn-contribute {
     float: right;
     margin: 0;
     padding: 8px 16px;
     font-size: 12px;
 }
 @media (max-width: 959px) {
-    .header-retracting .btn.btn-contribute {
+    #app .header-retracting .btn.btn-contribute {
         font-size: 10px;
     }
 }
 @media (max-width: 767px) {
-    .header-retracting .btn.btn-contribute {
+    #app .header-retracting .btn.btn-contribute {
         display: none;
     }
 }
 @media (max-width: 600px) {
-    .header-retracting .logo-header {
+    #app .header-retracting .logo-header {
         margin: 4px 0;
         max-width: 100px;
     }
@@ -1247,5 +1247,19 @@ hr {
 /* Inquiries */
 #landing-item-38897 .item-body p {
     font-size: 18px;
+}
+/* Nominations */
+#nominations h4 {
+    font-size: 15px;
+}
+#nominations .list-unstyled.custom-list li {
+    padding: 0 0 16px 30px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 16px;
+    background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/starBlack.png') no-repeat left 6px;
+    background-size: 12px;
+}
+#nominations .list-unstyled.custom-list li:last-child {
+    padding-bottom: 0;
 }
 /*# sourceMappingURL=site.css.map */
