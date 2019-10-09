@@ -34,10 +34,7 @@ CSS & JAVASCRIPT
 #}
 
 
-{% block script %}
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    {{ parent() }}
-{% endblock script %}
+
 
 
 {# Create more box for viewing media items #}
@@ -137,10 +134,10 @@ CSS & JAVASCRIPT
                 <div class="press-column">
                     <div class="home-twitter">
                     <h2 class="title">
-                        <md-icon
-                                md-svg-src="/Api/Resource?path=@SitetheoryCoreBundle:images/icons/social/twitter.svg"></md-icon>
+                        <md-icon md-svg-src="/Api/Resource?path=@SitetheoryCoreBundle:images/icons/social/twitter.svg"></md-icon>
                     </h2>
-                    {#<a class="twitter-timeline" href="https://twitter.com/BrandNew535?ref_src=twsrc%5Etfw">Tweets by BrandNew535</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>#}
+                        <stratus-twitter-feed screen-name="BrandNew535">
+                        </stratus-twitter-feed>
                 </div>
                 </div>
             </div>
