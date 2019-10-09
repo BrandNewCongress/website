@@ -272,10 +272,6 @@ p,
     font-family: 'Montserrat', sans-serif;
 }
 /* SOCIAL */
-.header .social-media,
-.footer .social-media {
-    margin: 0 0 10px;
-}
 .header .social-media a,
 .footer .social-media a {
     position: relative;
@@ -304,6 +300,22 @@ p,
     border: 1px solid #FF7A65;
 }
 .header .social-media a:hover svg g,
+.footer .social-media a:hover svg g {
+    fill: #FFF;
+}
+.header .social-media {
+    margin: 0 0 10px;
+}
+.footer .social-media a {
+    border: 1px solid #777;
+}
+.footer .social-media a svg g {
+    fill: #777;
+}
+.footer .social-media a:hover {
+    background: none;
+    border: 1px solid #FFF;
+}
 .footer .social-media a:hover svg g {
     fill: #FFF;
 }
@@ -1072,6 +1084,14 @@ hr {
     font-size: 10px;
 }
 /* CONTENT DESIGN */
+#app.stream {
+    /* Intro text */
+}
+#app.stream .text p {
+    font-family: 'Roboto Slab', serif;
+    color: #222;
+    font-weight: bold;
+}
 #app .content-article .date,
 #app.news-layout .stream-list .date,
 #app.news-layout .stream-list .time {
@@ -1113,6 +1133,11 @@ hr {
 .SitetheoryStreamBundle-CollectioncontentId-38774 .stack-layout .stream-list .title {
     font-size: 34px;
     line-height: 1.2;
+}
+/* Candidate Details */
+.profile-contact .contact-item.dates::before {
+    display: inline;
+    content: 'Primary Date:  ';
 }
 /* Join Form */
 .ngp-form input[type="text"],

@@ -268,7 +268,6 @@ p,
 .header,
 .footer {
   .social-media {
-    margin: 0 0 10px;
     a {
       position: relative;
       margin-right: 2px;
@@ -297,7 +296,30 @@ p,
     }
   }
 }
-
+.header {
+  .social-media {
+    margin: 0 0 10px;
+  }
+}
+.footer {
+  .social-media {
+    a {
+      border: 1px solid #777;
+      svg {
+        g {
+          fill: #777;
+        }
+      }
+      &:hover {
+        background: none;
+        border: 1px solid #FFF;
+        svg g {
+          fill: #FFF;
+        }
+      }
+    }
+  }
+}
 
 /* COLORS */
 
@@ -1028,6 +1050,14 @@ hr {
 /* CONTENT DESIGN */
 
 #app {
+  &.stream {
+    /* Intro text */
+    .text p {
+      font-family: @font-primary;
+      color: #222;
+      font-weight: bold;
+    }
+  }
   .content-article .date,
   &.news-layout .stream-list .date,
   &.news-layout .stream-list .time {
@@ -1095,6 +1125,12 @@ hr {
   }
 }
 
+
+/* Candidate Details */
+.profile-contact .contact-item.dates::before {
+  display: inline;
+  content: 'Primary Date:  ';
+}
 
 /* Join Form */
 .ngp-form {
