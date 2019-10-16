@@ -55,7 +55,7 @@ CSS & JAVASCRIPT
 
     {# <h2>Refresh!</h2> #}
     {# Off the Press Module Area #}
-    <div id="off-the-press" class=" site-max-width site-side-padding" ng-if="$index == 7">
+    <div id="off-the-press" class=" site-max-width site-side-padding" ng-if="$index == 6">
 
         <div class="item-vertical-padding">
             <h1 class="title">Off the Press</h1>
@@ -91,46 +91,46 @@ CSS & JAVASCRIPT
                         </div>
                     </div>
                 </div>
-                <div class="press-column">
-                    <div class="home-podcast" ng-cloak="true" ng-controller="Generic"
-                         data-target="Tag/661/Media"
-                         data-api='{"limit":5}'>
-                        <h2 class="title"><a href="/Brand-New-Podcast">Brand New Podcast</a></h2>
+                {#<div class="press-column">#}
+                    {#<div class="home-podcast" ng-cloak="true" ng-controller="Generic"#}
+                         {#data-target="Tag/661/Media"#}
+                         {#data-api='{"limit":5}'>#}
+                        {#<h2 class="title"><a href="/Brand-New-Podcast">Brand New Podcast</a></h2>#}
 
-                        <div class="podcast-container">
+                        {#<div class="podcast-container">#}
 
-                            <div class="podcast-item clearfix" ng-repeat="model in collection.models"
-                                 ng-attr-id="{% verbatim %}{{ 'landing-item-' + model.data.id }}{% endverbatim %}">
-                                <div class="st-grid st-grid-mobile column25">
+                            {#<div class="podcast-item clearfix" ng-repeat="model in collection.models"#}
+                                 {#ng-attr-id="{% verbatim %}{{ 'landing-item-' + model.data.id }}{% endverbatim %}">#}
+                                {#<div class="st-grid st-grid-mobile column25">#}
 
-                                    <a ng-click="$window.quickviewMediaModel = model.data; $window.getHTML = getHTML; $window.disableScroll = true">
-                                        <div ng-if="model.data.images[0]" class="podcast-image" stratus-src
-                                             ng-style="{'background-image': 'url({% verbatim %}{{ {% endverbatim %}model.data.images[0].src{% verbatim %} }}{% endverbatim %})'}"
-                                             style="background-repeat: no-repeat; background-position: center center; background-size: cover;"
-                                        >
-                                            <img src="{{ asset('bundles/sitetheorycore/images/shapeholder-square.png') }}">
-                                        </div>
-                                    </a>
+                                    {#<a ng-click="$window.quickviewMediaModel = model.data; $window.getHTML = getHTML; $window.disableScroll = true">#}
+                                        {#<div ng-if="model.data.images[0]" class="podcast-image" stratus-src#}
+                                             {#ng-style="{'background-image': 'url({% verbatim %}{{ {% endverbatim %}model.data.images[0].src{% verbatim %} }}{% endverbatim %})'}"#}
+                                             {#style="background-repeat: no-repeat; background-position: center center; background-size: cover;"#}
+                                        {#>#}
+                                            {#<img src="{{ asset('bundles/sitetheorycore/images/shapeholder-square.png') }}">#}
+                                        {#</div>#}
+                                    {#</a>#}
 
-                                </div>
-                                <div class="st-grid st-grid-mobile column75">
-                                    <p class="podcast-date" ng-show="model.data.timeCustom" ng-bind="model.data.timeCustom|moment:{format:'MMMM Do YYYY'}"></p>
-                                    <p class="podcast-title">
-                                        <a ng-click="$window.quickviewMediaModel = model.data; $window.getHTML = getHTML; $window.disableScroll = true">
-                                            <span ng-if="model.data.name" ng-bind-html="model.data.name | truncate:{limit: 300 }"></span>
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
+                                {#</div>#}
+                                {#<div class="st-grid st-grid-mobile column75">#}
+                                    {#<p class="podcast-date" ng-show="model.data.timeCustom" ng-bind="model.data.timeCustom|moment:{format:'MMMM Do YYYY'}"></p>#}
+                                    {#<p class="podcast-title">#}
+                                        {#<a ng-click="$window.quickviewMediaModel = model.data; $window.getHTML = getHTML; $window.disableScroll = true">#}
+                                            {#<span ng-if="model.data.name" ng-bind-html="model.data.name | truncate:{limit: 300 }"></span>#}
+                                        {#</a>#}
+                                    {#</p>#}
+                                {#</div>#}
+                            {#</div>#}
 
                             {# Link to all podcast #}
-                            <div class="press-action">
-                                <a class="podcast-link" href="/Brand-New-Podcast">See All</a>
-                            </div>
+                            {#<div class="press-action">#}
+                                {#<a class="podcast-link" href="/Brand-New-Podcast">See All</a>#}
+                            {#</div>#}
 
-                        </div>
-                    </div>
-                </div>
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
                 <div class="press-column">
                     <div class="home-twitter">
                     <h2 class="title">
