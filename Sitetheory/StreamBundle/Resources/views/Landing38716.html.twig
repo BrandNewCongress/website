@@ -53,44 +53,43 @@ CSS & JAVASCRIPT
 
 {% block customStreamItem %}
 
-    {# <h2>Refresh!</h2> #}
     {# Off the Press Module Area #}
-    <div id="off-the-press" class=" site-max-width site-side-padding" ng-if="$index == 6">
+    {#<div id="off-the-press" class=" site-max-width site-side-padding" ng-if="$index == 6">#}
 
-        <div class="item-vertical-padding">
-            <h1 class="title">Off the Press</h1>
-            <div class="clearfix home-press-container">
-                <div class="press-column">
-                    <div class="home-news" ng-cloak="true" ng-controller="Generic"
-                         data-target="Tag/650/Content"
-                         data-api='{"limit":1}'>
+        {#<div class="item-vertical-padding">#}
+            {#<h1 class="title">Off the Press</h1>#}
+            {#<div class="clearfix home-press-container">#}
+                {#<div class="press-column">#}
+                    {#<div class="home-news" ng-cloak="true" ng-controller="Generic"#}
+                         {#data-target="Tag/650/Content"#}
+                         {#data-api='{"limit":1}'>#}
 
-                        <h2 class="title"><a href="/News">News</a></h2>
+                        {#<h2 class="title"><a href="/News">News</a></h2>#}
 
-                        <div class="news-container clearfix position-anchor">
-                            <div ng-repeat="model in collection.models"
-                                 ng-attr-id="{% verbatim %}{{ 'landing-item-' + model.data.id }}{% endverbatim %}">
+                        {#<div class="news-container clearfix position-anchor">#}
+                            {#<div ng-repeat="model in collection.models"#}
+                                 {#ng-attr-id="{% verbatim %}{{ 'landing-item-' + model.data.id }}{% endverbatim %}">#}
 
-                                <div class="position-anchor">
-                                    <p class="date salmon" ng-show="model.data.version.timeCustom" ng-bind="model.data.version.timeCustom|moment:{format:'MMMM Do YYYY'}"></p>
-                                    {{ streamComponents.streamImages('', 'landscape') }}
-                                </div>
-                                <h3>
-                                    <a ng-href="{% verbatim %}/{{ {% endverbatim %}model.data.routing[0].url{% verbatim %} }}{% endverbatim %}">
-                                        <span ng-if="model.data.version.title" ng-bind-html="model.data.version.title | truncate:{limit: 200 }"></span>
-                                    </a>
-                                </h3>
-                                <p class="news-body" ng-if="model.data.version.text" ng-bind-html="model.data.version.text | truncate:{limit: 200 }"> </p>
+                                {#<div class="position-anchor">#}
+                                    {#<p class="date salmon" ng-show="model.data.version.timeCustom" ng-bind="model.data.version.timeCustom|moment:{format:'MMMM Do YYYY'}"></p>#}
+                                    {#{{ streamComponents.streamImages('', 'landscape') }}#}
+                                {#</div>#}
+                                {#<h3>#}
+                                    {#<a ng-href="{% verbatim %}/{{ {% endverbatim %}model.data.routing[0].url{% verbatim %} }}{% endverbatim %}">#}
+                                        {#<span ng-if="model.data.version.title" ng-bind-html="model.data.version.title | truncate:{limit: 200 }"></span>#}
+                                    {#</a>#}
+                                {#</h3>#}
+                                {#<p class="news-body" ng-if="model.data.version.text" ng-bind-html="model.data.version.text | truncate:{limit: 200 }"> </p>#}
 
                                 {# Link to all news #}
-                                <div class="press-action">
-                                    <a class="news-link" ng-href="{% verbatim %}/{{ {% endverbatim %}model.data.routing[0].url{% verbatim %} }}{% endverbatim %}">Keep Reading</a>
-                                </div>
+                                {#<div class="press-action">#}
+                                    {#<a class="news-link" ng-href="{% verbatim %}/{{ {% endverbatim %}model.data.routing[0].url{% verbatim %} }}{% endverbatim %}">Keep Reading</a>#}
+                                {#</div>#}
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
                 {#<div class="press-column">#}
                     {#<div class="home-podcast" ng-cloak="true" ng-controller="Generic"#}
                          {#data-target="Tag/661/Media"#}
@@ -131,18 +130,18 @@ CSS & JAVASCRIPT
                         {#</div>#}
                     {#</div>#}
                 {#</div>#}
-                <div class="press-column">
-                    <div class="home-twitter">
-                    <h2 class="title">
-                        <md-icon md-svg-src="/Api/Resource?path=@SitetheoryCoreBundle:images/icons/social/twitter.svg"></md-icon>
-                    </h2>
-                        <stratus-twitter-feed screen-name="BrandNew535">
-                        </stratus-twitter-feed>
-                </div>
-                </div>
-            </div>
-        </div>
+                {#<div class="press-column">#}
+                    {#<div class="home-twitter">#}
+                    {#<h2 class="title">#}
+                        {#<md-icon md-svg-src="/Api/Resource?path=@SitetheoryCoreBundle:images/icons/social/twitter.svg"></md-icon>#}
+                    {#</h2>#}
+                        {#<stratus-twitter-feed screen-name="BrandNew535">#}
+                        {#</stratus-twitter-feed>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
 
-    </div>
+    {#</div>#}
 
 {% endblock customStreamItem %}
