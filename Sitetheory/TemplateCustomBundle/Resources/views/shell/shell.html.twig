@@ -70,11 +70,11 @@ LAYOUT
 #}
 
 {% block contributeBtn %}
-    <a href="https://secure.actblue.com/donate/bnc2020" target="_blank" class="btn btn-contribute">Donate</a>
+    <a href="https://secure.actblue.com/donate/bnc2020?refcode=Website_form_new_website_October_2019&amount=28&recurring=true" target="_blank" class="btn btn-contribute">Donate</a>
 {% endblock contributeBtn %}
 
 {% block contributeLink %}
-    https://secure.actblue.com/donate/bnc2020
+    https://secure.actblue.com/donate/bnc2020?refcode=Website_form_new_website_October_2019&amount=28
 {% endblock contributeLink %}
 
 
@@ -377,7 +377,7 @@ LAYOUT
                             </a>
                         </li>
                         <li>
-                            <a href="https://secure.actblue.com/donate/bnc2020" target="_blank" class="site-nav-link" data-level="2">
+                            <a href="{{ block('contributeLink') }}" target="_blank" class="site-nav-link" data-level="2">
                                 Donate
                                 <div class="nav-extra"></div>
                             </a>
@@ -570,7 +570,7 @@ LAYOUT
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://secure.actblue.com/donate/bnc2020" target="_blank" class="site-nav-link" data-level="2">
+                                    <a href="{{ block('contributeLink') }}" target="_blank" class="site-nav-link" data-level="2">
                                         Donate
                                         <div class="nav-extra"></div>
                                     </a>
