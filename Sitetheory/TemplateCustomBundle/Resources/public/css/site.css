@@ -1344,4 +1344,27 @@ hr {
 #nominations .list-unstyled.custom-list li:last-child {
   padding-bottom: 0;
 }
+/* Nominations */
+#SitetheoryArticleBundle-Article-38780 h1.page-title {
+  position: relative;
+}
+@media (max-width: 767px) {
+  #SitetheoryArticleBundle-Article-38780 h1.page-title {
+    padding-top: 30px;
+  }
+}
+#SitetheoryArticleBundle-Article-38780 h1.page-title::before {
+  transform: translateY(-80px);
+  position: absolute;
+  display: block;
+  content: '©2018 Photo by Corey Torpie ';
+  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
+  color: #777;
+}
+@media (max-width: 959px) {
+  #SitetheoryArticleBundle-Article-38780 h1.page-title::before {
+    transform: translateY(-60px);
+  }
+}
 /*# sourceMappingURL=site.css.map */

@@ -1346,3 +1346,25 @@ hr {
     }
   }
 }
+
+
+
+/* Nominations */
+#SitetheoryArticleBundle-Article-38780 h1.page-title {
+  position: relative;
+  @media (max-width: 767px) {
+    padding-top: 30px;
+  }
+  &::before {
+    transform: translateY(-80px);
+    position: absolute;
+    display: block;
+    content: '©2018 Photo by Corey Torpie ';
+    font-size: 12px;
+    font-family: @font-body;
+    color: #777;
+    @media (max-width: 959px) {
+      transform: translateY(-60px);
+    }
+  }
+}
