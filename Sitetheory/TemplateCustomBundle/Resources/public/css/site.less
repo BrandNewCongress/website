@@ -721,6 +721,9 @@ hr {
 #app .header-menu {
   display: table;
   margin: 0 auto;
+  @media (max-width: 767px) {
+    display: none;
+  }
   /* With drop down menus */
   md-menu-bar > * {
     margin: 0 3px;
@@ -817,11 +820,17 @@ hr {
       top: 20px;
     }
   }
+  &.has-header-image {
+    .sidebar-toggle .icon-bar {
+      background: #FFF;
+      opacity: 1;
+    }
+  }
 }
 
 
 /* MINI HEADER */
-.mini-header {
+#app .mini-header {
   box-shadow: 0 1px 6px rgba(33,33,33,.1);
   border-bottom: 1px solid #DDD;
   padding: 20px 0;
@@ -832,23 +841,34 @@ hr {
       height: 70px;
       background: url(/assets/1/0/bundles/sitetheorytemplatecustom/images/Brand-New-Congress-Logo-Horizontal.png) no-repeat left center;
       background-size: 100%;
+      @media (max-width: 767px) {
+        background-size: 70%;
+      }
     }
   }
   .header-menu {
-    margin-top: 2px;
-  }
-  .site-nav-link[data-level="1"]{
-    font-size: 26px;
-  }
-  .link-extra {
-    width: 28px;
-    height: 30px;
-    background-size: 14px;
+      margin-top: 2px;
+    .site-nav-link[data-level="1"] {
+      font-size: 26px;
+      @media (max-width: 959px) {
+        font-size: 19px;
+      }
+    }
+    .link-extra {
+      width: 28px;
+      height: 30px;
+      background-size: 14px;
+    }
   }
   .header-menu .link-extra img {
     margin-top: 5px;
     width: 11px;
     font-weight: normal;
+  }
+  @media (max-width: 767px) {
+    .contribute-mini-header {
+      display: none;
+    }
   }
   .btn.btn-contribute {
     float: right;
@@ -863,12 +883,30 @@ hr {
     }
   }
 }
+#app:not(.has-header-image) .mini-header {
+  .logo-mini-header {
+    a {
+      @media (max-width: 959px) {
+        background: url(/assets/1/0/bundles/sitetheorytemplatecustom/images/Brand-New-Congress-Logo.png) no-repeat left center;
+        background-size: 100%;
+      }
+      @media (max-width: 767px) {
+        height: 100px;
+        background-size: 50%;
+        background-position: center center;
+      }
+    }
+  }
+}
 #app.site-background-dark,
 #app.has-header-image {
   .mini-header {
     padding: 36px 0;
     box-shadow: none;
     border: none;
+    @media (max-width: 767px) {
+      padding-top: 0;
+    }
     [layout="row"] {
       border-bottom: 3px solid #222222;
     }
@@ -1305,6 +1343,28 @@ hr {
       &:last-child {
         padding-bottom: 0;
       }
+    }
+  }
+}
+
+
+
+/* Nominations */
+#SitetheoryArticleBundle-Article-38780 h1.page-title {
+  position: relative;
+  @media (max-width: 767px) {
+    padding-top: 30px;
+  }
+  &::before {
+    transform: translateY(-80px);
+    position: absolute;
+    display: block;
+    content: '©2018 Photo by Corey Torpie ';
+    font-size: 12px;
+    font-family: @font-body;
+    color: #777;
+    @media (max-width: 959px) {
+      transform: translateY(-60px);
     }
   }
 }

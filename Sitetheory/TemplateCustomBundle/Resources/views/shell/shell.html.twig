@@ -106,7 +106,7 @@ LAYOUT
                 </md-menu-item>
                 {# Level 2 Link #}
                 <md-menu-item>
-                    <md-button class="link2 site-nav-link" data-level="2" href="{{ block('contributeLink') }}">
+                    <md-button class="link2 site-nav-link" data-level="2" href="{{ block('contributeLink') }}" target="_blank">
                         Donate
                     </md-button>
 
@@ -275,7 +275,7 @@ LAYOUT
             <div class="mini-header" ng-cloak>
                 <div class="site-side-padding">
                     <div layout="row" layout-align="space-between center" flex>
-                        <div class="logo-mini-header" no-flex flex="20">
+                        <div class="logo-mini-header" no-flex flex=100 flex-gt-xs="15" flex-gt-s="20">
                             <a href="/">&nbsp;</a>
                         </div>
                         <div flex>
@@ -287,7 +287,6 @@ LAYOUT
                     </div>
                 </div>
             </div>
-
         {% endblock headerMini %}
 
     {% endif %}
@@ -323,7 +322,7 @@ LAYOUT
 
 
 {# Temporary Sidebar Navigation #}
-{% block navSection %}
+{% block navMobileDrawer %}
 
     <div class="menu menu-nested sidebar-menu"
          role="navigation">
@@ -470,12 +469,7 @@ LAYOUT
 
     </div>
 
-
-
-
-
-
-{% endblock navSection %}
+{% endblock navMobileDrawer %}
 
 
 
