@@ -1367,4 +1367,11 @@ hr {
         transform: translateY(-60px);
     }
 }
+/* Temporarily Hide Contact Form */
+#content-contact-38779 .st-grid.column55 {
+    display: none;
+}
+#content-contact-38779 .info-column {
+    padding-left: 0 !important;
+}
 /*# sourceMappingURL=site.css.map */
