@@ -1,0 +1,70 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "system",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "inlineSourceMap": true,
+    "downlevelIteration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "baseUrl": "",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "*": [
+        "node_modules/*"
+      ],
+//      "@stratusjs/*": [
+//        "packages/*"
+//      ],
+      "@stratusjs/angular/*": [
+        "node_modules/@stratusjs/angular/src/*"
+      ],
+      "@stratusjs/angularjs/*": [
+        "node_modules/@stratusjs/angularjs/src/*"
+      ],
+      "@stratusjs/angularjs-extras/*": [
+        "node_modules/@stratusjs/angularjs-extras/src/*"
+      ],
+      "@stratusjs/backend/*": [
+        "node_modules/@stratusjs/backend/src/*"
+      ],
+      "@stratusjs/boot/*": [
+        "node_modules/@stratusjs/boot/src/*"
+      ],
+      "@stratusjs/core/*": [
+        "node_modules/@stratusjs/core/src/*"
+      ],
+      "@stratusjs/idx/*": [
+        "node_modules/@stratusjs/idx/src/*"
+      ],
+      "@stratusjs/react/*": [
+        "node_modules/@stratusjs/react/src/*"
+      ],
+      "@stratusjs/runtime/*": [
+        "node_modules/@stratusjs/runtime/src/*"
+      ],
+      "@stratusjs/swiper/*": [
+        "node_modules/@stratusjs/swiper/src/*"
+      ],
+      "stratus": [
+        "node_modules/@stratusjs/runtime/src/stratus"
+      ],
+      "core-js/es7/reflect": [
+        "node_modules/core-js/proposals/reflect-metadata"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
