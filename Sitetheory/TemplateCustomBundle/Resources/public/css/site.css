@@ -21,19 +21,19 @@
   font-family: 'Roboto Slab';
   font-style: normal;
   font-weight: 300;
-  src: local('Roboto Slab Light'), local('RobotoSlab-Light'), url(https://fonts.gstatic.com/s/robotoslab/v9/BngRUXZYTXPIvIBgJJSb6u9mxLCGwRg.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/robotoslab/v10/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjo0oSmb2Rm.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Roboto Slab';
   font-style: normal;
   font-weight: 400;
-  src: local('Roboto Slab Regular'), local('RobotoSlab-Regular'), url(https://fonts.gstatic.com/s/robotoslab/v9/BngMUXZYTXPIvIBgJJSb6ufN5qA.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/robotoslab/v10/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjojISmb2Rm.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Roboto Slab';
   font-style: normal;
   font-weight: 700;
-  src: local('Roboto Slab Bold'), local('RobotoSlab-Bold'), url(https://fonts.gstatic.com/s/robotoslab/v9/BngRUXZYTXPIvIBgJJSb6u92w7CGwRg.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/robotoslab/v10/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjoa4Omb2Rm.ttf) format('truetype');
 }
 @font-face {
   font-family: 'u.s._101regular';
@@ -195,7 +195,7 @@ h1 {
   background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDashedBold.png') repeat-x left bottom;
   background-size: 8px;
 }
-.has-header-image .shell-titles,
+body:not(#SitetheoryStreamBundle-Landing-38716) .has-header-image .shell-titles,
 .site-background-dark .shell-titles {
   background-image: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDashedLight.png');
 }
@@ -826,7 +826,7 @@ hr {
 .md-menu-bar-menu .site-nav-link[data-level="2"]:hover {
   color: #7932AC;
 }
-.has-header-image .menu-background {
+body:not(#SitetheoryStreamBundle-Landing-38716) .has-header-image .menu-background {
   position: absolute;
   z-index: 5;
   top: 0;
@@ -863,7 +863,7 @@ hr {
     top: 20px;
   }
 }
-#app.has-header-image .sidebar-toggle .icon-bar {
+body:not(#SitetheoryStreamBundle-Landing-38716) #app.has-header-image .sidebar-toggle .icon-bar {
   background: #FFF;
   opacity: 1;
 }
@@ -924,48 +924,48 @@ hr {
   }
 }
 @media (max-width: 959px) {
-  #app:not(.has-header-image) .mini-header .logo-mini-header a {
+  body:not(#SitetheoryStreamBundle-Landing-38716) #app:not(.has-header-image) .mini-header .logo-mini-header a {
     background: url(/assets/1/0/bundles/sitetheorytemplatecustom/images/Brand-New-Congress-Logo.png) no-repeat left center;
     background-size: 100%;
   }
 }
 @media (max-width: 767px) {
-  #app:not(.has-header-image) .mini-header .logo-mini-header a {
+  body:not(#SitetheoryStreamBundle-Landing-38716) #app:not(.has-header-image) .mini-header .logo-mini-header a {
     height: 100px;
     background-size: 50%;
     background-position: center center;
   }
 }
 #app.site-background-dark .mini-header,
-#app.has-header-image .mini-header {
+body:not(#SitetheoryStreamBundle-Landing-38716) #app.has-header-image .mini-header {
   padding: 36px 0;
   box-shadow: none;
   border: none;
 }
 @media (max-width: 767px) {
   #app.site-background-dark .mini-header,
-  #app.has-header-image .mini-header {
+  body:not(#SitetheoryStreamBundle-Landing-38716) #app.has-header-image .mini-header {
     padding-top: 0;
   }
 }
 #app.site-background-dark .mini-header [layout="row"],
-#app.has-header-image .mini-header [layout="row"] {
+body:not(#SitetheoryStreamBundle-Landing-38716) #app.has-header-image .mini-header [layout="row"] {
   border-bottom: 3px solid #222222;
 }
 #app.site-background-dark .mini-header .logo-mini-header a,
-#app.has-header-image .mini-header .logo-mini-header a {
+body:not(#SitetheoryStreamBundle-Landing-38716) #app.has-header-image .mini-header .logo-mini-header a {
   background-image: url(/assets/1/0/bundles/sitetheorytemplatecustom/images/Brand-New-Congress-Logo-Horizontal-White.png);
 }
 #app.site-background-dark .mini-header .site-nav-link[data-level="1"],
-#app.has-header-image .mini-header .site-nav-link[data-level="1"] {
+body:not(#SitetheoryStreamBundle-Landing-38716) #app.has-header-image .mini-header .site-nav-link[data-level="1"] {
   color: #FFF;
 }
 #app.site-background-dark .mini-header .site-nav-link[data-level="1"]:hover,
-#app.has-header-image .mini-header .site-nav-link[data-level="1"]:hover {
+body:not(#SitetheoryStreamBundle-Landing-38716) #app.has-header-image .mini-header .site-nav-link[data-level="1"]:hover {
   color: #FF7A65;
 }
 #app.site-background-dark .mini-header .link-extra,
-#app.has-header-image .mini-header .link-extra {
+body:not(#SitetheoryStreamBundle-Landing-38716) #app.has-header-image .mini-header .link-extra {
   background: url(/assets/1/0/bundles/sitetheorytemplatecustom/images/diagonalDelimiterWhite.png) no-repeat center 8px;
   background-size: 14px;
 }
@@ -1366,11 +1366,4 @@ hr {
   #SitetheoryArticleBundle-Article-38780 h1.page-title::before {
     transform: translateY(-60px);
   }
-}
-/* Temporarily Hide Contact Form */
-#content-contact-38779 .st-grid.column55 {
-  display: none;
-}
-#content-contact-38779 .info-column {
-  padding-left: 0 !important;
 }
