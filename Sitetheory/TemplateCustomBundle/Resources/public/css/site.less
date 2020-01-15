@@ -179,7 +179,7 @@ h1 {
   background: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDashedBold.png') repeat-x left bottom;
   background-size: 8px;
 }
-.has-header-image,
+body:not(#SitetheoryStreamBundle-Landing-38716) .has-header-image,
 .site-background-dark {
   .shell-titles {
     background-image: url('/assets/1/0/bundles/sitetheorytemplatecustom/images/borderDashedLight.png');
@@ -777,7 +777,7 @@ hr {
     }
   }
 }
-&.has-header-image  {
+body:not(#SitetheoryStreamBundle-Landing-38716) .has-header-image  {
   .menu-background {
     position: absolute;
     z-index: 5;
@@ -790,7 +790,7 @@ hr {
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0));
   }
 }
-&.site-background-dark  {
+.site-background-dark  {
   .menu-background {
     background: -webkit-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0));
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0));
@@ -820,14 +820,13 @@ hr {
       top: 20px;
     }
   }
-  &.has-header-image {
-    .sidebar-toggle .icon-bar {
-      background: #FFF;
-      opacity: 1;
-    }
+}
+body:not(#SitetheoryStreamBundle-Landing-38716) #app.has-header-image {
+  .sidebar-toggle .icon-bar {
+    background: #FFF;
+    opacity: 1;
   }
 }
-
 
 /* MINI HEADER */
 #app .mini-header {
@@ -883,7 +882,7 @@ hr {
     }
   }
 }
-#app:not(.has-header-image) .mini-header {
+body:not(#SitetheoryStreamBundle-Landing-38716) #app:not(.has-header-image) .mini-header {
   .logo-mini-header {
     a {
       @media (max-width: 959px) {
@@ -899,7 +898,7 @@ hr {
   }
 }
 #app.site-background-dark,
-#app.has-header-image {
+body:not(#SitetheoryStreamBundle-Landing-38716) #app.has-header-image {
   .mini-header {
     padding: 36px 0;
     box-shadow: none;
@@ -1369,13 +1368,3 @@ hr {
   }
 }
 
-/* Temporarily Hide Contact Form */
-
-#content-contact-38779 {
-  .st-grid.column55 {
-    display: none;
-  }
-  .info-column {
-    padding-left: 0 !important;
-  }
-}
