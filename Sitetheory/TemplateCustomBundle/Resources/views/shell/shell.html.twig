@@ -193,7 +193,8 @@ LAYOUT
         {# Press #}
         <md-menu>
             {# Level 1 Link #}
-            <md-button class="site-nav-link" data-level="1" href="/Media">
+            {# FIXME: Due to AngularJS Material, the Level 1 md-buttons in an md-menu require an ng-click or they error out. #}
+            <md-button class="site-nav-link" data-level="1" href="/Media" ng-click="null">
                 Press
                 <div class="link-extra"></div>
             </md-button>
