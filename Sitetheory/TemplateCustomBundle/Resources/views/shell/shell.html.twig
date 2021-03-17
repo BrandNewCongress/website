@@ -4,7 +4,7 @@
     {{ parent() }}
 
         <link rel="{{ styleRel('less') }}" type="text/css"
-              href="{{ asset('/bundles/sitetheorytemplatecustom/css/site.' ~ styleExt('less')) }}"
+              href="{{ bundleAsset('sitetheorytemplatecustom/css/site.' ~ styleExt('less')) }}"
               data-file="site.css">
         <link rel="shortcut icon" href="{{ asset('/bundles/sitetheorytemplatecustom/images/favicon.png') }}" type="image/x-icon">
 

@@ -4,7 +4,7 @@
     {{ parent() }}
 
     <link rel="{{ styleRel('less') }}" type="text/css"
-          href="{{ asset('/bundles/sitetheorytemplatecustom/css/landing.' ~ styleExt('less')) }}"
+          href="{{ bundleAsset('sitetheorytemplatecustom/css/landing.' ~ styleExt('less')) }}"
           data-file="landing.css">
 {% endblock link %}
 
